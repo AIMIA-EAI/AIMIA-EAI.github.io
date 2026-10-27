@@ -50,7 +50,8 @@ const canonical = new URL(localePath(canonicalPath, lang), Astro.site);
       hreflang="x-default"
       href={new URL(localePath(canonicalPath, 'en'), Astro.site)}
     />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png?v=pku-20261028" type="image/png" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg?v=pku-20261028" type="image/svg+xml" sizes="any" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
