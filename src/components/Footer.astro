@@ -1,0 +1,60 @@
+---
+import Icon from './Icon.astro';
+import { localePath, type Locale } from '../lib/locale-path';
+interface Props {
+  lang?: Locale;
+}
+const { lang = 'en' } = Astro.props;
+const t = (en: string, cn: string) => (lang === 'zh' ? cn : en);
+---
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div>
+      <a class="footer-wordmark" href={localePath('/', lang)}>
+        AIMIA<span>↗</span>
+      </a>
+      <p>{t('AIMIA Lab', 'AIMIA 实验室')}</p>
+    </div>
+    <div class="footer-affiliation">
+      <span class="eyebrow">{t('AT PEKING UNIVERSITY', '北京大学')}</span>
+      <p>
+        {lang === 'zh' ? (
+          <>
+            信息工程学院
+            <br />
+            深圳研究生院
+          </>
+        ) : (
+          <>
+            School of Electronic and
+            <br />
+            Computer Engineering
+            <br />
+            Shenzhen Graduate School
+          </>
+        )}
+      </p>
+    </div>
+    <div class="footer-links">
+      <a href={localePath('/research/', lang)}>
+        {t('Research Outputs', '研究成果')} <Icon size={16} />
+      </a>
+      <a href={localePath('/join/', lang)}>
+        {t('Join us', '加入我们')} <Icon size={16} />
+      </a>
+      <a href={localePath('/people/', lang)}>
+        {t('Team & Culture', '团队建设')} <Icon size={16} />
+      </a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>
+      © {new Date().getFullYear()} AIMIA · {t('Peking University', '北京大学')}
+    </span>
+    <span>{t('Digital Media Research Center', '数字媒体研究中心')}</span>
+    <a href="https://www.pku.edu.cn/" target="_blank" rel="noopener noreferrer">
+      北京大学 <Icon name="external" size={13} />
+    </a>
+  </div>
+</footer>

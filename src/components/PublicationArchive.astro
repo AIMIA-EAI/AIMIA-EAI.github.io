@@ -1,0 +1,200 @@
+---
+import { researchOutputs } from '../lib/research-outputs';
+import Icon from '../components/Icon.astro';
+import PaperRow from '../components/PaperRow.astro';
+import { legacyTopics } from '../lib/content';
+import { topicLabels, type Locale } from '../lib/i18n';
+interface Props {
+  lang?: Locale;
+}
+const { lang = 'en' } = Astro.props;
+const isZh = lang === 'zh';
+const t = (en: string, cn: string) => (isZh ? cn : en);
+const topics = topicLabels(lang);
+import resources from '../data/resources.json';
+const outputs = researchOutputs(lang);
+const years = [...new Set(outputs.flatMap((p) => (p.year ? [p.year] : [])))].sort((a, b) => b - a);
+const yearRange = `${Math.min(...years)}–${Math.max(...years)}`;
+---
+
+<section
+  class="publication-archive resource-block"
+  id="results"
+  aria-label={t('Research outputs', '研究成果')}
+>
+  <span id="publications" class="archive-anchor" />
+  <span id="projects" class="archive-anchor" />
+  <span id="datasets" class="archive-anchor" />
+  <div class="section-heading">
+    <div>
+      <span class="eyebrow">{t('RESEARCH OUTPUTS', 'RESEARCH OUTPUTS')}</span>
+      <h2>{t('Research outputs', '研究成果')}</h2>
+    </div>
+  </div>
+  <p class="publication-intro">
+    {t(
+      'Explore our work by title, author, keyword, year or research area.',
+      '按题名、作者、关键词、年份或研究方向，浏览课题组研究成果。',
+    )}
+  </p>
+  <form id="publication-filters" class="archive-toolbar" role="search" onsubmit="return false">
+    <label class="search-box">
+      <Icon name="search" size={17} />
+      <input
+        id="paper-search"
+        type="search"
+        placeholder={t('Search titles, authors or keywords', '搜索题名、作者或关键词')}
+        aria-label={t('Search research outputs', '搜索研究成果')}
+        autocomplete="off"
+      />
+    </label>
+    <label class="sr-only" for="paper-year">
+      {t('Year', '年份')}
+    </label>
+    <select class="filter-select" id="paper-year">
+      <option value="">{t('All years', '全部年份')}</option>
+      {years.map((y) => (
+        <option value={y}>{y}</option>
+      ))}
+    </select>
+    <label class="sr-only" for="paper-topic">
+      {t('Research area', '研究方向')}
+    </label>
+    <select class="filter-select" id="paper-topic">
+      <option value="">{t('All research areas', '全部研究方向')}</option>
+      {Object.entries(topics).map(([value, label]) => (
+        <option value={value}>{label}</option>
+      ))}
+      {Object.entries(legacyTopics).map(([value, label]) => (
+        <option value={value} hidden data-legacy="true">
+          {isZh
+            ? (
+                {
+                  generative: '生成式方法（历史主题）',
+                  medical: '医学影像（历史主题）',
+                  vision: '计算机视觉（历史主题）',
+                } as Record<string, string>
+              )[value]
+            : label}
+        </option>
+      ))}
+    </select>
+    <button class="filter-reset" type="reset">
+      {t('Reset', '重置')}
+    </button>
+  </form>
+  <p class="results-count" aria-live="polite" id="paper-count" data-year-range={yearRange}>
+    {isZh
+      ? `${outputs.length} 项成果 · ${yearRange}`
+      : `${outputs.length} research outputs · ${yearRange}`}
+  </p>
+  <div class="paper-list">
+    {outputs.map((paper) => (
+      <PaperRow paper={paper} lang={lang} />
+    ))}
+    <p class="empty-state" id="paper-empty" hidden>
+      {t(
+        'No research outputs match these filters. Try another title, author or research area.',
+        '未找到符合条件的研究成果，请尝试其他关键词、年份或研究方向。',
+      )}
+    </p>
+  </div>
+  <div class="scholar-link">
+    <p class="page-note">
+      {t(
+        'This archive includes the publications listed on the lab website. For a broader citation record, visit Google Scholar.',
+        '此处整理了课题组网站收录的论文，更多引用记录可查阅谷歌学术。',
+      )}
+    </p>
+    <a
+      class="text-link"
+      href={resources.scholarlyProfileUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {t('Google Scholar', '谷歌学术')} <Icon name="external" size={15} />
+    </a>
+  </div>
+  <details class="disclosure" id="patents">
+    <summary>
+      {t('Patents & software copyrights', '专利与软件著作权')}{' '}
+      <span class="mono">· {resources.patents.length}</span>
+    </summary>
+    <ol class="ip-list">
+      {resources.patents.map((p) => (
+        <li>{p.originalText}</li>
+      ))}
+    </ol>
+  </details>
+</section>
+
+<script>
+  const search = document.querySelector<HTMLInputElement>('#paper-search')!;
+  const year = document.querySelector<HTMLSelectElement>('#paper-year')!;
+  const topic = document.querySelector<HTMLSelectElement>('#paper-topic')!;
+  const rows = [...document.querySelectorAll<HTMLElement>('[data-paper]')];
+  if (location.hash === '#patents')
+    document.querySelector<HTMLDetailsElement>('#patents')!.open = true;
+  const params = new URLSearchParams(location.search);
+  if (params.has('topic') && [...topic.options].some((o) => o.value === params.get('topic')))
+    topic.value = params.get('topic')!;
+  if (params.has('year') && [...year.options].some((o) => o.value === params.get('year')))
+    year.value = params.get('year')!;
+  if (params.has('q')) search.value = params.get('q')!;
+  function filter() {
+    const terms = search.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
+    let count = 0;
+    rows.forEach((row) => {
+      const show =
+        terms.every((term) => row.dataset.search?.includes(term)) &&
+        (!year.value || row.dataset.year === year.value) &&
+        (!topic.value ||
+          (topic.selectedOptions[0]?.dataset.legacy === 'true'
+            ? row.dataset.tags
+            : row.dataset.areas
+          )
+            ?.split(' ')
+            .includes(topic.value));
+      row.hidden = !show;
+      if (show) count++;
+    });
+    const countLabel = document.querySelector<HTMLElement>('#paper-count')!;
+    countLabel.textContent =
+      document.documentElement.lang === 'zh-CN'
+        ? `${count === rows.length ? '' : '找到 '}${count} 项成果${count === rows.length ? ` · ${countLabel.dataset.yearRange}` : ''}`
+        : `${count} ${count === 1 ? 'research output' : 'research outputs'}${count !== rows.length ? ' found' : ` · ${countLabel.dataset.yearRange}`}`;
+    document.querySelector<HTMLElement>('#paper-empty')!.hidden = count > 0;
+    const url = new URL(location.href);
+    for (const [key, value] of [
+      ['q', search.value],
+      ['year', year.value],
+      ['topic', topic.value],
+    ]) {
+      if (value) url.searchParams.set(key, value);
+      else url.searchParams.delete(key);
+    }
+    history.replaceState(null, '', url);
+  }
+  search.addEventListener('input', filter);
+  year.addEventListener('change', filter);
+  topic.addEventListener('change', filter);
+  document.querySelector('#publication-filters')?.addEventListener('reset', () => {
+    search.value = '';
+    year.value = '';
+    topic.value = '';
+    filter();
+  });
+  filter();
+</script>
+
+<style>
+  .archive-anchor {
+    display: block;
+    scroll-margin-top: 110px;
+  }
+  .publication-intro {
+    margin-bottom: 24px;
+    color: var(--muted);
+    font-size: 17px;
+  }
+</style>

@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import lab from '../data/lab.json';
+import zh from '../data/zh.json';
+import { localePath, localizeDirections, type Locale } from '../lib/i18n';
+interface Props {
+  lang?: Locale;
+}
+const { lang = 'en' } = Astro.props;
+const isZh = lang === 'zh';
+const t = (en: string, cn: string) => (isZh ? cn : en);
+const directions = localizeDirections(lang);
+const address = isZh ? zh.lab.contactAddress : lab.contact.address;
+---
+
+<Layout
+  lang={lang}
+  title={t('Prospective students', '招生与加入')}
+  description={t(
+    "Information for prospective master's and doctoral students and contact details for AIMIA at Peking University Shenzhen Graduate School.",
+    '北京大学深圳研究生院 AIMIA 课题组的研究机会、硕士与博士招生参考信息和联系方式。',
+  )}
+>
+  <header class="container page-header">
+    <span class="eyebrow">{t('GRADUATE STUDY AT AIMIA', '加入 AIMIA')}</span>
+    <h1>
+      {isZh ? (
+        '招生与加入'
+      ) : (
+        <>
+          Prospective
+          <br />
+          students
+        </>
+      )}
+    </h1>
+    <p class="page-description">
+      {t(
+        "Information for students interested in master's and doctoral research with AIMIA at Peking University.",
+        '面向有意在北京大学 AIMIA 课题组开展硕士或博士阶段研究的同学。',
+      )}
+    </p>
+  </header>
+  <div class="container page-content join-layout">
+    <section>
+      <h2>{t('Research opportunities', '研究机会')}</h2>
+      <p>
+        {isZh
+          ? `我们欢迎对具身智能、多模态智能和 AI for Science（AI4S）感兴趣的本科生与研究生了解课题组。希望开展硕士或博士阶段研究的同学，可关注北京大学${zh.lab.school}的相关招生信息。`
+          : "We welcome undergraduate and graduate students interested in research in embodied intelligence, multimodal intelligence and AI for Science (AI4S). Prospective master's and doctoral students can explore opportunities through the School of Electronic and Computer Engineering at Peking University."}
+      </p>
+      <div class="join-topics">
+        {directions.map((direction) => (
+          <span>{direction.title}</span>
+        ))}
+      </div>
+      <a
+        class="button secondary"
+        href={localePath(lab.openings.admissionUrl, lang)}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {t('Admission information', '招生参考资料')} · {lab.openings.documentYear}
+        <Icon name="external" size={15} />
+      </a>
+      <p class="join-disclaimer">
+        {isZh
+          ? `该资料为 ${lab.openings.documentYear} 年版本。如需了解当前研究机会和招生要求，请与我们联系。`
+          : `This document is from ${lab.openings.documentYear}. Please contact us for current research opportunities and admissions information.`}
+      </p>
+    </section>
+    <aside class="join-sidebar" id="contact">
+      <span class="eyebrow">{t('ACADEMIC ENQUIRIES', '学术交流')}</span>
+      <h3>{t('Contact', '联系方式')}</h3>
+      <div class="contact-emails">
+        {lab.contact.emails.map((email) => (
+          <a href={`mailto:${email.address}`}>
+            <Icon name="mail" size={15} />
+            {email.address}
+          </a>
+        ))}
+      </div>
+      <p>
+        {address.map((line) => (
+          <>
+            {line}
+            <br />
+          </>
+        ))}
+      </p>
+      <a
+        class="text-link"
+        href="https://www.ece.pku.edu.cn/"
+        target="_blank"
+        rel="noopener noreferrer"
+        style="margin-top:24px"
+      >
+        {t('School website', '学院网站')}
+        <Icon name="external" size={14} />
+      </a>
+    </aside>
+  </div>
+</Layout>

@@ -1,0 +1,517 @@
+---
+import Icon from './Icon.astro';
+import gallery from '../data/gallery.json';
+import type { Locale } from '../lib/locale-path';
+
+interface Props {
+  lang?: Locale;
+}
+const { lang = 'en' } = Astro.props;
+const zh = lang === 'zh';
+const t = (en: string, cn: string) => (zh ? cn : en);
+const slides = gallery.slides;
+const first = slides[0];
+---
+
+<section
+  class="pc-carousel"
+  id="lab-life"
+  data-people-carousel
+  data-playing="false"
+  role="region"
+  aria-roledescription={t('carousel', '照片轮播')}
+  aria-label={t('Life at AIMIA', 'AIMIA 课题组掠影')}
+  tabindex="0"
+>
+  <div class="pc-heading">
+    <h2>{t('Life at AIMIA', '课题组掠影')}</h2>
+    <span>
+      {slides.length} {t('PHOTOGRAPHS', '张照片')}
+    </span>
+  </div>
+  <figure class="pc-frame">
+    <div class="pc-stage">
+      {slides.map((slide, index) => (
+        <div
+          class:list={['pc-slide', { 'is-active': index === 0 }]}
+          data-pc-slide
+          data-title={slide.title[lang]}
+          data-caption={slide.caption[lang]}
+          aria-hidden={index !== 0 ? 'true' : 'false'}
+        >
+          <img
+            src={slide.image}
+            alt={slide.alt[lang]}
+            width={slide.width}
+            height={slide.height}
+            style={`object-position: ${slide.position}; --pc-fit: ${slide.fit}; --pc-mobile-fit: ${slide.mobileFit}`}
+            loading={index === 0 ? 'eager' : 'lazy'}
+            fetchpriority={index === 0 ? 'high' : 'auto'}
+            decoding="async"
+          />
+        </div>
+      ))}
+    </div>
+    <figcaption class="pc-caption-row">
+      <div class="pc-caption-copy">
+        <span class="pc-photo-number" data-pc-number>
+          01<span aria-hidden="true"> / </span>
+          {slides.length.toString().padStart(2, '0')}
+        </span>
+        <div>
+          <h3 data-pc-title>{first.title[lang]}</h3>
+          <p data-pc-caption>{first.caption[lang]}</p>
+        </div>
+      </div>
+      <div class="pc-controls" aria-label={t('Photo controls', '照片控制')}>
+        <button type="button" data-pc-prev aria-label={t('Previous photo', '上一张照片')}>
+          <span class="pc-prev-arrow">
+            <Icon name="arrow" size={19} />
+          </span>
+        </button>
+        <button
+          type="button"
+          class="pc-pause"
+          data-pc-pause
+          data-pause-label={t('Pause slideshow', '暂停轮播')}
+          data-play-label={t('Play slideshow', '播放轮播')}
+          data-reduced-label={t(
+            'Automatic slideshow disabled for reduced motion',
+            '已减少动态效果，自动轮播已关闭',
+          )}
+          aria-label={t('Pause slideshow', '暂停轮播')}
+          aria-pressed="false"
+        >
+          <span class="pc-pause-icon" aria-hidden="true"></span>
+        </button>
+        <button type="button" data-pc-next aria-label={t('Next photo', '下一张照片')}>
+          <Icon name="arrow" size={19} />
+        </button>
+      </div>
+    </figcaption>
+  </figure>
+  <div class="pc-progress" role="group" aria-label={t('Choose a photo', '选择照片')}>
+    {slides.map((slide, index) => (
+      <button
+        type="button"
+        data-pc-select={index}
+        aria-label={t(
+          `Show photo ${index + 1}: ${slide.title.en}`,
+          `查看第 ${index + 1} 张：${slide.title.zh}`,
+        )}
+        aria-current={index === 0 ? 'true' : 'false'}
+      >
+        <span class="pc-progress-number" aria-hidden="true">
+          {String(index + 1).padStart(2, '0')}
+        </span>
+        <span class="pc-progress-track" aria-hidden="true">
+          <span data-pc-fill></span>
+        </span>
+      </button>
+    ))}
+  </div>
+  <p class="pc-status" data-pc-status aria-live="polite" aria-atomic="true"></p>
+</section>
+
+<style>
+  .pc-carousel {
+    margin-bottom: 45px;
+    min-width: 0;
+  }
+  .pc-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 17px;
+  }
+  .pc-heading h2 {
+    font-size: 22px;
+    font-weight: 550;
+    line-height: 1.4;
+    letter-spacing: -0.025em;
+  }
+  .pc-heading > span {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.045em;
+    color: var(--muted);
+  }
+  .pc-frame {
+    margin: 0;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    overflow: hidden;
+    background: #fbfcf7;
+  }
+  .pc-stage {
+    position: relative;
+    aspect-ratio: 2 / 1;
+    overflow: hidden;
+    background: #e5e8de;
+  }
+  .pc-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 850ms ease,
+      visibility 850ms;
+    pointer-events: none;
+  }
+  .pc-slide.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+  .pc-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: var(--pc-fit, cover);
+  }
+  .pc-caption-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    padding: 20px 24px;
+    min-height: 100px;
+  }
+  .pc-caption-copy {
+    display: flex;
+    align-items: baseline;
+    gap: 25px;
+    min-width: 0;
+  }
+  .pc-photo-number {
+    flex-shrink: 0;
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 450;
+    color: var(--red);
+    white-space: nowrap;
+  }
+  .pc-caption-copy h3 {
+    font-size: 19px;
+    font-weight: 550;
+    line-height: 1.45;
+    letter-spacing: -0.015em;
+  }
+  .pc-caption-copy p {
+    margin-top: 4px;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .pc-controls {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .pc-controls button {
+    width: 39px;
+    height: 39px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    padding: 0;
+    color: var(--ink);
+    background: transparent;
+    transition:
+      color 180ms,
+      border-color 180ms,
+      background 180ms;
+  }
+  .pc-controls button:hover {
+    color: var(--red);
+    border-color: var(--red);
+    background: #f5eee7;
+  }
+  .pc-controls button:disabled {
+    cursor: default;
+    color: var(--muted);
+    opacity: 0.65;
+  }
+  .pc-prev-arrow {
+    display: inline-flex;
+    transform: rotate(180deg);
+  }
+  .pc-pause-icon {
+    width: 9px;
+    height: 11px;
+    border-inline: 2px solid currentColor;
+  }
+  .pc-pause[aria-pressed='true'] .pc-pause-icon {
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-right: 0;
+    border-left: 8px solid currentColor;
+    margin-left: 2px;
+  }
+  .pc-progress {
+    position: relative;
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--line) transparent;
+    margin-top: 10px;
+  }
+  .pc-progress button {
+    display: flex;
+    flex: 1 0 64px;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    padding: 9px 0;
+    border: 0;
+    color: var(--muted);
+    background: transparent;
+  }
+  .pc-progress button[aria-current='true'] {
+    color: var(--red);
+  }
+  .pc-progress-number {
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .pc-progress-track {
+    flex: 1;
+    height: 2px;
+    position: relative;
+    overflow: hidden;
+    background: var(--line);
+  }
+  .pc-progress-track > span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  .pc-progress button[aria-current='true'] .pc-progress-track {
+    background: #d9b8a8;
+  }
+  .pc-progress button:hover .pc-progress-track {
+    background: #bd8d79;
+  }
+  .pc-status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  @media (max-width: 700px) {
+    .pc-carousel {
+      margin-bottom: 30px;
+    }
+    .pc-heading h2 {
+      font-size: 20px;
+    }
+    .pc-heading > span {
+      font-size: 12px;
+    }
+    .pc-stage {
+      aspect-ratio: 4 / 3;
+    }
+    .pc-slide img {
+      object-fit: var(--pc-mobile-fit, cover);
+      object-position: center !important;
+    }
+    .pc-caption-row {
+      flex-wrap: wrap;
+      gap: 14px 20px;
+      padding: 16px;
+    }
+    .pc-caption-copy {
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .pc-caption-copy h3 {
+      font-size: 18px;
+    }
+    .pc-caption-copy p {
+      font-size: 14px;
+    }
+    .pc-controls {
+      margin-left: auto;
+    }
+    .pc-progress {
+      gap: 12px;
+    }
+    .pc-progress button {
+      flex-basis: 54px;
+      gap: 8px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pc-carousel * {
+      transition: none !important;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-people-carousel]').forEach((root) => {
+    if (root.dataset.pcInitialized === 'true') return;
+    root.dataset.pcInitialized = 'true';
+    const slides = [...root.querySelectorAll<HTMLElement>('[data-pc-slide]')];
+    const selectors = [...root.querySelectorAll<HTMLButtonElement>('[data-pc-select]')];
+    const progressRail = root.querySelector<HTMLElement>('.pc-progress')!;
+    const fills = [...root.querySelectorAll<HTMLElement>('[data-pc-fill]')];
+    const title = root.querySelector<HTMLElement>('[data-pc-title]')!;
+    const caption = root.querySelector<HTMLElement>('[data-pc-caption]')!;
+    const number = root.querySelector<HTMLElement>('[data-pc-number]')!;
+    const status = root.querySelector<HTMLElement>('[data-pc-status]')!;
+    const pause = root.querySelector<HTMLButtonElement>('[data-pc-pause]')!;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const duration = 7000;
+    const zh = document.documentElement.lang === 'zh-CN';
+    let current = 0;
+    let elapsed = 0;
+    let lastTime: number | undefined;
+    let frame: number | undefined;
+    let userPaused = false;
+    let hovered = false;
+    let focused = false;
+    let resumedByUser = false;
+
+    const updateProgress = () => {
+      fills.forEach((fill, index) => {
+        const progress = index === current ? (reducedMotion.matches ? 1 : elapsed / duration) : 0;
+        fill.style.transform = `scaleX(${Math.min(1, progress)})`;
+      });
+    };
+    const show = (index: number, manual = false) => {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        const active = i === current;
+        slide.classList.toggle('is-active', active);
+        slide.setAttribute('aria-hidden', String(!active));
+        selectors[i].setAttribute('aria-current', String(active));
+      });
+      title.textContent = slides[current].dataset.title!;
+      caption.textContent = slides[current].dataset.caption!;
+      number.textContent = `${String(current + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+      if (progressRail.scrollWidth > progressRail.clientWidth) {
+        const selected = selectors[current];
+        progressRail.scrollTo({
+          left: selected.offsetLeft - (progressRail.clientWidth - selected.offsetWidth) / 2,
+          behavior: reducedMotion.matches ? 'auto' : 'smooth',
+        });
+      }
+      if (manual) {
+        elapsed = 0;
+        lastTime = undefined;
+        status.textContent = zh
+          ? `第 ${current + 1} 张，共 ${slides.length} 张：${title.textContent}`
+          : `Photo ${current + 1} of ${slides.length}: ${title.textContent}`;
+      }
+      updateProgress();
+    };
+    const tick = (time: number) => {
+      if (lastTime !== undefined) elapsed += time - lastTime;
+      lastTime = time;
+      if (elapsed >= duration) {
+        elapsed %= duration;
+        show(current + 1);
+      }
+      updateProgress();
+      frame = requestAnimationFrame(tick);
+    };
+    const syncPlayback = () => {
+      const bounds = root.getBoundingClientRect();
+      const offscreen = bounds.bottom <= 0 || bounds.top >= window.innerHeight;
+      const reduced = reducedMotion.matches;
+      const playing = !(
+        userPaused ||
+        ((hovered || focused) && !resumedByUser) ||
+        reduced ||
+        document.hidden ||
+        offscreen
+      );
+      root.dataset.playing = String(playing);
+      pause.disabled = reduced;
+      pause.setAttribute('aria-pressed', String(userPaused || reduced));
+      pause.setAttribute(
+        'aria-label',
+        reduced
+          ? pause.dataset.reducedLabel!
+          : userPaused
+            ? pause.dataset.playLabel!
+            : pause.dataset.pauseLabel!,
+      );
+      if (playing) {
+        if (frame === undefined) frame = requestAnimationFrame(tick);
+      } else {
+        if (frame !== undefined) cancelAnimationFrame(frame);
+        frame = undefined;
+        lastTime = undefined;
+      }
+      updateProgress();
+    };
+    const select = (index: number) => {
+      show(index, true);
+      syncPlayback();
+    };
+    root.querySelector('[data-pc-prev]')?.addEventListener('click', () => select(current - 1));
+    root.querySelector('[data-pc-next]')?.addEventListener('click', () => select(current + 1));
+    selectors.forEach((button, index) => button.addEventListener('click', () => select(index)));
+    pause.addEventListener('click', () => {
+      userPaused = !userPaused;
+      resumedByUser = !userPaused;
+      syncPlayback();
+    });
+    root.addEventListener('keydown', (event) => {
+      if (event.altKey || event.ctrlKey || event.metaKey) return;
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        select(current + 1);
+      } else if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        select(current - 1);
+      } else if (event.key === 'Home') {
+        event.preventDefault();
+        select(0);
+      } else if (event.key === 'End') {
+        event.preventDefault();
+        select(slides.length - 1);
+      }
+    });
+    root.addEventListener('pointerenter', (event) => {
+      if (event.pointerType !== 'mouse') return;
+      hovered = true;
+      resumedByUser = false;
+      syncPlayback();
+    });
+    root.addEventListener('pointerleave', () => {
+      hovered = false;
+      syncPlayback();
+    });
+    root.addEventListener('focusin', () => {
+      focused = true;
+      resumedByUser = false;
+      syncPlayback();
+    });
+    root.addEventListener('focusout', (event) => {
+      if (event.relatedTarget instanceof Node && root.contains(event.relatedTarget)) return;
+      focused = false;
+      syncPlayback();
+    });
+    reducedMotion.addEventListener('change', syncPlayback);
+    document.addEventListener('visibilitychange', syncPlayback);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(syncPlayback, { threshold: [0, 0.1] }).observe(root);
+    }
+    syncPlayback();
+  });
+</script>

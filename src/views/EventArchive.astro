@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import type { Locale } from '../lib/locale-path';
+interface Props {
+  lang?: Locale;
+}
+const { lang = 'en' } = Astro.props;
+const t = (en: string, cn: string) => (lang === 'zh' ? cn : en);
+---
+
+<Layout lang={lang} title={t('NT-VLU 2021 · Event archive', 'NT-VLU 2021 · 活动归档')}>
+  <div class="container page-header archive-event">
+    <span class="eyebrow">{t('EVENT ARCHIVE · 2021', '历史活动 · 2021')}</span>
+    <h1>NT-VLU 2021</h1>
+    <p class="page-description">
+      {t(
+        'IEEE CASS Seasonal School on New Trends of Visual and Language Understanding (Virtual).',
+        'IEEE CASS 视觉与语言理解新趋势季节学校（线上活动）。',
+      )}
+    </p>
+  </div>
+  <section class="container page-content archive-event">
+    <h2>{t('Registration has closed.', '报名已结束')}</h2>
+    <p>
+      {t(
+        'This event took place in 2021. The original registration form is no longer available on this website.',
+        '该活动于 2021 年举办，网站现已关闭原报名表单。',
+      )}
+    </p>
+    <p>
+      {t('For historical event enquiries:', '如需咨询历史活动：')}{' '}
+      <a href="mailto:weipx3@mail.sysu.edu.cn">weipx3@mail.sysu.edu.cn</a>
+      {t('.', '。')}
+    </p>
+  </section>
+</Layout>

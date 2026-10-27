@@ -1,0 +1,106 @@
+---
+import Icon from './Icon.astro';
+import type { ResearchOutput } from '../lib/research-outputs';
+import { localePath, linkLabel, type Locale } from '../lib/i18n';
+interface Props {
+  lang?: Locale;
+  paper: ResearchOutput;
+}
+const { paper, lang = 'en' } = Astro.props;
+---
+
+<article
+  class="paper-row"
+  id={paper.id}
+  data-paper
+  data-output
+  data-search={`${paper.title} ${paper.authors} ${paper.venue} ${paper.description || ''} ${paper.searchText || ''}`.toLowerCase()}
+  data-year={paper.year}
+  data-tags={paper.tags.join(' ')}
+  data-areas={paper.researchAreas.join(' ')}
+>
+  <div class="paper-venue">
+    <span>{paper.venue}</span>
+    {paper.year && <span class="mono">{paper.year}</span>}
+  </div>
+  <div class="paper-info">
+    {paper.aliases?.map((id) => (
+      <span class="output-anchor" id={id} />
+    ))}
+    {paper.image && (
+      <img
+        class="output-image"
+        src={paper.image}
+        alt={paper.title}
+        width="180"
+        height="120"
+        loading="lazy"
+      />
+    )}
+    <h3>{paper.title}</h3>
+    {paper.authors && (
+      <p class="paper-authors" lang="en">
+        {paper.authors}
+      </p>
+    )}
+    {paper.description && <p class="output-description">{paper.description}</p>}
+    <div class="paper-links">
+      {paper.links.map((link) => (
+        <a href={localePath(link.url, lang)} target="_blank" rel="noopener noreferrer">
+          {linkLabel(link.label, lang)}
+          <Icon name="external" size={13} />
+        </a>
+      ))}
+    </div>
+    {paper.dataset && (
+      <details class="disclosure output-details">
+        <summary>
+          {lang === 'zh' ? '数据目录与读取示例' : 'Dataset structure & loading example'}
+        </summary>
+        <div class="code-panel">
+          <pre><code>{paper.dataset.structure.join('\n')}</code></pre>
+        </div>
+        <div class="code-panel">
+          <pre><code>{paper.dataset.loadingExample}</code></pre>
+        </div>
+      </details>
+    )}
+  </div>
+</article>
+<style>
+  .paper-info {
+    min-width: 0;
+  }
+  .output-anchor {
+    display: block;
+    scroll-margin-top: 120px;
+  }
+  .output-image {
+    float: right;
+    width: 180px;
+    height: 120px;
+    object-fit: contain;
+    margin: 4px 0 16px 24px;
+    border-radius: 4px;
+    background: #eeeee6;
+  }
+  .output-description {
+    margin-top: 10px;
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+  .output-details {
+    clear: both;
+    margin-top: 20px;
+  }
+  @media (max-width: 600px) {
+    .output-image {
+      float: none;
+      width: 100%;
+      max-width: 300px;
+      height: 160px;
+      margin: 0 0 16px;
+    }
+  }
+</style>

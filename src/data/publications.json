@@ -1,0 +1,1370 @@
+[
+  {
+    "id": "2024-hierarchical-banzhaf-interaction-for-general-video-language-representation-learning",
+    "title": "Hierarchical Banzhaf Interaction for General Video Language Representation Learning",
+    "authors": "Peng Jin*, Hao Li*, Li Yuan, Shuicheng Yan, Jie Chen",
+    "year": 2024,
+    "venue": "TPAMI",
+    "tags": ["multimodal"],
+    "featured": true,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://arxiv.org/abs/2412.20964"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/jpthu17/HBI"
+      }
+    ],
+    "originalText": "Peng Jin* , Hao Li* , Li Yuan, Shuicheng Yan, Jie Chen, Hierarchical Banzhaf Interaction for General Video Language Representation Learning, IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2024.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-53",
+      "line": 122
+    },
+    "verificationSources": ["https://arxiv.org/abs/2412.20964", "https://github.com/jpthu17/HBI"],
+    "normalizationNotes": [
+      "Added the author-uploaded TPAMI preprint and author repository; the repository explicitly cites the 2024 journal extension. Original bibliographic fields and originalText are unchanged."
+    ],
+    "researchAreas": ["multimodal"]
+  },
+  {
+    "id": "2025-digitalllava-incorporating-digital-cognition-capability-for-physical-world-comprehension-in-mult",
+    "title": "DigitalLLaVA: Incorporating Digital Cognition Capability for Physical World Comprehension in Multimodal LLMs",
+    "authors": "Shiyu Li, Pengxu Wei, Pengchong Qiao, Chang Liu, Jie Chen",
+    "year": 2025,
+    "venue": "AAAI",
+    "tags": ["multimodal"],
+    "featured": true,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://ojs.aaai.org/index.php/AAAI/article/view/32522"
+      },
+      {
+        "label": "PDF",
+        "url": "https://ojs.aaai.org/index.php/AAAI/article/view/32522/34677"
+      }
+    ],
+    "originalText": "Lishiyu, Pengxu Wei, Pengchong Qiao, Chang Liu, Jie Chen， DigitalLLaVA: Incorporating Digital Cognition Capability for Physical World Comprehension in Multimodal LLMs, The 39th Annual AAAI Conference on Artificial Intelligence (AAAI), 2025.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-53",
+      "line": 122
+    },
+    "verificationSources": [
+      "https://ojs.aaai.org/index.php/AAAI/article/view/32522",
+      "https://ojs.aaai.org/index.php/AAAI/article/view/32522/34677"
+    ],
+    "normalizationNotes": [
+      "Normalized the source spelling Lishiyu to Shiyu Li using the official AAAI proceedings; originalText is unchanged.",
+      "Added the PDF linked by the official AAAI proceedings record. Original source content is preserved."
+    ],
+    "researchAreas": ["multimodal"]
+  },
+  {
+    "id": "2025-aligning-instance-brownian-bridge-with-texts-for-open-vocabulary-video-instance-segmentation",
+    "title": "Aligning Instance Brownian Bridge with Texts for Open-vocabulary Video Instance Segmentation",
+    "authors": "Zesen Cheng, Kehan Li, Li Hao, Peng Jin, Xiawu Zheng, Chang Liu, Jie Chen",
+    "year": 2025,
+    "venue": "AAAI",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [],
+    "originalText": "Zesen Cheng, Kehan Li, Li Hao, Peng Jin, Xiawu Zheng, Chang Liu, Jie Chen，Aligning Instance Brownian Bridge with Texts for Open-vocabulary Video Instance Segmentation, The 39th Annual AAAI Conference on Artificial Intelligence (AAAI), 2025.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-53",
+      "line": 122
+    },
+    "researchAreas": ["multimodal"]
+  },
+  {
+    "id": "2024-dual-level-masked-semantic-inference-for-semi-supervised-semantic-segmentation",
+    "title": "Dual-Level Masked Semantic Inference for Semi-Supervised Semantic Segmentation",
+    "authors": "Qiankun Ma*, Ziyao Zhang*, Pengchong Qiao, Yu Wang, Rongrong Ji, Chang Liu, Jie Chen",
+    "year": 2024,
+    "venue": "TMM",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [],
+    "originalText": "Qiankun Ma*, Ziyao Zhang*, Pengchong Qiao, Yu Wang, Rongrong Ji, Chang Liu, Jie Chen, Dual-Level Masked Semantic Inference for Semi-Supervised Semantic Segmentation, IEEE Transactions on Multimedia (TMM), 2024.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-53",
+      "line": 122
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2024-evolution-guided-large-language-model-is-a-predictor-of-virus-mutation-trends",
+    "title": "A unified evolution-driven deep learning framework for virus variation driver prediction",
+    "authors": "Zhiwei Nie†, Xudong Liu†, Jie Chen*, Zhennan Wang, Yutian Liu, Haorui Si, Tianyi Dong, Fan Xu, Guoli Song, Yu Wang, Peng Zhou, Wen Gao, Yonghong Tian*",
+    "year": 2025,
+    "venue": "Nature Machine Intelligence",
+    "tags": ["ai-for-science"],
+    "featured": true,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://www.nature.com/articles/s42256-024-00966-9"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/ZhiweiNiepku/E2VD"
+      }
+    ],
+    "originalText": "Zhiwei Nie† , Xudong Liu† , Jie Chen*, Zhennan Wang, Yutian Liu, Haorui Si, Tianyi Dong, Fan Xu, Guoli Song, Yu Wang , Peng Zhou , Wen Gao , Yonghong Tian*, Evolution-guided large language model is a predictor of virus mutation trends, Nature Machine Intelligence, 2024.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-53",
+      "line": 122
+    },
+    "verificationSources": [
+      "https://www.nature.com/articles/s42256-024-00966-9",
+      "https://cs.pku.edu.cn/info/1264/3561.htm",
+      "https://github.com/ZhiweiNiepku/E2VD"
+    ],
+    "normalizationNotes": [
+      "The original website used the preprint title and year 2024. Normalized the display title to the Nature version of record, A unified evolution-driven deep learning framework for virus variation driver prediction, and its publication year to 2025 (published 17 January 2025), confirmed by the publisher and Peking University news. The stable ID, authors, venue, source and originalText remain unchanged. Added the publisher article and author repository links."
+    ],
+    "researchAreas": ["ai-for-science"]
+  },
+  {
+    "id": "2024-hicom-hierarchical-coherent-motion-for-dynamic-streamable-scenes-with-3d-gaussian-splatting",
+    "title": "HiCoM: Hierarchical Coherent Motion for Dynamic Streamable Scenes with 3D Gaussian Splatting",
+    "authors": "Qiankun Gao, Jiarui Meng, Chengxiang Wen, Jie Chen, Jian Zhang",
+    "year": 2024,
+    "venue": "NeurIPS",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [],
+    "originalText": "Qiankun Gao, Jiarui Meng, Chengxiang Wen, Jie Chen, Jian Zhang, HiCoM: Hierarchical Coherent Motion for Dynamic Streamable Scenes with 3D Gaussian Splatting, NeurIPS 2024.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-53",
+      "line": 122
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2024-hierarchical-collaboration-for-referring-image-segmentation",
+    "title": "Hierarchical Collaboration for Referring Image Segmentation",
+    "authors": "Wei Zhang, Zesen Cheng, Jie Chen and Wen Gao",
+    "year": 2024,
+    "venue": "Neurocomputing",
+    "tags": ["multimodal"],
+    "featured": false,
+    "links": [],
+    "originalText": "Wei Zhang, Zesen Cheng, Jie Chen and Wen Gao, Hierarchical Collaboration for Referring Image Segmentation, Neurocomputing, 2024.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-53",
+      "line": 122
+    },
+    "researchAreas": ["multimodal"]
+  },
+  {
+    "id": "2024-interteach-a-novel-approach-for-semi-supervised-medical-lmage-seamentation-using-cooperativeache",
+    "title": "InterTeach: A Novel Approach for Semi-Supervised Medical Image Segmentation Using Cooperative Teacher-Student Networks",
+    "authors": "Ziyao Zhang, Qiankun Ma, Yihan Zhang, Zeyuan Chen, Jie Chen, Hairong Zheng",
+    "year": 2024,
+    "venue": "TCSVT",
+    "tags": ["medical"],
+    "featured": false,
+    "links": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/TCSVT.2024.3458936"
+      }
+    ],
+    "originalText": "Ziyao Zhang, Qiankun Ma, Yihan Zhang, Zeyuan Chen, JieChen, and Hairong Zheng. interTeach: A Novel Approach for Semi-Supervised Medical lmage Seamentation Using Cooperativeacher-Student Networks, lEEE Transactions On Circuits And Systems For Video Technology (TCSVT), 2024.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-53",
+      "line": 122
+    },
+    "verificationSources": [
+      "https://researchportal.hkust.edu.hk/en/publications/interteach-a-novel-approach-for-semi-supervised-medical-image-seg/"
+    ],
+    "normalizationNotes": [
+      "Corrected transcription errors in title and Jie Chen spacing against HKUST research metadata. Kept the original 2024 early-online publication year and originalText."
+    ],
+    "researchAreas": ["ai-for-science"]
+  },
+  {
+    "id": "2024-an-organ-aware-diagnosis-framework-for-radiology-report-generation",
+    "title": "An Organ-aware Diagnosis Framework for Radiology Report Generation",
+    "authors": "Shiyu Li, Pengchong Qiao, Lin Wang, Munan Ning, Li Yuan, Yefeng Zheng, and Jie Chen",
+    "year": 2024,
+    "venue": "TMI",
+    "tags": ["multimodal", "generative", "medical"],
+    "featured": false,
+    "links": [],
+    "originalText": "Shiyu Li, Pengchong Qiao, Lin Wang, Munan Ning, Li Yuan, Yefeng Zheng, and Jie Chen, An Organ-aware Diagnosis Framework for Radiology Report Generation, IEEE Transactions On Medical Imaging (TMI), 2024.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-53",
+      "line": 122
+    },
+    "researchAreas": ["multimodal", "ai-for-science"]
+  },
+  {
+    "id": "2024-adaptive-fuzzy-positive-learning-for-annotation-scarce-semantic-segmentation",
+    "title": "Adaptive Fuzzy Positive Learning for Annotation-Scarce Semantic Segmentation",
+    "authors": "Pengchong Qiao, Yu Wang, Chang Liu, Lei Shang, Baigui Sun, Zhennan Wang, Xiawu Zheng, Rongrong Ji, Jie Chen",
+    "year": 2024,
+    "venue": "IJCV",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [],
+    "originalText": "Pengchong Qiao, Yu Wang, Chang Liu, Lei Shang, Baigui Sun, Zhennan Wang, Xiawu Zheng, Rongrong Ji, Jie Chen, Adaptive Fuzzy Positive Learning for Annotation-Scarce Semantic Segmentation, International Journal of Computer Vision (IJCV), 2024.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-53",
+      "line": 122
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2024-local-action-guided-motion-diffusion-model-for-text-to-motion-generation",
+    "title": "Local Action-Guided Motion Diffusion Model for Text-to-Motion Generation",
+    "authors": "Peng Jin, Hao Li, Zesen Cheng, Kehan Li, Runyi Yu, Chang Liu, Xiangyang Ji, Li Yuan, Jie Chen",
+    "year": 2024,
+    "venue": "ECCV",
+    "tags": ["generative"],
+    "featured": true,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/03669.pdf"
+      },
+      {
+        "label": "Project",
+        "url": "https://jpthu17.github.io/GuidedMotion-project/"
+      }
+    ],
+    "originalText": "Peng Jin , Hao Li ,Zesen Cheng , Kehan Li , Runyi Yu , Chang Liu , Xiangyang Ji , Li Yuan, Jie Chen, Local Action-Guided Motion Diffusion Model for Text-to-Motion Generation, European Conference on Computer Vision (ECCV) 2024.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-53",
+      "line": 122
+    },
+    "verificationSources": [
+      "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/03669.pdf",
+      "https://jpthu17.github.io/GuidedMotion-project/"
+    ],
+    "normalizationNotes": [
+      "Added the official ECCV/ECVA paper PDF and author project page named in the paper. No unavailable or inferred code link was added; original bibliographic fields and originalText are unchanged."
+    ],
+    "researchAreas": ["multimodal"]
+  },
+  {
+    "id": "2024-textual-grounding-for-open-vocabulary-visual-information-extraction-in-layout-diversified-docume",
+    "title": "Textual Grounding for Open-vocabulary Visual Information Extraction in Layout-Diversified Documents",
+    "authors": "Mengjun Cheng, Chengquan Zhang, Chang Liu, Yuke Li, Bohan Li, Kun Yao, Xiawu Zheng, Rongrong Ji, Jie Chen",
+    "year": 2024,
+    "venue": "ECCV",
+    "tags": ["multimodal"],
+    "featured": false,
+    "links": [],
+    "originalText": "Mengjun Cheng, Chengquan Zhang , Chang Liu ,Yuke Li, Bohan Li, Kun Yao, Xiawu Zheng , Rongrong Ji , Jie Chen, Textual Grounding for Open-vocabulary Visual Information Extraction in Layout-Diversified Documents, European Conference on Computer Vision (ECCV) 2024.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-53",
+      "line": 122
+    },
+    "researchAreas": ["multimodal"]
+  },
+  {
+    "id": "2024-parco-part-coordinating-text-to-motion-synthesis",
+    "title": "ParCo: Part-Coordinating Text-to-Motion Synthesis",
+    "authors": "Qiran Zou, Shian Du, Yu Wang, Chang Liu, Yi Xu, Jie Chen, Xiangyang Ji",
+    "year": 2024,
+    "venue": "ECCV",
+    "tags": ["generative"],
+    "featured": false,
+    "links": [],
+    "originalText": "Qiran Zou , Shian Du , Yu Wang , Chang Liu , Yi Xu , Jie Chen , Xiangyang Ji , ParCo: Part-Coordinating Text-to-Motion Synthesis, European Conference on Computer Vision (ECCV) 2024.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-53",
+      "line": 122
+    },
+    "researchAreas": ["multimodal"]
+  },
+  {
+    "id": "2024-learning-pseudo-3d-guidance-for-view-consistent-texturing-with-2d-diffusion",
+    "title": "Learning Pseudo 3D Guidance for View-consistent Texturing with 2D Diffusion",
+    "authors": "Kehan Li, Yanbo Fan, Yang Wu, Zhongqian Sun, Wei Yang, Xiangyang Ji, Li Yuan, Jie Chen",
+    "year": 2024,
+    "venue": "ECCV",
+    "tags": ["generative"],
+    "featured": false,
+    "links": [],
+    "originalText": "Kehan Li , Yanbo Fan ,Yang Wu , Zhongqian Sun , Wei Yang , Xiangyang Ji , Li Yuan , Jie Chen , Learning Pseudo 3D Guidance for View-consistent Texturing with 2D Diffusion, European Conference on Computer Vision (ECCV) 2024.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-53",
+      "line": 122
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2024-parallel-vertex-diffusion-for-unified-visual-grounding",
+    "title": "Parallel Vertex Diffusion for Unified Visual Grounding",
+    "authors": "Zesen Cheng, Peng Jin, Kehan Li, Siheng Li, Xiangyang Ji, Li Yuan, Chang Liu, Jie Chen",
+    "year": 2024,
+    "venue": "AAAI",
+    "tags": ["multimodal", "generative"],
+    "featured": false,
+    "links": [],
+    "originalText": "Zesen Cheng, Peng Jin, Kehan Li, Siheng Li, Xiangyang Ji, Li Yuan, Chang Liu, Jie Chen, Parallel Vertex Diffusion for Unified Visual Grounding, Association for the Advancement of Artificial Intelligence, AAAI, 2024.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-53",
+      "line": 122
+    },
+    "researchAreas": ["multimodal"]
+  },
+  {
+    "id": "2024-protein-ligand-interaction-prior-for-binding-aware-3d-molecule-diffusion-models",
+    "title": "Protein-Ligand Interaction Prior For Binding aware 3D Molecule Diffusion Models",
+    "authors": "Zhilin Huang, Ling Yang, Xiangxin Zhou, Zhilong Zhang, Wentao Zhang, Xiawu Zheng, Jie Chen, Yu Wang, Cui Bin, Wenming Yang",
+    "year": 2024,
+    "venue": "ICLR",
+    "tags": ["generative", "ai-for-science"],
+    "featured": false,
+    "links": [],
+    "originalText": "Zhilin Huang, Ling Yang, Xiangxin Zhou,Zhilong Zhang, Wentao Zhang, Xiawu Zheng, Jie Chen, Yu Wang, Cui Bin, Wenming Yang, Protein-Ligand Interaction Prior For Binding aware 3D Molecule Diffusion Models, ICLR 2024.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-53",
+      "line": 122
+    },
+    "researchAreas": ["ai-for-science"]
+  },
+  {
+    "id": "2024-detrs-beat-yolos-on-real-time-object-detection",
+    "title": "DETRs Beat YOLOs on Real-time Object Detection",
+    "authors": "Yian Zhao, Wenyu Lv, Shangliang Xu, Jinman Wei, Guanzhong Wang, Qingqing Dang, Yi Liu, Jie Chen",
+    "year": 2024,
+    "venue": "CVPR",
+    "tags": ["vision"],
+    "featured": true,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://openaccess.thecvf.com/content/CVPR2024/html/Zhao_DETRs_Beat_YOLOs_on_Real-time_Object_Detection_CVPR_2024_paper.html"
+      },
+      {
+        "label": "Project",
+        "url": "https://zhao-yian.github.io/RTDETR/"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/lyuwenyu/RT-DETR"
+      }
+    ],
+    "originalText": "Yian Zhao, Wenyu Lv, Shangliang Xu, Jinman Wei, Guanzhong Wang, Qingqing Dang, Yi Liu, Jie Chen, DETRs Beat YOLOs on Real-time Object Detection, Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. CVPR 2024.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-53",
+      "line": 122
+    },
+    "verificationSources": [
+      "https://openaccess.thecvf.com/content/CVPR2024/html/Zhao_DETRs_Beat_YOLOs_on_Real-time_Object_Detection_CVPR_2024_paper.html",
+      "https://openaccess.thecvf.com/content/CVPR2024/papers/Zhao_DETRs_Beat_YOLOs_on_Real-time_Object_Detection_CVPR_2024_paper.pdf",
+      "https://zhao-yian.github.io/RTDETR/",
+      "https://github.com/lyuwenyu/RT-DETR"
+    ],
+    "normalizationNotes": [
+      "Added the official CVF proceedings record, author project page printed in the paper, and code repository linked by that project page. Original bibliographic fields and originalText are unchanged."
+    ],
+    "researchAreas": []
+  },
+  {
+    "id": "2024-fine-grained-simulation-and-adaptation-for-granularity-aware-interactive-segmentation",
+    "title": "Fine-grained Simulation and Adaptation for Granularity-aware Interactive Segmentation",
+    "authors": "Yian Zhao, Kehan Li, Zesen Cheng, Pengchong Qiao, Chang Liu, Li Yuan, Xiawu Zheng, Rongrong Ji, Jie Chen",
+    "year": 2024,
+    "venue": "CVPR",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [],
+    "originalText": "Yian Zhao, Kehan Li, Zesen Cheng, Pengchong Qiao, Chang Liu, Li Yuan, Xiawu Zheng, Rongrong Ji, Jie Chen, Fine-grained Simulation and Adaptation for Granularity-aware Interactive Segmentation, Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. CVPR 2024.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-53",
+      "line": 122
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2024-model-subject-driven-generation-as-building-a-derived-class",
+    "title": "Model Subject-Driven Generation as Building a Derived Class",
+    "authors": "Pengchong Qiao, Lei Shang, Chang Liu, Baigui Sun, Xiangyang Ji, Jie Chen",
+    "year": 2024,
+    "venue": "CVPR",
+    "tags": ["generative"],
+    "featured": false,
+    "links": [],
+    "originalText": "Pengchong Qiao, Lei Shang, Chang Liu, Baigui Sun, Xiangyang Ji, Jie Chen, Model Subject-Driven Generation as Building a Derived Class, Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. CVPR 2024.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-53",
+      "line": 122
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2024-training-free-transformer-architecture-search-with-zero-cost-proxy-guided-evolution",
+    "title": "Training-Free Transformer Architecture Search With Zero-Cost Proxy Guided Evolution",
+    "authors": "Qinqin Zhou; Kekai Sheng; Xiawu Zheng; Ke Li; Yonghong Tian; Jie Chen; Rongrong Ji",
+    "year": 2024,
+    "venue": "TPAMI",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [],
+    "originalText": "Qinqin Zhou; Kekai Sheng; Xiawu Zheng; Ke Li; Yonghong Tian; Jie Chen; Rongrong Ji, Training-Free Transformer Architecture Search With Zero-Cost Proxy Guided Evolution, IEEE Transactions on Pattern Analysis and Machine Intelligence, TPAMI, 2024.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-53",
+      "line": 122
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2024-haris-human-like-attention-for-reference-image-segmentation",
+    "title": "HARIS: Human-Like Attention for Reference Image Segmentation",
+    "authors": "Mengxi Zhang，Heqing Lian，Yiming Liu，Jie Chen",
+    "year": 2024,
+    "venue": "ICME",
+    "tags": ["multimodal"],
+    "featured": false,
+    "links": [],
+    "originalText": "Mengxi Zhang，Heqing Lian，Yiming Liu，Jie Chen，HARIS: Human-Like Attention for Reference Image Segmentation, IEEE Conference on Multimedia Expo, ICME, 2024.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-53",
+      "line": 122
+    },
+    "researchAreas": ["multimodal"]
+  },
+  {
+    "id": "2023-fuzzy-positive-learning-for-semi-supervised-semantic-segmentation",
+    "title": "Fuzzy Positive Learning for Semi-supervised Semantic Segmentation",
+    "authors": "Pengchong Qiao, Zhidan Wei, Yu Wang, Zhennan Wang, Guoli Song, Fan Xu, Xiangyang Ji, Chang Liu, Jie Chen",
+    "year": 2023,
+    "venue": "CVPR",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "/assets/files/3.-Fuzzy-PositiveLearningforSemi-supervisedSemanticSegmentation.pdf",
+        "originalHref": "assets/files/3.-Fuzzy-PositiveLearningforSemi-supervisedSemanticSegmentation.pdf"
+      }
+    ],
+    "originalText": "Pengchong Qiao, Zhidan Wei, Yu Wang, Zhennan Wang, Guoli Song, Fan Xu, Xiangyang Ji, Chang Liu, Jie Chen. Fuzzy Positive Learning for Semi-supervised Semantic Segmentation[C]//Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. CVPR 2023. [Paper]",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-46",
+      "line": 152
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2023-out-of-candidate-rectification-for-weakly-supervised-semantic-segmentation",
+    "title": "Out-of-Candidate Rectification for Weakly Supervised Semantic Segmentation",
+    "authors": "Zesen Cheng, Pengchong Qiao, Kehan Li, Siheng Li, Pengxu Wei, Xiangyang Ji, Li Yuan, Chang Liu, Jie Chen",
+    "year": 2023,
+    "venue": "CVPR",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "/assets/files/4.-Out-of-Candidate-RectificationforWeaklySupervisedSemanticSegmentation.pdf",
+        "originalHref": "assets/files/4.-Out-of-Candidate-RectificationforWeaklySupervisedSemanticSegmentation.pdf"
+      }
+    ],
+    "originalText": "Zesen Cheng, Pengchong Qiao, Kehan Li, Siheng Li, Pengxu Wei, Xiangyang Ji, Li Yuan, Chang Liu, Jie Chen. Out-of-Candidate Rectification for Weakly Supervised Semantic Segmentation[C]//Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. CVPR 2023. [Paper]",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-46",
+      "line": 152
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2023-video-text-as-game-players-hierarchical-banzhaf-interaction-for-cross-modal-representation-learn",
+    "title": "Video-Text as Game Players: Hierarchical Banzhaf Interaction for Cross-Modal Representation Learning",
+    "authors": "Peng Jin, JinFa Huang, Pengfei Xiong, Shangxuan Tian, Chang Liu, Xiangyang Ji, Li Yuan, Jie Chen",
+    "year": 2023,
+    "venue": "CVPR",
+    "tags": ["multimodal"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "/assets/files/5.-Video-Text-asGamePlayers.pdf",
+        "originalHref": "assets/files/5.-Video-Text-asGamePlayers.pdf"
+      }
+    ],
+    "originalText": "Peng Jin, JinFa Huang, Pengfei Xiong, Shangxuan Tian, Chang Liu, Xiangyang Ji, Li Yuan, Jie Chen. Video-Text as Game Players: Hierarchical Banzhaf Interaction for Cross-Modal Representation Learning[C]//Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. CVPR 2023. [Paper]",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-46",
+      "line": 152
+    },
+    "researchAreas": ["multimodal"]
+  },
+  {
+    "id": "2023-acseg-adaptive-conceptualization-for-unsupervised-semantic-segmentation",
+    "title": "ACSeg: Adaptive Conceptualization for Unsupervised Semantic Segmentation",
+    "authors": "Kehan Li, Zhennan Wang, Zesen Cheng, Runyi Yu, Yian Zhao, Guoli Song, Chang Liu, Li Yuan, Jie Chen",
+    "year": 2023,
+    "venue": "CVPR",
+    "tags": ["vision"],
+    "featured": true,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "/assets/files/6.-ACSeg-AdaptiveConceptualizationforUnsupervisedSemanticSegmentation.pdf",
+        "originalHref": "assets/files/6.-ACSeg-AdaptiveConceptualizationforUnsupervisedSemanticSegmentation.pdf"
+      },
+      {
+        "label": "Proceedings",
+        "url": "https://openaccess.thecvf.com/content/CVPR2023/html/Li_ACSeg_Adaptive_Conceptualization_for_Unsupervised_Semantic_Segmentation_CVPR_2023_paper.html"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2210.05944"
+      }
+    ],
+    "originalText": "Kehan Li, Zhennan Wang, Zesen Cheng, Runyi Yu, Yian Zhao, Guoli Song, Chang Liu, Li Yuan, Jie Chen. ACSeg: Adaptive Conceptualization for Unsupervised Semantic Segmentation[C]//Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. CVPR 2023. [Paper]",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-46",
+      "line": 152
+    },
+    "verificationSources": [
+      "https://openaccess.thecvf.com/content/CVPR2023/html/Li_ACSeg_Adaptive_Conceptualization_for_Unsupervised_Semantic_Segmentation_CVPR_2023_paper.html",
+      "https://arxiv.org/abs/2210.05944"
+    ],
+    "normalizationNotes": [
+      "Retained the original local paper PDF and added the official CVF proceedings record and author-uploaded arXiv record. The project URL printed in the paper was not added because its current availability could not be verified. Original bibliographic fields and originalText are unchanged."
+    ],
+    "researchAreas": []
+  },
+  {
+    "id": "2023-out-of-distributed-semantic-pruning-for-robust-semi-supervised-learning",
+    "title": "Out-of-Distributed Semantic Pruning for Robust Semi-Supervised Learning",
+    "authors": "Yu Wang, Pengchong Qiao, Guoli Song, Chang Liu, Xiawu Zheng, Jie Chen",
+    "year": 2023,
+    "venue": "CVPR",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "/assets/files/7.-Out-of-Distributed-SemanticPruningforRobustSemi-SupervisedLearning.pdf",
+        "originalHref": "assets/files/7.-Out-of-Distributed-SemanticPruningforRobustSemi-SupervisedLearning.pdf"
+      }
+    ],
+    "originalText": "Yu Wang, Pengchong Qiao, Guoli Song, Chang Liu, Xiawu Zheng, Jie Chen. Out-of-Distributed Semantic Pruning for Robust Semi-Supervised Learning.[C]//Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. CVPR 2023. [Paper]",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-46",
+      "line": 152
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2023-high-frequency-stereo-matching-network",
+    "title": "High-frequency Stereo Matching Network",
+    "authors": "Haoliang Zhao, Huizhou Zhou, Yongjun Zhang, Jie Chen, Yitong Yang, Yong Zhao",
+    "year": 2023,
+    "venue": "CVPR",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [],
+    "originalText": "Haoliang Zhao, Huizhou Zhou, Yongjun Zhang, Jie Chen, Yitong Yang, Yong Zhao. High-frequency Stereo Matching Network.[C]//Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. CVPR 2023.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-46",
+      "line": 152
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2023-text-video-retrieval-with-disentangled-conceptualization-and-set-to-set-alignment",
+    "title": "Text-Video Retrieval with Disentangled Conceptualization and Set-to-Set Alignment",
+    "authors": "Peng Jin, Hao Li, Zesen Cheng, Jinfa Huang, Zhennan Wang, Li Yuan, Chang Liu, Jie Chen",
+    "year": 2023,
+    "venue": "IJCAI",
+    "tags": ["multimodal"],
+    "featured": false,
+    "links": [],
+    "originalText": "Peng Jin, Hao Li, Zesen Cheng, Jinfa Huang, Zhennan Wang, Li Yuan, Chang Liu, Jie Chen. Text-Video Retrieval with Disentangled Conceptualization and Set-to-Set Alignment[C]//Proceedings of the Thirty-Second International Joint Conference on Artificial Intelligence, IJCAI. 2023.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-46",
+      "line": 152
+    },
+    "researchAreas": ["multimodal"]
+  },
+  {
+    "id": "2023-tg-vqa-ternary-game-of-video-question-answering",
+    "title": "TG-VQA: Ternary Game of Video Question Answering",
+    "authors": "Hao Li, Peng Jin, Zesen Cheng, Songyang Zhang, Kai Chen, Zhennan Wang, Chang Liu, Jie Chen",
+    "year": 2023,
+    "venue": "IJCAI",
+    "tags": ["multimodal", "ai-for-science"],
+    "featured": false,
+    "links": [],
+    "originalText": "Hao Li, Peng Jin, Zesen Cheng, Songyang Zhang, Kai Chen, Zhennan Wang, Chang Liu, Jie Chen. TG-VQA: Ternary Game of Video Question Answering[C]//Proceedings of the Thirty-Second International Joint Conference on Artificial Intelligence, IJCAI. 2023.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-46",
+      "line": 152
+    },
+    "researchAreas": ["multimodal"]
+  },
+  {
+    "id": "2023-wico-win-win-cooperation-of-bottom-up-and-top-down-referring-image-segmentation",
+    "title": "WiCo: Win-win Cooperation of Bottom-up and Top-down Referring Image Segmentation",
+    "authors": "Zesen Cheng, Peng Jin, Hao Li, Kehan Li, Siheng Li, Xiangyang Ji, Chang Liu, Jie Chen",
+    "year": 2023,
+    "venue": "IJCAI",
+    "tags": ["multimodal"],
+    "featured": false,
+    "links": [],
+    "originalText": "Zesen Cheng, Peng Jin, Hao Li, Kehan Li, Siheng Li, Xiangyang Ji, Chang Liu, Jie Chen. WiCo: Win-win Cooperation of Bottom-up and Top-down Referring Image Segmentation[C]//Proceedings of the Thirty-Second International Joint Conference on Artificial Intelligence, IJCAI. 2023.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-46",
+      "line": 152
+    },
+    "researchAreas": ["multimodal"]
+  },
+  {
+    "id": "2023-toposeg-topology-aware-nuclear-instance-segmentation",
+    "title": "TopoSeg: Topology-Aware Nuclear Instance Segmentation",
+    "authors": "Hongliang He*, Jun Wang*, Pengxu Wei, Fan Xu, Xiangyang Ji, Chang Liu, Jie Chen",
+    "year": 2023,
+    "venue": "ICCV",
+    "tags": ["medical"],
+    "featured": false,
+    "links": [],
+    "originalText": "Hongliang He*, Jun Wang*, Pengxu Wei, Fan Xu, Xiangyang Ji, Chang Liu, Jie Chen. TopoSeg: Topology-Aware Nuclear Instance Segmentation[C]//Proceedings of the IEEE/CVF international conference on computer vision (ICCV). 2023.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-46",
+      "line": 152
+    },
+    "researchAreas": ["ai-for-science"]
+  },
+  {
+    "id": "2023-lape-layer-adaptive-position-embedding-for-vision-transformers-with-independent-layer-normalizat",
+    "title": "LaPE: Layer-adaptive Position Embedding for Vision Transformers with Independent Layer Normalization",
+    "authors": "Runyi Yu, Zhennan Wang, Yinhuai Wang, Kehan Li, Chang Liu, Haoyi Duan, Xiangyang Ji, Jie Chen",
+    "year": 2023,
+    "venue": "ICCV",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [],
+    "originalText": "Runyi Yu, Zhennan Wang, Yinhuai Wang, Kehan Li, Chang Liu, Haoyi Duan, Xiangyang Ji, Jie Chen. LaPE: Layer-adaptive Position Embedding for Vision Transformers with Independent Layer Normalization[C]//Proceedings of the IEEE/CVF international conference on computer vision (ICCV). 2023.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-46",
+      "line": 152
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2023-towards-real-world-burst-image-super-resolution-benchmark-and-method",
+    "title": "Towards Real-World Burst Image Super-Resolution: Benchmark and Method",
+    "authors": "Pengxu Wei, Yujing Sun, Xingbei Guo, Chang Liu, Guanbin Li, Jie Chen, Xiangyang Ji, Liang Lin",
+    "year": 2023,
+    "venue": "ICCV",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [],
+    "originalText": "Pengxu Wei, Yujing Sun, Xingbei Guo, Chang Liu, Guanbin Li, Jie Chen, Xiangyang Ji, Liang Lin. Towards Real-World Burst Image Super-Resolution: Benchmark and Method[C]//Proceedings of the IEEE/CVF international conference on computer vision (ICCV). 2023.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-46",
+      "line": 152
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2023-diffusionret-generative-text-video-retrieval-with-diffusion-model",
+    "title": "DiffusionRet: Generative Text-Video Retrieval with Diffusion Model",
+    "authors": "Peng Jin, Hao Li, Zesen Cheng, Kehan Li, Xiangyang Ji, Chang Liu, Li Yuan, Jie Chen",
+    "year": 2023,
+    "venue": "ICCV",
+    "tags": ["multimodal", "generative"],
+    "featured": false,
+    "links": [],
+    "originalText": "Peng Jin, Hao Li, Zesen Cheng, Kehan Li, Xiangyang Ji, Chang Liu, Li Yuan, Jie Chen. DiffusionRet: Generative Text-Video Retrieval with Diffusion Model[C]//Proceedings of the IEEE/CVF international conference on computer vision (ICCV). 2023.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-46",
+      "line": 152
+    },
+    "researchAreas": ["multimodal"]
+  },
+  {
+    "id": "2023-multi-granularity-interaction-simulation-for-unsupervised-interactive-segmentation",
+    "title": "Multi-granularity Interaction Simulation for Unsupervised Interactive Segmentation",
+    "authors": "Kehan Li, Yian Zhao, Zhennan Wang, Zesen Cheng, Pen Jin, Xiangyang Ji, Li Yuan, Chang Liu, Jie Chen",
+    "year": 2023,
+    "venue": "ICCV",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [],
+    "originalText": "Kehan Li, Yian Zhao, Zhennan Wang, Zesen Cheng, Pen Jin, Xiangyang Ji, Li Yuan, Chang Liu, Jie Chen. Multi-granularity Interaction Simulation for Unsupervised Interactive Segmentation[C]//Proceedings of the IEEE/CVF international conference on computer vision (ICCV). 2023.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-46",
+      "line": 152
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2023-discover-and-align-taxonomic-context-priors-for-open-world-semi-supervised-learning",
+    "title": "Discover and Align Taxonomic Context Priors for Open-world Semi-Supervised Learning",
+    "authors": "Yu Wang, Zhun Zhong, Pengchong Qiao, Xuxin Cheng, Xiawu Zheng, Chang Liu, Nicu Sebe, Rongrong Ji, Jie Chen",
+    "year": 2023,
+    "venue": "NeurIPS",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [],
+    "originalText": "Yu Wang, Zhun Zhong, Pengchong Qiao, Xuxin Cheng, Xiawu Zheng, Chang Liu, Nicu Sebe, Rongrong Ji, Jie Chen, Discover and Align Taxonomic Context Priors for Open-world Semi-Supervised Learning, Advances in Neural Information Processing Systems (NeurIPS) 2023.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-46",
+      "line": 152
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2023-multiple-sequence-alignment-based-rna-language-model-and-its-application-to-structural-inference",
+    "title": "Multiple sequence-alignment-based RNA language model and its application to structural inference",
+    "authors": "Yikun Zhang, Mei Lang, Jiuhong Jiang, Zhiqiang Gao, Fan Xu, Thomas Litfin, Ke Chen, Jaswinder Singh, Xiansong Huang, Guoli Song, Yonghong Tian, Jian Zhan, Jie Chen, Yaoqi Zhou",
+    "year": 2023,
+    "venue": "Nucleic Acids Research",
+    "tags": ["ai-for-science"],
+    "featured": false,
+    "links": [],
+    "originalText": "Yikun Zhang, Mei Lang, Jiuhong Jiang, Zhiqiang Gao, Fan Xu, Thomas Litfin, Ke Chen, Jaswinder Singh, Xiansong Huang, Guoli Song, Yonghong Tian, Jian Zhan, Jie Chen, Yaoqi Zhou, Multiple sequence-alignment-based RNA language model and its application to structural inference, Nucleic Acids Research, 2023.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-46",
+      "line": 152
+    },
+    "researchAreas": ["ai-for-science"]
+  },
+  {
+    "id": "2023-flexible-alignment-super-resolution-network-for-multi-contrast-magnetic-resonance-imaging",
+    "title": "Flexible Alignment Super-Resolution Network for Multi-Contrast Magnetic Resonance Imaging",
+    "authors": "Yiming Liu, Mengxi Zhang, Bo Jiang, Bo Hou, Dan Liu, Jie Chen, Heqing Lian",
+    "year": 2023,
+    "venue": "TMM",
+    "tags": ["medical"],
+    "featured": false,
+    "links": [],
+    "originalText": "Yiming Liu, Mengxi Zhang, Bo Jiang, Bo Hou, Dan Liu, Jie Chen, Heqing Lian, Flexible Alignment Super-Resolution Network for Multi-Contrast Magnetic Resonance Imaging, IEEE Transactions on Multimedia, 2023",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-46",
+      "line": 152
+    },
+    "researchAreas": ["ai-for-science"]
+  },
+  {
+    "id": "2023-weakly-supervised-3d-spatial-reasoning-for-text-based-visual-question-answering",
+    "title": "Weakly-Supervised 3D Spatial Reasoning for Text-based Visual Question Answering",
+    "authors": "Hao Li, Jinfa Huang, Peng Jin, Guoli Song, Qi Wu, Jie Chen",
+    "year": 2023,
+    "venue": "TIP",
+    "tags": ["multimodal"],
+    "featured": false,
+    "links": [],
+    "originalText": "Hao Li, Jinfa Huang, Peng Jin, Guoli Song, Qi Wu, Jie Chen, Weakly-Supervised 3D Spatial Reasoning for Text-based Visual Question Answering, IEEE Transactions on Image Processing, 2023.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-46",
+      "line": 152
+    },
+    "researchAreas": ["multimodal"]
+  },
+  {
+    "id": "2022-difference-in-euclidean-norm-can-cause-semantic-divergence-in-batch-normalization",
+    "title": "Difference in Euclidean Norm Can Cause Semantic Divergence in Batch Normalization",
+    "authors": "Wang Z, Li K, Yu R, et al.",
+    "year": 2022,
+    "venue": "arXiv",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://arxiv.org/pdf/2207.02625",
+        "originalHref": "https://arxiv.org/pdf/2207.02625"
+      }
+    ],
+    "originalText": "Wang Z, Li K, Yu R, et al. Difference in Euclidean Norm Can Cause Semantic Divergence in Batch Normalization[J]. arXiv preprint arXiv:2207.02625, 2022.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3r",
+      "line": 182
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2022-dual-complementary-prototype-learning-for-few-shot-segmentation",
+    "title": "Dual Complementary Prototype Learning for Few-Shot Segmentation",
+    "authors": "Ren Q, Chen J",
+    "year": 2022,
+    "venue": "Computer Sciences & Mathematics Forum",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://www.mdpi.com/2813-0324/3/1/8/htm",
+        "originalHref": "https://www.mdpi.com/2813-0324/3/1/8/htm"
+      }
+    ],
+    "originalText": "Ren Q, Chen J. Dual Complementary Prototype Learning for Few-Shot Segmentation[C]//Computer Sciences & Mathematics Forum. MDPI, 2022, 3(1): 8.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3r",
+      "line": 183
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2022-robust-and-hierarchical-spatial-relation-analysis-for-traffic-forecasting",
+    "title": "Robust and Hierarchical Spatial Relation Analysis for Traffic Forecasting",
+    "authors": "Zhang W, Wu Z, Zhang X, et al.",
+    "year": 2022,
+    "venue": "TITS",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://ieeexplore.ieee.org/abstract/document/9945635",
+        "originalHref": "https://ieeexplore.ieee.org/abstract/document/9945635"
+      }
+    ],
+    "originalText": "Zhang W, Wu Z, Zhang X, et al. Robust and Hierarchical Spatial Relation Analysis for Traffic Forecasting[J]. IEEE Transactions on Intelligent Transportation Systems, 2022.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3r",
+      "line": 184
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2022-an-inclusive-task-aware-framework-for-radiology-report-generation",
+    "title": "An Inclusive Task-Aware Framework for Radiology Report Generation",
+    "authors": "Wang L, Ning M, Lu D, et al.",
+    "year": 2022,
+    "venue": "MICCAI",
+    "tags": ["multimodal", "generative", "medical"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://link.springer.com/chapter/10.1007/978-3-031-16452-1_54",
+        "originalHref": "https://link.springer.com/chapter/10.1007/978-3-031-16452-1_54"
+      }
+    ],
+    "originalText": "Wang L, Ning M, Lu D, et al. An Inclusive Task-Aware Framework for Radiology Report Generation[C]//International Conference on Medical Image Computing and Computer-Assisted Intervention. Springer, Cham, 2022: 568-577.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3r",
+      "line": 184
+    },
+    "researchAreas": ["multimodal", "ai-for-science"]
+  },
+  {
+    "id": "2022-cenet-consolidation-and-exploration-network-for-continuous-domain-adaptation",
+    "title": "CENet: Consolidation-and-Exploration Network for Continuous Domain Adaptation",
+    "authors": "Zhang C, Cheng Y, Wei P, et al.",
+    "year": 2022,
+    "venue": "CVPR Workshops",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://openaccess.thecvf.com/content/CVPR2022W/RoSe/papers/Zhang_CENet_Consolidation-and-Exploration_Network_for_Continuous_Domain_Adaptation_CVPRW_2022_paper.pdf",
+        "originalHref": "https://openaccess.thecvf.com/content/CVPR2022W/RoSe/papers/Zhang_CENet_Consolidation-and-Exploration_Network_for_Continuous_Domain_Adaptation_CVPRW_2022_paper.pdf"
+      }
+    ],
+    "originalText": "Zhang C, Cheng Y, Wei P, et al. CENet: Consolidation-and-Exploration Network for Continuous Domain Adaptation[C]//Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2022: 3426-3432.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3r",
+      "line": 184
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2022-expectation-maximization-contrastive-learning-for-compact-video-and-language-representations",
+    "title": "Expectation-Maximization Contrastive Learning for Compact Video-and-Language Representations",
+    "authors": "Jin P, Huang J, Liu F, et al.",
+    "year": 2022,
+    "venue": "arXiv",
+    "tags": ["multimodal"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://arxiv.org/pdf/2211.11427",
+        "originalHref": "https://arxiv.org/pdf/2211.11427"
+      }
+    ],
+    "originalText": "Jin P, Huang J, Liu F, et al. Expectation-Maximization Contrastive Learning for Compact Video-and-Language Representations[J]. arXiv preprint arXiv:2211.11427, 2022.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3r",
+      "line": 184
+    },
+    "researchAreas": ["multimodal"]
+  },
+  {
+    "id": "2022-locality-guidance-for-improving-vision-transformers-on-tiny-datasets",
+    "title": "Locality guidance for improving vision transformers on tiny datasets",
+    "authors": "Li K, Yu R, Wang Z, et al.",
+    "year": 2022,
+    "venue": "ECCV",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://arxiv.org/pdf/2207.10026",
+        "originalHref": "https://arxiv.org/pdf/2207.10026"
+      }
+    ],
+    "originalText": "Li K, Yu R, Wang Z, et al. Locality guidance for improving vision transformers on tiny datasets[C]//European Conference on Computer Vision. Springer, Cham, 2022: 110-127.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3r",
+      "line": 184
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2022-an-inclusive-task-aware-framework-for-radiology-report-generation-duplicate",
+    "title": "An Inclusive Task-Aware Framework for Radiology Report Generation",
+    "authors": "Wang L, Ning M, Lu D, et al.",
+    "year": 2022,
+    "venue": "MICCAI",
+    "tags": ["multimodal", "generative", "medical"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://link.springer.com/chapter/10.1007/978-3-031-16452-1_54",
+        "originalHref": "https://link.springer.com/chapter/10.1007/978-3-031-16452-1_54"
+      }
+    ],
+    "originalText": "Wang L, Ning M, Lu D, et al. An Inclusive Task-Aware Framework for Radiology Report Generation[C]//International Conference on Medical Image Computing and Computer-Assisted Intervention. Springer, Cham, 2022: 568-577.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3r",
+      "line": 184
+    },
+    "duplicateOf": "2022-an-inclusive-task-aware-framework-for-radiology-report-generation",
+    "researchAreas": ["multimodal", "ai-for-science"]
+  },
+  {
+    "id": "2022-efficient-algorithm-and-hardware-architecture-for-rate-estimation-in-mode-decision-of-avs3",
+    "title": "Efficient Algorithm and Hardware Architecture for Rate Estimation in Mode Decision of AVS3",
+    "authors": "Yan Y, Xiang G, Xie X, et al.",
+    "year": 2022,
+    "venue": "ICME",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://ieeexplore.ieee.org/abstract/document/9858932",
+        "originalHref": "https://ieeexplore.ieee.org/abstract/document/9858932"
+      }
+    ],
+    "originalText": "Yan Y, Xiang G, Xie X, et al. Efficient Algorithm and Hardware Architecture for Rate Estimation in Mode Decision of AVS3[C]//2022 IEEE International Conference on Multimedia and Expo (ICME). IEEE, 2022: 1-6.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3r",
+      "line": 184
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2022-joint-learning-of-object-graph-and-relation-graph-for-visual-question-answering",
+    "title": "Joint learning of object graph and relation graph for visual question answering",
+    "authors": "Li H, Li X, Karimi B, et al.",
+    "year": 2022,
+    "venue": "arXiv",
+    "tags": ["multimodal"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://arxiv.org/pdf/2205.04188",
+        "originalHref": "https://arxiv.org/pdf/2205.04188"
+      }
+    ],
+    "originalText": "Li H, Li X, Karimi B, et al. Joint learning of object graph and relation graph for visual question answering[J]. arXiv preprint arXiv:2205.04188, 2022.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3r",
+      "line": 184
+    },
+    "researchAreas": ["multimodal"]
+  },
+  {
+    "id": "2022-training-free-transformer-architecture-search",
+    "title": "Training-free Transformer Architecture Search",
+    "authors": "Zhou Q, Sheng K, Zheng X, et al.",
+    "year": 2022,
+    "venue": "CVPR",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://openaccess.thecvf.com/content/CVPR2022/papers/Zhou_Training-Free_Transformer_Architecture_Search_CVPR_2022_paper.pdf",
+        "originalHref": "https://openaccess.thecvf.com/content/CVPR2022/papers/Zhou_Training-Free_Transformer_Architecture_Search_CVPR_2022_paper.pdf"
+      }
+    ],
+    "originalText": "Zhou Q, Sheng K, Zheng X, et al. Training-free Transformer Architecture Search[C]//Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2022: 10894-10903.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3r",
+      "line": 184
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2022-vista-vision-and-scene-text-aggregation-for-cross-modal-retrieval",
+    "title": "ViSTA: Vision and Scene Text Aggregation for Cross-Modal Retrieval",
+    "authors": "Cheng M, Sun Y, Wang L, et al.",
+    "year": 2022,
+    "venue": "CVPR",
+    "tags": ["multimodal"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://openaccess.thecvf.com/content/CVPR2022/papers/Cheng_ViSTA_Vision_and_Scene_Text_Aggregation_for_Cross-Modal_Retrieval_CVPR_2022_paper.pdf",
+        "originalHref": "https://openaccess.thecvf.com/content/CVPR2022/papers/Cheng_ViSTA_Vision_and_Scene_Text_Aggregation_for_Cross-Modal_Retrieval_CVPR_2022_paper.pdf"
+      }
+    ],
+    "originalText": "Cheng M, Sun Y, Wang L, et al. ViSTA: Vision and Scene Text Aggregation for Cross-Modal Retrieval[C]//Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2022: 5184-5193.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3r",
+      "line": 184
+    },
+    "researchAreas": ["multimodal"]
+  },
+  {
+    "id": "2022-carrying-out-cnn-channel-pruning-in-a-white-box",
+    "title": "Carrying Out CNN Channel Pruning in a White Box",
+    "authors": "Zhang Y, Lin M, Lin C W, et al.",
+    "year": 2022,
+    "venue": "TNNLS",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://arxiv.org/pdf/2104.11883",
+        "originalHref": "https://arxiv.org/pdf/2104.11883"
+      }
+    ],
+    "originalText": "Zhang Y, Lin M, Lin C W, et al. Carrying Out CNN Channel Pruning in a White Box[J]. IEEE Transactions on Neural Networks and Learning Systems, 2022.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3r",
+      "line": 184
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2022-running-ahead-of-evolution-ai-based-simulation-for-predicting-future-high-risk-sars-cov-2-varian",
+    "title": "Running ahead of evolution - AI based simulation for predicting future high-risk SARS-CoV-2 variants",
+    "authors": "Jie Chen, Zhiwei Nie, Yu Wang, Kai Wang, Fan Xu, Zhiheng Hu, Bin Zheng, Zhennan Wang, Guoli Song, Jingyi Zhang, Jie Fu, Xiansong Huang, Zhongqi Wang, Zhixiang Ren, Qiankun Wang, Daixi Li, Dongqing Wei, Bin Zhou, Chao Yang, Yonghong Tian",
+    "year": 2022,
+    "venue": "The International Journal of High Performance Computing Applications",
+    "tags": ["ai-for-science"],
+    "featured": false,
+    "links": [],
+    "originalText": "Jie Chen, Zhiwei Nie, Yu Wang, Kai Wang, Fan Xu, Zhiheng Hu, Bin Zheng, Zhennan Wang, Guoli Song, Jingyi Zhang, Jie Fu, Xiansong Huang, Zhongqi Wang, Zhixiang Ren, Qiankun Wang, Daixi Li, Dongqing Wei, Bin Zhou, Chao Yang, Yonghong Tian, Running ahead of evolution - AI based simulation for predicting future high-risk SARS-CoV-2 variants, The International Journal of High Performance Computing Applications, (ACM Gordon Bell Special Prize), 2022",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3r",
+      "line": 184
+    },
+    "researchAreas": ["ai-for-science"]
+  },
+  {
+    "id": "2022-semi-supervised-ct-lesion-segmentation-using-uncertainty-based-data-pairing-and-swapmix",
+    "title": "Semi-supervised CT lesion segmentation using uncertainty-based data pairing and SwapMix",
+    "authors": "Pengchong Qiao, Han Li, Guoli Song, Hu Han, Zhiqiang Gao, Yonghong Tian, Yongsheng Liang, Xi Li, S. Kevin Zhou, Jie Chen",
+    "year": 2022,
+    "venue": "TMI",
+    "tags": ["medical"],
+    "featured": false,
+    "links": [],
+    "originalText": "Pengchong Qiao, Han Li, Guoli Song, Hu Han, Zhiqiang Gao, Yonghong Tian, Yongsheng Liang, Xi Li, S. Kevin Zhou, Jie Chen. Semi-supervised CT lesion segmentation using uncertainty-based data pairing and SwapMix[J]. IEEE Transactions on Medical Image. TMI 2022.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3r",
+      "line": 184
+    },
+    "researchAreas": ["ai-for-science"]
+  },
+  {
+    "id": "2021-memory-attention-networks-for-skeleton-based-action-recognition",
+    "title": "Memory attention networks for skeleton-based action recognition",
+    "authors": "Li C, Xie C, Zhang B, et al.",
+    "year": 2021,
+    "venue": "TNNLS",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://arxiv.org/pdf/1804.08254",
+        "originalHref": "https://arxiv.org/pdf/1804.08254"
+      }
+    ],
+    "originalText": "Li C, Xie C, Zhang B, et al. Memory attention networks for skeleton-based action recognition[J]. IEEE Transactions on Neural Networks and Learning Systems, 2021.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3x",
+      "line": 238
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2021-cola-weakly-supervised-temporal-action-localization-with-snippet-contrastive-learning",
+    "title": "Cola: Weakly-supervised temporal action localization with snippet contrastive learning",
+    "authors": "Zhang C, Cao M, Yang D, et al.",
+    "year": 2021,
+    "venue": "CVPR",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://openaccess.thecvf.com/content/CVPR2021/papers/Zhang_CoLA_Weakly-Supervised_Temporal_Action_Localization_With_Snippet_Contrastive_Learning_CVPR_2021_paper.pdf",
+        "originalHref": "https://openaccess.thecvf.com/content/CVPR2021/papers/Zhang_CoLA_Weakly-Supervised_Temporal_Action_Localization_With_Snippet_Contrastive_Learning_CVPR_2021_paper.pdf"
+      }
+    ],
+    "originalText": "Zhang C, Cao M, Yang D, et al. Cola: Weakly-supervised temporal action localization with snippet contrastive learning[C]//Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2021: 16010-16019.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3x",
+      "line": 238
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2021-discover-cross-modality-nuances-for-visible-infrared-person-re-identification",
+    "title": "Discover cross-modality nuances for visible-infrared person re-identification",
+    "authors": "Wu Q, Dai P, Chen J, et al.",
+    "year": 2021,
+    "venue": "CVPR",
+    "tags": ["multimodal"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "http://openaccess.thecvf.com/content/CVPR2021/papers/Wu_Discover_Cross-Modality_Nuances_for_Visible-Infrared_Person_Re-Identification_CVPR_2021_paper.pdf",
+        "originalHref": "http://openaccess.thecvf.com/content/CVPR2021/papers/Wu_Discover_Cross-Modality_Nuances_for_Visible-Infrared_Person_Re-Identification_CVPR_2021_paper.pdf"
+      }
+    ],
+    "originalText": "Wu Q, Dai P, Chen J, et al. Discover cross-modality nuances for visible-infrared person re-identification[C]//Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2021: 4330-4339.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3x",
+      "line": 238
+    },
+    "researchAreas": ["multimodal"]
+  },
+  {
+    "id": "2021-annotation-efficient-deep-learning-for-automatic-medical-image-segmentation",
+    "title": "Annotation-efficient deep learning for automatic medical image segmentation",
+    "authors": "Wang S, Li C, Wang R, et al.",
+    "year": 2021,
+    "venue": "Nature Communications",
+    "tags": ["medical"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://www.nature.com/articles/s41467-021-26216-9",
+        "originalHref": "https://www.nature.com/articles/s41467-021-26216-9"
+      }
+    ],
+    "originalText": "Wang S, Li C, Wang R, et al. Annotation-efficient deep learning for automatic medical image segmentation[J]. Nature communications, 2021, 12(1): 1-13.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3x",
+      "line": 238
+    },
+    "researchAreas": ["ai-for-science"]
+  },
+  {
+    "id": "2021-a-hybrid-attention-nested-unet-for-nuclear-segmentation-in-histopathological-images",
+    "title": "A hybrid-attention nested UNet for nuclear segmentation in histopathological images",
+    "authors": "He H, Zhang C, Chen J, et al.",
+    "year": 2021,
+    "venue": "Frontiers in Molecular Biosciences",
+    "tags": ["medical"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://www.frontiersin.org/articles/10.3389/fmolb.2021.614174/full",
+        "originalHref": "https://www.frontiersin.org/articles/10.3389/fmolb.2021.614174/full"
+      }
+    ],
+    "originalText": "He H, Zhang C, Chen J, et al. A hybrid-attention nested UNet for nuclear segmentation in histopathological images[J]. Frontiers in Molecular Biosciences, 2021, 8: 614174.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3x",
+      "line": 238
+    },
+    "researchAreas": ["ai-for-science"]
+  },
+  {
+    "id": "2021-migo-nas-towards-fast-and-generalizable-neural-architecture-search",
+    "title": "MIGO-NAS: Towards fast and generalizable neural architecture search",
+    "authors": "Zheng X, Ji R, Chen Y, et al.",
+    "year": 2021,
+    "venue": "TPAMI",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://drive.google.com/file/d/1PVqmUxaU7DkbvX_z6OQ-mrkaAA9C5sJi/view",
+        "originalHref": "https://drive.google.com/file/d/1PVqmUxaU7DkbvX_z6OQ-mrkaAA9C5sJi/view"
+      }
+    ],
+    "originalText": "Zheng X, Ji R, Chen Y, et al. MIGO-NAS: Towards fast and generalizable neural architecture search[J]. IEEE Transactions on Pattern Analysis and Machine Intelligence, 2021, 43(9): 2936-2952.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3x",
+      "line": 238
+    },
+    "researchAreas": []
+  },
+  {
+    "id": "2021-joint-segmentation-and-detection-of-covid-19-via-a-sequential-region-generation-network",
+    "title": "Joint segmentation and detection of COVID-19 via a sequential region generation network",
+    "authors": "Wu J, Xu H, Zhang S, et al.",
+    "year": 2021,
+    "venue": "Pattern Recognition",
+    "tags": ["generative", "medical"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8116317/?utm_source=Chromium&utm_medium=rss&utm_content=1ZK2-GOkRV8PscslB9T8PF1SkWt3FQ2qZAUU0Cql3OXEuE_s5v&ff=20210518220420&v=2.14.4",
+        "originalHref": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8116317/?utm_source=Chromium&utm_medium=rss&utm_content=1ZK2-GOkRV8PscslB9T8PF1SkWt3FQ2qZAUU0Cql3OXEuE_s5v&ff=20210518220420&v=2.14.4"
+      }
+    ],
+    "originalText": "Wu J, Xu H, Zhang S, et al. Joint segmentation and detection of COVID-19 via a sequential region generation network[J]. Pattern recognition, 2021, 118: 108006.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3x",
+      "line": 238
+    },
+    "researchAreas": ["ai-for-science"]
+  },
+  {
+    "id": "2021-cdnet-centripetal-direction-network-for-nuclear-instance-segmentation",
+    "title": "CDNet: Centripetal Direction Network for Nuclear Instance Segmentation",
+    "authors": "He H, Huang Z, Ding Y, et al.",
+    "year": 2021,
+    "venue": "ICCV",
+    "tags": ["medical"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "http://openaccess.thecvf.com/content/ICCV2021/papers/He_CDNet_Centripetal_Direction_Network_for_Nuclear_Instance_Segmentation_ICCV_2021_paper.pdf",
+        "originalHref": "http://openaccess.thecvf.com/content/ICCV2021/papers/He_CDNet_Centripetal_Direction_Network_for_Nuclear_Instance_Segmentation_ICCV_2021_paper.pdf"
+      }
+    ],
+    "originalText": "He H, Huang Z, Ding Y, et al. CDNet: Centripetal Direction Network for Nuclear Instance Segmentation[C]//Proceedings of the IEEE/CVF International Conference on Computer Vision. 2021: 4026-4035.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3x",
+      "line": 238
+    },
+    "researchAreas": ["ai-for-science"]
+  },
+  {
+    "id": "2021-learnable-oriented-derivative-network-for-polyp-segmentation",
+    "title": "Learnable Oriented-Derivative Network for Polyp Segmentation",
+    "authors": "Cheng M, Kong Z, Song G, et al.",
+    "year": 2021,
+    "venue": "MICCAI",
+    "tags": ["ai-for-science", "medical"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://link.springer.com/chapter/10.1007/978-3-030-87193-2_68",
+        "originalHref": "https://link.springer.com/chapter/10.1007/978-3-030-87193-2_68"
+      }
+    ],
+    "originalText": "Cheng M, Kong Z, Song G, et al. Learnable Oriented-Derivative Network for Polyp Segmentation[C]//International Conference on Medical Image Computing and Computer-Assisted Intervention. Springer, Cham, 2021: 720-730.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3x",
+      "line": 238
+    },
+    "researchAreas": ["ai-for-science"]
+  },
+  {
+    "id": "2021-dynamic-perception-framework-for-fine-grained-recognition",
+    "title": "Dynamic perception framework for fine-grained recognition",
+    "authors": "Ding Y, Han Z, Zhou Y, et al.",
+    "year": 2021,
+    "venue": "TCSVT",
+    "tags": ["vision"],
+    "featured": false,
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://ieeexplore.ieee.org/abstract/document/9389760/",
+        "originalHref": "https://ieeexplore.ieee.org/abstract/document/9389760/"
+      }
+    ],
+    "originalText": "Ding Y, Han Z, Zhou Y, et al. Dynamic perception framework for fine-grained recognition[J]. IEEE Transactions on Circuits and Systems for Video Technology, 2021, 32(3): 1353-1365.",
+    "source": {
+      "file": "Publications.html",
+      "section": "content9-3x",
+      "line": 238
+    },
+    "researchAreas": []
+  }
+]

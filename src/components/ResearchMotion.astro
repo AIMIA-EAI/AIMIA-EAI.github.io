@@ -1,0 +1,997 @@
+---
+interface Props {
+  lang?: 'en' | 'zh';
+}
+
+const { lang = 'en' } = Astro.props;
+const zh = lang === 'zh';
+const prefix = `research-motion-${lang}`;
+const text = {
+  heading: zh ? '研究概览' : 'Research at a glance',
+  note: zh ? '研究方向交互示意' : 'Interactive research illustrations',
+  pause: zh ? '暂停动画' : 'Pause animation',
+  play: zh ? '播放动画' : 'Play animation',
+  reduced: zh ? '已减少动态效果' : 'Motion reduced',
+  tabs: zh ? '选择研究方向' : 'Choose a research area',
+  link: zh ? '查看研究方向' : 'Research area',
+};
+const areas = [
+  {
+    id: 'embodied',
+    label: zh ? '具身智能' : 'Embodied intelligence',
+    title: zh ? '大小脑协同，连接规划与执行' : 'Hierarchical planning and action',
+    description: zh
+      ? '由 Agent 规划器拆解目标，以 Agent 原生动作器或 VLA 模型执行动作，再通过环境反馈修正规划。'
+      : 'An agent planner decomposes goals, while a native-action agent or VLA model executes actions. Environment feedback informs the next plan.',
+  },
+  {
+    id: 'multimodal',
+    label: zh ? '多模态智能' : 'Multimodal intelligence',
+    title: zh ? '连接视觉与语言' : 'Connecting vision and language',
+    description: zh
+      ? '通过跨模态表征与对齐，研究图像、视频和语言之间的联系。'
+      : 'Studying the relationships between images, video and language through cross-modal representations and alignment.',
+  },
+  {
+    id: 'ai-for-science',
+    label: zh ? '科学智能 AI4S' : 'AI for Science · AI4S',
+    title: zh ? '从表征到科学预测' : 'From representations to prediction',
+    description: zh
+      ? '结合数据与学习方法，研究生物分子表征、性质预测和科学建模。'
+      : 'Combining data and learning methods to study biomolecular representations, property prediction and scientific modeling.',
+  },
+];
+const base = zh ? '/zh' : '';
+---
+
+<section
+  class="rm-section container"
+  id="research-motion"
+  data-research-motion
+  data-paused="false"
+  aria-labelledby={`${prefix}-heading`}
+>
+  <div class="rm-heading">
+    <h2 id={`${prefix}-heading`}>{text.heading}</h2>
+    <button
+      class="rm-pause"
+      type="button"
+      aria-pressed="false"
+      data-rm-pause
+      data-pause-label={text.pause}
+      data-play-label={text.play}
+      data-reduced-label={text.reduced}
+    >
+      <span class="rm-pause-icon" aria-hidden="true"></span>
+      <span data-rm-pause-label>{text.pause}</span>
+    </button>
+  </div>
+  <div class="rm-tabs" role="tablist" aria-label={text.tabs}>
+    {areas.map((area, index) => (
+      <button
+        type="button"
+        role="tab"
+        id={`${prefix}-tab-${area.id}`}
+        aria-controls={`${prefix}-panel-${area.id}`}
+        aria-selected={index === 0 ? 'true' : 'false'}
+        tabindex={index === 0 ? 0 : -1}
+        data-rm-tab={area.id}
+      >
+        <span class="rm-tab-number" aria-hidden="true">
+          0{index + 1}
+        </span>
+        {area.label}
+      </button>
+    ))}
+  </div>
+
+  {areas.map((area, index) => (
+    <div
+      class="rm-panel"
+      id={`${prefix}-panel-${area.id}`}
+      role="tabpanel"
+      aria-labelledby={`${prefix}-tab-${area.id}`}
+      tabindex="0"
+      hidden={index !== 0}
+      data-rm-panel={area.id}
+    >
+      <div class="rm-drawing" aria-hidden="true">
+        {area.id === 'multimodal' && (
+          <svg viewBox="0 0 660 240" focusable="false">
+            <defs>
+              <linearGradient id={`${prefix}-image`} x1="0" y1="0" x2="1" y2="1">
+                <stop stop-color="#edf0e5" />
+                <stop offset="1" stop-color="#dce3d3" />
+              </linearGradient>
+            </defs>
+            <path
+              class="rm-grid-line"
+              d="M20 187H640M20 52H640M113 23V198M334.5 23V198M551.5 23V198"
+            />
+            <rect class="rm-sheet" x="23" y="36" width="180" height="144" rx="7" />
+            <rect x="38" y="51" width="150" height="107" rx="3" fill={`url(#${prefix}-image)`} />
+            <path d="m38 124 39-37 40 29 33-37 38 39v40H38Z" fill="#bccbb5" />
+            <path d="m38 145 53-28 46 24 51-16v33H38Z" fill="#7e9478" />
+            <circle cx="155" cy="74" r="11" fill="#cb9e82" />
+            <g class="rm-focus-frame">
+              <rect
+                x="75"
+                y="91"
+                width="51"
+                height="45"
+                fill="none"
+                stroke="#a9473b"
+                stroke-width="2"
+              />
+              <path
+                d="M75 102V91h11m29 0h11v11m0 23v11h-11m-29 0H75v-11"
+                fill="none"
+                stroke="#a9473b"
+                stroke-width="3"
+              />
+            </g>
+            <path class="rm-flow rm-flow-first" d="M215 108H273" />
+            <path class="rm-arrow" d="m263 102 10 6-10 6" />
+            <rect class="rm-sheet" x="285" y="46" width="99" height="124" rx="7" />
+            {Array.from({ length: 4 }, (_, row) =>
+              Array.from({ length: 3 }, (_, column) => (
+                <rect
+                  class:list={['rm-match-cell', { 'rm-match-active': column === row % 3 }]}
+                  style={`--rm-delay:${(row + column) * -0.45}s`}
+                  x={301 + column * 25}
+                  y={62 + row * 25}
+                  width="17"
+                  height="17"
+                  rx="3"
+                  fill={column === row % 3 ? '#b35948' : '#d9e0d1'}
+                />
+              )),
+            )}
+            <path class="rm-flow rm-flow-second" d="M396 108H454" />
+            <path class="rm-arrow" d="m444 102 10 6-10 6" />
+            <rect class="rm-sheet" x="466" y="36" width="171" height="144" rx="7" />
+            <rect x="481" y="56" width="141" height="23" rx="4" fill="#efdfd5" />
+            <text x="491" y="73" class="rm-svg-text rm-accent">
+              {zh ? '视觉概念' : 'visual concepts'}
+            </text>
+            <path
+              d="M482 96h135M482 118h95M482 140h122"
+              stroke="#a9b7a0"
+              stroke-width="6"
+              stroke-linecap="round"
+            />
+            <path
+              class="rm-text-highlight"
+              d="M482 118h95"
+              stroke="#a9473b"
+              stroke-width="6"
+              stroke-linecap="round"
+            />
+            <text x="113" y="228" text-anchor="middle" class="rm-svg-label">
+              {zh ? '视觉输入' : 'Visual input'}
+            </text>
+            <text x="334.5" y="228" text-anchor="middle" class="rm-svg-label">
+              {zh ? '跨模态对齐' : 'Alignment'}
+            </text>
+            <text x="551.5" y="228" text-anchor="middle" class="rm-svg-label">
+              {zh ? '语言表征' : 'Language'}
+            </text>
+          </svg>
+        )}
+        {area.id === 'embodied' && (
+          <svg viewBox="0 0 660 240" focusable="false">
+            <path class="rm-grid-line" d="M20 108H640M106 23V193M344.5 23V193M568.5 23V193" />
+            <rect class="rm-sheet" x="23" y="38" width="166" height="140" rx="7" />
+            <text x="106" y="65" text-anchor="middle" class="rm-architecture-text rm-accent">
+              {zh ? 'Agent 规划器' : 'Agent planner'}
+            </text>
+            <path
+              d="M106 103v14m-33 0h66m-66 0v12m66-12v12"
+              fill="none"
+              stroke="#a8b69d"
+              stroke-width="2"
+            />
+            <rect
+              class="rm-plan-step"
+              x="49"
+              y="80"
+              width="114"
+              height="23"
+              rx="4"
+              fill="#e5eadc"
+            />
+            <path d="M61 91.5h66m9 0h15" stroke="#839678" stroke-width="4" stroke-linecap="round" />
+            <rect
+              class="rm-plan-step rm-plan-next"
+              x="45"
+              y="129"
+              width="56"
+              height="29"
+              rx="4"
+              fill="#efdfd5"
+            />
+            <rect
+              class="rm-plan-step"
+              x="111"
+              y="129"
+              width="56"
+              height="29"
+              rx="4"
+              fill="#e5eadc"
+            />
+            <path
+              d="M56 143.5h34m32 0h34"
+              stroke="#a4775d"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+
+            <path class="rm-flow rm-native-flow" d="M201 108h16V72h15" />
+            <path class="rm-flow rm-vla-flow" d="M201 108h16v36h15" />
+            <path class="rm-arrow" d="m225 67 7 5-7 5m0 62 7 5-7 5" />
+            <rect class="rm-sheet" x="244" y="38" width="201" height="140" rx="7" />
+            <g class="rm-action-lane rm-native-lane">
+              <rect x="258" y="49" width="173" height="46" rx="5" fill="#efdfd5" stroke="#c58a77" />
+              <text x="344.5" y="79" text-anchor="middle" class="rm-architecture-text rm-accent">
+                {zh ? '原生动作 Agent' : 'Native-action agent'}
+              </text>
+            </g>
+            <text x="344.5" y="112" text-anchor="middle" class="rm-choice-text">
+              {zh ? '或' : 'or'}
+            </text>
+            <g class="rm-action-lane rm-vla-lane">
+              <rect
+                x="258"
+                y="121"
+                width="173"
+                height="46"
+                rx="5"
+                fill="#e5eadc"
+                stroke="#a4b49a"
+              />
+              <text x="344.5" y="151" text-anchor="middle" class="rm-architecture-text">
+                {zh ? 'VLA 模型' : 'VLA model'}
+              </text>
+            </g>
+            <path class="rm-flow rm-native-flow" d="M457 72h12v36h19" />
+            <path class="rm-flow rm-vla-flow" d="M457 144h12v-36h19" />
+            <path class="rm-arrow" d="m481 103 7 5-7 5" />
+
+            <rect class="rm-sheet" x="500" y="50" width="137" height="116" rx="7" />
+            <path d="M509 151h114" stroke="#ccd5c4" />
+            <path d="M510 146h22l5 5h-32Z" fill="#7e9478" />
+            <g data-rm-arm data-arm-phase="ready">
+              <path data-arm-upper d="M521 143 555.12 102.44" class="rm-arm-link" />
+              <path data-arm-upper-highlight d="M521 143 555.12 102.44" class="rm-arm-highlight" />
+              <path data-arm-forearm d="M555.12 102.44 607 106" class="rm-arm-link" />
+              <path data-arm-forearm-highlight d="M555.12 102.44 607 106" class="rm-arm-highlight" />
+              <circle cx="521" cy="143" r="5" class="rm-arm-joint" />
+              <circle data-arm-elbow cx="555.12" cy="102.44" r="5" class="rm-arm-joint" />
+              <circle data-arm-wrist cx="607" cy="106" r="3.5" fill="#a9473b" />
+              <rect
+                class="rm-environment-cube"
+                data-arm-cube
+                x="600"
+                y="137"
+                width="14"
+                height="14"
+                rx="2"
+                fill="#b45948"
+              />
+              <path
+                data-arm-gripper
+                d="M607 106v5m-14 0h28m-28 0v14m28-14v14"
+                fill="none"
+                stroke="#a9473b"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <path class="rm-feedback rm-flow" d="M568.5 178v16H106v-4" />
+            <path class="rm-arrow" d="m101 195 5-5 5 5" />
+            <text x="106" y="228" text-anchor="middle" class="rm-svg-label">
+              {zh ? '大脑 · 规划' : 'Brain · planning'}
+            </text>
+            <text x="344.5" y="228" text-anchor="middle" class="rm-svg-label">
+              {zh ? '小脑 · 执行' : 'Controller · action'}
+            </text>
+            <text x="568.5" y="228" text-anchor="middle" class="rm-svg-label">
+              {zh ? '环境 · 反馈' : 'Environment'}
+            </text>
+          </svg>
+        )}
+        {area.id === 'ai-for-science' && (
+          <svg viewBox="0 0 660 240" focusable="false">
+            <path
+              class="rm-grid-line"
+              d="M20 187H640M20 47H640M103.5 23V198M330 23V198M563.5 23V198"
+            />
+            <rect class="rm-sheet" x="23" y="44" width="161" height="128" rx="7" />
+            <text x="41" y="76" class="rm-svg-text rm-accent">
+              A G U C A G
+            </text>
+            <text x="41" y="104" class="rm-svg-text">
+              C A G U C A
+            </text>
+            <path
+              d="M41 130h111M41 148h80"
+              stroke="#aab8a1"
+              stroke-width="5"
+              stroke-linecap="round"
+            />
+            <path class="rm-flow" d="M196 108h52" />
+            <path class="rm-arrow" d="m238 102 10 6-10 6" />
+            <g class="rm-molecule">
+              <ellipse
+                cx="330"
+                cy="108"
+                rx="70"
+                ry="54"
+                fill="none"
+                stroke="#d3c9b9"
+                transform="rotate(-25 330 108)"
+              />
+              <path
+                d="m290 77 46-24 42 34-9 52-49 22-43-36 13-48Zm46-24-16 108m-43-36 101-38m-88-10 79 62"
+                fill="none"
+                stroke="#9baa90"
+                stroke-width="2"
+              />
+              <circle cx="290" cy="77" r="13" fill="#a95745" />
+              <circle cx="336" cy="53" r="10" fill="#7e9478" />
+              <circle cx="378" cy="87" r="15" fill="#a95745" />
+              <circle cx="369" cy="139" r="9" fill="#7e9478" />
+              <circle cx="320" cy="161" r="12" fill="#b7bea4" />
+              <circle cx="277" cy="125" r="8" fill="#7e9478" />
+              <circle
+                class="rm-molecule-pulse"
+                cx="378"
+                cy="87"
+                r="22"
+                fill="none"
+                stroke="#a9473b"
+              />
+            </g>
+            <path class="rm-flow rm-flow-second" d="M412 108h66" />
+            <path class="rm-arrow" d="m468 102 10 6-10 6" />
+            <rect class="rm-sheet" x="490" y="44" width="147" height="128" rx="7" />
+            <path d="M508 151V61m0 90h112m-112-30h112m-112-30h112" fill="none" stroke="#ccd5c4" />
+            <path
+              class="rm-prediction-curve"
+              d="M515 137c14-6 21-30 35-21s18 15 32-9 21-27 33-31"
+              fill="none"
+              stroke="#a9473b"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+            <circle cx="515" cy="137" r="3" fill="#7d9276" />
+            <circle cx="550" cy="116" r="3" fill="#7d9276" />
+            <circle cx="582" cy="107" r="3" fill="#7d9276" />
+            <circle cx="615" cy="76" r="3" fill="#7d9276" />
+            <text x="103.5" y="228" text-anchor="middle" class="rm-svg-label">
+              {zh ? '科学数据' : 'Scientific data'}
+            </text>
+            <text x="330" y="228" text-anchor="middle" class="rm-svg-label">
+              {zh ? '分子表征' : 'Representations'}
+            </text>
+            <text x="563.5" y="228" text-anchor="middle" class="rm-svg-label">
+              {zh ? '预测与建模' : 'Prediction'}
+            </text>
+          </svg>
+        )}
+      </div>
+      <div class="rm-description">
+        <h3>{area.title}</h3>
+        <p>{area.description}</p>
+        <a href={`${base}/research/#${area.id}`}>
+          {text.link}
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  ))}
+  <p class="rm-note">{text.note}</p>
+</section>
+
+<style>
+  .rm-section {
+    border-block: 1px solid var(--line);
+    padding-block: 22px 15px;
+  }
+  .rm-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 17px;
+  }
+  .rm-heading h2 {
+    font-size: 17px;
+    line-height: 1.5;
+    letter-spacing: -0.015em;
+    font-weight: 600;
+  }
+  .rm-pause {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 7px 10px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: transparent;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+  .rm-pause:hover {
+    border-color: var(--red);
+    color: var(--red);
+  }
+  .rm-pause:disabled {
+    cursor: default;
+  }
+  .rm-pause-icon {
+    width: 9px;
+    height: 10px;
+    border-inline: 2px solid currentColor;
+  }
+  .rm-pause[aria-pressed='true'] .rm-pause-icon {
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-right: 0;
+    border-left: 8px solid currentColor;
+  }
+  .rm-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-bottom: 1px solid var(--line);
+  }
+  .rm-tabs button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 12px 14px 14px;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    background: transparent;
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 550;
+    line-height: 1.6;
+    text-align: left;
+  }
+  .rm-tabs button:first-child {
+    padding-left: 0;
+  }
+  .rm-tabs button[aria-selected='true'] {
+    color: var(--red);
+    border-bottom-color: var(--red);
+  }
+  .rm-tab-number {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 450;
+  }
+  .rm-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 38px;
+    padding-block: 22px 10px;
+  }
+  .rm-drawing {
+    min-width: 0;
+    background: radial-gradient(ellipse at 50% 50%, #e9ebdf 0, transparent 75%);
+  }
+  .rm-drawing svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
+  }
+  .rm-sheet {
+    fill: #fafbf6;
+    stroke: #c4cebb;
+    stroke-width: 1;
+  }
+  .rm-grid-line {
+    stroke: #e0e4d9;
+    stroke-width: 1;
+    fill: none;
+  }
+  .rm-svg-label,
+  .rm-svg-text {
+    fill: #44543f;
+    font-family: var(--font);
+    font-size: 16px;
+    font-weight: 550;
+  }
+  .rm-svg-text {
+    font-size: 15px;
+  }
+  .rm-accent {
+    fill: var(--red);
+  }
+  .rm-arrow {
+    fill: none;
+    stroke: #9f6350;
+    stroke-width: 1.5;
+  }
+  .rm-flow {
+    fill: none;
+    stroke: #aa6b56;
+    stroke-width: 1.5;
+    stroke-dasharray: 3 8;
+    animation: rm-flow 2.5s linear infinite;
+  }
+  .rm-flow-second {
+    animation-delay: -1.25s;
+  }
+  .rm-focus-frame {
+    animation: rm-focus 5s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .rm-match-active {
+    animation: rm-matching 3s ease-in-out infinite;
+    animation-delay: var(--rm-delay);
+  }
+  .rm-text-highlight {
+    animation: rm-matching 3s ease-in-out -0.8s infinite;
+  }
+  .rm-architecture-text {
+    fill: #44543f;
+    font-family: var(--font);
+    font-size: 20px;
+    font-weight: 550;
+  }
+  .rm-architecture-text.rm-accent {
+    fill: var(--red);
+  }
+  .rm-native-lane .rm-architecture-text:lang(en) {
+    font-size: 17px;
+  }
+  .rm-choice-text {
+    fill: #596652;
+    font-family: var(--font);
+    font-size: 16px;
+  }
+  .rm-plan-step {
+    animation: rm-matching 4s ease-in-out infinite;
+  }
+  .rm-plan-next {
+    animation-delay: -1.3s;
+  }
+  .rm-action-lane rect {
+    animation: rm-controller-choice 8s ease-in-out infinite;
+  }
+  .rm-vla-lane rect {
+    animation-delay: -4s;
+  }
+  .rm-native-flow,
+  .rm-vla-flow {
+    animation:
+      rm-flow 2.5s linear infinite,
+      rm-controller-choice 8s ease-in-out infinite;
+  }
+  .rm-vla-flow {
+    animation-delay:
+      0s,
+      -4s;
+  }
+  .rm-arm-link {
+    fill: none;
+    stroke: #647b5d;
+    stroke-width: 8;
+    stroke-linecap: round;
+  }
+  .rm-arm-highlight {
+    fill: none;
+    stroke: #e6ebdf;
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+  .rm-arm-joint {
+    fill: #f7f7f2;
+    stroke: #647b5d;
+    stroke-width: 3;
+  }
+  .rm-feedback {
+    stroke: #8c9b80;
+    animation-duration: 5s;
+  }
+  .rm-molecule {
+    transform-origin: 330px 108px;
+    animation: rm-molecule 8s ease-in-out infinite;
+  }
+  .rm-molecule-pulse {
+    transform-origin: 378px 87px;
+    animation: rm-target 4s ease-out infinite;
+  }
+  .rm-prediction-curve {
+    stroke-dasharray: 150;
+    animation: rm-prediction 5s ease-in-out infinite;
+  }
+  .rm-description h3 {
+    font-size: 22px;
+    font-weight: 550;
+    line-height: 1.5;
+    letter-spacing: -0.025em;
+  }
+  .rm-description p {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+  .rm-description a {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 15px;
+    font-weight: 550;
+    color: var(--red);
+    margin-top: 16px;
+  }
+  .rm-description a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .rm-note {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+  [data-paused='true']
+    :is(
+      .rm-flow,
+      .rm-focus-frame,
+      .rm-match-active,
+      .rm-text-highlight,
+      .rm-plan-step,
+      .rm-action-lane rect,
+      .rm-molecule,
+      .rm-molecule-pulse,
+      .rm-prediction-curve
+    ) {
+    animation-play-state: paused;
+  }
+  .rm-panel[hidden] * {
+    animation-play-state: paused;
+  }
+  @keyframes rm-flow {
+    to {
+      stroke-dashoffset: -55;
+    }
+  }
+  @keyframes rm-focus {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.065);
+      opacity: 1;
+    }
+  }
+  @keyframes rm-matching {
+    0%,
+    100% {
+      opacity: 0.55;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  @keyframes rm-controller-choice {
+    0%,
+    42%,
+    100% {
+      opacity: 1;
+    }
+    50%,
+    92% {
+      opacity: 0.42;
+    }
+  }
+  @keyframes rm-target {
+    0%,
+    100% {
+      transform: scale(0.85);
+      opacity: 0.25;
+    }
+    50% {
+      transform: scale(1.12);
+      opacity: 0.75;
+    }
+  }
+  @keyframes rm-molecule {
+    0%,
+    100% {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(5deg);
+    }
+  }
+  @keyframes rm-prediction {
+    0%,
+    100% {
+      stroke-dashoffset: 140;
+      opacity: 0.6;
+    }
+    40%,
+    75% {
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+  }
+  @media (max-width: 1000px) {
+    .rm-panel {
+      gap: 25px;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    }
+    .rm-tabs button {
+      padding-inline: 9px;
+      font-size: 14px;
+      gap: 7px;
+    }
+    .rm-description h3 {
+      font-size: 20px;
+    }
+  }
+  @media (max-width: 700px) {
+    .rm-section {
+      padding-top: 18px;
+    }
+    .rm-heading {
+      align-items: start;
+    }
+    .rm-heading h2 {
+      font-size: 16px;
+      padding-top: 5px;
+    }
+    .rm-pause {
+      font-size: 14px;
+      gap: 6px;
+    }
+    .rm-tabs button {
+      justify-content: center;
+      padding: 12px 6px;
+      font-size: 14px;
+    }
+    .rm-tabs button:first-child {
+      padding-left: 6px;
+    }
+    .rm-tab-number {
+      display: none;
+    }
+    .rm-panel {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 20px;
+      padding-top: 20px;
+    }
+    .rm-drawing {
+      width: 100%;
+      overflow: hidden;
+    }
+    .rm-drawing svg {
+      width: calc(100% + 22px);
+      max-width: none;
+      margin-left: -11px;
+    }
+    .rm-svg-label {
+      font-size: 28px;
+    }
+    .rm-description h3 {
+      font-size: 21px;
+    }
+    .rm-description p {
+      font-size: 16px;
+      margin-top: 8px;
+    }
+    .rm-description a {
+      margin-top: 12px;
+    }
+    .rm-note {
+      margin-top: 15px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rm-section * {
+      animation: none !important;
+      transition: none !important;
+    }
+    .rm-prediction-curve {
+      stroke-dashoffset: 0;
+    }
+  }
+</style>
+
+<script>
+  const createArmPlayback = (root: HTMLElement) => {
+    const arm = root.querySelector<SVGGElement>('[data-rm-arm]');
+    if (!arm) return (_playing: boolean, _reduced: boolean) => {};
+    const upper = arm.querySelector<SVGPathElement>('[data-arm-upper]')!;
+    const upperHighlight = arm.querySelector<SVGPathElement>('[data-arm-upper-highlight]')!;
+    const forearm = arm.querySelector<SVGPathElement>('[data-arm-forearm]')!;
+    const forearmHighlight = arm.querySelector<SVGPathElement>('[data-arm-forearm-highlight]')!;
+    const elbow = arm.querySelector<SVGCircleElement>('[data-arm-elbow]')!;
+    const wrist = arm.querySelector<SVGCircleElement>('[data-arm-wrist]')!;
+    const gripper = arm.querySelector<SVGPathElement>('[data-arm-gripper]')!;
+    const cube = arm.querySelector<SVGRectElement>('[data-arm-cube]')!;
+    const panel = arm.closest<HTMLElement>('[data-rm-panel]')!;
+    const shoulder = { x: 521, y: 143 };
+    const upperLength = 53;
+    const forearmLength = 52;
+    const halfCycle = 6000;
+    let elapsed = 0;
+    let lastTime: number | undefined;
+    let frame: number | undefined;
+
+    const interpolate = (from: number, to: number, time: number, start: number, end: number) => {
+      const t = Math.max(0, Math.min(1, (time - start) / (end - start)));
+      return from + (to - from) * t * t * (3 - 2 * t);
+    };
+    const draw = (time: number) => {
+      // Alternate the transfer direction so the cube never teleports between cycles.
+      const forward = Math.floor(time / halfCycle) % 2 === 0;
+      const from = forward ? 607 : 566;
+      const to = forward ? 566 : 607;
+      const t = (time % halfCycle) / halfCycle;
+      let x = from;
+      let y = 118;
+      let opening = 14;
+      let phase = 'ready';
+
+      if (t >= 0.12 && t < 0.28) {
+        y = interpolate(118, 144, t, 0.12, 0.28);
+        phase = 'approach';
+      } else if (t >= 0.28 && t < 0.36) {
+        y = 144;
+        opening = interpolate(14, 8, t, 0.28, 0.36);
+        phase = 'grasp';
+      } else if (t >= 0.36 && t < 0.48) {
+        y = interpolate(144, 111, t, 0.36, 0.48);
+        opening = 8;
+        phase = 'lift';
+      } else if (t >= 0.48 && t < 0.67) {
+        x = interpolate(from, to, t, 0.48, 0.67);
+        y = 111;
+        opening = 8;
+        phase = 'transfer';
+      } else if (t >= 0.67 && t < 0.79) {
+        x = to;
+        y = interpolate(111, 144, t, 0.67, 0.79);
+        opening = 8;
+        phase = 'place';
+      } else if (t >= 0.79 && t < 0.87) {
+        x = to;
+        y = 144;
+        opening = interpolate(8, 14, t, 0.79, 0.87);
+        phase = 'release';
+      } else if (t >= 0.87) {
+        x = to;
+        y = interpolate(144, 118, t, 0.87, 0.99);
+        phase = 'retract';
+      }
+
+      // Solve both joints from the tool position; the held cube shares that exact position.
+      const wristY = y - 12;
+      const dx = x - shoulder.x;
+      const dy = wristY - shoulder.y;
+      const distance = Math.hypot(dx, dy);
+      const along = (upperLength ** 2 - forearmLength ** 2 + distance ** 2) / (2 * distance);
+      const height = Math.sqrt(Math.max(0, upperLength ** 2 - along ** 2));
+      const elbowX = shoulder.x + (along * dx + height * dy) / distance;
+      const elbowY = shoulder.y + (along * dy - height * dx) / distance;
+      const upperPath = `M${shoulder.x} ${shoulder.y}L${elbowX} ${elbowY}`;
+      const forearmPath = `M${elbowX} ${elbowY}L${x} ${wristY}`;
+      upper.setAttribute('d', upperPath);
+      upperHighlight.setAttribute('d', upperPath);
+      forearm.setAttribute('d', forearmPath);
+      forearmHighlight.setAttribute('d', forearmPath);
+      elbow.setAttribute('cx', String(elbowX));
+      elbow.setAttribute('cy', String(elbowY));
+      wrist.setAttribute('cx', String(x));
+      wrist.setAttribute('cy', String(wristY));
+      gripper.setAttribute(
+        'd',
+        `M${x} ${wristY}V${y - 7}M${x - opening} ${y - 7}H${x + opening}M${x - opening} ${y - 7}V${y + 7}M${x + opening} ${y - 7}V${y + 7}`,
+      );
+      const held = t >= 0.36 && t < 0.79;
+      cube.setAttribute('x', String((held ? x : t < 0.36 ? from : to) - 7));
+      cube.setAttribute('y', String((held ? y : 144) - 7));
+      arm.dataset.armPhase = phase;
+    };
+    const tick = (time: number) => {
+      if (lastTime !== undefined) elapsed += time - lastTime;
+      lastTime = time;
+      draw(elapsed);
+      frame = requestAnimationFrame(tick);
+    };
+    draw(0);
+    return (playing: boolean, reduced: boolean) => {
+      if (playing && !reduced && !panel.hidden) {
+        if (frame === undefined) frame = requestAnimationFrame(tick);
+      } else {
+        if (frame !== undefined) cancelAnimationFrame(frame);
+        frame = undefined;
+        lastTime = undefined;
+        if (reduced) draw(5500);
+      }
+    };
+  };
+
+  document.querySelectorAll<HTMLElement>('[data-research-motion]').forEach((root) => {
+    if (root.dataset.rmInitialized === 'true') return;
+    root.dataset.rmInitialized = 'true';
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('[data-rm-tab]')];
+    const panels = [...root.querySelectorAll<HTMLElement>('[data-rm-panel]')];
+    const pause = root.querySelector<HTMLButtonElement>('[data-rm-pause]')!;
+    const pauseLabel = pause.querySelector<HTMLElement>('[data-rm-pause-label]')!;
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const syncArmPlayback = createArmPlayback(root);
+    let userPaused = false;
+
+    const syncPlayback = () => {
+      const reduced = motionPreference.matches;
+      const bounds = root.getBoundingClientRect();
+      const offscreen = bounds.bottom <= 0 || bounds.top >= window.innerHeight;
+      const paused = userPaused || reduced || offscreen || document.hidden;
+      root.dataset.paused = String(paused);
+      syncArmPlayback(!paused, reduced);
+      pause.setAttribute('aria-pressed', String(userPaused || reduced));
+      pause.disabled = reduced;
+      pauseLabel.textContent = reduced
+        ? pause.dataset.reducedLabel!
+        : userPaused
+          ? pause.dataset.playLabel!
+          : pause.dataset.pauseLabel!;
+    };
+    const selectTab = (selected: HTMLButtonElement, focus = false) => {
+      tabs.forEach((tab) => {
+        const active = tab === selected;
+        tab.setAttribute('aria-selected', String(active));
+        tab.tabIndex = active ? 0 : -1;
+      });
+      panels.forEach((panel) => {
+        panel.hidden = panel.dataset.rmPanel !== selected.dataset.rmTab;
+      });
+      syncPlayback();
+      if (focus) selected.focus();
+    };
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => selectTab(tab));
+      tab.addEventListener('keydown', (event) => {
+        let next: number;
+        if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+        else if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+        else if (event.key === 'Home') next = 0;
+        else if (event.key === 'End') next = tabs.length - 1;
+        else return;
+        event.preventDefault();
+        selectTab(tabs[next], true);
+      });
+    });
+    pause.addEventListener('click', () => {
+      userPaused = !userPaused;
+      syncPlayback();
+    });
+    motionPreference.addEventListener('change', syncPlayback);
+    document.addEventListener('visibilitychange', syncPlayback);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(
+        syncPlayback,
+        { threshold: 0.05 },
+      ).observe(root);
+    }
+    syncPlayback();
+  });
+</script>

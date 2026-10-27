@@ -1,0 +1,169 @@
+---
+import Icon from './Icon.astro';
+import { media } from '../lib/content';
+import { translateRole, translateTerm, type Locale } from '../lib/i18n';
+
+interface Props {
+  lang?: Locale;
+  person: {
+    id: string;
+    name: string;
+    image: string | null;
+    role: string;
+    group?: string;
+    cohort: number | null;
+    destination?: string | null;
+    homepage: string | null;
+  };
+}
+const { person, lang = 'en' } = Astro.props;
+const zh = lang === 'zh';
+const initials = person.name
+  .trim()
+  .split(/\s+/)
+  .map((part) => part[0])
+  .slice(0, 2)
+  .join('')
+  .toUpperCase();
+const headingId = `alumni-name-${person.id}`;
+---
+
+<article class="alumni-item" data-alumni={person.id} aria-labelledby={headingId}>
+  <div class="portrait-wrap alumni-portrait">
+    {person.image ? (
+      <img src={media(person.image)} alt={person.name} loading="lazy" width="160" height="200" />
+    ) : (
+      <div
+        class="portrait-placeholder"
+        role="img"
+        aria-label={zh ? `${person.name} — 暂无照片` : `${person.name} — no portrait available`}
+      >
+        <span aria-hidden="true">{initials}</span>
+        <small aria-hidden="true">AIMIA</small>
+      </div>
+    )}
+  </div>
+  <div class="alumni-details">
+    <div class="alumni-name">
+      <h3 id={headingId}>{person.name}</h3>
+      {person.homepage && (
+        <a
+          href={person.homepage}
+          aria-label={zh ? `${person.name}的主页` : `${person.name}'s homepage`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon name="external" size={17} />
+        </a>
+      )}
+    </div>
+    <p class="alumni-role">
+      {translateRole(person.group || person.role, lang)}
+      {person.cohort && (
+        <span class="alumni-cohort">
+          {' · '}
+          {zh ? `${person.cohort} 级` : `Entered ${person.cohort}`}
+        </span>
+      )}
+    </p>
+    {person.destination && (
+      <p class="alumni-destination">{translateTerm(person.destination, lang)}</p>
+    )}
+  </div>
+</article>
+
+<style>
+  .alumni-item {
+    display: grid;
+    grid-template-columns: 84px minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .alumni-portrait {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #eaede2;
+  }
+  .alumni-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 25%;
+    filter: saturate(0.78);
+    transition: filter 350ms;
+  }
+  .alumni-item:hover .alumni-portrait img {
+    filter: saturate(1);
+  }
+  .alumni-portrait .portrait-placeholder {
+    height: 100%;
+    color: #75826b;
+  }
+  .alumni-portrait .portrait-placeholder > span {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.035em;
+  }
+  .alumni-portrait .portrait-placeholder > small {
+    font-size: 9px;
+    line-height: 1.2;
+    letter-spacing: 0.12em;
+    margin-top: 7px;
+  }
+  .alumni-details {
+    min-width: 0;
+  }
+  .alumni-name {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .alumni-name h3 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.025em;
+    overflow-wrap: anywhere;
+  }
+  .alumni-name a {
+    display: inline-flex;
+    flex-shrink: 0;
+    color: var(--muted);
+  }
+  .alumni-name a:hover {
+    color: var(--red);
+  }
+  .alumni-item .alumni-role {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-top: 5px;
+    color: var(--red);
+  }
+  .alumni-cohort {
+    color: var(--muted);
+  }
+  .alumni-item .alumni-destination {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-top: 7px;
+    color: var(--muted);
+    overflow-wrap: anywhere;
+  }
+  @media (max-width: 700px) {
+    .alumni-item {
+      grid-template-columns: 76px minmax(0, 1fr);
+      gap: 16px;
+      padding-block: 18px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .alumni-portrait img {
+      transition: none;
+    }
+  }
+</style>

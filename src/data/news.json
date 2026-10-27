@@ -1,0 +1,264 @@
+{
+  "source": "index.html#content14-2s",
+  "caveats": [
+    "Dates are copied from the original page without inferring corrections or publication years.",
+    "Identical repeated news entries have been deduplicated.",
+    "Source spelling is preserved in originalText."
+  ],
+  "items": [
+    {
+      "id": "news-02",
+      "date": "2025-12",
+      "dateLabel": "Dec 2025",
+      "title": "2 papers accepted to AAAI. Con![ Zishan shu, Ruochong zheng]",
+      "originalText": "Dec.2025 2 papers accepted to AAAI. Con![ Zishan shu, Ruochong zheng]",
+      "links": []
+    },
+    {
+      "id": "news-03",
+      "date": "2025-11",
+      "dateLabel": "Nov 2025",
+      "title": "1 paper accepted to IEEE TMM. Con![Yuke Li].",
+      "originalText": "Nov.2025 1 paper accepted to IEEE TMM. Con![Yuke Li].",
+      "links": []
+    },
+    {
+      "id": "news-05",
+      "date": "2025-06",
+      "dateLabel": "Jun 2025",
+      "title": "2 papers accepted to ICCV. Con![Zesen Cheng, Yi an zhao]",
+      "originalText": "Jun.2025 2 papers accepted to ICCV. Con![Zesen Cheng, Yi an zhao]",
+      "links": []
+    },
+    {
+      "id": "news-06",
+      "date": "2025-06",
+      "dateLabel": "Jun 2025",
+      "title": "2 papers accepted to CVPR. Con![Yian Zhao, Bin Chen].",
+      "originalText": "Jun.2025 2 papers accepted to CVPR. Con![Yian Zhao, Bin Chen].",
+      "links": []
+    },
+    {
+      "id": "news-07",
+      "date": "2025-04",
+      "dateLabel": "Apr 2025",
+      "title": "1 papers accepted to IJCAI. Con![Zishan Shu].",
+      "originalText": "Apr.2025 1 papers accepted to IJCAI. Con![Zishan Shu].",
+      "links": []
+    },
+    {
+      "id": "news-04",
+      "date": "2025-03",
+      "dateLabel": "Mar 2025",
+      "title": "3 paper accepted to IEEE TPAMI. Con![Bin Chen, Yi an zhao, Peng Jin].",
+      "originalText": "Mar.2025 3 paper accepted to IEEE TPAMI. Con![Bin Chen, Yi an zhao, Peng Jin].",
+      "links": []
+    },
+    {
+      "id": "news-09",
+      "date": "2025-03",
+      "dateLabel": "Mar 2025",
+      "title": "1 papers accepted to NAACL. Con![Yihan Zhang]",
+      "originalText": "Mar.2025 1 papers accepted to NAACL. Con![Yihan Zhang]",
+      "links": []
+    },
+    {
+      "id": "news-01",
+      "date": "2025-01",
+      "dateLabel": "Jan 2025",
+      "title": "1 paper accepted to Nature Machine Inte11igence. Con![Zhi wei Nie]",
+      "originalText": "Jan.2025 1 paper accepted to Nature Machine Inte11igence. Con![Zhi wei Nie]",
+      "links": []
+    },
+    {
+      "id": "news-08",
+      "date": "2024-12",
+      "dateLabel": "Dec 2024",
+      "title": "2 papers accepted to AAAI. Con![Zesen Cheng, Shiyu Li]",
+      "originalText": "Dec.2024 2 papers accepted to AAAI. Con![Zesen Cheng, Shiyu Li]",
+      "links": []
+    },
+    {
+      "id": "news-10",
+      "date": "2024-12",
+      "dateLabel": "Dec 2024",
+      "title": "1 paper accepted to IEEE TPAMI. Con![Peng Jin, Hao Li]",
+      "originalText": "Dec.2024 1 paper accepted to IEEE TPAMI. Con![Peng Jin, Hao Li]",
+      "links": []
+    },
+    {
+      "id": "news-11",
+      "date": "2024-11",
+      "dateLabel": "Nov 2024",
+      "title": "2 paper accepted to IEEE TMM. Con![Qiankun Ma, Yuke Li ]",
+      "originalText": "Nov.2024 2 paper accepted to IEEE TMM. Con![Qiankun Ma, Yuke Li ]",
+      "links": []
+    },
+    {
+      "id": "news-12",
+      "date": "2024-10",
+      "dateLabel": "Oct 2024",
+      "title": "1 paper accepted to Nature Machine Intelligence. Con![Zhiwei Nie, Xudong Liu]",
+      "originalText": "Oct.2024 1 paper accepted to Nature Machine Intelligence. Con![Zhiwei Nie, Xudong Liu]",
+      "links": []
+    },
+    {
+      "id": "news-13",
+      "date": "2024-07",
+      "dateLabel": "Jul 2024",
+      "title": "1 paper accepted to IJCV. Con![Pengchong Qiao]",
+      "originalText": "Jul. 2024 1 paper accepted to IJCV. Con![Pengchong Qiao]",
+      "links": []
+    },
+    {
+      "id": "news-14",
+      "date": "2024-07",
+      "dateLabel": "Jul 2024",
+      "title": "4 papers accepted to ECCV. Con![Peng Jin, Mengjun Cheng, Qiran Zou, Kehan Li]",
+      "originalText": "Jul. 2024 4 papers accepted to ECCV. Con![Peng Jin, Mengjun Cheng, Qiran Zou, Kehan Li]",
+      "links": []
+    },
+    {
+      "id": "news-15",
+      "date": "2024-06",
+      "dateLabel": "Jun 2024",
+      "title": "1 paper accepted to IEEE TMI. Con![Shiyu Li].",
+      "originalText": "Jun.2024 1 paper accepted to IEEE TMI. Con![Shiyu Li].",
+      "links": []
+    },
+    {
+      "id": "news-16",
+      "date": "2024-03",
+      "dateLabel": "Mar 2024",
+      "title": "1 paper selected as CVPR Highlight paper. Con![Yian Zhao].",
+      "originalText": "Mar.2024 1 paper selected as CVPR Highlight paper. Con![Yian Zhao].",
+      "links": []
+    },
+    {
+      "id": "news-17",
+      "date": "2024-02",
+      "dateLabel": "Feb 2024",
+      "title": "3 papers accepted to CVPR. Con![Pengchong Qiao, Yian Zhao].",
+      "originalText": "Feb.2024 3 papers accepted to CVPR. Con![Pengchong Qiao, Yian Zhao].",
+      "links": []
+    },
+    {
+      "id": "news-18",
+      "date": "2024-01",
+      "dateLabel": "Jan 2024",
+      "title": "1 paper accepted to ICLR. Con![Zhilin Huang].",
+      "originalText": "Jan.2024 1 paper accepted to ICLR. Con![Zhilin Huang].",
+      "links": []
+    },
+    {
+      "id": "news-19",
+      "date": "2023-12",
+      "dateLabel": "Dec 2023",
+      "title": "1 paper accepted to AAAI. Con![Zesen Cheng].",
+      "originalText": "Dec.2023 1 paper accepted to AAAI. Con![Zesen Cheng].",
+      "links": []
+    },
+    {
+      "id": "news-20",
+      "date": "2023-10",
+      "dateLabel": "Oct 2023",
+      "title": "1 paper accepted to Nucleic Acids Research. Con![Yikun Zhang].",
+      "originalText": "Oct.2023 1 paper accepted to Nucleic Acids Research. Con![Yikun Zhang].",
+      "links": []
+    },
+    {
+      "id": "news-21",
+      "date": "2023-09",
+      "dateLabel": "Sep 2023",
+      "title": "1 paper accepted to NeurIPS. Con![Yu Wang].",
+      "originalText": "Sep.2023 1 paper accepted to NeurIPS. Con![Yu Wang].",
+      "links": []
+    },
+    {
+      "id": "news-22",
+      "date": "2023-09",
+      "dateLabel": "Sep 2023",
+      "title": "1 paper accepted to IEEE TMM. Con![Yiming Liu].",
+      "originalText": "Sep.2023 1 paper accepted to IEEE TMM. Con![Yiming Liu].",
+      "links": []
+    },
+    {
+      "id": "news-23",
+      "date": "2023-07",
+      "dateLabel": "Jul 2023",
+      "title": "5 papers accepted to ICCV. Con![Pengxu Wei, Yujing Sun, Peng Jin, Kehan Li, Hongliang He, Jun Wang, Runyi Yu].",
+      "originalText": "Jul.2023 5 papers accepted to ICCV. Con![Pengxu Wei, Yujing Sun, Peng Jin, Kehan Li, Hongliang He, Jun Wang, Runyi Yu].",
+      "links": []
+    },
+    {
+      "id": "news-24",
+      "date": "2023-06",
+      "dateLabel": "Jun 2023",
+      "title": "1 paper recognized as ICASSP top 3% paper. Con![Bin Fu].",
+      "originalText": "Jun.2023 1 paper recognized as ICASSP top 3% paper. Con![Bin Fu].",
+      "links": [
+        {
+          "label": "top 3% paper",
+          "url": "/assets/files/Top3_2360_Fu.pdf"
+        }
+      ]
+    },
+    {
+      "id": "news-25",
+      "date": "2023-04",
+      "dateLabel": "Apr 2023",
+      "title": "1 paper accepted to IEEE TIP. Con![Hao Li].",
+      "originalText": "Apr.2023 1 paper accepted to IEEE TIP. Con![Hao Li].",
+      "links": []
+    },
+    {
+      "id": "news-26",
+      "date": "2023-04",
+      "dateLabel": "Apr 2023",
+      "title": "3 papers accepted to IJCAI. Con![Peng Jin, Hao Li, Zesen Cheng].",
+      "originalText": "Apr.2023 3 papers accepted to IJCAI. Con![Peng Jin, Hao Li, Zesen Cheng].",
+      "links": []
+    },
+    {
+      "id": "news-27",
+      "date": "2023-03",
+      "dateLabel": "Mar 2023",
+      "title": "3 papers selected as CVPR Highlight paper. Con![Peng Jin, Kehan Li, Haoliang Zhao].",
+      "originalText": "Mar.2023 3 papers selected as CVPR Highlight paper. Con![Peng Jin, Kehan Li, Haoliang Zhao].",
+      "links": []
+    },
+    {
+      "id": "news-28",
+      "date": "2023-02",
+      "dateLabel": "Feb 2023",
+      "title": "6 papers accepted to CVPR. Con![Pengchong Qiao, Zesen Cheng, Peng Jin, Kehan Li, Yu Wang, Haoliang Zhao].",
+      "originalText": "Feb.2023 6 papers accepted to CVPR. Con![Pengchong Qiao, Zesen Cheng, Peng Jin, Kehan Li, Yu Wang, Haoliang Zhao].",
+      "links": []
+    },
+    {
+      "id": "news-29",
+      "date": "2023-02",
+      "dateLabel": "Feb 2023",
+      "title": "2 papers accepted to ICASSP. Con![Jifan Zhang, Bin Fu].",
+      "originalText": "Feb.2023 2 papers accepted to ICASSP. Con![Jifan Zhang, Bin Fu].",
+      "links": []
+    },
+    {
+      "id": "news-30",
+      "date": null,
+      "dateLabel": "Research milestone",
+      "title": "Pengcheng Shennong shortlisted for the ACM Gordon Bell Special Prize for HPC-Based COVID-19 Research (the only project from the Chinese team shortlisted this time) !! About Pengcheng Shennong：https://aigene.cloudbrain2.pcl.ac.cn About ACM Gordon Bell Prize: See Pubulications.",
+      "originalText": "Pengcheng Shennong shortlisted for the ACM Gordon Bell Special Prize for HPC-Based COVID-19 Research (the only project from the Chinese team shortlisted this time) !! About Pengcheng Shennong：https://aigene.cloudbrain2.pcl.ac.cn About ACM Gordon Bell Prize: See Pubulications.",
+      "links": [
+        {
+          "label": "https://aigene.cloudbrain2.pcl.ac.cn",
+          "url": "https://aigene.cloudbrain2.pcl.ac.cn"
+        },
+        {
+          "label": "Pubulications",
+          "url": "/Publications.html#video4-44"
+        }
+      ]
+    }
+  ]
+}

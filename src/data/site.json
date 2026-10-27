@@ -1,0 +1,36 @@
+{
+  "headline": ["AIMIA", "Lab"],
+  "intro": "Our research focuses on embodied intelligence, multimodal intelligence and AI for Science (AI4S).",
+  "directions": [
+    {
+      "id": "embodied",
+      "number": "01",
+      "title": "Embodied intelligence",
+      "short": "Hierarchical planning and action.",
+      "description": "Exploring a hierarchical architecture with an agent planner and either a native-action agent or a VLA model, connecting task planning, action execution and environment feedback.",
+      "keywords": ["Agent planning", "Native-action agents", "VLA models"],
+      "tag": "embodied",
+      "question": "How can an agent planner collaborate with native-action agents or VLA models to act in the physical world?"
+    },
+    {
+      "id": "multimodal",
+      "number": "02",
+      "title": "Multimodal intelligence",
+      "short": "Multimodal understanding and generation.",
+      "description": "Understanding and generating content across vision and language, including images, videos and human motion.",
+      "keywords": ["Vision-language models", "Understanding & generation", "Visual grounding"],
+      "tag": "multimodal",
+      "question": "How can models understand and generate content across visual and language modalities?"
+    },
+    {
+      "id": "ai-for-science",
+      "number": "03",
+      "title": "AI for Science (AI4S)",
+      "short": "AI methods for scientific research.",
+      "description": "Developing AI methods for biomolecular prediction and design, virus evolution, protein structure and medical image analysis.",
+      "keywords": ["Biomolecular design", "Scientific prediction", "Medical imaging"],
+      "tag": "ai-for-science",
+      "question": "How can AI support scientific prediction and discovery in biology and medicine?"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+---
+import Icon from '../components/Icon.astro';
+import { newsItems } from '../lib/content';
+import {
+  localePath,
+  localizedNewsTitle,
+  localizedNewsDate,
+  linkLabel,
+  type Locale,
+} from '../lib/i18n';
+interface Props {
+  lang?: Locale;
+}
+const { lang = 'en' } = Astro.props;
+const isZh = lang === 'zh';
+const t = (en: string, cn: string) => (isZh ? cn : en);
+const archiveKey = 'From the archive';
+const years = [...new Set(newsItems.map((item) => item.date?.slice(0, 4) || archiveKey))];
+---
+
+<div class="news-archive">
+  {years.map((year) => (
+    <section>
+      <h2 class="news-year-label">
+        {year === archiveKey ? t('From the archive', '历史记录') : year}
+      </h2>
+      <div class="news-list">
+        {newsItems
+          .filter((item) => (item.date?.slice(0, 4) || archiveKey) === year)
+          .map((item) => (
+            <article class="news-row">
+              <time datetime={item.date || undefined}>{localizedNewsDate(item, lang)}</time>
+              <div>
+                <p>{localizedNewsTitle(item, lang)}</p>
+                {item.links.length > 0 && (
+                  <div class="paper-links">
+                    {item.links.map((link) => (
+                      <a
+                        href={localePath(
+                          link.url.includes('Publications.html')
+                            ? '/research/#gordon-bell'
+                            : link.url,
+                          lang,
+                        )}
+                        target={link.url.startsWith('http') ? '_blank' : undefined}
+                        rel="noopener noreferrer"
+                      >
+                        {linkLabel(link.label || 'Read more', lang)}
+                        <Icon name="external" size={13} />
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </article>
+          ))}
+      </div>
+    </section>
+  ))}
+</div>
+
+<script>
+  const openUpdates = () => {
+    if (location.hash === '#updates') {
+      const archive = document.querySelector<HTMLDetailsElement>('#updates');
+      if (archive) archive.open = true;
+    }
+  };
+  openUpdates();
+  window.addEventListener('hashchange', openUpdates);
+</script>

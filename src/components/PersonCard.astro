@@ -1,0 +1,62 @@
+---
+import { media } from '../lib/content';
+import Icon from './Icon.astro';
+import { translateRole, translateInterest, type Locale } from '../lib/i18n';
+interface Props {
+  lang?: Locale;
+  headingLevel?: 'h3' | 'h4';
+  person: {
+    id: string;
+    name: string;
+    image: string | null;
+    role: string;
+    cohort: number | null;
+    interests: string[];
+    homepage: string | null;
+  };
+}
+const { person, lang = 'en', headingLevel = 'h3' } = Astro.props;
+const NameHeading = headingLevel;
+---
+
+<article class="person-card">
+  <div class="portrait-wrap">
+    {person.image ? (
+      <img src={media(person.image)} alt={person.name} loading="lazy" width="480" height="600" />
+    ) : (
+      <div
+        class="portrait-placeholder"
+        aria-label={`${person.name} — ${lang === 'zh' ? '暂无照片' : 'no portrait available'}`}
+      >
+        <span>
+          {person.name
+            .split(' ')
+            .map((part) => part[0])
+            .slice(0, 2)
+            .join('')}
+        </span>
+        <small>AIMIA</small>
+      </div>
+    )}
+  </div>
+  <div class="person-name">
+    <NameHeading>{person.name}</NameHeading>
+    {person.homepage && (
+      <a
+        href={person.homepage}
+        aria-label={lang === 'zh' ? `${person.name}的主页` : `${person.name}'s homepage`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Icon name="external" size={17} />
+      </a>
+    )}
+  </div>
+  <p class="person-role">
+    {translateRole(person.role, lang)}
+    {person.cohort && ` · ${person.cohort}`}
+  </p>
+  <p class="person-interests">
+    {person.interests.map((interest) => translateInterest(interest, lang)).join(' · ')}
+  </p>
+</article>

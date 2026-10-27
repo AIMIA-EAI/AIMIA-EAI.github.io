@@ -1,0 +1,381 @@
+{
+  "scholarlyProfileUrl": "https://scholar.google.fi/citations?user=ZAZFfwwAAAAJ&hl=en",
+  "projects": [
+    {
+      "id": "shennong",
+      "title": "Pengcheng Shennong",
+      "titleZh": "鹏程·神农",
+      "category": "AI for Science (AI4S)",
+      "description": "AI-assisted targeted drug design and biomolecular research.",
+      "descriptionZh": "智能化全链条靶向药物设计新范式。",
+      "image": "/assets/images/shennong-flow-600x204.png",
+      "links": [
+        {
+          "label": "Project website",
+          "url": "https://aigene.cloudbrain2.pcl.ac.cn/"
+        }
+      ],
+      "source": {
+        "file": "page3.html",
+        "section": "content9-4y"
+      },
+      "originalText": "传统制药流程需花费数十年数十亿美金，亟需提升设计效率。鹏程·神农开创了基于AI的靶向药物新范式，将候选药物的研发周期缩短到两个月以内。"
+    },
+    {
+      "id": "virus-evolution",
+      "title": "Running ahead of evolution",
+      "titleZh": "领先于病毒的进化",
+      "category": "AI for Science (AI4S)",
+      "description": "AI-based simulation for predicting future high-risk SARS-CoV-2 variants. A joint project shortlisted for the 2022 ACM Gordon Bell Special Prize for HPC-Based COVID-19 Research.",
+      "image": "/assets/images/demo-mol-8.gif",
+      "links": [
+        {
+          "label": "Paper PDF",
+          "url": "/assets/files/_.pdf"
+        },
+        {
+          "label": "Presentation PDF",
+          "url": "/assets/files/_PPT.pdf"
+        }
+      ],
+      "source": {
+        "file": "page3.html",
+        "section": "slider6-50"
+      },
+      "originalText": "北京大学深圳研究生院信息工程学院与鹏城实验室、山东大学组成的联合研究团队在自行研发的鹏程·神农生物信息研究平台上完成的“领先于病毒的进化——通过人工智能模拟预测未来高风险新冠病毒变异株”研究项目成功入围2022年度“戈登贝尔新冠特别奖”，也是本次入围的唯一来自中国团队的项目。"
+    },
+    {
+      "id": "metafold",
+      "title": "MetaFold",
+      "titleZh": "蛋白质结构预测",
+      "category": "AI for Science (AI4S)",
+      "description": "Protein structure prediction research using the Pengcheng Cloudbrain II AI computing cluster.",
+      "image": "/assets/images/shennong-result-307x147.png",
+      "links": [],
+      "source": {
+        "file": "page3.html",
+        "section": "slider6-50"
+      },
+      "originalText": "MetaFold 蛋白质结构预测精度全球第一。利用“鹏城云脑II”AI计算集群，联合昌平&华为耗时数月打造MetaFold蛋白质结构预测AI模型。"
+    }
+  ],
+  "datasets": [
+    {
+      "id": "bcdata",
+      "title": "BCData",
+      "subtitle": "A Large-Scale Dataset and Benchmark for Cell Detection and Counting",
+      "year": 2020,
+      "venue": "MICCAI",
+      "description": "A dataset and benchmark for detecting and counting positive and negative tumor cells. Images and HDF5 coordinate annotations are divided into training, validation, and test splits.",
+      "links": [
+        {
+          "label": "Paper",
+          "url": "https://link.springer.com/chapter/10.1007/978-3-030-59722-1_28"
+        },
+        {
+          "label": "Download dataset",
+          "url": "https://drive.google.com/file/d/16W04QOR1E-G3ifc4061Be4eGpjRYDlkA/view"
+        }
+      ],
+      "structure": [
+        "BCData/images/{train,validation,test}/",
+        "BCData/annotations/{train,validation,test}/{positive,negative}/"
+      ],
+      "example": {
+        "image": "BCData/images/train/10.png",
+        "positiveAnnotation": "BCData/annotations/train/positive/10.h5",
+        "negativeAnnotation": "BCData/annotations/train/negative/10.h5",
+        "validationImage": "BCData/images/validation/10.png",
+        "validationPositiveAnnotation": "BCData/annotations/validation/positive/10.h5",
+        "validationNegativeAnnotation": "BCData/annotations/validation/negative/10.h5"
+      },
+      "loadingExample": "import h5py\nimport numpy as np\n\ngt_path = \"BCData/annotations/train/positive/10.h5\"\nwith h5py.File(gt_path, \"r\") as gt_file:\n    coordinates = np.asarray(gt_file[\"coordinates\"])",
+      "source": {
+        "file": "page6.html",
+        "section": "content14-4p"
+      }
+    }
+  ],
+  "patents": [
+    {
+      "id": "ip-01",
+      "type": "patent",
+      "title": "一种胸部CT图像病灶分割模型的训练方法及系统",
+      "authors": "高志强，陈杰，乔鹏冲，田永鸿",
+      "number": "202110705914.8",
+      "originalText": "高志强，陈杰，乔鹏冲，田永鸿. 一种胸部CT图像病灶分割模型的训练方法及系统[P].申请号202110705914.8，2021年6月24日",
+      "source": {
+        "file": "Publications.html",
+        "section": "content9-48",
+        "line": 268
+      }
+    },
+    {
+      "id": "ip-02",
+      "type": "patent",
+      "title": "一种基于Transformer的CT报告生成方法",
+      "authors": "黄锦发，陈杰，高志强，田永鸿",
+      "number": "202110795676.4",
+      "originalText": "黄锦发，陈杰，高志强，田永鸿 . 一种基于Transformer的CT报告生成方法[P].申请号202110795676.4，2021年7月14日",
+      "source": {
+        "file": "Publications.html",
+        "section": "content9-48",
+        "line": 269
+      }
+    },
+    {
+      "id": "ip-03",
+      "type": "patent",
+      "title": "一种基于任务感知的报告自动生成方法及装置",
+      "authors": "陈杰、田永鸿、高文、王中岐、王林",
+      "number": "202211156398.9",
+      "originalText": "陈杰、田永鸿、高文、王中岐、王林. 一种基于任务感知的报告自动生成方法及装置[P].申请号202211156398.9，2022年9月22日 初审通过",
+      "source": {
+        "file": "Publications.html",
+        "section": "content9-48",
+        "line": 269
+      }
+    },
+    {
+      "id": "ip-04",
+      "type": "patent",
+      "title": "利用自然语言模型自动生成结构化报告的方法及相关设备",
+      "authors": "陈杰、田永鸿、高文、王中岐、王林",
+      "number": "202211078506.5",
+      "originalText": "陈杰、田永鸿、高文、王中岐、王林. 利用自然语言模型自动生成结构化报告的方法及相关设备[P].申请号202211078506.5，2022年9月5日 初审通过",
+      "source": {
+        "file": "Publications.html",
+        "section": "content9-48",
+        "line": 270
+      }
+    },
+    {
+      "id": "ip-05",
+      "type": "patent",
+      "title": "一种药物-靶点交互作用预测方法、系统及终端设备",
+      "authors": "田永鸿、杨文明、王天誉、陈杰",
+      "number": "202210632799.0",
+      "originalText": "田永鸿、杨文明、王天誉、陈杰. 一种药物-靶点交互作用预测方法、系统及终端设备[P].申请号202210632799.0，2022年6月7日",
+      "source": {
+        "file": "Publications.html",
+        "section": "content9-48",
+        "line": 271
+      }
+    },
+    {
+      "id": "ip-06",
+      "type": "patent",
+      "title": "基于人机交互的模型训练方法、装置、终端及存储介质",
+      "authors": "王珊珊，黄纬键，郑海荣，陈杰，周晖晖，田永鸿",
+      "number": "202211222416.9",
+      "originalText": "王珊珊，黄纬键，郑海荣，陈杰，周晖晖，田永鸿. 基于人机交互的模型训练方法、装置、终端及存储介质[P].申请号202211222416.9，2022年10月8日",
+      "source": {
+        "file": "Publications.html",
+        "section": "content9-48",
+        "line": 272
+      }
+    },
+    {
+      "id": "ip-07",
+      "type": "patent",
+      "title": "一种基于对抗样本的医学图像重建方法及相关装置",
+      "authors": "王珊珊、吴若有、黄纬键、陈杰",
+      "number": "202211425844.1",
+      "originalText": "王珊珊、吴若有、黄纬键、陈杰. 一种基于对抗样本的医学图像重建方法及相关装置[P]. 申请号202211425844.1，2022年11月16日",
+      "source": {
+        "file": "Publications.html",
+        "section": "content9-48",
+        "line": 273
+      }
+    },
+    {
+      "id": "ip-08",
+      "type": "patent",
+      "title": "一种基于多任务学习的图像清洁度评估方法及相关装置",
+      "authors": "陈杰、田永鸿、高文、黄显淞、孔子尚",
+      "number": "202211475103.4",
+      "originalText": "陈杰、田永鸿、高文、黄显淞、孔子尚.一种基于多任务学习的图像清洁度评估方法及相关装置[P].申请号202211475103.4，2022年11月23日",
+      "source": {
+        "file": "Publications.html",
+        "section": "content9-48",
+        "line": 274
+      }
+    },
+    {
+      "id": "ip-09",
+      "type": "patent",
+      "title": "一种基于可学习方向导数的病灶边缘检测方法及相关装置",
+      "authors": "陈杰、田永鸿、高文、黄显淞、孔子尚",
+      "number": "202211475402.8",
+      "originalText": "陈杰、田永鸿、高文、黄显淞、孔子尚.一种基于可学习方向导数的病灶边缘检测方法及相关装置[P].申请号202211475402.8，2022年11月23日",
+      "source": {
+        "file": "Publications.html",
+        "section": "content9-48",
+        "line": 275
+      }
+    },
+    {
+      "id": "ip-10",
+      "type": "patent",
+      "title": "一种基于区域互补聚合的人群计数方法及相关装置",
+      "authors": "陈杰、田永鸿、高文、王中岐、王书博",
+      "number": "202211384415.4",
+      "originalText": "陈杰、田永鸿、高文、王中岐、王书博.一种基于区域互补聚合的人群计数方法及相关装置[P].申请号202211384415.4，2022年11月7日",
+      "source": {
+        "file": "Publications.html",
+        "section": "content9-48",
+        "line": 276
+      }
+    },
+    {
+      "id": "ip-11",
+      "type": "patent",
+      "title": "基于图路径搜索和语义索引的医疗问答系统",
+      "authors": "高文，陈杰，田永鸿，施振辉、夏源",
+      "number": "202211709241.4",
+      "originalText": "高文，陈杰，田永鸿，施振辉、夏源. 基于图路径搜索和语义索引的医疗问答系统[P].申请号202211709241.4，2022年12月29日",
+      "source": {
+        "file": "Publications.html",
+        "section": "content9-48",
+        "line": 277
+      }
+    },
+    {
+      "id": "ip-12",
+      "type": "patent",
+      "title": "一种基于数据增强的肝脏CT肿瘤分割方法",
+      "authors": "高文，陈杰，田永鸿，王兆玮",
+      "number": "202211623471.9",
+      "originalText": "高文，陈杰，田永鸿，王兆玮.一种基于数据增强的肝脏CT肿瘤分割方法[P].申请号202211623471.9，2022年12月16日",
+      "source": {
+        "file": "Publications.html",
+        "section": "content9-48",
+        "line": 278
+      }
+    },
+    {
+      "id": "ip-13",
+      "type": "patent",
+      "title": "基于注意力机制的小样本分割方法、装置、终端及介质",
+      "authors": "陈杰、田永鸿、高文、王中岐、任前",
+      "number": "202211569888.1",
+      "originalText": "陈杰、田永鸿、高文、王中岐、任前. 基于注意力机制的小样本分割方法、装置、终端及介质[P].申请号202211569888.1，2022年12月8日",
+      "source": {
+        "file": "Publications.html",
+        "section": "content9-48",
+        "line": 279
+      }
+    },
+    {
+      "id": "ip-14",
+      "type": "patent",
+      "title": "一种基于中心点的细胞核分割方法",
+      "authors": "陈杰，田永鸿，高文，黄显淞，黄钟毅",
+      "number": "202211705880.3",
+      "originalText": "陈杰，田永鸿，高文，黄显淞，黄钟毅.一种基于中心点的细胞核分割方法[P].申请号202211705880.3，2022年12月29日",
+      "source": {
+        "file": "Publications.html",
+        "section": "content9-48",
+        "line": 280
+      }
+    },
+    {
+      "id": "ip-15",
+      "type": "patent",
+      "title": "一种多尺度空间特征增强方法及装置",
+      "authors": "高文，陈杰，田永鸿，徐凡，耿睿哲",
+      "number": "202211569881.X",
+      "originalText": "高文，陈杰，田永鸿，徐凡，耿睿哲.一种多尺度空间特征增强方法及装置[P].申请号202211569881.X，2022年12月8日",
+      "source": {
+        "file": "Publications.html",
+        "section": "content9-48",
+        "line": 281
+      }
+    },
+    {
+      "id": "ip-16",
+      "type": "patent",
+      "title": "一种基于领域对关联的迁移学习方法及装置",
+      "authors": "田永鸿，陈杰，高文，徐凡，张弛",
+      "number": "202211581443.5",
+      "originalText": "田永鸿，陈杰，高文，徐凡，张弛.一种基于领域对关联的迁移学习方法及装置[P].申请号202211581443.5，2022年12月9日",
+      "source": {
+        "file": "Publications.html",
+        "section": "content9-48",
+        "line": 282
+      }
+    },
+    {
+      "id": "ip-17",
+      "type": "patent",
+      "title": "一种基于上下文特征融合的细胞核分割方法及相关设备",
+      "authors": "田永鸿，高文，陈杰，徐凡，耿睿哲",
+      "number": "202211580495.0",
+      "originalText": "田永鸿，高文，陈杰，徐凡，耿睿哲.一种基于上下文特征融合的细胞核分割方法及相关设备[P].申请号202211580495.0，2022年12月9日",
+      "source": {
+        "file": "Publications.html",
+        "section": "content9-48",
+        "line": 283
+      }
+    },
+    {
+      "id": "ip-18",
+      "type": "patent",
+      "title": "基于自适应参数隔离的迁移学习方法、装置、终端及介质",
+      "authors": "田永鸿，陈杰，高文，徐凡，张弛",
+      "number": "202211579420.0",
+      "originalText": "田永鸿，陈杰，高文，徐凡，张弛.基于自适应参数隔离的迁移学习方法、装置、终端及介质[P].申请号202211579420.0，2022年12月8日",
+      "source": {
+        "file": "Publications.html",
+        "section": "content9-48",
+        "line": 284
+      }
+    },
+    {
+      "id": "ip-19",
+      "type": "software",
+      "title": "药物与蛋白质设计服务管理系统",
+      "authors": "陈杰、田永鸿、高文、黄显淞、徐凡、王中岐",
+      "number": "2022R11L1872673",
+      "originalText": "陈杰、田永鸿、高文、黄显淞、徐凡、王中岐. 药物与蛋白质设计服务管理系统（软件著作权）.2022R11L1872673",
+      "source": {
+        "file": "Publications.html",
+        "section": "content9-48",
+        "line": 285
+      }
+    },
+    {
+      "id": "ip-20",
+      "type": "software",
+      "title": "基于靶位结构和结合自由能的蛋白药物筛选软件",
+      "authors": "李代禧、陈杰、田永鸿、高文",
+      "number": "2022R11L1988060",
+      "originalText": "李代禧、陈杰、田永鸿、高文. 基于靶位结构和结合自由能的蛋白药物筛选软件（软件著作权）.2022R11L1988060",
+      "source": {
+        "file": "Publications.html",
+        "section": "content9-48",
+        "line": 286
+      }
+    },
+    {
+      "id": "ip-21",
+      "type": "software",
+      "title": "基于Gromacs的分子模拟软件",
+      "authors": "李代禧、陈杰、田永鸿、高文",
+      "number": "2022R11L1995041",
+      "originalText": "李代禧、陈杰、田永鸿、高文. 基于Gromacs的分子模拟软件（软件著作权）.2022R11L1995041",
+      "source": {
+        "file": "Publications.html",
+        "section": "content9-48",
+        "line": 287
+      }
+    }
+  ],
+  "migrationNotes": [
+    "Content migrated from the repository snapshot; claims, publication details and external link availability have not been independently revalidated.",
+    "One duplicated 2022 radiology citation is preserved in publications.json with duplicateOf metadata.",
+    "The 2024 heading in the original page also contained two AAAI 2025 records; each record now uses its own citation year.",
+    "Historical superlative and drug-development speed claims are preserved in originalText, while public project descriptions use restrained summaries.",
+    "DigitalLLaVA author spelling was checked against the official AAAI proceedings. InterTeach title and authors were checked against HKUST research metadata. Original citation text is preserved."
+  ]
+}

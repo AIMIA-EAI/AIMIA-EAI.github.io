@@ -1,0 +1,292 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import site from '../data/site.json';
+import lab from '../data/lab.json';
+import people from '../data/people.json';
+import { papers, media } from '../lib/content';
+import ResearchMotion from '../components/ResearchMotion.astro';
+import zh from '../data/zh.json';
+import { localePath, localizeDirections, translateRole, type Locale } from '../lib/i18n';
+interface Props {
+  lang?: Locale;
+}
+const { lang = 'en' } = Astro.props;
+const isZh = lang === 'zh';
+const t = (en: string, cn: string) => (isZh ? cn : en);
+const directions = localizeDirections(lang);
+
+const faculty = people.faculty[0];
+const relatedPaper = (tag: string | null) =>
+  tag ? papers.find((paper) => paper.researchAreas.includes(tag)) : null;
+---
+
+<Layout lang={lang}>
+  <section class="hero lab-hero container" id="about" aria-labelledby="lab-name">
+    <div class="hero-copy">
+      <div class="eyebrow hero-eyebrow">{t('PEKING UNIVERSITY · SHENZHEN', '北京大学 · 深圳')}</div>
+      <h1 id="lab-name">
+        {site.headline[0]} <span>{isZh ? '实验室' : site.headline[1]}</span>
+      </h1>
+      <p class="lab-chinese-name" lang={isZh ? 'en' : 'zh-CN'}>
+        {isZh ? 'AIMIA Lab' : 'AIMIA 实验室'}
+      </p>
+      <p class="hero-description">{isZh ? zh.lab.intro : site.intro}</p>
+      <div class="hero-actions lab-academic-links">
+        <a class="text-link" href={localePath('/research/', lang)}>
+          {t('Research Outputs', '研究成果')} <Icon name="external" size={17} />
+        </a>
+        <a class="text-link" href={localePath('/people/', lang)}>
+          {t('Team & Culture', '团队建设')} <Icon name="external" size={17} />
+        </a>
+        <a class="text-link" href={localePath('/join/', lang)}>
+          {t('Join us', '加入我们')} <Icon size={17} />
+        </a>
+      </div>
+    </div>
+    <div class="lab-identity">
+      <div class="lab-principal">
+        <a href={localePath('/people/', lang)} aria-label={t('About Jie Chen', '了解陈杰老师')}>
+          <img
+            src={media(faculty.image)}
+            alt={isZh ? faculty.nameZh : faculty.name}
+            width="112"
+            height="140"
+            fetchpriority="high"
+          />
+        </a>
+        <div>
+          <span class="eyebrow">{t('GROUP LEAD', '课题组负责人')}</span>
+          <a class="lab-principal-name" href={localePath('/people/', lang)}>
+            {isZh ? faculty.nameZh : faculty.name}{' '}
+            <span lang={isZh ? 'en' : 'zh-CN'}>{isZh ? faculty.name : faculty.nameZh}</span>
+          </a>
+          <p class="lab-principal-role">{translateRole(faculty.role, lang)}</p>
+          <p class="lab-principal-affiliation">
+            {isZh ? zh.lab.school : lab.school}
+            <br />
+            {t('Peking University Shenzhen Graduate School', '北京大学深圳研究生院')}
+          </p>
+          <div class="lab-principal-links">
+            <a class="text-link" href={faculty.homepage} target="_blank" rel="noopener noreferrer">
+              {t('Faculty profile', '教师主页')} <Icon name="external" size={14} />
+            </a>
+            <a
+              class="text-link lab-principal-scholar"
+              href={faculty.scholar}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t('Google Scholar', '谷歌学术')} <Icon name="external" size={14} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="research-motion-band">
+    <ResearchMotion lang={lang} />
+  </div>
+
+  <section class="lab-research-band" id="research-areas" aria-labelledby="research-title">
+    <div class="container">
+      <div class="section-heading" id="selected-research">
+        <div>
+          <span class="eyebrow">{t('RESEARCH', '研究方向与成果')}</span>
+          <h2 id="research-title">{t('Research Outputs', '研究成果')}</h2>
+        </div>
+        <a class="text-link" href={localePath('/research/', lang)}>
+          {t('Explore our research', '全部研究成果')} <Icon name="external" size={17} />
+        </a>
+      </div>
+      <div class="lab-direction-list">
+        {directions.map((direction) => {
+          const paper = relatedPaper(direction.tag);
+          return (
+            <article class="lab-direction">
+              <span class="mono">{direction.number}</span>
+              <div>
+                <h3>
+                  <a href={localePath(`/research/#${direction.id}`, lang)}>{direction.title}</a>
+                </h3>
+                <p class="lab-question">{direction.question}</p>
+              </div>
+              <div>
+                <p class="lab-direction-description">{direction.description}</p>
+                {paper ? (
+                  <a
+                    class="lab-related-paper"
+                    href={localePath(`/publications/#${paper.id}`, lang)}
+                  >
+                    <span>
+                      {t('Related publication', '相关论文')} · {paper.venue} {paper.year}
+                    </span>
+                    {paper.title}
+                    <Icon name="external" size={14} />
+                  </a>
+                ) : (
+                  <a class="text-link" href={localePath('/join/#contact', lang)}>
+                    {t('Research enquiries', '研究交流')} <Icon name="external" size={15} />
+                  </a>
+                )}
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="section container lab-community" aria-labelledby="group-title">
+    <div>
+      <span class="eyebrow">{t('RESEARCHERS & STUDENTS', '研究者与学生')}</span>
+      <h2 id="group-title">{t('Team & Culture', '团队建设')}</h2>
+      <p>
+        {t(
+          "Our group brings together doctoral researchers and master's students working across our research areas.",
+          '课题组由在不同研究方向开展工作的博士生与硕士生组成。',
+        )}
+      </p>
+      <p>
+        {t(
+          "Meet the group, explore members' research interests and find our alumni directory.",
+          '了解课题组成员、研究兴趣与校友去向。',
+        )}
+      </p>
+      <div class="lab-community-links">
+        <a class="text-link" href={localePath('/people/#students', lang)}>
+          {t('Current students', '在读学生')} <Icon name="external" size={16} />
+        </a>
+        <a class="text-link" href={localePath('/people/#alumni', lang)}>
+          {t('Alumni', '校友')} <Icon name="external" size={16} />
+        </a>
+      </div>
+    </div>
+    <div class="lab-student-note">
+      <span class="eyebrow">{t('FOR PROSPECTIVE STUDENTS', '面向未来的同学')}</span>
+      <h3>{t('Graduate study & research', '研究生学习与科研')}</h3>
+      <p>
+        {t(
+          'Students interested in embodied intelligence, multimodal intelligence or AI for Science (AI4S) can find contact details and admissions information here.',
+          '欢迎对具身智能、多模态智能或科学智能（AI4S）感兴趣的同学了解课题组，查阅招生参考信息并与我们交流。',
+        )}
+      </p>
+      <a class="text-link" href={localePath('/join/', lang)}>
+        {t('Prospective students', '招生与加入')} <Icon name="external" size={16} />
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .lab-hero {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: start;
+    gap: 64px;
+    padding-block: 42px 36px;
+  }
+  .lab-identity {
+    min-width: 0;
+  }
+  .lab-hero .lab-principal {
+    grid-template-columns: 128px minmax(0, 1fr);
+    align-items: start;
+    gap: 24px;
+    margin: 0;
+    padding: 0 0 20px;
+    border-top: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .lab-hero .lab-principal img {
+    width: 128px;
+    height: 160px;
+  }
+  .lab-hero .lab-principal-name {
+    font-size: 30px;
+    margin-top: 5px;
+  }
+  .lab-principal-role {
+    font-size: 17px;
+    color: var(--red);
+    margin-top: 5px;
+  }
+  .lab-principal-affiliation {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-top: 12px;
+  }
+  .lab-principal-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    margin-top: 17px;
+  }
+  .lab-principal-links .text-link {
+    font-size: 16px;
+  }
+  @media (max-width: 1000px) {
+    .lab-hero {
+      gap: 35px;
+    }
+    .lab-hero .lab-principal {
+      grid-template-columns: 100px minmax(0, 1fr);
+      gap: 18px;
+    }
+    .lab-hero .lab-principal img {
+      width: 100px;
+      height: 125px;
+    }
+    .lab-hero .lab-principal-name {
+      font-size: 23px;
+    }
+  }
+  @media (max-width: 800px) {
+    .lab-hero {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 26px;
+      padding-block: 32px 24px;
+    }
+    .lab-identity {
+      max-width: none;
+    }
+    .lab-hero .lab-principal {
+      grid-template-columns: 88px minmax(0, 1fr);
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+    .lab-hero .lab-principal img {
+      width: 88px;
+      height: 110px;
+    }
+    .lab-principal-role,
+    .lab-principal-affiliation {
+      font-size: 16px;
+    }
+    .lab-principal-links .text-link {
+      font-size: 15px;
+    }
+  }
+  .lab-hero .lab-principal .eyebrow {
+    font-size: 14px;
+  }
+  .lab-hero .lab-principal-name span {
+    font-size: 20px;
+  }
+  @media (max-width: 400px) {
+    .lab-hero .lab-principal {
+      grid-template-columns: 76px minmax(0, 1fr);
+      gap: 16px;
+    }
+    .lab-hero .lab-principal img {
+      width: 76px;
+      height: 95px;
+    }
+    .lab-hero .lab-principal-name span {
+      font-size: 16px;
+      margin-left: 5px;
+    }
+  }
+</style>

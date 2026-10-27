@@ -1,0 +1,114 @@
+---
+import Icon from './Icon.astro';
+import { localePath, type Locale } from '../lib/locale-path';
+interface Props {
+  lang?: Locale;
+}
+const { lang = 'en' } = Astro.props;
+const isZh = lang === 'zh';
+const pathname = Astro.url.pathname;
+const activePath = new URL(localePath(pathname, lang), 'https://local.test').pathname;
+const links = [
+  { href: '/research/', label: isZh ? '研究成果' : 'Research Outputs' },
+  { href: '/people/', label: isZh ? '团队建设' : 'Team & Culture' },
+];
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a
+      class="brand"
+      href={localePath('/', lang)}
+      aria-label={isZh ? 'AIMIA，北京大学 — 首页' : 'AIMIA, Peking University — home'}
+    >
+      <img
+        class="university-mark"
+        src="/media/pku-logo.svg"
+        alt={isZh ? '北京大学' : 'Peking University'}
+        width="138"
+        height="39"
+      />
+      <span class="brand-divider" aria-hidden="true"></span>
+      <span class="brand-name">AIMIA</span>
+    </a>
+    <div class="header-actions">
+      <a
+        class="language-switch"
+        href={localePath(pathname, isZh ? 'en' : 'zh')}
+        hreflang={isZh ? 'en' : 'zh-CN'}
+        lang={isZh ? 'en' : 'zh-CN'}
+        data-language-switch
+        aria-label={isZh ? 'Switch to English' : '切换为中文'}
+      >
+        {isZh ? 'EN' : '中文'}
+      </a>
+      <button
+        class="menu-toggle"
+        aria-label={isZh ? '打开导航' : 'Open navigation'}
+        data-open-label={isZh ? '打开导航' : 'Open navigation'}
+        data-close-label={isZh ? '关闭导航' : 'Close navigation'}
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <nav id="main-nav" class="main-nav" aria-label={isZh ? '主导航' : 'Main navigation'}>
+      {links.map((link) => (
+        <a
+          href={localePath(link.href, lang)}
+          aria-current={activePath.startsWith(localePath(link.href, lang)) ? 'page' : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href={localePath('/join/', lang)}
+        class="nav-contact"
+        aria-current={activePath.startsWith(localePath('/join/', lang)) ? 'page' : undefined}
+      >
+        {isZh ? '加入我们' : 'Join us'} <Icon name="external" size={15} />
+      </a>
+    </nav>
+  </div>
+</header>
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const nav = document.querySelector<HTMLElement>('#main-nav');
+  function closeMenu() {
+    toggle?.setAttribute('aria-expanded', 'false');
+    toggle?.setAttribute('aria-label', toggle.dataset.openLabel || 'Open navigation');
+    nav?.classList.remove('is-open');
+  }
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') !== 'true';
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute(
+      'aria-label',
+      (open ? toggle.dataset.closeLabel : toggle.dataset.openLabel) || 'Open navigation',
+    );
+    nav?.classList.toggle('is-open', open);
+  });
+  const languageLink = document.querySelector<HTMLAnchorElement>('[data-language-switch]');
+  function updateLanguageLink() {
+    if (!languageLink) return;
+    const target = new URL(languageLink.href);
+    target.search = location.search;
+    target.hash = location.hash;
+    languageLink.href = target.href;
+  }
+  updateLanguageLink();
+  languageLink?.addEventListener('click', updateLanguageLink);
+  languageLink?.addEventListener('focus', updateLanguageLink);
+  document.addEventListener('input', updateLanguageLink);
+  document.addEventListener('change', updateLanguageLink);
+  window.addEventListener('hashchange', updateLanguageLink);
+  nav?.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') {
+      closeMenu();
+      toggle?.focus();
+    }
+  });
+</script>

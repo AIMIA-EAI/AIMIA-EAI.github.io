@@ -1,0 +1,239 @@
+{
+  "source": "index.html",
+  "sourceDate": "2025-12-22",
+  "name": "AIMIA Lab",
+  "acronym": "AIMIA",
+  "institution": "Peking University",
+  "school": "School of Electronic and Computer Engineering",
+  "center": "Digital Media Research Center",
+  "about": [
+    "AIMIA Lab",
+    "The AIMIA Lab belongs to the Digital Media Research Center of Peking University, led by Jie Chen, associate professor at the School of Electronic and Computer Engineering of Peking University.",
+    "AIMIA has established cooperative relationships with other research groups, including international research groups, in the Digital Media Research Center of Peking University, as well as in Pengcheng Laboratory and Shenzhen Bay Laboratory.",
+    "Our research focuses on embodied intelligence, multimodal intelligence and AI for Science (AI4S)."
+  ],
+  "research": [
+    {
+      "id": "embodied",
+      "title": "Embodied intelligence",
+      "description": "Exploring a hierarchical architecture with an agent planner and either a native-action agent or a VLA model, connecting task planning, action execution and environment feedback.",
+      "paragraphs": [
+        "Exploring a hierarchical architecture with an agent planner and either a native-action agent or a VLA model, connecting task planning, action execution and environment feedback."
+      ],
+      "originalText": "Embodied intelligence is a subfield of AI research. It focuses on enabling intelligent systems to perceive, understand, and engage with their environment through actual interaction. Embodied intelligence aims to integrate sensors, action mechanisms, and decision-making capabilities to enable intelligent systems to act and interact with the physical world as humans do.\nBy blending perception, cognition, and behavior, embodied intelligence models are able to learn the structure and rules of the environment and take appropriate actions. This comprehensive approach allows embodied intelligence to be applied to robotics, autonomous vehicles, augmented reality and more, facilitating closer interaction and cooperation between intelligent systems and the human environment."
+    },
+    {
+      "id": "multimodal",
+      "title": "Multimodal intelligence",
+      "description": "Understanding and generating content across vision and language, including images, videos and human motion.",
+      "paragraphs": [
+        "Understanding and generating content across vision and language, including images, videos and human motion."
+      ],
+      "originalText": "Multimodal Large Language Models (MLLM) are advanced artificial intelligence models designed to understand and process multiple modalities, including text, images, audio, etc. By applying deep learning techniques and large sets of data for training, these models are able to figure out patterns and relationships between models.\nApplication Area 1: Natural Language Processing\n- NLP model structure innovation\n- Learning Feedback Enhancement\n- Distributed Training\n- Model Optimization\n- Other related technologies.\nApplication Area 2: Computer Vision and Pattern Recognition\n- Image Segmentation and Classification\n- Image Semantic Understanding\n- Semi-supervised Learning\n- Weakly Supervised Learning, etc.\nApplication Area 3: Multimodal and Multi-perspective Learning\nExplore how to combine multiple sources of information and learn information in datasets from multiple perspectives. These applications include graphic retrieval, 3D object detection, machine translation, etc.\nApplication Area 4: Medical Image Analysis\nThe purpose of Medical Image Analysis is to detect the interest areas and targets in medical images qualitatively or quantitatively, and to explore the connotation of images, so as to provide information reference for clinicians or researchers. The main research fields include image classification and segmentation, disease diagnosis, image registration, medical report generation, etc."
+    },
+    {
+      "id": "ai-for-science",
+      "title": "AI for Science (AI4S)",
+      "description": "Developing AI methods for biomolecular prediction and design, virus evolution, protein structure and medical image analysis.",
+      "paragraphs": [
+        "Developing AI methods for biomolecular prediction and design, virus evolution, protein structure and medical image analysis."
+      ],
+      "originalText": "AI for Science means pre-training models with strong generalization capabilities, thus enabling them to tackle multiple downstream tasks related to major bottlenecks in science, which include controllable targeted peptide design, virus mutation prediction, antibody generation and key property prediction, protein structure prediction, RNA structure and function prediction, etc."
+    }
+  ],
+  "contact": {
+    "emails": [
+      {
+        "address": "jiechen2019@pku.edu.cn",
+        "display": "jiechen2019 at pku dot edu dot cn"
+      },
+      {
+        "address": "lijx@pkusz.edu.cn",
+        "display": "lijx at pkusz dot edu dot cn"
+      }
+    ],
+    "address": [
+      "Peking University Shenzhen Graduate School",
+      "No. 2199 Lishui Road, Nanshan District, Shenzhen"
+    ],
+    "originalText": "jiechen2019 at pku dot edu dot cn lijx at pkusz dot edu dot cn Peking University Shenzhen Graduate School No. 2199 Lishui Road, Nanshan District, Shenzhen"
+  },
+  "openings": {
+    "text": "We welcome students interested in research in embodied intelligence, multimodal intelligence and AI for Science (AI4S). Prospective students can explore master’s and doctoral study through the School of Electronic and Computer Engineering at Peking University.",
+    "admissionUrl": "/assets/files/Opening-Remarks_2024_6_19.pdf",
+    "originalText": "We welcome undergraduates and graduate students who are interested in scientific research and have strong ability to withstand pressure to apply for master’s degree and doctor’s degree in the School of Electronic and Computer Engineering of Peking University to engage in Computer Vision /AI for Science/ AIGC related research. (Click here for admission information)",
+    "documentYear": 2024
+  },
+  "honors": [
+    {
+      "year": 2024,
+      "text": "The 2024 National Second Prize and Guangdong Provincial First Prize in the \"Data Elements × Technological Innovation\" Competition. (“数据要素×科技创新”大赛全国二等奖 广东省一等奖)",
+      "originalText": "The 2024 National Second Prize and Guangdong Provincial First Prize in the \"Data Elements × Technological Innovation\" Competition. (“数据要素×科技创新”大赛全国二等奖 广东省一等奖)"
+    },
+    {
+      "year": 2024,
+      "text": "The 2024 \"Zu Chongzhi\" Annual Major Achievement Award for Frontier Innovation in Artificial Intelligence. (“祖冲之”人工智能前沿创新年度重大成果奖)",
+      "originalText": "The 2024 \"Zu Chongzhi\" Annual Major Achievement Award for Frontier Innovation in Artificial Intelligence. (“祖冲之”人工智能前沿创新年度重大成果奖)"
+    },
+    {
+      "year": 2023,
+      "text": "The 2023 Special Prize of Guangdong Province for Scientific and Technological Progress. (广东省科技进步特等奖)",
+      "originalText": "The 2023 Special Prize of Guangdong Province for Scientific and Technological Progress. (广东省科技进步特等奖)"
+    },
+    {
+      "year": 2022,
+      "text": "Finalist for the 2022 \"Gordon Bell New Crown Special Award\" (The finalist only contains three teams in the world. AIMIA is the only Chinese team in the finalist.)",
+      "originalText": "Finalist for the 2022 \"Gordon Bell New Crown Special Award\" (The finalist only contains three teams in the world. AIMIA is the only Chinese team in the finalist.)"
+    },
+    {
+      "year": 2022,
+      "text": "First place in CAMEO 2022, an internationally renowned protein structure prediction competition",
+      "originalText": "First place in CAMEO 2022, an internationally renowned protein structure prediction competition"
+    },
+    {
+      "year": 2015,
+      "text": "The second Prize of National Science and Technology Progress Award in 2015: Local Modeling of Visual Patterns and Nonlinear Feature Acquisition Theory and Method",
+      "originalText": "The second Prize of National Science and Technology Progress Award in 2015: Local Modeling of Visual Patterns and Nonlinear Feature Acquisition Theory and Method"
+    },
+    {
+      "year": 2005,
+      "text": "The second prize of National Science and Technology Progress Award in 2005: Face Recognition Theory, Technology, System and Application",
+      "originalText": "The second prize of National Science and Technology Progress Award in 2005: Face Recognition Theory, Technology, System and Application"
+    },
+    {
+      "year": 2004,
+      "text": "The first prize of the Face verification competition of the First China Biometrics Competition (BVC2004)",
+      "originalText": "The first prize of the Face verification competition of the First China Biometrics Competition (BVC2004)"
+    },
+    {
+      "year": 2006,
+      "text": "First place in the IAPR ICB 2006 Face Verification Competition, organized by Josef Kittler of the University of Surrey, UK",
+      "originalText": "First place in the IAPR ICB 2006 Face Verification Competition, organized by Josef Kittler of the University of Surrey, UK"
+    }
+  ],
+  "teamPhotos": [
+    {
+      "src": "/assets/images/tj1-1520x1140.jpg",
+      "alt": "AIMIA group and research activities — photograph 1",
+      "originalIndex": 0
+    },
+    {
+      "src": "/assets/images/2025.12.19e8819ae9a490-1520x1140.jpg",
+      "alt": "AIMIA group and research activities — photograph 2",
+      "originalIndex": 1
+    },
+    {
+      "src": "/assets/images/tj2-1520x1140.jpg",
+      "alt": "AIMIA group and research activities — photograph 3",
+      "originalIndex": 2
+    },
+    {
+      "src": "/assets/images/tj3-1520x1139.jpg",
+      "alt": "AIMIA group and research activities — photograph 4",
+      "originalIndex": 3
+    },
+    {
+      "src": "/assets/images/tj4-1520x1140.jpg",
+      "alt": "AIMIA group and research activities — photograph 5",
+      "originalIndex": 4
+    },
+    {
+      "src": "/assets/images/tj5-1520x1140.jpg",
+      "alt": "AIMIA group and research activities — photograph 6",
+      "originalIndex": 5
+    },
+    {
+      "src": "/assets/images/aimia-1520x1140.png",
+      "alt": "AIMIA group and research activities — photograph 7",
+      "originalIndex": 6
+    },
+    {
+      "src": "/assets/images/aimia3-1900x1425.jpg",
+      "alt": "AIMIA group and research activities — photograph 8",
+      "originalIndex": 7
+    },
+    {
+      "src": "/assets/images/05-1885x1060.jpg",
+      "alt": "AIMIA group and research activities — photograph 9",
+      "originalIndex": 8
+    },
+    {
+      "src": "/assets/images/03-1900x1068.jpg",
+      "alt": "AIMIA group and research activities — photograph 10",
+      "originalIndex": 9
+    },
+    {
+      "src": "/assets/images/04-1900x1069.jpg",
+      "alt": "AIMIA group and research activities — photograph 11",
+      "originalIndex": 10
+    },
+    {
+      "src": "/assets/images/02-1900x1069.jpg",
+      "alt": "AIMIA group and research activities — photograph 12",
+      "originalIndex": 11
+    },
+    {
+      "src": "/assets/images/cj-906x681.png",
+      "alt": "AIMIA group and research activities — photograph 13",
+      "originalIndex": 12
+    }
+  ],
+  "caveats": [
+    "Research descriptions, honors and openings are migrated source material; no claim has been newly verified.",
+    "The linked admissions document is explicitly dated 2024 and should be reviewed before replacing with current information.",
+    "Team photograph captions were not supplied in the source; generated alt text describes the collection only."
+  ],
+  "researchArchive": [
+    {
+      "id": "multimodal",
+      "title": "Multimodal Large Language Model (MLLM)",
+      "description": "Multimodal Large Language Models (MLLM) are advanced artificial intelligence models designed to understand and process multiple modalities, including text, images, audio, etc. By applying deep learning techniques and large sets of data for training, these models are able to figure out patterns and relationships between models. Application Area 1: Natural Language Processing - NLP model structure innovation - Learning Feedback Enhancement - Distributed Training - Model Optimization - Other related technologies. Application Area 2: Computer Vision and Pattern Recognition - Image Segmentation and Classification - Image Semantic Understanding - Semi-supervised Learning - Weakly Supervised Learning, etc. Application Area 3: Multimodal and Multi-perspective Learning Explore how to combine multiple sources of information and learn information in datasets from multiple perspectives. These applications include graphic retrieval, 3D object detection, machine translation, etc. Application Area 4: Medical Image Analysis The purpose of Medical Image Analysis is to detect the interest areas and targets in medical images qualitatively or quantitatively, and to explore the connotation of images, so as to provide information reference for clinicians or researchers. The main research fields include image classification and segmentation, disease diagnosis, image registration, medical report generation, etc.",
+      "paragraphs": [
+        "Multimodal Large Language Models (MLLM) are advanced artificial intelligence models designed to understand and process multiple modalities, including text, images, audio, etc. By applying deep learning techniques and large sets of data for training, these models are able to figure out patterns and relationships between models.",
+        "Application Area 1: Natural Language Processing - NLP model structure innovation - Learning Feedback Enhancement - Distributed Training - Model Optimization - Other related technologies.",
+        "Application Area 2: Computer Vision and Pattern Recognition - Image Segmentation and Classification - Image Semantic Understanding - Semi-supervised Learning - Weakly Supervised Learning, etc.",
+        "Application Area 3: Multimodal and Multi-perspective Learning Explore how to combine multiple sources of information and learn information in datasets from multiple perspectives. These applications include graphic retrieval, 3D object detection, machine translation, etc.",
+        "Application Area 4: Medical Image Analysis The purpose of Medical Image Analysis is to detect the interest areas and targets in medical images qualitatively or quantitatively, and to explore the connotation of images, so as to provide information reference for clinicians or researchers. The main research fields include image classification and segmentation, disease diagnosis, image registration, medical report generation, etc."
+      ],
+      "originalText": "Multimodal Large Language Models (MLLM) are advanced artificial intelligence models designed to understand and process multiple modalities, including text, images, audio, etc. By applying deep learning techniques and large sets of data for training, these models are able to figure out patterns and relationships between models.\nApplication Area 1: Natural Language Processing\n- NLP model structure innovation\n- Learning Feedback Enhancement\n- Distributed Training\n- Model Optimization\n- Other related technologies.\nApplication Area 2: Computer Vision and Pattern Recognition\n- Image Segmentation and Classification\n- Image Semantic Understanding\n- Semi-supervised Learning\n- Weakly Supervised Learning, etc.\nApplication Area 3: Multimodal and Multi-perspective Learning\nExplore how to combine multiple sources of information and learn information in datasets from multiple perspectives. These applications include graphic retrieval, 3D object detection, machine translation, etc.\nApplication Area 4: Medical Image Analysis\nThe purpose of Medical Image Analysis is to detect the interest areas and targets in medical images qualitatively or quantitatively, and to explore the connotation of images, so as to provide information reference for clinicians or researchers. The main research fields include image classification and segmentation, disease diagnosis, image registration, medical report generation, etc."
+    },
+    {
+      "id": "generative",
+      "title": "AIGC：AI Generated Content",
+      "description": "AIGC aims at using artificial intelligence algorithms to generate content with certain creativity and quality. It applies model training and data learning to generate content based on input criteria and guidance. For instance, if we input keywords, descriptions or samples, AIGC will generate articles, images, audio, etc. accordingly.",
+      "paragraphs": [
+        "AIGC aims at using artificial intelligence algorithms to generate content with certain creativity and quality. It applies model training and data learning to generate content based on input criteria and guidance. For instance, if we input keywords, descriptions or samples, AIGC will generate articles, images, audio, etc. accordingly."
+      ],
+      "originalText": "AIGC aims at using artificial intelligence algorithms to generate content with certain creativity and quality. It applies model training and data learning to generate content based on input criteria and guidance. For instance, if we input keywords, descriptions or samples, AIGC will generate articles, images, audio, etc. accordingly."
+    },
+    {
+      "id": "embodied",
+      "title": "Embodied Intelligence: Embodied AI",
+      "description": "Embodied intelligence is a subfield of AI research. It focuses on enabling intelligent systems to perceive, understand, and engage with their environment through actual interaction. Embodied intelligence aims to integrate sensors, action mechanisms, and decision-making capabilities to enable intelligent systems to act and interact with the physical world as humans do. By blending perception, cognition, and behavior, embodied intelligence models are able to learn the structure and rules of the environment and take appropriate actions. This comprehensive approach allows embodied intelligence to be applied to robotics, autonomous vehicles, augmented reality and more, facilitating closer interaction and cooperation between intelligent systems and the human environment.",
+      "paragraphs": [
+        "Embodied intelligence is a subfield of AI research. It focuses on enabling intelligent systems to perceive, understand, and engage with their environment through actual interaction. Embodied intelligence aims to integrate sensors, action mechanisms, and decision-making capabilities to enable intelligent systems to act and interact with the physical world as humans do.",
+        "By blending perception, cognition, and behavior, embodied intelligence models are able to learn the structure and rules of the environment and take appropriate actions. This comprehensive approach allows embodied intelligence to be applied to robotics, autonomous vehicles, augmented reality and more, facilitating closer interaction and cooperation between intelligent systems and the human environment."
+      ],
+      "originalText": "Embodied intelligence is a subfield of AI research. It focuses on enabling intelligent systems to perceive, understand, and engage with their environment through actual interaction. Embodied intelligence aims to integrate sensors, action mechanisms, and decision-making capabilities to enable intelligent systems to act and interact with the physical world as humans do.\nBy blending perception, cognition, and behavior, embodied intelligence models are able to learn the structure and rules of the environment and take appropriate actions. This comprehensive approach allows embodied intelligence to be applied to robotics, autonomous vehicles, augmented reality and more, facilitating closer interaction and cooperation between intelligent systems and the human environment."
+    },
+    {
+      "id": "science",
+      "title": "AI for Science",
+      "description": "AI for Science means pre-training models with strong generalization capabilities, thus enabling them to tackle multiple downstream tasks related to major bottlenecks in science, which include controllable targeted peptide design, virus mutation prediction, antibody generation and key property prediction, protein structure prediction, RNA structure and function prediction, etc.",
+      "paragraphs": [
+        "AI for Science means pre-training models with strong generalization capabilities, thus enabling them to tackle multiple downstream tasks related to major bottlenecks in science, which include controllable targeted peptide design, virus mutation prediction, antibody generation and key property prediction, protein structure prediction, RNA structure and function prediction, etc."
+      ],
+      "originalText": "AI for Science means pre-training models with strong generalization capabilities, thus enabling them to tackle multiple downstream tasks related to major bottlenecks in science, which include controllable targeted peptide design, virus mutation prediction, antibody generation and key property prediction, protein structure prediction, RNA structure and function prediction, etc."
+    }
+  ],
+  "originalAbout": [
+    "Artificial Intelligence & Medical Image Analysis Lab",
+    "The Group Artificial Intelligence and Medical Image Analysis (AIMIA) belongs to the Digital Media Research Center of Peking University, guided by Dr. Chen Jie, the associate professor of the School of Electronic and Computer Engineering of Peking University.",
+    "AIMIA has established cooperative relationships with other research groups, including international research groups, in the Digital Media Research Center of Peking University, as well as in Pengcheng Laboratory and Shenzhen Bay Laboratory.",
+    "Our research focuses on Multimodal Large Language Model (MLLM), Artificial Intelligence-Generated Content (AIGC), Embodied AI and AI for science."
+  ],
+  "researchUpdatedOn": "2026-10-27",
+  "researchUpdateSource": "User instruction: focus the lab website on multimodal intelligence, embodied intelligence and AI4S; describe embodied intelligence as an agent planner with a native-action agent or VLA model in a hierarchical architecture.",
+  "researchOrderUpdatedOn": "2026-10-27",
+  "researchOrderUpdateSource": "User instruction: display embodied intelligence as direction 01, followed by multimodal intelligence (02) and AI for Science (03)."
+}

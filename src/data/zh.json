@@ -1,0 +1,280 @@
+{
+  "directions": {
+    "embodied": {
+      "title": "具身智能",
+      "short": "大小脑协同，连接规划与执行。",
+      "description": "探索大小脑协同架构：由 Agent 规划器拆解任务，以 Agent 原生动作器或 VLA 模型执行动作，并通过环境反馈形成闭环。",
+      "question": "Agent 规划器如何与原生动作器或 VLA 模型协同，实现物理世界中的任务规划与执行？",
+      "keywords": ["Agent 规划器", "Agent 原生动作器", "VLA 模型"]
+    },
+    "multimodal": {
+      "title": "多模态智能",
+      "short": "多模态理解与生成。",
+      "description": "研究视觉与语言等模态的理解和生成，涵盖图像、视频及人体动作等内容。",
+      "question": "如何让模型跨越视觉与语言模态，实现理解与生成？",
+      "keywords": ["视觉语言模型", "理解与生成", "视觉定位"]
+    },
+    "ai-for-science": {
+      "title": "科学智能（AI4S）",
+      "short": "面向科学研究的人工智能方法。",
+      "description": "面向生物分子预测与设计、病毒演化、蛋白质结构和医学影像分析，研究人工智能方法。",
+      "question": "人工智能如何支持生物与医学中的科学预测和发现？",
+      "keywords": ["生物分子设计", "科学预测", "医学影像"]
+    }
+  },
+  "lab": {
+    "name": "AIMIA 实验室",
+    "institution": "北京大学",
+    "school": "信息工程学院",
+    "center": "数字媒体研究中心",
+    "intro": "我们的研究聚焦具身智能、多模态智能与科学智能（AI4S）三个方向。",
+    "contactAddress": ["北京大学深圳研究生院", "深圳市南山区丽水路2199号"],
+    "about": [
+      "AIMIA 实验室",
+      "AIMIA隶属于北京大学数字媒体研究中心，由北京大学信息工程学院陈杰副教授带领。",
+      "课题组与北京大学数字媒体研究中心内的其他研究团队，以及鹏城实验室、深圳湾实验室等开展合作。",
+      "我们的研究聚焦具身智能、多模态智能与科学智能（AI4S）三个方向。"
+    ]
+  },
+  "roles": {
+    "Associate professor": "副教授",
+    "Ph.D. student": "博士研究生",
+    "Master's student": "硕士研究生",
+    "Postdoctoral alumni": "博士后校友",
+    "Ph.D. alumni": "博士校友",
+    "Master's alumni": "硕士校友"
+  },
+  "interests": {
+    "3D Texture": "三维纹理",
+    "AI for Science": "科学智能（AI4S）",
+    "AI4Science": "科学智能（AI4S）",
+    "AIGC": "生成式人工智能",
+    "Bioinformatics": "生物信息学",
+    "Computer Vision": "计算机视觉",
+    "Computer vision and pattern recognition": "计算机视觉与模式识别",
+    "Cross-modal": "跨模态学习",
+    "Deep Learning": "深度学习",
+    "Deep learning": "深度学习",
+    "Embodied AI": "具身智能",
+    "Image Segmentation": "图像分割",
+    "Imitation Learning": "模仿学习",
+    "MLLM": "多模态大语言模型",
+    "Medical Image Analysis": "医学影像分析",
+    "Medical Report Generation": "医学报告生成",
+    "Medical image analysis": "医学影像分析",
+    "Multi-modal": "多模态学习",
+    "NLP": "自然语言处理",
+    "Natural language processing": "自然语言处理",
+    "Object Detection": "目标检测",
+    "Protein Engineering": "蛋白质工程",
+    "Segmentation": "分割",
+    "Semi-supervised Learning": "半监督学习"
+  },
+  "news": {
+    "news-01": {
+      "title": "1篇论文被Nature Machine Intelligence录用。祝贺Zhiwei Nie！",
+      "dateLabel": "2025年1月"
+    },
+    "news-02": {
+      "title": "2篇论文被AAAI录用。祝贺Zishan Shu、Ruochong Zheng！",
+      "dateLabel": "2025年12月"
+    },
+    "news-03": {
+      "title": "1篇论文被IEEE TMM录用。祝贺Yuke Li！",
+      "dateLabel": "2025年11月"
+    },
+    "news-04": {
+      "title": "3篇论文被IEEE TPAMI录用。祝贺Bin Chen、Yian Zhao、Peng Jin！",
+      "dateLabel": "2025年3月"
+    },
+    "news-05": {
+      "title": "2篇论文被ICCV录用。祝贺Zesen Cheng、Yian Zhao！",
+      "dateLabel": "2025年6月"
+    },
+    "news-06": {
+      "title": "2篇论文被CVPR录用。祝贺Yian Zhao、Bin Chen！",
+      "dateLabel": "2025年6月"
+    },
+    "news-07": {
+      "title": "1篇论文被IJCAI录用。祝贺Zishan Shu！",
+      "dateLabel": "2025年4月"
+    },
+    "news-08": {
+      "title": "2篇论文被AAAI录用。祝贺Zesen Cheng、Shiyu Li！",
+      "dateLabel": "2024年12月"
+    },
+    "news-09": {
+      "title": "1篇论文被NAACL录用。祝贺Yihan Zhang！",
+      "dateLabel": "2025年3月"
+    },
+    "news-10": {
+      "title": "1篇论文被IEEE TPAMI录用。祝贺Peng Jin、Hao Li！",
+      "dateLabel": "2024年12月"
+    },
+    "news-11": {
+      "title": "2篇论文被IEEE TMM录用。祝贺Qiankun Ma、Yuke Li！",
+      "dateLabel": "2024年11月"
+    },
+    "news-12": {
+      "title": "1篇论文被Nature Machine Intelligence录用。祝贺Zhiwei Nie、Xudong Liu！",
+      "dateLabel": "2024年10月"
+    },
+    "news-13": {
+      "title": "1篇论文被IJCV录用。祝贺Pengchong Qiao！",
+      "dateLabel": "2024年7月"
+    },
+    "news-14": {
+      "title": "4篇论文被ECCV录用。祝贺Peng Jin、Mengjun Cheng、Qiran Zou、Kehan Li！",
+      "dateLabel": "2024年7月"
+    },
+    "news-15": {
+      "title": "1篇论文被IEEE TMI录用。祝贺Shiyu Li！",
+      "dateLabel": "2024年6月"
+    },
+    "news-16": {
+      "title": "1篇论文入选CVPR Highlight。祝贺Yian Zhao！",
+      "dateLabel": "2024年3月"
+    },
+    "news-17": {
+      "title": "3篇论文被CVPR录用。祝贺Pengchong Qiao、Yian Zhao！",
+      "dateLabel": "2024年2月"
+    },
+    "news-18": {
+      "title": "1篇论文被ICLR录用。祝贺Zhilin Huang！",
+      "dateLabel": "2024年1月"
+    },
+    "news-19": {
+      "title": "1篇论文被AAAI录用。祝贺Zesen Cheng！",
+      "dateLabel": "2023年12月"
+    },
+    "news-20": {
+      "title": "1篇论文被Nucleic Acids Research录用。祝贺Yikun Zhang！",
+      "dateLabel": "2023年10月"
+    },
+    "news-21": {
+      "title": "1篇论文被NeurIPS录用。祝贺Yu Wang！",
+      "dateLabel": "2023年9月"
+    },
+    "news-22": {
+      "title": "1篇论文被IEEE TMM录用。祝贺Yiming Liu！",
+      "dateLabel": "2023年9月"
+    },
+    "news-23": {
+      "title": "5篇论文被ICCV录用。祝贺Pengxu Wei、Yujing Sun、Peng Jin、Kehan Li、Hongliang He、Jun Wang、Runyi Yu！",
+      "dateLabel": "2023年7月"
+    },
+    "news-24": {
+      "title": "1篇论文获评ICASSP前3%论文。祝贺Bin Fu！",
+      "dateLabel": "2023年6月"
+    },
+    "news-25": {
+      "title": "1篇论文被IEEE TIP录用。祝贺Hao Li！",
+      "dateLabel": "2023年4月"
+    },
+    "news-26": {
+      "title": "3篇论文被IJCAI录用。祝贺Peng Jin、Hao Li、Zesen Cheng！",
+      "dateLabel": "2023年4月"
+    },
+    "news-27": {
+      "title": "3篇论文入选CVPR Highlight。祝贺Peng Jin、Kehan Li、Haoliang Zhao！",
+      "dateLabel": "2023年3月"
+    },
+    "news-28": {
+      "title": "6篇论文被CVPR录用。祝贺Pengchong Qiao、Zesen Cheng、Peng Jin、Kehan Li、Yu Wang、Haoliang Zhao！",
+      "dateLabel": "2023年2月"
+    },
+    "news-29": {
+      "title": "2篇论文被ICASSP录用。祝贺Jifan Zhang、Bin Fu！",
+      "dateLabel": "2023年2月"
+    },
+    "news-30": {
+      "title": "鹏程·神农项目入围ACM戈登贝尔新冠研究特别奖，为该届入围的唯一中国团队。相关项目与论文介绍见下方链接。",
+      "dateLabel": "研究进展"
+    }
+  },
+  "projects": {
+    "shennong": {
+      "title": "鹏程·神农",
+      "description": "面向靶向药物设计与生物分子研究的人工智能方法。"
+    },
+    "virus-evolution": {
+      "title": "领先于病毒的进化",
+      "description": "利用人工智能模拟预测未来高风险新冠病毒变异株。该联合研究项目入围2022年ACM戈登贝尔新冠研究特别奖。"
+    },
+    "metafold": {
+      "title": "MetaFold",
+      "description": "依托鹏城云脑II人工智能计算集群开展蛋白质结构预测研究。"
+    }
+  },
+  "datasets": {
+    "bcdata": {
+      "subtitle": "面向细胞检测与计数的大规模数据集与基准",
+      "description": "用于阳性与阴性肿瘤细胞检测和计数的数据集与基准。图像及HDF5坐标标注划分为训练集、验证集和测试集。"
+    }
+  },
+  "honors": [
+    {
+      "year": 2024,
+      "text": "“数据要素×科技创新”大赛全国二等奖、广东省一等奖。"
+    },
+    {
+      "year": 2024,
+      "text": "“祖冲之”人工智能前沿创新年度重大成果奖。"
+    },
+    {
+      "year": 2023,
+      "text": "广东省科技进步特等奖。"
+    },
+    {
+      "year": 2022,
+      "text": "入围ACM戈登贝尔新冠研究特别奖。据原网站记录，该届共三支团队入围，AIMIA所在团队为唯一中国团队。"
+    },
+    {
+      "year": 2022,
+      "text": "在国际蛋白质结构预测评测CAMEO中获得第一名。"
+    },
+    {
+      "year": 2015,
+      "text": "国家科学技术进步二等奖：视觉模式的局部建模与非线性特征获取理论和方法。"
+    },
+    {
+      "year": 2005,
+      "text": "国家科学技术进步二等奖：人脸识别理论、技术、系统与应用。"
+    },
+    {
+      "year": 2004,
+      "text": "首届中国生物特征识别大赛（BVC2004）人脸验证比赛一等奖。"
+    },
+    {
+      "year": 2006,
+      "text": "IAPR ICB 2006人脸验证比赛第一名，该比赛由英国萨里大学Josef Kittler组织。"
+    }
+  ],
+  "terms": {
+    "Paper": "论文",
+    "PDF": "PDF全文",
+    "Paper PDF": "论文PDF",
+    "Code": "代码",
+    "Project": "项目主页",
+    "DOI": "DOI",
+    "Publication record": "论文条目",
+    "Project website": "项目网站",
+    "Presentation PDF": "报告幻灯片PDF",
+    "Download dataset": "下载数据集",
+    "Read more": "了解详情",
+    "top 3% paper": "前3%论文",
+    "Pubulications": "论文介绍",
+    "AI for Science (AI4S)": "科学智能（AI4S）",
+    "Generative methods (archive)": "生成式方法（历史主题）",
+    "Medical imaging (archive)": "医学影像（历史主题）",
+    "Computer vision (archive)": "计算机视觉（历史主题）",
+    "Peking University": "北京大学",
+    "Digital Media Research Center": "数字媒体研究中心",
+    "School of Electronic and Computer Engineering": "信息工程学院",
+    "Peking University Shenzhen Graduate School": "北京大学深圳研究生院",
+    "Proceedings": "会议论文集",
+    "Public Institution": "事业单位",
+    "Local Government": "地方政府",
+    "Duke University, outstanding graduate of Peking University, outstanding graduate of Beijing": "Duke University；北京大学优秀毕业生、北京市优秀毕业生"
+  }
+}

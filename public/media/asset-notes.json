@@ -1,0 +1,293 @@
+{
+  "description": "Website assets copied or optimized from original repository files. Original photographs and portraits are preserved; no generated or substituted research results.",
+  "portraits": 41,
+  "groups": 13,
+  "research": 3,
+  "assets": [
+    {
+      "source": "assets/images/cj-376x501.png",
+      "output": "/media/person-cj-376x501.jpg",
+      "bytes": 28092
+    },
+    {
+      "source": "assets/images/jzw-659x659.jpg",
+      "output": "/media/person-jzw-659x659.jpg",
+      "bytes": 36261
+    },
+    {
+      "source": "assets/images/qpc.jpeg",
+      "output": "/media/person-qpc.jpg",
+      "bytes": 21611
+    },
+    {
+      "source": "assets/images/cmj.jpeg",
+      "output": "/media/person-cmj.jpg",
+      "bytes": 38579
+    },
+    {
+      "source": "assets/images/czs.jpeg",
+      "output": "/media/person-czs.jpg",
+      "bytes": 46873
+    },
+    {
+      "source": "assets/images/szs-596x795.jpg",
+      "output": "/media/person-szs-596x795.jpg",
+      "bytes": 47131
+    },
+    {
+      "source": "assets/images/tyh-596x893.jpg",
+      "output": "/media/person-tyh-596x893.jpg",
+      "bytes": 24876
+    },
+    {
+      "source": "assets/images/fhx-596x859.jpg",
+      "output": "/media/person-fhx-596x859.jpg",
+      "bytes": 21474
+    },
+    {
+      "source": "assets/images/lql-1220x1643.jpg",
+      "output": "/media/person-lql-1220x1643.jpg",
+      "bytes": 24532
+    },
+    {
+      "source": "assets/images/mqk.jpeg",
+      "output": "/media/person-mqk.jpg",
+      "bytes": 12374
+    },
+    {
+      "source": "assets/images/wy.jpeg",
+      "output": "/media/person-wy.jpg",
+      "bytes": 27478
+    },
+    {
+      "source": "assets/images/596x596.png",
+      "output": "/media/person-596x596.jpg",
+      "bytes": 75191
+    },
+    {
+      "source": "assets/images/zyk.jpeg",
+      "output": "/media/person-zyk.jpg",
+      "bytes": 74730
+    },
+    {
+      "source": "assets/images/zyh.jpeg",
+      "output": "/media/person-zyh.jpg",
+      "bytes": 39384
+    },
+    {
+      "source": "assets/images/shiyu-1171x1640.jpg",
+      "output": "/media/person-shiyu-1171x1640.jpg",
+      "bytes": 20498
+    },
+    {
+      "source": "assets/images/luna-295x413.jpg",
+      "output": "/media/person-luna-295x413.jpg",
+      "bytes": 19144
+    },
+    {
+      "source": "assets/images/yuke-1770x2478.jpg",
+      "output": "/media/person-yuke-1770x2478.jpg",
+      "bytes": 33191
+    },
+    {
+      "source": "assets/images/rushi-572x800.jpg",
+      "output": "/media/person-rushi-572x800.jpg",
+      "bytes": 23629
+    },
+    {
+      "source": "assets/images/yian-1453x2123.jpg",
+      "output": "/media/person-yian-1453x2123.jpg",
+      "bytes": 20909
+    },
+    {
+      "source": "assets/images/yiming-1039x1500.jpg",
+      "output": "/media/person-yiming-1039x1500.jpg",
+      "bytes": 30433
+    },
+    {
+      "source": "assets/images/xudong-1280x1280.jpg",
+      "output": "/media/person-xudong-1280x1280.jpg",
+      "bytes": 35406
+    },
+    {
+      "source": "assets/images/zhy-297x416.jpg",
+      "output": "/media/person-zhy-297x416.jpg",
+      "bytes": 22250
+    },
+    {
+      "source": "assets/images/hxh-412x577.png",
+      "output": "/media/person-hxh-412x577.jpg",
+      "bytes": 23323
+    },
+    {
+      "source": "assets/images/zal-1015x1280.jpg",
+      "output": "/media/person-zal-1015x1280.jpg",
+      "bytes": 29272
+    },
+    {
+      "source": "assets/images/fm-659x900.jpg",
+      "output": "/media/person-fm-659x900.jpg",
+      "bytes": 37885
+    },
+    {
+      "source": "assets/images/dyf-1500x1971.jpg",
+      "output": "/media/person-dyf-1500x1971.jpg",
+      "bytes": 31665
+    },
+    {
+      "source": "assets/images/zrc-520x740.jpg",
+      "output": "/media/person-zrc-520x740.jpg",
+      "bytes": 37283
+    },
+    {
+      "source": "assets/images/qyx-300x400.jpg",
+      "output": "/media/person-qyx-300x400.jpg",
+      "bytes": 29320
+    },
+    {
+      "source": "assets/images/aimia-1520x1140.png",
+      "output": "/media/team-hike.jpg",
+      "bytes": 629288
+    },
+    {
+      "source": "assets/images/2025.12.19e8819ae9a490-1520x1140.jpg",
+      "output": "/media/team-dinner.jpg",
+      "bytes": 459785
+    },
+    {
+      "source": "assets/images/tj1-1520x1140.jpg",
+      "output": "/media/team-activities.jpg",
+      "bytes": 485053
+    },
+    {
+      "source": "assets/images/shennong-flow-600x204.png",
+      "output": "/media/shennong-flow.jpg",
+      "bytes": 69856
+    },
+    {
+      "source": "assets/images/shennong_result-2-600x287.png",
+      "output": "/media/shennong-metafold.jpg",
+      "bytes": 36988
+    },
+    {
+      "source": "assets/images/demo_mol-8.png",
+      "output": "/media/molecule-demo.png",
+      "bytes": 119018
+    },
+    {
+      "source": "assets/images/tj2-1520x1140.jpg",
+      "output": "/media/team-long-table.jpg",
+      "bytes": 408416
+    },
+    {
+      "source": "assets/images/tj3-1520x1139.jpg",
+      "output": "/media/team-terrace.jpg",
+      "bytes": 310709
+    },
+    {
+      "source": "assets/images/tj4-1520x1140.jpg",
+      "output": "/media/team-waterfront.jpg",
+      "bytes": 394022
+    },
+    {
+      "source": "assets/images/tj5-1520x1140.jpg",
+      "output": "/media/team-city.jpg",
+      "bytes": 374801
+    },
+    {
+      "source": "assets/images/aimia3-1900x1425.jpg",
+      "output": "/media/team-gym.jpg",
+      "bytes": 696238
+    },
+    {
+      "source": "assets/images/05-1885x1060.jpg",
+      "output": "/media/team-park.jpg",
+      "bytes": 678238
+    },
+    {
+      "source": "assets/images/03-1900x1068.jpg",
+      "output": "/media/team-building-steps.jpg",
+      "bytes": 523777
+    },
+    {
+      "source": "assets/images/04-1900x1069.jpg",
+      "output": "/media/team-outdoor-wall.jpg",
+      "bytes": 548791
+    },
+    {
+      "source": "assets/images/02-1900x1069.jpg",
+      "output": "/media/team-dinner-archive.jpg",
+      "bytes": 303546
+    },
+    {
+      "source": "assets/images/cj-906x681.png",
+      "output": "/media/team-waterfront-archive.png",
+      "bytes": 223330
+    },
+    {
+      "source": "assets/images/lh.jpeg",
+      "output": "/media/person-hao-li.jpg",
+      "bytes": 83024
+    },
+    {
+      "source": "assets/images/jp.jpeg",
+      "output": "/media/person-peng-jin.jpg",
+      "bytes": 34825
+    },
+    {
+      "source": "assets/images/yry.jpeg",
+      "output": "/media/person-runyi-yu.jpg",
+      "bytes": 1099371
+    },
+    {
+      "source": "assets/images/syj.jpeg",
+      "output": "/media/person-yujing-sun.jpg",
+      "bytes": 176859
+    },
+    {
+      "source": "assets/images/lkh.jpeg",
+      "output": "/media/person-kehan-li.jpg",
+      "bytes": 67529
+    },
+    {
+      "source": "assets/images/lz.jpeg",
+      "output": "/media/person-zhuo-leng.jpg",
+      "bytes": 254504
+    },
+    {
+      "source": "assets/images/hhl.jpeg",
+      "output": "/media/person-hongliang-he.jpg",
+      "bytes": 591644
+    },
+    {
+      "source": "assets/images/ry.jpeg",
+      "output": "/media/person-yan-ren.jpg",
+      "bytes": 60133
+    },
+    {
+      "source": "assets/images/fb.jpeg",
+      "output": "/media/person-bin-fu.jpg",
+      "bytes": 28850
+    },
+    {
+      "source": "assets/images/wzd.jpeg",
+      "output": "/media/person-zhidan-wei.jpg",
+      "bytes": 413903
+    },
+    {
+      "source": "assets/images/cyl.jpeg",
+      "output": "/media/person-yalu-cheng.jpg",
+      "bytes": 75660
+    },
+    {
+      "source": "assets/images/zjf.jpeg",
+      "output": "/media/person-jifan-zhang.jpg",
+      "bytes": 12706
+    },
+    {
+      "source": "assets/images/hjj.jpeg",
+      "output": "/media/person-jinfa-huang.jpg",
+      "bytes": 73556
+    }
+  ]
+}

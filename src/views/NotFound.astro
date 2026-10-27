@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { localePath, type Locale } from '../lib/locale-path';
+interface Props {
+  lang?: Locale;
+}
+const { lang = 'en' } = Astro.props;
+const t = (en: string, cn: string) => (lang === 'zh' ? cn : en);
+---
+
+<Layout lang={lang} title={t('Page not found', '未找到页面')}>
+  <section class="container page-header" style="min-height:60vh">
+    <span class="eyebrow">404</span>
+    <h1>{t('Page not found', '未找到页面')}</h1>
+    <p class="page-description">
+      {t(
+        'The page you are looking for may have moved.',
+        '你访问的页面可能已迁移，请从首页继续浏览。',
+      )}
+    </p>
+    <a class="button primary" style="margin-top:30px" href={localePath('/', lang)}>
+      {t('Back to AIMIA', '返回首页')}
+      <Icon size={17} />
+    </a>
+  </section>
+</Layout>

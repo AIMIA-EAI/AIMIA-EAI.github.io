@@ -1,0 +1,100 @@
+---
+import '@fontsource-variable/manrope';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { localePath, type Locale } from '../lib/locale-path';
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: Locale;
+  canonicalPath?: string;
+}
+const {
+  title,
+  lang = 'en',
+  canonicalPath = Astro.url.pathname,
+  description = lang === 'zh'
+    ? '北京大学 AIMIA 实验室，聚焦具身智能、多模态智能与科学智能（AI4S）。'
+    : 'AIMIA Lab at Peking University. Research in embodied intelligence, multimodal intelligence and AI for Science (AI4S).',
+} = Astro.props;
+const pageTitle = title
+  ? `${title} — AIMIA · ${lang === 'zh' ? '北京大学' : 'Peking University'}`
+  : lang === 'zh'
+    ? 'AIMIA 实验室 — 北京大学'
+    : 'AIMIA Lab — Peking University';
+const canonical = new URL(localePath(canonicalPath, lang), Astro.site);
+---
+
+<!doctype html>
+<html lang={lang === 'zh' ? 'zh-CN' : 'en'}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f7f7f2" />
+    <title>{pageTitle}</title>
+    <link rel="canonical" href={canonical} />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href={new URL(localePath(canonicalPath, 'en'), Astro.site)}
+    />
+    <link
+      rel="alternate"
+      hreflang="zh-CN"
+      href={new URL(localePath(canonicalPath, 'zh'), Astro.site)}
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(localePath(canonicalPath, 'en'), Astro.site)}
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={lang === 'zh' ? 'zh_CN' : 'en_US'} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">
+      {lang === 'zh' ? '跳至主要内容' : 'Skip to content'}
+    </a>
+    <Header lang={lang} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+    <script>
+      import { localePath } from '../lib/locale-path';
+      const aliases: Record<string, string> = {
+        '#top': '/',
+        '#content15-2w': '/#about',
+        '#slider1-2d': '/',
+        '#features10-2n': '/research/',
+        '#generative': '/research/#multimodal',
+        '#content4-39': '/news/',
+        '#content14-2s': '/news/',
+        '#content4-3b': '/people/',
+        '#team2-3m': '/people/',
+        '#gallery3-3l': '/people/#phd-title',
+        '#gallery3-3k': '/people/#masters-title',
+        '#content4-41': '/people/#alumni',
+        '#content14-43': '/people/#alumni',
+        '#content4-3d': '/research/#recognition',
+        '#content7-14': '/research/#recognition',
+        '#content4-3g': '/join/',
+        '#content7-3i': '/join/',
+        '#content4-3e': '/join/#contact',
+        '#contacts2-3f': '/join/#contact',
+        '#video4-44': '/research/#gordon-bell',
+      };
+      const target = aliases[window.location.hash];
+      if (target && window.location.hash !== '#top')
+        window.location.replace(
+          localePath(target, document.documentElement.lang === 'zh-CN' ? 'zh' : 'en'),
+        );
+    </script>
+  </body>
+</html>

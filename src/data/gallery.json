@@ -1,0 +1,303 @@
+{
+  "slides": [
+    {
+      "id": "lab-activities",
+      "image": "/media/team-activities.jpg",
+      "width": 1520,
+      "height": 1140,
+      "position": "50% 80%",
+      "title": {
+        "en": "A day with the group",
+        "zh": "课题组团建"
+      },
+      "caption": {
+        "en": "AIMIA Lab · Team activities",
+        "zh": "AIMIA 实验室 · 团建合照"
+      },
+      "alt": {
+        "en": "AIMIA lab members holding a red Peking University AIMIA Lab banner on an indoor sports field",
+        "zh": "AIMIA 课题组在室内运动场手持北京大学 AIMIA Lab 横幅合照"
+      },
+      "source": "/assets/images/tj1-1520x1140.jpg",
+      "originalIndex": 0,
+      "fit": "cover",
+      "mobileFit": "cover"
+    },
+    {
+      "id": "lab-outing",
+      "image": "/media/team-hike.jpg",
+      "width": 1520,
+      "height": 1140,
+      "position": "50% 65%",
+      "title": {
+        "en": "Outdoors together",
+        "zh": "课题组户外活动"
+      },
+      "caption": {
+        "en": "AIMIA Lab · Group outing",
+        "zh": "AIMIA 实验室 · 户外合照"
+      },
+      "alt": {
+        "en": "AIMIA lab members gathered outdoors with mountains behind them",
+        "zh": "AIMIA 课题组成员在山间观景平台合照"
+      },
+      "source": "/assets/images/aimia-1520x1140.png",
+      "originalIndex": 6,
+      "fit": "cover",
+      "mobileFit": "cover"
+    },
+    {
+      "id": "group-dinner-2025-12",
+      "image": "/media/team-dinner.jpg",
+      "width": 1520,
+      "height": 1140,
+      "position": "50% 90%",
+      "title": {
+        "en": "Around the table",
+        "zh": "课题组聚餐"
+      },
+      "caption": {
+        "en": "AIMIA Lab · December 2025",
+        "zh": "AIMIA 实验室 · 2025 年 12 月"
+      },
+      "alt": {
+        "en": "AIMIA lab members posing together outside a restaurant at the December 2025 group dinner",
+        "zh": "AIMIA 课题组成员在 2025 年 12 月聚餐时于餐厅门口合照"
+      },
+      "source": "/assets/images/2025.12.19e8819ae9a490-1520x1140.jpg",
+      "originalIndex": 1,
+      "fit": "cover",
+      "mobileFit": "cover"
+    },
+    {
+      "id": "long-table",
+      "source": "/assets/images/tj2-1520x1140.jpg",
+      "image": "/media/team-long-table.jpg",
+      "width": 1520,
+      "height": 1140,
+      "position": "50% 70%",
+      "title": {
+        "en": "Around the table",
+        "zh": "围桌相聚"
+      },
+      "caption": {
+        "en": "AIMIA Lab · Lab life",
+        "zh": "AIMIA 实验室 · 课题组生活"
+      },
+      "alt": {
+        "en": "AIMIA lab members seated around a long table for a group meal",
+        "zh": "AIMIA 课题组成员围坐长桌聚餐"
+      },
+      "originalIndex": 2,
+      "fit": "cover",
+      "mobileFit": "cover"
+    },
+    {
+      "id": "terrace-meal",
+      "source": "/assets/images/tj3-1520x1139.jpg",
+      "image": "/media/team-terrace.jpg",
+      "width": 1520,
+      "height": 1139,
+      "position": "50% 70%",
+      "title": {
+        "en": "On the terrace",
+        "zh": "露台聚餐"
+      },
+      "caption": {
+        "en": "AIMIA Lab · Lab life",
+        "zh": "AIMIA 实验室 · 课题组生活"
+      },
+      "alt": {
+        "en": "AIMIA lab members gathered around a long table on an outdoor terrace",
+        "zh": "AIMIA 课题组成员在露台长桌旁聚餐合照"
+      },
+      "originalIndex": 3,
+      "fit": "cover",
+      "mobileFit": "cover"
+    },
+    {
+      "id": "waterfront-deck",
+      "source": "/assets/images/tj4-1520x1140.jpg",
+      "image": "/media/team-waterfront.jpg",
+      "width": 1520,
+      "height": 1140,
+      "position": "50% 75%",
+      "title": {
+        "en": "By the waterfront",
+        "zh": "水岸同行"
+      },
+      "caption": {
+        "en": "AIMIA Lab · Lab life",
+        "zh": "AIMIA 实验室 · 课题组生活"
+      },
+      "alt": {
+        "en": "AIMIA lab members posing on a waterfront deck with a city skyline behind them",
+        "zh": "AIMIA 课题组成员在水岸平台与城市天际线前合照"
+      },
+      "originalIndex": 4,
+      "fit": "cover",
+      "mobileFit": "cover"
+    },
+    {
+      "id": "city-gathering",
+      "source": "/assets/images/tj5-1520x1140.jpg",
+      "image": "/media/team-city.jpg",
+      "width": 1520,
+      "height": 1140,
+      "position": "50% 90%",
+      "title": {
+        "en": "Together in the city",
+        "zh": "城市里的相聚"
+      },
+      "caption": {
+        "en": "AIMIA Lab · Lab life",
+        "zh": "AIMIA 实验室 · 课题组生活"
+      },
+      "alt": {
+        "en": "AIMIA lab members posing together with greenery and city buildings behind them",
+        "zh": "AIMIA 课题组成员在城市建筑与绿植前合照"
+      },
+      "originalIndex": 5,
+      "fit": "cover",
+      "mobileFit": "cover"
+    },
+    {
+      "id": "gym-group",
+      "source": "/assets/images/aimia3-1900x1425.jpg",
+      "image": "/media/team-gym.jpg",
+      "width": 1900,
+      "height": 1425,
+      "position": "50% 80%",
+      "title": {
+        "en": "At the gym",
+        "zh": "体育馆合照"
+      },
+      "caption": {
+        "en": "AIMIA Lab · Lab life",
+        "zh": "AIMIA 实验室 · 课题组生活"
+      },
+      "alt": {
+        "en": "AIMIA lab members holding plush toys for a group photo on an indoor court",
+        "zh": "AIMIA 课题组成员手持玩偶在室内球场合照"
+      },
+      "originalIndex": 7,
+      "fit": "cover",
+      "mobileFit": "cover"
+    },
+    {
+      "id": "park-outing",
+      "source": "/assets/images/05-1885x1060.jpg",
+      "image": "/media/team-park.jpg",
+      "width": 1885,
+      "height": 1060,
+      "position": "50% 60%",
+      "title": {
+        "en": "A park outing",
+        "zh": "公园合照"
+      },
+      "caption": {
+        "en": "AIMIA Lab · Lab life",
+        "zh": "AIMIA 实验室 · 课题组生活"
+      },
+      "alt": {
+        "en": "AIMIA lab members posing in front of flower beds and decorations at a park",
+        "zh": "AIMIA 课题组成员在公园花坛与装饰前合照"
+      },
+      "originalIndex": 8,
+      "fit": "cover",
+      "mobileFit": "contain"
+    },
+    {
+      "id": "building-steps",
+      "source": "/assets/images/03-1900x1068.jpg",
+      "image": "/media/team-building-steps.jpg",
+      "width": 1900,
+      "height": 1068,
+      "position": "50% 55%",
+      "title": {
+        "en": "A group portrait",
+        "zh": "楼前合照"
+      },
+      "caption": {
+        "en": "AIMIA Lab · Lab life",
+        "zh": "AIMIA 实验室 · 课题组生活"
+      },
+      "alt": {
+        "en": "AIMIA lab members gathered on steps outside a building",
+        "zh": "AIMIA 课题组成员在建筑前的台阶上合照"
+      },
+      "originalIndex": 9,
+      "fit": "cover",
+      "mobileFit": "contain"
+    },
+    {
+      "id": "outdoor-gathering",
+      "source": "/assets/images/04-1900x1069.jpg",
+      "image": "/media/team-outdoor-wall.jpg",
+      "width": 1900,
+      "height": 1069,
+      "position": "50% 70%",
+      "title": {
+        "en": "An outdoor gathering",
+        "zh": "户外同行"
+      },
+      "caption": {
+        "en": "AIMIA Lab · Lab life",
+        "zh": "AIMIA 实验室 · 课题组生活"
+      },
+      "alt": {
+        "en": "AIMIA lab members posing in front of a carved stone wall beside trees",
+        "zh": "AIMIA 课题组成员在树林旁的雕刻石墙前合照"
+      },
+      "originalIndex": 10,
+      "fit": "cover",
+      "mobileFit": "contain"
+    },
+    {
+      "id": "meal-together",
+      "source": "/assets/images/02-1900x1069.jpg",
+      "image": "/media/team-dinner-archive.jpg",
+      "width": 1900,
+      "height": 1069,
+      "position": "50% 50%",
+      "title": {
+        "en": "A meal together",
+        "zh": "课题组聚餐"
+      },
+      "caption": {
+        "en": "AIMIA Lab · Lab life",
+        "zh": "AIMIA 实验室 · 课题组生活"
+      },
+      "alt": {
+        "en": "AIMIA lab members posing around a dining table",
+        "zh": "AIMIA 课题组成员围绕餐桌合照"
+      },
+      "originalIndex": 11,
+      "fit": "cover",
+      "mobileFit": "contain"
+    },
+    {
+      "id": "waterfront-group",
+      "source": "/assets/images/cj-906x681.png",
+      "image": "/media/team-waterfront-archive.png",
+      "width": 906,
+      "height": 681,
+      "position": "50% 70%",
+      "title": {
+        "en": "By the water",
+        "zh": "水岸合照"
+      },
+      "caption": {
+        "en": "AIMIA Lab · Lab life",
+        "zh": "AIMIA 实验室 · 课题组生活"
+      },
+      "alt": {
+        "en": "AIMIA lab members posing on a terrace beside the water",
+        "zh": "AIMIA 课题组成员在水岸平台合照"
+      },
+      "originalIndex": 12,
+      "fit": "contain",
+      "mobileFit": "cover"
+    }
+  ]
+}

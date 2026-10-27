@@ -1,0 +1,243 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PersonCard from '../components/PersonCard.astro';
+import AlumniCard from '../components/AlumniCard.astro';
+import Icon from '../components/Icon.astro';
+import PeopleCarousel from '../components/PeopleCarousel.astro';
+import people from '../data/people.json';
+import { media } from '../lib/content';
+import { translateRole, translateInterest, type Locale } from '../lib/i18n';
+interface Props {
+  lang?: Locale;
+}
+const { lang = 'en' } = Astro.props;
+const isZh = lang === 'zh';
+const t = (en: string, cn: string) => (isZh ? cn : en);
+const faculty = people.faculty[0];
+const studentCount = people.phd.length + people.masters.length;
+const directoryDate = new Date(
+  `${people.membershipUpdatedOn ?? people.sourceDate}T00:00:00Z`,
+).toLocaleDateString(isZh ? 'zh-CN' : 'en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+---
+
+<Layout
+  lang={lang}
+  title={t('Team & Culture', '团队建设')}
+  description={t(
+    'Meet the researchers, students and alumni of the AIMIA lab at Peking University.',
+    '了解北京大学 AIMIA 实验室的导师、在读成员、校友与课题组活动。',
+  )}
+>
+  <header class="container page-header page-header-split people-page-header">
+    <div>
+      <span class="eyebrow">{t('AIMIA · PEKING UNIVERSITY', 'AIMIA · 北京大学')}</span>
+      <h1>{t('Team & Culture', '团队建设')}</h1>
+    </div>
+    <p class="page-description">
+      {t(
+        "Faculty, doctoral researchers, master's students and alumni of AIMIA Lab.",
+        'AIMIA 实验室的导师、在读成员、校友与课题组活动。',
+      )}
+    </p>
+  </header>
+  <div class="container page-content">
+    <PeopleCarousel lang={lang} />
+    <nav class="people-directory-nav" aria-label={t('Students and alumni', '学生与校友分类')}>
+      <a href="#students">
+        <span>{t('Current students', '在读学生')}</span>
+        <span class="people-directory-count">{studentCount}</span>
+        <Icon name="arrow-down" size={17} />
+      </a>
+      <a href="#alumni">
+        <span>{t('Alumni', '校友 Alumni')}</span>
+        <span class="people-directory-count">{people.alumni.length}</span>
+        <Icon name="arrow-down" size={17} />
+      </a>
+    </nav>
+    <article class="faculty-card" id="faculty">
+      <img
+        src={media(faculty.image)}
+        alt={`${faculty.name} (${faculty.nameZh})`}
+        width="376"
+        height="501"
+      />
+      <div>
+        <span class="eyebrow">{t('PRINCIPAL INVESTIGATOR', '课题组负责人')}</span>
+        <h2>
+          {isZh ? faculty.nameZh : faculty.name}
+          <span>{isZh ? faculty.name : faculty.nameZh}</span>
+        </h2>
+        <p class="faculty-role">
+          {translateRole(faculty.role, lang)} · {t('Peking University', '北京大学')}
+        </p>
+        <p>{faculty.interests.map((interest) => translateInterest(interest, lang)).join(' · ')}</p>
+        <div class="faculty-links">
+          <a href={faculty.homepage} target="_blank" rel="noopener noreferrer">
+            {t('Faculty profile', '教师主页')}
+            <Icon name="external" size={14} />
+          </a>
+          <a href={faculty.scholar} target="_blank" rel="noopener noreferrer">
+            {t('Google Scholar', '谷歌学术')}
+            <Icon name="external" size={14} />
+          </a>
+          <a href={`mailto:${faculty.email}`}>
+            {t('Email', '邮箱')}
+            <Icon name="external" size={14} />
+          </a>
+        </div>
+      </div>
+    </article>
+    <p class="page-note people-note">
+      {t('Directory updated', '名录更新')} · {directoryDate}
+    </p>
+    <section class="people-section" id="students" aria-labelledby="students-title">
+      <header class="people-section-heading">
+        <h2 id="students-title">{t('Current students', '在读学生')}</h2>
+        <span class="people-section-count">{studentCount}</span>
+      </header>
+      <section class="student-cohort" aria-labelledby="phd-title">
+        <div class="student-subheading">
+          <h3 id="phd-title">{t('Doctoral researchers', '博士生')}</h3>
+          <span>{people.phd.length.toString().padStart(2, '0')}</span>
+        </div>
+        <div class="people-grid">
+          {people.phd.map((person) => (
+            <PersonCard person={person} lang={lang} headingLevel="h4" />
+          ))}
+        </div>
+      </section>
+      <section class="student-cohort" aria-labelledby="masters-title">
+        <div class="student-subheading">
+          <h3 id="masters-title">{t("Master's students", '硕士生')}</h3>
+          <span>{people.masters.length.toString().padStart(2, '0')}</span>
+        </div>
+        <div class="people-grid">
+          {people.masters.map((person) => (
+            <PersonCard person={person} lang={lang} headingLevel="h4" />
+          ))}
+        </div>
+      </section>
+    </section>
+    <section class="people-section" id="alumni" aria-labelledby="alumni-title">
+      <header class="people-section-heading">
+        <h2 id="alumni-title">{t('Alumni', '校友 Alumni')}</h2>
+        <span class="people-section-count">{people.alumni.length}</span>
+      </header>
+      <div class="alumni-grid">
+        {people.alumni.map((person) => (
+          <AlumniCard person={person} lang={lang} />
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .people-page-header {
+    padding-top: 50px;
+    padding-bottom: 32px;
+  }
+  .people-directory-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+    margin-bottom: 38px;
+  }
+  .people-directory-nav a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 0;
+    border-block: 1px solid var(--line);
+    font-size: 19px;
+    font-weight: 550;
+  }
+  .people-directory-nav a > span:first-child {
+    flex: 1;
+    min-width: 0;
+  }
+  .people-directory-nav a:hover {
+    color: var(--red);
+    border-bottom-color: var(--red);
+  }
+  .people-directory-count,
+  .people-section-count {
+    font-family: var(--mono);
+    font-size: 16px;
+    font-weight: 450;
+    color: var(--red);
+  }
+  .people-section {
+    scroll-margin-top: 115px;
+  }
+  .people-section + .people-section {
+    margin-top: 85px;
+  }
+  .people-section-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+    border-top: 2px solid var(--red);
+    padding-top: 23px;
+    margin-bottom: 38px;
+  }
+  .people-section-heading h2 {
+    font-size: 35px;
+    font-weight: 550;
+    line-height: 1.4;
+    letter-spacing: -0.025em;
+  }
+  .student-cohort + .student-cohort {
+    margin-top: 55px;
+  }
+  .student-subheading {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+  .student-subheading h3 {
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .student-subheading > span {
+    font-family: var(--mono);
+    font-size: 15px;
+    color: var(--muted);
+  }
+  .people-section .people-grid {
+    margin-bottom: 0;
+  }
+  @media (max-width: 700px) {
+    .alumni-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .people-page-header {
+      padding-top: 32px;
+      padding-bottom: 24px;
+    }
+    .people-directory-nav {
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+    .people-directory-nav a {
+      gap: 8px;
+      padding-block: 15px;
+      font-size: 17px;
+    }
+    .people-section + .people-section {
+      margin-top: 65px;
+    }
+    .people-section-heading {
+      padding-top: 20px;
+      margin-bottom: 28px;
+    }
+    .people-section-heading h2 {
+      font-size: 29px;
+    }
+    .student-subheading h3 {
+      font-size: 22px;
+    }
+  }
+</style>
