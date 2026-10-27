@@ -22,14 +22,13 @@ const links = [
       aria-label={isZh ? 'AIMIA，北京大学 — 首页' : 'AIMIA, Peking University — home'}
     >
       <img
-        class="university-mark"
-        src="/media/pku-logo.svg"
-        alt={isZh ? '北京大学' : 'Peking University'}
-        width="138"
-        height="39"
+        class="brand-logo"
+        src="/media/aimia-kalam.svg"
+        alt={isZh ? 'AIMIA · 北京大学' : 'AIMIA · Peking University'}
+        width="420"
+        height="126"
+        decoding="async"
       />
-      <span class="brand-divider" aria-hidden="true"></span>
-      <span class="brand-name">AIMIA</span>
     </a>
     <div class="header-actions">
       <a
@@ -112,3 +111,22 @@ const links = [
     }
   });
 </script>
+
+<style>
+  .brand-logo {
+    display: block;
+    width: 238px;
+    max-width: 100%;
+    height: auto;
+  }
+  @media (max-width: 600px) {
+    .brand-logo {
+      width: 192px;
+    }
+  }
+  @media (max-width: 360px) {
+    .brand-logo {
+      width: 176px;
+    }
+  }
+</style>
