@@ -33,6 +33,10 @@ const headingId = `alumni-name-${person.id}`;
 ---
 
 <article class="alumni-item" data-alumni={person.id} aria-labelledby={headingId}>
+  <div class="alumni-name">
+    <NameHeading id={headingId}>{person.name}</NameHeading>
+    {person.homepage && <ProfileLink href={person.homepage} personName={person.name} lang={lang} />}
+  </div>
   <div class="portrait-wrap alumni-portrait">
     {person.image ? (
       <img src={media(person.image)} alt={person.name} loading="lazy" width="160" height="200" />
@@ -48,12 +52,6 @@ const headingId = `alumni-name-${person.id}`;
     )}
   </div>
   <div class="alumni-details">
-    <div class="alumni-name">
-      <NameHeading id={headingId}>{person.name}</NameHeading>
-      {person.homepage && (
-        <ProfileLink href={person.homepage} personName={person.name} lang={lang} />
-      )}
-    </div>
     <p class="alumni-role">
       {translateRole(person.group || person.role, lang)}
       {showCohort && person.cohort && (
@@ -86,12 +84,15 @@ const headingId = `alumni-name-${person.id}`;
   .alumni-item {
     display: grid;
     grid-template-columns: 132px minmax(0, 1fr);
-    gap: 22px;
+    grid-template-areas: 'portrait name' 'portrait details';
+    grid-template-rows: auto 1fr;
+    column-gap: 22px;
     align-items: start;
     padding: 22px 0;
     border-bottom: 1px solid var(--line);
   }
   .alumni-portrait {
+    grid-area: portrait;
     width: 100%;
     aspect-ratio: 4 / 5;
     overflow: hidden;
@@ -126,15 +127,19 @@ const headingId = `alumni-name-${person.id}`;
     margin-top: 7px;
   }
   .alumni-details {
+    grid-area: details;
     min-width: 0;
   }
   .alumni-name {
+    grid-area: name;
+    min-width: 0;
     display: flex;
     align-items: baseline;
     gap: 2px 14px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
   .alumni-name :is(h3, h4, h5) {
+    min-width: 0;
     margin: 0;
     font-size: 18px;
     font-weight: 600;
@@ -170,14 +175,21 @@ const headingId = `alumni-name-${person.id}`;
   @media (max-width: 700px) {
     .alumni-item {
       grid-template-columns: 116px minmax(0, 1fr);
-      gap: 18px;
+      column-gap: 18px;
       padding-block: 18px;
+    }
+  }
+  @media (max-width: 480px) {
+    .alumni-item {
+      grid-template-areas: 'name name' 'portrait details';
+      grid-template-rows: auto auto;
+      row-gap: 12px;
     }
   }
   @media (max-width: 380px) {
     .alumni-item {
       grid-template-columns: 100px minmax(0, 1fr);
-      gap: 16px;
+      column-gap: 16px;
     }
   }
   @media (prefers-reduced-motion: reduce) {
