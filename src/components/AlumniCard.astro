@@ -15,6 +15,7 @@ interface Props {
     group?: string;
     cohort: number | null;
     destination?: string | null;
+    destinationHomepage?: string | null;
     homepage: string | null;
   };
 }
@@ -63,7 +64,20 @@ const headingId = `alumni-name-${person.id}`;
       )}
     </p>
     {person.destination && (
-      <p class="alumni-destination">{translateTerm(person.destination, lang)}</p>
+      <p class="alumni-destination">
+        {person.destinationHomepage ? (
+          <a
+            href={person.destinationHomepage}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${translateTerm(person.destination, lang)}${zh ? '（课题组网页，在新标签页打开）' : ' (research group website, opens in a new tab)'}`}
+          >
+            {translateTerm(person.destination, lang)} <span aria-hidden="true">↗</span>
+          </a>
+        ) : (
+          translateTerm(person.destination, lang)
+        )}
+      </p>
     )}
   </div>
 </article>
@@ -71,8 +85,8 @@ const headingId = `alumni-name-${person.id}`;
 <style>
   .alumni-item {
     display: grid;
-    grid-template-columns: 84px minmax(0, 1fr);
-    gap: 18px;
+    grid-template-columns: 132px minmax(0, 1fr);
+    gap: 22px;
     align-items: start;
     padding: 22px 0;
     border-bottom: 1px solid var(--line);
@@ -144,11 +158,26 @@ const headingId = `alumni-name-${person.id}`;
     color: var(--muted);
     overflow-wrap: anywhere;
   }
+  .alumni-destination a {
+    text-decoration: underline;
+    text-decoration-color: var(--line);
+    text-underline-offset: 4px;
+  }
+  .alumni-destination a:hover {
+    color: var(--red);
+    text-decoration-color: currentColor;
+  }
   @media (max-width: 700px) {
     .alumni-item {
-      grid-template-columns: 76px minmax(0, 1fr);
-      gap: 16px;
+      grid-template-columns: 116px minmax(0, 1fr);
+      gap: 18px;
       padding-block: 18px;
+    }
+  }
+  @media (max-width: 380px) {
+    .alumni-item {
+      grid-template-columns: 100px minmax(0, 1fr);
+      gap: 16px;
     }
   }
   @media (prefers-reduced-motion: reduce) {

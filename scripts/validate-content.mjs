@@ -217,6 +217,8 @@ if (record(people, 'people')) {
     const where = `people.${person.id}`;
     year(person.cohort, `${where}.cohort`, true);
     link(person.homepage, `${where}.homepage`, { nullable: true });
+    if (person.destinationHomepage != null)
+      link(person.destinationHomepage, `${where}.destinationHomepage`);
     link(person.scholar, `${where}.scholar`, { nullable: true });
     link(person.image, `${where}.image`, { nullable: true, asset: true });
     array(person.interests, `${where}.interests`).forEach((interest, index) =>

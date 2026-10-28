@@ -46,7 +46,7 @@
       "role": "Ph.D. student",
       "cohort": null,
       "image": "/assets/images/yian-1453x2123.jpg",
-      "interests": ["Object Detection", "Image Segmentation"],
+      "interests": ["Object Detection", "Video Generation"],
       "homepage": "https://zhao-yian.github.io/",
       "scholar": null,
       "originalText": "Yian Zhao Master (2023)\nObject Detection, Image Segmentation"
@@ -147,7 +147,7 @@
       "role": "Master's student",
       "cohort": 2024,
       "image": "/assets/images/dyf-1500x1971.jpg",
-      "interests": ["AI for Science"],
+      "interests": ["AI for Science", "Video Generation"],
       "homepage": null,
       "scholar": null,
       "originalText": "Yufan Deng Master (2024)\nAIGC, AI for Science"
@@ -158,7 +158,7 @@
       "role": "Master's student",
       "cohort": 2024,
       "image": "/assets/images/zrc-520x740.jpg",
-      "interests": ["AI for Science"],
+      "interests": ["AI for Science", "World Models"],
       "homepage": "https://rczheng.top/",
       "scholar": null,
       "originalText": "Ruochong Zheng Master (2024)\nAIGC, AI for Science"
@@ -303,7 +303,7 @@
       "interests": [],
       "homepage": "https://web.suda.edu.cn/hlhe/",
       "scholar": null,
-      "destination": "Soochow University · School of Software · Lecturer",
+      "destination": "Soochow University · School of Software · Associate Professor",
       "originalText": "Hongliang He (Suzhou University)",
       "portraitSource": {
         "commit": "1709f78",
@@ -600,7 +600,8 @@
       "interests": [],
       "homepage": "https://infaaa.github.io/",
       "scholar": null,
-      "destination": "University of Rochester",
+      "destination": "University of Rochester · Jiebo Luo's Group",
+      "destinationHomepage": "https://www.cs.rochester.edu/u/jluo/",
       "originalText": "Jinhua Huang (University of Rochester)",
       "portraitSource": {
         "commit": "1709f78",
@@ -699,6 +700,7 @@
       "homepage": "https://ingrid789.github.io/IngridYu/",
       "scholar": null,
       "destination": "HKUST · Qifeng Chen's Group",
+      "destinationHomepage": "https://cqf.io/",
       "originalText": "Runyi Yu (The Hong Kong University of Science and Technology)",
       "portraitSource": {
         "commit": "3b3fcc2",
@@ -788,7 +790,8 @@
       "scholar": null,
       "originalText": "Yu Wang Master (2022)\nComputer Vision, Semi-supervised Learning",
       "group": "Master's alumni",
-      "destination": "University of Wisconsin–Madison"
+      "destination": "University of Wisconsin–Madison · Sharon Li's Group",
+      "destinationHomepage": "https://pages.cs.wisc.edu/~sharonli/"
     },
     {
       "id": "jun-wang",
@@ -801,7 +804,8 @@
       "scholar": null,
       "originalText": "Jun Wang Master (2022)\nComputer Vision, Medical Image Analysis",
       "group": "Master's alumni",
-      "destination": "Johns Hopkins University"
+      "destination": "Johns Hopkins University · Peirong Liu's Group",
+      "destinationHomepage": "https://jhuldr.github.io/"
     },
     {
       "id": "yikun-zhang",
@@ -810,11 +814,12 @@
       "cohort": 2022,
       "image": "/assets/images/zyk.jpeg",
       "interests": ["Bioinformatics", "AI for Science"],
-      "homepage": null,
+      "homepage": "https://github.com/yikunpku",
       "scholar": null,
       "originalText": "Yikun Zhang Master (2022)\nBioinformatics, AI for Science",
       "group": "Master's alumni",
-      "destination": null
+      "destination": "Wengong Jin's Group",
+      "destinationHomepage": "https://wengong-jin.github.io/people/"
     },
     {
       "id": "yihan-zhang",
@@ -840,7 +845,7 @@
       "scholar": null,
       "originalText": "Shiyu Li Master (2022)\nMedical Report Generation",
       "group": "Master's alumni",
-      "destination": null
+      "destination": "Tencent"
     },
     {
       "id": "luna-wang",
@@ -853,7 +858,7 @@
       "scholar": null,
       "originalText": "Luna Wang Master (2023)\nComputer Vision, Image Segmentation",
       "group": "Master's alumni",
-      "destination": null
+      "destination": "China Southern Power Grid"
     },
     {
       "id": "yuke-li",
@@ -892,7 +897,7 @@
       "scholar": null,
       "originalText": "Yiming Ma Master (2023)\nDeep learning",
       "group": "Master's alumni",
-      "destination": "ByteDance"
+      "destination": "Shanghai AI Laboratory"
     },
     {
       "id": "xudong-liu",

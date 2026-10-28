@@ -5,33 +5,21 @@
       "short": "大小脑协同，连接规划与执行。",
       "description": "探索大小脑协同架构：由 Agent 规划器拆解任务，以 Agent 原生动作器或 VLA 模型执行动作，并通过环境反馈形成闭环。",
       "question": "Agent 规划器如何与原生动作器或 VLA 模型协同，实现物理世界中的任务规划与执行？",
-      "keywords": [
-        "Agent 规划器",
-        "Agent 原生动作器",
-        "VLA 模型"
-      ]
+      "keywords": ["Agent 规划器", "Agent 原生动作器", "VLA 模型"]
     },
     "multimodal": {
       "title": "多模态智能",
       "short": "多模态理解与生成。",
       "description": "研究视觉与语言等模态的理解和生成，涵盖图像、视频及人体动作等内容。",
       "question": "如何让模型跨越视觉与语言模态，实现理解与生成？",
-      "keywords": [
-        "视觉语言模型",
-        "理解与生成",
-        "视觉定位"
-      ]
+      "keywords": ["视觉语言模型", "理解与生成", "视觉定位"]
     },
     "ai-for-science": {
       "title": "科学智能（AI4S）",
       "short": "面向科学研究的人工智能方法。",
       "description": "面向生物分子预测与设计、病毒演化、蛋白质结构和医学影像分析，研究人工智能方法。",
       "question": "人工智能如何支持生物与医学中的科学预测和发现？",
-      "keywords": [
-        "生物分子设计",
-        "科学预测",
-        "医学影像"
-      ]
+      "keywords": ["生物分子设计", "科学预测", "医学影像"]
     }
   },
   "lab": {
@@ -40,10 +28,7 @@
     "school": "信息工程学院",
     "center": "数字媒体研究中心",
     "intro": "我们的研究聚焦具身智能、多模态智能与科学智能（AI4S）三个方向。",
-    "contactAddress": [
-      "北京大学深圳研究生院",
-      "深圳市南山区丽水路2199号"
-    ],
+    "contactAddress": ["北京大学深圳研究生院", "深圳市南山区丽水路2199号"],
     "about": [
       "AIMIA 实验室",
       "AIMIA隶属于北京大学数字媒体研究中心，由北京大学信息工程学院陈杰副教授带领。",
@@ -81,6 +66,8 @@
     "NLP": "自然语言处理",
     "Natural language processing": "自然语言处理",
     "Object Detection": "目标检测",
+    "Video Generation": "视频生成",
+    "World Models": "世界模型",
     "Protein Engineering": "蛋白质工程",
     "Segmentation": "分割",
     "Semi-supervised Learning": "半监督学习"
@@ -332,9 +319,10 @@
     "Jingdong": "京东",
     "Baidu": "百度",
     "University of Rochester": "罗切斯特大学",
+    "University of Rochester · Jiebo Luo's Group": "罗切斯特大学 · Jiebo Luo 课题组",
     "The Hong Kong University of Science and Technology": "香港科技大学",
     "DJI": "大疆",
-    "Soochow University · School of Software · Lecturer": "苏州大学软件学院 · 讲师",
+    "Soochow University · School of Software · Associate Professor": "苏州大学软件学院 · 副教授",
     "Fudan University · Institute of Science and Technology for Brain-Inspired Intelligence · Assistant Professor": "复旦大学类脑智能科学与技术研究院 · 助理教授",
     "Wanxiang · Video Editing Group": "万相 · 视频编辑组",
     "Shandong Province · Targeted Civil Service Selection": "山东省定向选调",
@@ -343,11 +331,15 @@
     "Qwen · Foundation Model Agent Group": "千问 · 基模 Agent 组",
     "HKUST · Qifeng Chen's Group": "香港科技大学 · 陈启峰课题组",
     "China Southern Power Grid": "南方电网",
+    "Shanghai AI Laboratory": "上海人工智能实验室",
     "Shanghai · Targeted Civil Service Selection": "上海市定向选调",
     "ByteDance": "字节跳动",
     "ICBC Head Office": "中国工商银行总行",
+    "Wengong Jin's Group": "Wengong Jin 课题组",
     "University of Wisconsin–Madison": "威斯康星大学麦迪逊分校",
+    "University of Wisconsin–Madison · Sharon Li's Group": "威斯康星大学麦迪逊分校 · Sharon Li 课题组",
     "Johns Hopkins University": "约翰霍普金斯大学",
+    "Johns Hopkins University · Peirong Liu's Group": "约翰霍普金斯大学 · Peirong Liu 课题组",
     "TP-Link": "TP-Link",
     "OPPO": "OPPO"
   }
