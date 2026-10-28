@@ -319,6 +319,10 @@ const directoryDate = new Date(`${people.directoryAsOf}-01T00:00:00Z`).toLocaleD
     font-size: 15px;
     color: var(--muted);
   }
+  .alumni-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
+    column-gap: 40px;
+  }
   .people-section .people-grid {
     margin-bottom: 0;
   }

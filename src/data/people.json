@@ -103,7 +103,7 @@
       "role": "Master's student",
       "cohort": 2024,
       "image": "/assets/images/zhy-297x416.jpg",
-      "interests": ["Bioinformatics", "AI for Science"],
+      "interests": ["Video Generation"],
       "homepage": null,
       "scholar": null,
       "originalText": "Hongyu Zhang Master (2024)\nBioinformatics, AI for Science"
@@ -114,7 +114,7 @@
       "role": "Master's student",
       "cohort": 2024,
       "image": "/assets/images/hxh-412x577.png",
-      "interests": ["Computer Vision"],
+      "interests": ["Video Generation"],
       "homepage": null,
       "scholar": null,
       "originalText": "Xuehan Hou Master (2024)\nAIGC, Computer Vision"
@@ -125,7 +125,7 @@
       "role": "Master's student",
       "cohort": 2024,
       "image": "/assets/images/zal-1015x1280.jpg",
-      "interests": ["Computer Vision", "MLLM"],
+      "interests": ["Video Generation"],
       "homepage": null,
       "scholar": null,
       "originalText": "Ailing Zhang Master (2024)\nAIGC, Computer Vision, MLLM"
