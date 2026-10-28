@@ -1,0 +1,243 @@
+---
+import Icon from './Icon.astro';
+import lab from '../data/lab.json';
+import zh from '../data/zh.json';
+import { newsItems } from '../lib/content';
+import { localePath, localizedNewsTitle, type Locale } from '../lib/i18n';
+interface Props {
+  lang?: Locale;
+}
+const { lang = 'en' } = Astro.props;
+const isZh = lang === 'zh';
+const t = (en: string, cn: string) => (isZh ? cn : en);
+const updates = newsItems
+  .filter((item) => item.homepageFeatured)
+  .slice(0, 6)
+  .map((item) => {
+    const title = localizedNewsTitle(item, lang);
+    const sentences = title.match(/^(.+?[.!。])\s*(.+)$/);
+    return {
+      ...item,
+      headline: sentences?.[1] || title,
+      people: sentences?.[2] || '',
+    };
+  });
+const honors = lab.honors
+  .map((honor, index) => ({
+    ...honor,
+    text: isZh ? zh.honors[index].text : honor.text,
+  }))
+  .filter((honor) => honor.homepageFeatured)
+  .sort((a, b) => b.year - a.year);
+---
+
+<section
+  class="home-highlights container"
+  id="highlights"
+  aria-label={t('Research updates and recognition', '研究动态与荣誉')}
+>
+  <div class="highlights-news" aria-labelledby="home-news-title">
+    <header class="highlights-heading">
+      <h2 id="home-news-title">{t('Research updates', '研究动态')}</h2>
+      <a class="highlights-archive" href={localePath('/research/#updates', lang)}>
+        {t('All updates', '全部动态')} <Icon name="external" size={15} />
+      </a>
+    </header>
+    <ol class="highlights-news-list">
+      {updates.map((item) => (
+        <li data-news-id={item.id}>
+          <time datetime={item.date || undefined}>{item.date?.replace('-', '.')}</time>
+          <div>
+            <p class="update-headline">{item.headline}</p>
+            {item.people && <p class="update-people">{item.people}</p>}
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+  <div class="highlights-honors" aria-labelledby="home-honors-title">
+    <header class="highlights-heading">
+      <h2 id="home-honors-title">{t('Honors & awards', '荣誉与奖励')}</h2>
+      <a class="highlights-archive" href={localePath('/research/#recognition', lang)}>
+        {t('All honors', '全部荣誉')} <Icon name="external" size={15} />
+      </a>
+    </header>
+    <ol class="highlights-honors-list">
+      {honors.map((honor) => (
+        <li data-honor-id={honor.id}>
+          <span class="honor-year">{honor.year}</span>
+          <p>
+            {honor.text}
+            {'url' in honor && honor.url && (
+              <a
+                class="honor-source"
+                href={honor.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${t('Source', '来源')} · ${honor.year} · ${honor.text}`}
+              >
+                <Icon name="external" size={15} />
+              </a>
+            )}
+          </p>
+        </li>
+      ))}
+    </ol>
+    <a class="honors-history" href={localePath('/research/#recognition', lang)}>
+      {t('National awards, CAMEO and earlier distinctions', '国家科技进步奖、CAMEO 与历年荣誉')}
+      <Icon size={15} />
+    </a>
+  </div>
+</section>
+
+<style>
+  .home-highlights {
+    scroll-margin-top: 108px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 48px;
+    padding-block: 30px 38px;
+    border-top: 1px solid var(--line);
+  }
+  .home-highlights > div {
+    min-width: 0;
+  }
+  .highlights-honors {
+    padding-left: 38px;
+    border-left: 1px solid var(--line);
+  }
+  .highlights-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 9px;
+  }
+  .highlights-heading h2 {
+    font-size: 27px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.5px;
+  }
+  .highlights-archive {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+    font-size: 15px;
+    color: var(--muted);
+  }
+  .highlights-archive:hover,
+  .honors-history:hover {
+    color: var(--red);
+  }
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .highlights-news-list li {
+    display: grid;
+    grid-template-columns: 74px minmax(0, 1fr);
+    gap: 18px;
+    padding-block: 15px;
+    border-bottom: 1px solid var(--line);
+  }
+  time,
+  .honor-year {
+    font-family: var(--mono);
+    font-size: 14px;
+    line-height: 1.85;
+  }
+  time {
+    color: var(--muted);
+    padding-top: 1px;
+  }
+  .update-headline {
+    font-size: 17px;
+    font-weight: 550;
+    line-height: 1.65;
+  }
+  .update-people {
+    margin-top: 3px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .highlights-honors-list li {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 16px;
+    padding-block: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .honor-year {
+    color: var(--red);
+    padding-top: 2px;
+  }
+  .highlights-honors-list p {
+    font-size: 17px;
+    line-height: 1.8;
+  }
+  .honor-source {
+    display: inline-flex;
+    color: var(--red);
+    margin-left: 7px;
+    vertical-align: middle;
+  }
+  .honors-history {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    margin-top: 19px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+  @media (max-width: 1100px) {
+    .home-highlights {
+      gap: 30px;
+    }
+    .highlights-honors {
+      padding-left: 26px;
+    }
+    .highlights-heading {
+      flex-wrap: wrap;
+      gap: 5px 14px;
+    }
+    .highlights-heading h2 {
+      font-size: 25px;
+    }
+  }
+  @media (max-width: 800px) {
+    .home-highlights {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 30px;
+      padding-block: 26px 30px;
+    }
+    .highlights-honors {
+      padding-left: 0;
+      border-left: 0;
+    }
+    .highlights-heading {
+      flex-wrap: nowrap;
+      margin-bottom: 10px;
+    }
+  }
+  @media (max-width: 400px) {
+    .highlights-news-list li {
+      grid-template-columns: 65px minmax(0, 1fr);
+      gap: 12px;
+    }
+    .highlights-heading h2 {
+      font-size: 23px;
+    }
+    .highlights-archive {
+      font-size: 14px;
+    }
+    .highlights-heading {
+      flex-wrap: wrap;
+    }
+  }
+</style>

@@ -5,21 +5,33 @@
       "short": "大小脑协同，连接规划与执行。",
       "description": "探索大小脑协同架构：由 Agent 规划器拆解任务，以 Agent 原生动作器或 VLA 模型执行动作，并通过环境反馈形成闭环。",
       "question": "Agent 规划器如何与原生动作器或 VLA 模型协同，实现物理世界中的任务规划与执行？",
-      "keywords": ["Agent 规划器", "Agent 原生动作器", "VLA 模型"]
+      "keywords": [
+        "Agent 规划器",
+        "Agent 原生动作器",
+        "VLA 模型"
+      ]
     },
     "multimodal": {
       "title": "多模态智能",
       "short": "多模态理解与生成。",
       "description": "研究视觉与语言等模态的理解和生成，涵盖图像、视频及人体动作等内容。",
       "question": "如何让模型跨越视觉与语言模态，实现理解与生成？",
-      "keywords": ["视觉语言模型", "理解与生成", "视觉定位"]
+      "keywords": [
+        "视觉语言模型",
+        "理解与生成",
+        "视觉定位"
+      ]
     },
     "ai-for-science": {
       "title": "科学智能（AI4S）",
       "short": "面向科学研究的人工智能方法。",
       "description": "面向生物分子预测与设计、病毒演化、蛋白质结构和医学影像分析，研究人工智能方法。",
       "question": "人工智能如何支持生物与医学中的科学预测和发现？",
-      "keywords": ["生物分子设计", "科学预测", "医学影像"]
+      "keywords": [
+        "生物分子设计",
+        "科学预测",
+        "医学影像"
+      ]
     }
   },
   "lab": {
@@ -28,7 +40,10 @@
     "school": "信息工程学院",
     "center": "数字媒体研究中心",
     "intro": "我们的研究聚焦具身智能、多模态智能与科学智能（AI4S）三个方向。",
-    "contactAddress": ["北京大学深圳研究生院", "深圳市南山区丽水路2199号"],
+    "contactAddress": [
+      "北京大学深圳研究生院",
+      "深圳市南山区丽水路2199号"
+    ],
     "about": [
       "AIMIA 实验室",
       "AIMIA隶属于北京大学数字媒体研究中心，由北京大学信息工程学院陈杰副教授带领。",
@@ -72,119 +87,119 @@
   },
   "news": {
     "news-01": {
-      "title": "1篇论文被Nature Machine Intelligence录用。祝贺Zhiwei Nie！",
+      "title": "1 篇论文被 Nature Machine Intelligence 录用。祝贺 Zhiwei Nie！",
       "dateLabel": "2025年1月"
     },
     "news-02": {
-      "title": "2篇论文被AAAI录用。祝贺Zishan Shu、Ruochong Zheng！",
+      "title": "2 篇论文被 AAAI 录用。祝贺 Zishan Shu、Ruochong Zheng！",
       "dateLabel": "2025年12月"
     },
     "news-03": {
-      "title": "1篇论文被IEEE TMM录用。祝贺Yuke Li！",
+      "title": "1 篇论文被 IEEE TMM 录用。祝贺 Yuke Li！",
       "dateLabel": "2025年11月"
     },
     "news-04": {
-      "title": "3篇论文被IEEE TPAMI录用。祝贺Bin Chen、Yian Zhao、Peng Jin！",
+      "title": "3 篇论文被 IEEE TPAMI 录用。祝贺 Bin Chen、Yian Zhao、Peng Jin！",
       "dateLabel": "2025年3月"
     },
     "news-05": {
-      "title": "2篇论文被ICCV录用。祝贺Zesen Cheng、Yian Zhao！",
+      "title": "2 篇论文被 ICCV 录用。祝贺 Zesen Cheng、Yian Zhao！",
       "dateLabel": "2025年6月"
     },
     "news-06": {
-      "title": "2篇论文被CVPR录用。祝贺Yian Zhao、Bin Chen！",
+      "title": "2 篇论文被 CVPR 录用。祝贺 Yian Zhao、Bin Chen！",
       "dateLabel": "2025年6月"
     },
     "news-07": {
-      "title": "1篇论文被IJCAI录用。祝贺Zishan Shu！",
+      "title": "1 篇论文被 IJCAI 录用。祝贺 Zishan Shu！",
       "dateLabel": "2025年4月"
     },
     "news-08": {
-      "title": "2篇论文被AAAI录用。祝贺Zesen Cheng、Shiyu Li！",
+      "title": "2 篇论文被 AAAI 录用。祝贺 Zesen Cheng、Shiyu Li！",
       "dateLabel": "2024年12月"
     },
     "news-09": {
-      "title": "1篇论文被NAACL录用。祝贺Yihan Zhang！",
+      "title": "1 篇论文被 NAACL 录用。祝贺 Yihan Zhang！",
       "dateLabel": "2025年3月"
     },
     "news-10": {
-      "title": "1篇论文被IEEE TPAMI录用。祝贺Peng Jin、Hao Li！",
+      "title": "1 篇论文被 IEEE TPAMI 录用。祝贺 Peng Jin、Hao Li！",
       "dateLabel": "2024年12月"
     },
     "news-11": {
-      "title": "2篇论文被IEEE TMM录用。祝贺Qiankun Ma、Yuke Li！",
+      "title": "2 篇论文被 IEEE TMM 录用。祝贺 Qiankun Ma、Yuke Li！",
       "dateLabel": "2024年11月"
     },
     "news-12": {
-      "title": "1篇论文被Nature Machine Intelligence录用。祝贺Zhiwei Nie、Xudong Liu！",
+      "title": "1 篇论文被 Nature Machine Intelligence 录用。祝贺 Zhiwei Nie、Xudong Liu！",
       "dateLabel": "2024年10月"
     },
     "news-13": {
-      "title": "1篇论文被IJCV录用。祝贺Pengchong Qiao！",
+      "title": "1 篇论文被 IJCV 录用。祝贺 Pengchong Qiao！",
       "dateLabel": "2024年7月"
     },
     "news-14": {
-      "title": "4篇论文被ECCV录用。祝贺Peng Jin、Mengjun Cheng、Qiran Zou、Kehan Li！",
+      "title": "4 篇论文被 ECCV 录用。祝贺 Peng Jin、Mengjun Cheng、Qiran Zou、Kehan Li！",
       "dateLabel": "2024年7月"
     },
     "news-15": {
-      "title": "1篇论文被IEEE TMI录用。祝贺Shiyu Li！",
+      "title": "1 篇论文被 IEEE TMI 录用。祝贺 Shiyu Li！",
       "dateLabel": "2024年6月"
     },
     "news-16": {
-      "title": "1篇论文入选CVPR Highlight。祝贺Yian Zhao！",
+      "title": "1 篇论文入选CVPR Highlight。祝贺 Yian Zhao！",
       "dateLabel": "2024年3月"
     },
     "news-17": {
-      "title": "3篇论文被CVPR录用。祝贺Pengchong Qiao、Yian Zhao！",
+      "title": "3 篇论文被 CVPR 录用。祝贺 Pengchong Qiao、Yian Zhao！",
       "dateLabel": "2024年2月"
     },
     "news-18": {
-      "title": "1篇论文被ICLR录用。祝贺Zhilin Huang！",
+      "title": "1 篇论文被 ICLR 录用。祝贺 Zhilin Huang！",
       "dateLabel": "2024年1月"
     },
     "news-19": {
-      "title": "1篇论文被AAAI录用。祝贺Zesen Cheng！",
+      "title": "1 篇论文被 AAAI 录用。祝贺 Zesen Cheng！",
       "dateLabel": "2023年12月"
     },
     "news-20": {
-      "title": "1篇论文被Nucleic Acids Research录用。祝贺Yikun Zhang！",
+      "title": "1 篇论文被 Nucleic Acids Research 录用。祝贺 Yikun Zhang！",
       "dateLabel": "2023年10月"
     },
     "news-21": {
-      "title": "1篇论文被NeurIPS录用。祝贺Yu Wang！",
+      "title": "1 篇论文被 NeurIPS 录用。祝贺 Yu Wang！",
       "dateLabel": "2023年9月"
     },
     "news-22": {
-      "title": "1篇论文被IEEE TMM录用。祝贺Yiming Liu！",
+      "title": "1 篇论文被 IEEE TMM 录用。祝贺 Yiming Liu！",
       "dateLabel": "2023年9月"
     },
     "news-23": {
-      "title": "5篇论文被ICCV录用。祝贺Pengxu Wei、Yujing Sun、Peng Jin、Kehan Li、Hongliang He、Jun Wang、Runyi Yu！",
+      "title": "5 篇论文被 ICCV 录用。祝贺 Pengxu Wei、Yujing Sun、Peng Jin、Kehan Li、Hongliang He、Jun Wang、Runyi Yu！",
       "dateLabel": "2023年7月"
     },
     "news-24": {
-      "title": "1篇论文获评ICASSP前3%论文。祝贺Bin Fu！",
+      "title": "1 篇论文获评ICASSP前3%论文。祝贺 Bin Fu！",
       "dateLabel": "2023年6月"
     },
     "news-25": {
-      "title": "1篇论文被IEEE TIP录用。祝贺Hao Li！",
+      "title": "1 篇论文被 IEEE TIP 录用。祝贺 Hao Li！",
       "dateLabel": "2023年4月"
     },
     "news-26": {
-      "title": "3篇论文被IJCAI录用。祝贺Peng Jin、Hao Li、Zesen Cheng！",
+      "title": "3 篇论文被 IJCAI 录用。祝贺 Peng Jin、Hao Li、Zesen Cheng！",
       "dateLabel": "2023年4月"
     },
     "news-27": {
-      "title": "3篇论文入选CVPR Highlight。祝贺Peng Jin、Kehan Li、Haoliang Zhao！",
+      "title": "3 篇论文入选CVPR Highlight。祝贺 Peng Jin、Kehan Li、Haoliang Zhao！",
       "dateLabel": "2023年3月"
     },
     "news-28": {
-      "title": "6篇论文被CVPR录用。祝贺Pengchong Qiao、Zesen Cheng、Peng Jin、Kehan Li、Yu Wang、Haoliang Zhao！",
+      "title": "6 篇论文被 CVPR 录用。祝贺 Pengchong Qiao、Zesen Cheng、Peng Jin、Kehan Li、Yu Wang、Haoliang Zhao！",
       "dateLabel": "2023年2月"
     },
     "news-29": {
-      "title": "2篇论文被ICASSP录用。祝贺Jifan Zhang、Bin Fu！",
+      "title": "2 篇论文被 ICASSP 录用。祝贺 Jifan Zhang、Bin Fu！",
       "dateLabel": "2023年2月"
     },
     "news-30": {
@@ -215,39 +230,62 @@
   "honors": [
     {
       "year": 2024,
-      "text": "“数据要素×科技创新”大赛全国二等奖、广东省一等奖。"
+      "text": "“数据要素×”大赛全国总决赛二等奖、广东省一等奖。",
+      "id": "data-elements-2024",
+      "homepageFeatured": true,
+      "url": "https://news.pkusz.edu.cn/info/1002/8525.htm"
     },
     {
       "year": 2024,
-      "text": "“祖冲之”人工智能前沿创新年度重大成果奖。"
+      "text": "“祖冲之”人工智能前沿创新年度重大成果奖。",
+      "id": "zu-chongzhi-2024",
+      "homepageFeatured": true,
+      "url": "https://news.pkusz.edu.cn/info/1003/8711.htm"
     },
     {
       "year": 2023,
-      "text": "广东省科技进步特等奖。"
+      "text": "广东省科学技术进步特等奖。",
+      "id": "guangdong-progress-2023",
+      "homepageFeatured": true,
+      "url": "https://news.pkusz.edu.cn/info/1003/8711.htm"
     },
     {
       "year": 2022,
-      "text": "入围ACM戈登贝尔新冠研究特别奖。据原网站记录，该届共三支团队入围，AIMIA所在团队为唯一中国团队。"
+      "text": "课题组参与的联合团队入围 ACM 戈登贝尔新冠研究特别奖，是全球三支入围团队之一，也是当年唯一的中国团队。",
+      "id": "gordon-bell-finalist-2022",
+      "homepageFeatured": true,
+      "url": "https://www.ece.pku.edu.cn/info/1046/2492.htm"
     },
     {
       "year": 2022,
-      "text": "在国际蛋白质结构预测评测CAMEO中获得第一名。"
+      "text": "CAMEO 国际蛋白质结构预测评测月榜第一名。",
+      "id": "cameo-monthly-2022",
+      "homepageFeatured": true,
+      "url": "https://www.ece.pku.edu.cn/info/1046/2492.htm"
     },
     {
       "year": 2015,
-      "text": "国家科学技术进步二等奖：视觉模式的局部建模与非线性特征获取理论和方法。"
+      "text": "国家科学技术进步二等奖：视觉模式的局部建模与非线性特征获取理论和方法。",
+      "id": "national-progress-2015",
+      "homepageFeatured": false
     },
     {
       "year": 2005,
-      "text": "国家科学技术进步二等奖：人脸识别理论、技术、系统与应用。"
+      "text": "国家科学技术进步二等奖：人脸识别理论、技术、系统与应用。",
+      "id": "national-progress-2005",
+      "homepageFeatured": false
     },
     {
       "year": 2004,
-      "text": "首届中国生物特征识别大赛（BVC2004）人脸验证比赛一等奖。"
+      "text": "首届中国生物特征识别大赛（BVC 2004）人脸验证比赛一等奖。",
+      "id": "bvc-face-verification-2004",
+      "homepageFeatured": false
     },
     {
       "year": 2006,
-      "text": "IAPR ICB 2006人脸验证比赛第一名，该比赛由英国萨里大学Josef Kittler组织。"
+      "text": "IAPR ICB 2006 人脸验证比赛第一名，该比赛由英国萨里大学 Josef Kittler 组织。",
+      "id": "icb-face-verification-2006",
+      "homepageFeatured": false
     }
   ],
   "terms": {

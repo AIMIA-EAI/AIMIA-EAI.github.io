@@ -86,9 +86,21 @@ const honors = [...(isZh ? zh.honors : lab.honors)].sort((a, b) => b.year - a.ye
       </div>
       <div class="recognition-list">
         {honors.map((honor) => (
-          <article class="recognition-item">
+          <article class="recognition-item" id={honor.id}>
             <span class="mono">{honor.year}</span>
-            <p>{honor.text}</p>
+            <p>
+              {honor.text}
+              {'url' in honor && honor.url && (
+                <a
+                  class="recognition-source"
+                  href={honor.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t('Source', '来源')} <Icon name="external" size={13} />
+                </a>
+              )}
+            </p>
           </article>
         ))}
       </div>
@@ -100,6 +112,15 @@ const honors = [...(isZh ? zh.honors : lab.honors)].sort((a, b) => b.year - a.ye
   </div>
 </Layout>
 <style>
+  .recognition-source {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 8px;
+    color: var(--red);
+    font-size: 14px;
+    white-space: nowrap;
+  }
   .research-index {
     display: flex;
     flex-wrap: wrap;

@@ -67,48 +67,71 @@
   "honors": [
     {
       "year": 2024,
-      "text": "The 2024 National Second Prize and Guangdong Provincial First Prize in the \"Data Elements × Technological Innovation\" Competition. (“数据要素×科技创新”大赛全国二等奖 广东省一等奖)",
-      "originalText": "The 2024 National Second Prize and Guangdong Provincial First Prize in the \"Data Elements × Technological Innovation\" Competition. (“数据要素×科技创新”大赛全国二等奖 广东省一等奖)"
+      "text": "Second Prize in the national final and First Prize in Guangdong, 2024 “Data Elements ×” Competition.",
+      "originalText": "The 2024 National Second Prize and Guangdong Provincial First Prize in the \"Data Elements × Technological Innovation\" Competition. (“数据要素×科技创新”大赛全国二等奖 广东省一等奖)",
+      "id": "data-elements-2024",
+      "homepageFeatured": true,
+      "url": "https://news.pkusz.edu.cn/info/1002/8525.htm"
     },
     {
       "year": 2024,
-      "text": "The 2024 \"Zu Chongzhi\" Annual Major Achievement Award for Frontier Innovation in Artificial Intelligence. (“祖冲之”人工智能前沿创新年度重大成果奖)",
-      "originalText": "The 2024 \"Zu Chongzhi\" Annual Major Achievement Award for Frontier Innovation in Artificial Intelligence. (“祖冲之”人工智能前沿创新年度重大成果奖)"
+      "text": "“Zu Chongzhi” Annual Major Achievement Award for Frontier Innovation in Artificial Intelligence.",
+      "originalText": "The 2024 \"Zu Chongzhi\" Annual Major Achievement Award for Frontier Innovation in Artificial Intelligence. (“祖冲之”人工智能前沿创新年度重大成果奖)",
+      "id": "zu-chongzhi-2024",
+      "homepageFeatured": true,
+      "url": "https://news.pkusz.edu.cn/info/1003/8711.htm"
     },
     {
       "year": 2023,
-      "text": "The 2023 Special Prize of Guangdong Province for Scientific and Technological Progress. (广东省科技进步特等奖)",
-      "originalText": "The 2023 Special Prize of Guangdong Province for Scientific and Technological Progress. (广东省科技进步特等奖)"
+      "text": "Special Prize, Guangdong Science and Technology Progress Award.",
+      "originalText": "The 2023 Special Prize of Guangdong Province for Scientific and Technological Progress. (广东省科技进步特等奖)",
+      "id": "guangdong-progress-2023",
+      "homepageFeatured": true,
+      "url": "https://news.pkusz.edu.cn/info/1003/8711.htm"
     },
     {
       "year": 2022,
-      "text": "Finalist for the 2022 \"Gordon Bell New Crown Special Award\" (The finalist only contains three teams in the world. AIMIA is the only Chinese team in the finalist.)",
-      "originalText": "Finalist for the 2022 \"Gordon Bell New Crown Special Award\" (The finalist only contains three teams in the world. AIMIA is the only Chinese team in the finalist.)"
+      "text": "The joint team involving our group was one of three finalists worldwide for the ACM Gordon Bell Special Prize for HPC-Based COVID-19 Research, and the only finalist team from China.",
+      "originalText": "Finalist for the 2022 \"Gordon Bell New Crown Special Award\" (The finalist only contains three teams in the world. AIMIA is the only Chinese team in the finalist.)",
+      "id": "gordon-bell-finalist-2022",
+      "homepageFeatured": true,
+      "url": "https://www.ece.pku.edu.cn/info/1046/2492.htm"
     },
     {
       "year": 2022,
-      "text": "First place in CAMEO 2022, an internationally renowned protein structure prediction competition",
-      "originalText": "First place in CAMEO 2022, an internationally renowned protein structure prediction competition"
+      "text": "First place on a CAMEO monthly leaderboard for protein structure prediction.",
+      "originalText": "First place in CAMEO 2022, an internationally renowned protein structure prediction competition",
+      "id": "cameo-monthly-2022",
+      "homepageFeatured": true,
+      "url": "https://www.ece.pku.edu.cn/info/1046/2492.htm"
     },
     {
       "year": 2015,
-      "text": "The second Prize of National Science and Technology Progress Award in 2015: Local Modeling of Visual Patterns and Nonlinear Feature Acquisition Theory and Method",
-      "originalText": "The second Prize of National Science and Technology Progress Award in 2015: Local Modeling of Visual Patterns and Nonlinear Feature Acquisition Theory and Method"
+      "text": "Second Prize, National Science and Technology Progress Award: Local Modeling of Visual Patterns and Nonlinear Feature Acquisition — Theory and Methods.",
+      "originalText": "The second Prize of National Science and Technology Progress Award in 2015: Local Modeling of Visual Patterns and Nonlinear Feature Acquisition Theory and Method",
+      "id": "national-progress-2015",
+      "homepageFeatured": false
     },
     {
       "year": 2005,
-      "text": "The second prize of National Science and Technology Progress Award in 2005: Face Recognition Theory, Technology, System and Application",
-      "originalText": "The second prize of National Science and Technology Progress Award in 2005: Face Recognition Theory, Technology, System and Application"
+      "text": "Second Prize, National Science and Technology Progress Award: Face Recognition — Theory, Technology, Systems and Applications.",
+      "originalText": "The second prize of National Science and Technology Progress Award in 2005: Face Recognition Theory, Technology, System and Application",
+      "id": "national-progress-2005",
+      "homepageFeatured": false
     },
     {
       "year": 2004,
-      "text": "The first prize of the Face verification competition of the First China Biometrics Competition (BVC2004)",
-      "originalText": "The first prize of the Face verification competition of the First China Biometrics Competition (BVC2004)"
+      "text": "First Prize in Face Verification, First China Biometrics Competition (BVC 2004).",
+      "originalText": "The first prize of the Face verification competition of the First China Biometrics Competition (BVC2004)",
+      "id": "bvc-face-verification-2004",
+      "homepageFeatured": false
     },
     {
       "year": 2006,
-      "text": "First place in the IAPR ICB 2006 Face Verification Competition, organized by Josef Kittler of the University of Surrey, UK",
-      "originalText": "First place in the IAPR ICB 2006 Face Verification Competition, organized by Josef Kittler of the University of Surrey, UK"
+      "text": "First place in the IAPR ICB 2006 Face Verification Competition, organized by Josef Kittler, University of Surrey, UK.",
+      "originalText": "First place in the IAPR ICB 2006 Face Verification Competition, organized by Josef Kittler of the University of Surrey, UK",
+      "id": "icb-face-verification-2006",
+      "homepageFeatured": false
     }
   ],
   "teamPhotos": [

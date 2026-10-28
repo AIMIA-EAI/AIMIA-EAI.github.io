@@ -231,6 +231,10 @@ if (record(news, 'news')) {
     date(entry.date, `news.${entry.id}.date`, true);
     text(entry.dateLabel, `news.${entry.id}.dateLabel`);
     links(entry.links, `news.${entry.id}.links`);
+    if (entry.homepageFeatured != null && typeof entry.homepageFeatured !== 'boolean')
+      error(`news.${entry.id}.homepageFeatured`, 'must be a boolean');
+    if (entry.homepageFeatured && !entry.date)
+      error(`news.${entry.id}.date`, 'homepage updates need a recorded date');
   });
   totals.news = rows.length;
 }
@@ -260,11 +264,16 @@ if (record(lab, 'lab')) {
     link(lab.openings.admissionUrl, 'lab.openings.admissionUrl');
     year(lab.openings.documentYear, 'lab.openings.documentYear');
   }
-  array(lab.honors, 'lab.honors').forEach((honor, index) => {
+  const honors = uniqueRecords(lab.honors, 'lab.honors', ['id', 'text']);
+  honors.forEach((honor, index) => {
     if (!record(honor, `lab.honors[${index}]`)) return;
     text(honor.text, `lab.honors[${index}].text`);
     year(honor.year, `lab.honors[${index}].year`, true);
+    if (typeof honor.homepageFeatured !== 'boolean')
+      error(`lab.honors[${index}].homepageFeatured`, 'must be a boolean');
+    if (honor.url != null) link(honor.url, `lab.honors[${index}].url`);
   });
+  totals.honors = honors.length;
   array(lab.teamPhotos, 'lab.teamPhotos').forEach((photo, index) => {
     if (!record(photo, `lab.teamPhotos[${index}]`)) return;
     link(photo.src, `lab.teamPhotos[${index}].src`, { asset: true });
@@ -388,6 +397,10 @@ if (record(zh, 'zh')) {
     const translated = translatedHonors[index];
     if (!record(translated, where)) return;
     text(translated.text, `${where}.text`);
+    if (translated.id !== honor.id) error(`${where}.id`, `must match source honor ${honor.id}`);
+    if (translated.homepageFeatured !== honor.homepageFeatured)
+      error(`${where}.homepageFeatured`, 'must match source honor selection');
+    if (translated.url != null) link(translated.url, `${where}.url`);
     if (translated.year !== honor.year)
       error(`${where}.year`, `must match source year ${honor.year} at this position`);
   });
