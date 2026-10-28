@@ -1,6 +1,6 @@
 ---
 import { media } from '../lib/content';
-import Icon from './Icon.astro';
+import ProfileLink from './ProfileLink.astro';
 import { translateRole, translateInterest, type Locale } from '../lib/i18n';
 interface Props {
   lang?: Locale;
@@ -41,16 +41,7 @@ const NameHeading = headingLevel;
   </div>
   <div class="person-name">
     <NameHeading>{person.name}</NameHeading>
-    {person.homepage && (
-      <a
-        href={person.homepage}
-        aria-label={lang === 'zh' ? `${person.name}的主页` : `${person.name}'s homepage`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Icon name="external" size={17} />
-      </a>
-    )}
+    {person.homepage && <ProfileLink href={person.homepage} personName={person.name} lang={lang} />}
   </div>
   <p class="person-role">
     {translateRole(person.role, lang)}
@@ -60,3 +51,10 @@ const NameHeading = headingLevel;
     {person.interests.map((interest) => translateInterest(interest, lang)).join(' · ')}
   </p>
 </article>
+
+<style>
+  .person-name {
+    flex-wrap: wrap;
+    gap: 3px 12px;
+  }
+</style>

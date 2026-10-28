@@ -1,0 +1,53 @@
+---
+import Icon from './Icon.astro';
+import type { Locale } from '../lib/i18n';
+interface Props {
+  href: string;
+  personName: string;
+  lang?: Locale;
+}
+const { href, personName, lang = 'en' } = Astro.props;
+const label = lang === 'zh' ? '个人主页' : 'Website';
+const accessibleLabel =
+  lang === 'zh'
+    ? `${personName}的${label}（在新标签页打开）`
+    : `${personName} · ${label} (opens in a new tab)`;
+---
+
+<a
+  class="profile-link"
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={accessibleLabel}
+>
+  <span>{label}</span>
+  <Icon name="external" size={14} />
+</a>
+
+<style>
+  .profile-link {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 5px;
+    min-height: 30px;
+    padding-block: 3px;
+    border-bottom: 1px solid rgb(164 67 52 / 30%);
+    color: var(--red);
+    font-size: 14px;
+    font-weight: 550;
+    line-height: 1.4;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: border-color 160ms ease;
+  }
+  .profile-link:hover {
+    border-bottom-color: currentColor;
+  }
+  .profile-link:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+</style>

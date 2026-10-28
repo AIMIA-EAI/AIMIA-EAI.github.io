@@ -1,10 +1,12 @@
 ---
-import Icon from './Icon.astro';
+import ProfileLink from './ProfileLink.astro';
 import { media } from '../lib/content';
 import { translateRole, translateTerm, type Locale } from '../lib/i18n';
 
 interface Props {
   lang?: Locale;
+  headingLevel?: 'h3' | 'h4' | 'h5';
+  showCohort?: boolean;
   person: {
     id: string;
     name: string;
@@ -16,7 +18,8 @@ interface Props {
     homepage: string | null;
   };
 }
-const { person, lang = 'en' } = Astro.props;
+const { person, lang = 'en', headingLevel = 'h3', showCohort = true } = Astro.props;
+const NameHeading = headingLevel;
 const zh = lang === 'zh';
 const initials = person.name
   .trim()
@@ -45,21 +48,14 @@ const headingId = `alumni-name-${person.id}`;
   </div>
   <div class="alumni-details">
     <div class="alumni-name">
-      <h3 id={headingId}>{person.name}</h3>
+      <NameHeading id={headingId}>{person.name}</NameHeading>
       {person.homepage && (
-        <a
-          href={person.homepage}
-          aria-label={zh ? `${person.name}的主页` : `${person.name}'s homepage`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Icon name="external" size={17} />
-        </a>
+        <ProfileLink href={person.homepage} personName={person.name} lang={lang} />
       )}
     </div>
     <p class="alumni-role">
       {translateRole(person.group || person.role, lang)}
-      {person.cohort && (
+      {showCohort && person.cohort && (
         <span class="alumni-cohort">
           {' · '}
           {zh ? `${person.cohort} 级` : `Entered ${person.cohort}`}
@@ -121,22 +117,16 @@ const headingId = `alumni-name-${person.id}`;
   .alumni-name {
     display: flex;
     align-items: baseline;
-    gap: 8px;
+    gap: 2px 14px;
+    flex-wrap: wrap;
   }
-  .alumni-name h3 {
+  .alumni-name :is(h3, h4, h5) {
+    margin: 0;
     font-size: 18px;
     font-weight: 600;
     line-height: 1.4;
     letter-spacing: -0.025em;
     overflow-wrap: anywhere;
-  }
-  .alumni-name a {
-    display: inline-flex;
-    flex-shrink: 0;
-    color: var(--muted);
-  }
-  .alumni-name a:hover {
-    color: var(--red);
   }
   .alumni-item .alumni-role {
     font-size: 15px;

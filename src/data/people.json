@@ -35,21 +35,21 @@
       "role": "Ph.D. student",
       "cohort": null,
       "image": "/assets/images/czs.jpeg",
-      "interests": ["Computer Vision", "Image Segmentation"],
+      "interests": ["Multimodal"],
       "homepage": null,
       "scholar": null,
       "originalText": "Zesen Cheng\nComputer Vision, Image Segmentation"
     },
     {
-      "id": "zishan-shu",
-      "name": "Zishan Shu",
+      "id": "yian-zhao",
+      "name": "Yian Zhao",
       "role": "Ph.D. student",
       "cohort": null,
-      "image": "/assets/images/szs-596x795.jpg",
-      "interests": ["Computer Vision", "AIGC", "AI for Science"],
-      "homepage": null,
+      "image": "/assets/images/yian-1453x2123.jpg",
+      "interests": ["Object Detection", "Image Segmentation"],
+      "homepage": "https://zhao-yian.github.io/",
       "scholar": null,
-      "originalText": "Zishan Shu\nComputer Vision, AIGC, AI for Science"
+      "originalText": "Yian Zhao Master (2023)\nObject Detection, Image Segmentation"
     },
     {
       "id": "yiheng-tao",
@@ -57,10 +57,21 @@
       "role": "Ph.D. student",
       "cohort": null,
       "image": "/assets/images/tyh-596x893.jpg",
-      "interests": ["MLLM", "AIGC"],
-      "homepage": null,
+      "interests": ["MLLM"],
+      "homepage": "https://github.com/Eziotao-tyd",
       "scholar": null,
       "originalText": "Yiheng Tao\nMLLM, AIGC"
+    },
+    {
+      "id": "zishan-shu",
+      "name": "Zishan Shu",
+      "role": "Ph.D. student",
+      "cohort": null,
+      "image": "/assets/images/szs-596x795.jpg",
+      "interests": ["Computer Vision", "AI for Science"],
+      "homepage": "https://zishanshu.github.io/",
+      "scholar": null,
+      "originalText": "Zishan Shu\nComputer Vision, AIGC, AI for Science"
     },
     {
       "id": "hongxin-fu",
@@ -69,7 +80,7 @@
       "cohort": null,
       "image": "/assets/images/fhx-596x859.jpg",
       "interests": ["AI for Science", "Protein Engineering"],
-      "homepage": null,
+      "homepage": "https://www.chem.pku.edu.cn/zhangwb/english/people/09bc6a784fa44b19b0f4453b1c0393ff.htm",
       "scholar": null,
       "originalText": "Hongxin Fu\nAI for Science, Protein Engineering"
     },
@@ -103,7 +114,7 @@
       "role": "Master's student",
       "cohort": 2024,
       "image": "/assets/images/hxh-412x577.png",
-      "interests": ["AIGC", "Computer Vision"],
+      "interests": ["Computer Vision"],
       "homepage": null,
       "scholar": null,
       "originalText": "Xuehan Hou Master (2024)\nAIGC, Computer Vision"
@@ -114,7 +125,7 @@
       "role": "Master's student",
       "cohort": 2024,
       "image": "/assets/images/zal-1015x1280.jpg",
-      "interests": ["AIGC", "Computer Vision", "MLLM"],
+      "interests": ["Computer Vision", "MLLM"],
       "homepage": null,
       "scholar": null,
       "originalText": "Ailing Zhang Master (2024)\nAIGC, Computer Vision, MLLM"
@@ -125,7 +136,7 @@
       "role": "Master's student",
       "cohort": 2024,
       "image": "/assets/images/fm-659x900.jpg",
-      "interests": ["AIGC", "AI for Science"],
+      "interests": ["AI for Science"],
       "homepage": null,
       "scholar": null,
       "originalText": "Meng Fan Master (2024)\nAIGC, AI for Science"
@@ -136,7 +147,7 @@
       "role": "Master's student",
       "cohort": 2024,
       "image": "/assets/images/dyf-1500x1971.jpg",
-      "interests": ["AIGC", "AI for Science"],
+      "interests": ["AI for Science"],
       "homepage": null,
       "scholar": null,
       "originalText": "Yufan Deng Master (2024)\nAIGC, AI for Science"
@@ -147,8 +158,8 @@
       "role": "Master's student",
       "cohort": 2024,
       "image": "/assets/images/zrc-520x740.jpg",
-      "interests": ["AIGC", "AI for Science"],
-      "homepage": null,
+      "interests": ["AI for Science"],
+      "homepage": "https://rczheng.top/",
       "scholar": null,
       "originalText": "Ruochong Zheng Master (2024)\nAIGC, AI for Science"
     },
@@ -290,9 +301,9 @@
       "cohort": null,
       "image": "/assets/images/hhl.jpeg",
       "interests": [],
-      "homepage": null,
+      "homepage": "https://web.suda.edu.cn/hlhe/",
       "scholar": null,
-      "destination": "Suzhou University",
+      "destination": "Soochow University · School of Software · Lecturer",
       "originalText": "Hongliang He (Suzhou University)",
       "portraitSource": {
         "commit": "1709f78",
@@ -308,11 +319,11 @@
       "cohort": null,
       "image": "/assets/images/jzw-659x659.jpg",
       "interests": ["Deep Learning", "AI for Science", "Bioinformatics"],
-      "homepage": null,
+      "homepage": "https://istbi.fudan.edu.cn/info/1774/10010.htm",
       "scholar": null,
       "originalText": "Zhiwei Nie\nDeep Learning, AI for Science, Bioinformatics",
       "group": "Ph.D. alumni",
-      "destination": null
+      "destination": "Fudan University · Institute of Science and Technology for Brain-Inspired Intelligence · Assistant Professor"
     },
     {
       "id": "pengchong-qiao",
@@ -321,11 +332,11 @@
       "cohort": null,
       "image": "/assets/images/qpc.jpeg",
       "interests": ["Semi-supervised Learning", "Computer Vision"],
-      "homepage": null,
+      "homepage": "https://scholar.google.com/citations?user=CJtcCMYAAAAJ&hl=zh-CN",
       "scholar": null,
       "originalText": "Pengchong Qiao\nSemi-supervised Learning, Computer Vision",
       "group": "Ph.D. alumni",
-      "destination": null
+      "destination": "Wanxiang · Video Editing Group"
     },
     {
       "id": "mengjun-cheng",
@@ -334,11 +345,11 @@
       "cohort": null,
       "image": "/assets/images/cmj.jpeg",
       "interests": ["Segmentation", "Cross-modal", "Deep Learning"],
-      "homepage": null,
+      "homepage": "https://scholar.google.com/citations?user=29u6QskAAAAJ&hl=en",
       "scholar": null,
       "originalText": "Mengjun Cheng\nSegmentation, Cross-modal, Deep Learning",
       "group": "Ph.D. alumni",
-      "destination": null
+      "destination": "Tencent"
     },
     {
       "id": "lun-huang",
@@ -441,7 +452,7 @@
       "interests": [],
       "homepage": null,
       "scholar": null,
-      "destination": null,
+      "destination": "OPPO",
       "originalText": "Zishang Kong"
     },
     {
@@ -570,7 +581,7 @@
       "interests": [],
       "homepage": null,
       "scholar": null,
-      "destination": "Local Government",
+      "destination": "Shandong Province · Targeted Civil Service Selection",
       "originalText": "Zhidan Wei (Local Government)",
       "portraitSource": {
         "commit": "1709f78",
@@ -587,7 +598,7 @@
       "cohort": 2020,
       "image": "/assets/images/hjj.jpeg",
       "interests": [],
-      "homepage": null,
+      "homepage": "https://infaaa.github.io/",
       "scholar": null,
       "destination": "University of Rochester",
       "originalText": "Jinhua Huang (University of Rochester)",
@@ -611,7 +622,7 @@
       "interests": [],
       "homepage": null,
       "scholar": null,
-      "destination": "Local Government",
+      "destination": "Liaoning Province · Targeted Civil Service Selection",
       "originalText": "Yalu Cheng (Local Government)",
       "portraitSource": {
         "commit": "1709f78",
@@ -642,14 +653,14 @@
     {
       "id": "peng-jin",
       "name": "Peng Jin",
-      "role": "Master's alumni",
-      "group": "Master's alumni",
-      "cohort": 2021,
+      "role": "Ph.D. alumni",
+      "group": "Ph.D. alumni",
+      "cohort": null,
       "image": "/assets/images/jp.jpeg",
       "interests": [],
-      "homepage": null,
+      "homepage": "https://jpthu17.github.io/",
       "scholar": null,
-      "destination": "Peking University",
+      "destination": "Qwen · Foundation Model Architecture Group",
       "originalText": "Peng Jin (Peking University)",
       "portraitSource": {
         "commit": "3b3fcc2",
@@ -661,14 +672,14 @@
     {
       "id": "hao-li",
       "name": "Hao Li",
-      "role": "Master's alumni",
-      "group": "Master's alumni",
-      "cohort": 2021,
+      "role": "Ph.D. alumni",
+      "group": "Ph.D. alumni",
+      "cohort": null,
       "image": "/assets/images/lh.jpeg",
       "interests": [],
-      "homepage": null,
+      "homepage": "https://howardli1984.github.io/",
       "scholar": null,
-      "destination": "Peking University",
+      "destination": "Qwen · Foundation Model Agent Group",
       "originalText": "Hao Li (Peking University)",
       "portraitSource": {
         "commit": "3b3fcc2",
@@ -685,9 +696,9 @@
       "cohort": 2021,
       "image": "/assets/images/yry.jpeg",
       "interests": [],
-      "homepage": null,
+      "homepage": "https://ingrid789.github.io/IngridYu/",
       "scholar": null,
-      "destination": "The Hong Kong University of Science and Technology",
+      "destination": "HKUST · Qifeng Chen's Group",
       "originalText": "Runyi Yu (The Hong Kong University of Science and Technology)",
       "portraitSource": {
         "commit": "3b3fcc2",
@@ -723,7 +734,7 @@
       "cohort": 2021,
       "image": "/assets/images/lkh.jpeg",
       "interests": [],
-      "homepage": null,
+      "homepage": "https://scholar.google.com/citations?user=DnOwUlIAAAAJ&hl=zh-CN",
       "scholar": null,
       "destination": "DJI",
       "originalText": "Kehan Li (DJI)",
@@ -744,7 +755,7 @@
       "interests": [],
       "homepage": null,
       "scholar": null,
-      "destination": "TP-LINK",
+      "destination": "TP-Link",
       "originalText": "Zhuo Leng (TP-LINK",
       "portraitSource": {
         "commit": "3b3fcc2",
@@ -773,11 +784,11 @@
       "cohort": 2022,
       "image": "/assets/images/wy.jpeg",
       "interests": ["Computer Vision", "Semi-supervised Learning"],
-      "homepage": null,
+      "homepage": "https://rain305f.github.io/",
       "scholar": null,
       "originalText": "Yu Wang Master (2022)\nComputer Vision, Semi-supervised Learning",
       "group": "Master's alumni",
-      "destination": null
+      "destination": "University of Wisconsin–Madison"
     },
     {
       "id": "jun-wang",
@@ -786,11 +797,11 @@
       "cohort": 2022,
       "image": "/assets/images/596x596.png",
       "interests": ["Computer Vision", "Medical Image Analysis"],
-      "homepage": null,
+      "homepage": "https://scholar.google.com/citations?user=Std7dLsAAAAJ&hl=en&authuser=1&oi=sra",
       "scholar": null,
       "originalText": "Jun Wang Master (2022)\nComputer Vision, Medical Image Analysis",
       "group": "Master's alumni",
-      "destination": null
+      "destination": "Johns Hopkins University"
     },
     {
       "id": "yikun-zhang",
@@ -855,7 +866,7 @@
       "scholar": null,
       "originalText": "Yuke Li Master (2023)\nMulti-modal, Deep Learning",
       "group": "Master's alumni",
-      "destination": null
+      "destination": "China Southern Power Grid"
     },
     {
       "id": "rushi-ye",
@@ -863,25 +874,12 @@
       "role": "Master's alumni",
       "cohort": 2023,
       "image": "/assets/images/rushi-572x800.jpg",
-      "interests": ["Computer Vision", "AIGC"],
+      "interests": ["Computer Vision"],
       "homepage": null,
       "scholar": null,
       "originalText": "Rushi Ye Master (2023)\nComputer Vision, AIGC",
       "group": "Master's alumni",
-      "destination": null
-    },
-    {
-      "id": "yian-zhao",
-      "name": "Yian Zhao",
-      "role": "Master's alumni",
-      "cohort": 2023,
-      "image": "/assets/images/yian-1453x2123.jpg",
-      "interests": ["Object Detection", "Image Segmentation"],
-      "homepage": null,
-      "scholar": null,
-      "originalText": "Yian Zhao Master (2023)\nObject Detection, Image Segmentation",
-      "group": "Master's alumni",
-      "destination": null
+      "destination": "Shanghai · Targeted Civil Service Selection"
     },
     {
       "id": "yiming-ma",
@@ -894,7 +892,7 @@
       "scholar": null,
       "originalText": "Yiming Ma Master (2023)\nDeep learning",
       "group": "Master's alumni",
-      "destination": null
+      "destination": "ByteDance"
     },
     {
       "id": "xudong-liu",
@@ -907,10 +905,10 @@
       "scholar": null,
       "originalText": "Xudong Liu Master (2023)\nDeep learning, NLP",
       "group": "Master's alumni",
-      "destination": null
+      "destination": "ICBC Head Office"
     }
   ],
-  "membershipUpdatedOn": "2026-10-27",
+  "membershipUpdatedOn": "2026-10-28",
   "membershipUpdates": [
     {
       "date": "2026-10-27",
@@ -928,6 +926,231 @@
       "movedFrom": {
         "masters": ["luna-wang", "yuke-li", "rushi-ye", "yian-zhao", "yiming-ma", "xudong-liu"]
       }
+    },
+    {
+      "date": "2026-10-28",
+      "source": "Lab maintainer instruction: list zya as a doctoral student",
+      "description": "Move Yian Zhao (zya) from alumni to current doctoral researchers. Preserve the existing portrait, interests and original source text. The 2023 cohort belongs to the former master record; doctoral entry year is not specified.",
+      "movedFrom": {
+        "alumni": ["yian-zhao"]
+      },
+      "movedTo": {
+        "phd": ["yian-zhao"]
+      },
+      "previousMembership": {
+        "yian-zhao": {
+          "role": "Master's alumni",
+          "cohort": 2023
+        }
+      }
+    },
+    {
+      "date": "2026-10-28",
+      "source": "Lab maintainer instruction",
+      "description": "Order doctoral researchers as Zesen Cheng, Yian Zhao, Yiheng Tao, Zishan Shu, Hongxin Fu and Qianli Lei. Set Zesen Cheng research interests to multimodal. Exclude Yufan Deng from the displayed master roster without reclassifying as alumni. Directory information is as of March 2025.",
+      "doctoralOrder": [
+        "zesen-cheng",
+        "yian-zhao",
+        "yiheng-tao",
+        "zishan-shu",
+        "hongxin-fu",
+        "qianli-lei"
+      ],
+      "excludedRecords": [
+        {
+          "id": "yufan-deng",
+          "name": "Yufan Deng",
+          "role": "Master's student",
+          "cohort": 2024,
+          "image": "/assets/images/dyf-1500x1971.jpg",
+          "interests": ["AIGC", "AI for Science"],
+          "homepage": null,
+          "scholar": null,
+          "originalText": "Yufan Deng Master (2024)\nAIGC, AI for Science"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-28",
+      "source": "Lab maintainer instruction",
+      "description": "Classify Peng Jin and Hao Li as doctoral alumni rather than master alumni. Preserve portraits, destinations, homepages and original source records. Former master cohort values are not inferred as doctoral entry years.",
+      "reclassifiedAsDoctoralAlumni": ["peng-jin", "hao-li"],
+      "previousMembership": {
+        "peng-jin": {
+          "role": "Master's alumni",
+          "group": "Master's alumni",
+          "cohort": 2021
+        },
+        "hao-li": {
+          "role": "Master's alumni",
+          "group": "Master's alumni",
+          "cohort": 2021
+        }
+      }
+    },
+    {
+      "date": "2026-10-28",
+      "source": "Lab maintainer instruction",
+      "description": "Restore Yufan Deng to current master students with the original portrait, 2024 entering cohort and research interests, in the previous roster position before Ruochong Zheng.",
+      "restoredTo": {
+        "masters": ["yufan-deng"]
+      }
+    }
+  ],
+  "directoryAsOf": "2025-03",
+  "destinationUpdates": [
+    {
+      "date": "2026-10-28",
+      "source": "Lab maintainer instruction",
+      "description": "Update the supplied alumni destinations and localize displayed destinations on Chinese pages. Keep all student and alumni names in English romanization. Wisconsin campus was not specified; do not infer Madison or another campus.",
+      "updatedIds": [
+        "zhiqiang-gao",
+        "hongliang-he",
+        "zhiwei-nie",
+        "pengchong-qiao",
+        "mengjun-cheng",
+        "zhidan-wei",
+        "yalu-cheng",
+        "peng-jin",
+        "hao-li",
+        "runyi-yu",
+        "yu-wang",
+        "jun-wang",
+        "yuke-li",
+        "rushi-ye",
+        "yiming-ma",
+        "xudong-liu"
+      ],
+      "previousDestinations": {
+        "zhiqiang-gao": "SenseTime Shanghai",
+        "hongliang-he": "Suzhou University",
+        "zhiwei-nie": null,
+        "pengchong-qiao": null,
+        "mengjun-cheng": null,
+        "zhidan-wei": "Local Government",
+        "yalu-cheng": "Local Government",
+        "peng-jin": "Peking University",
+        "hao-li": "Peking University",
+        "runyi-yu": "The Hong Kong University of Science and Technology",
+        "yu-wang": null,
+        "jun-wang": null,
+        "yuke-li": null,
+        "rushi-ye": null,
+        "yiming-ma": null,
+        "xudong-liu": null
+      }
+    },
+    {
+      "date": "2026-10-28",
+      "source": "Lab maintainer clarification",
+      "description": "Specify University of Wisconsin–Madison for Yu Wang; display university names without country or doctoral-study annotations for Yu Wang and Jun Wang. Display TP-Link directly, and omit the redundant AP abbreviation after Assistant Professor on Chinese pages.",
+      "updatedIds": ["yu-wang", "jun-wang", "zhuo-leng", "zhiwei-nie"],
+      "previousDestinations": {
+        "yu-wang": "Wisconsin, USA · Doctoral Studies",
+        "jun-wang": "Johns Hopkins University · Doctoral Studies in the USA",
+        "zhuo-leng": "TP-LINK"
+      }
+    },
+    {
+      "date": "2026-10-28",
+      "source": "Lab maintainer supplied destination",
+      "description": "Set Zishang Kong destination to OPPO.",
+      "updatedIds": ["zishang-kong"],
+      "previousDestinations": {
+        "zishang-kong": null
+      }
+    }
+  ],
+  "homepageUpdates": [
+    {
+      "date": "2026-10-28",
+      "source": "Lab maintainer supplied homepage links",
+      "updatedIds": [
+        "hongliang-he",
+        "jun-wang",
+        "zhiwei-nie",
+        "yu-wang",
+        "runyi-yu",
+        "hao-li",
+        "peng-jin"
+      ],
+      "previousHomepages": {
+        "hongliang-he": null,
+        "jun-wang": null,
+        "zhiwei-nie": null,
+        "yu-wang": null,
+        "runyi-yu": null,
+        "hao-li": null,
+        "peng-jin": null
+      }
+    },
+    {
+      "date": "2026-10-28",
+      "source": "Lab maintainer supplied homepage link",
+      "updatedIds": ["pengchong-qiao"],
+      "previousHomepages": {
+        "pengchong-qiao": null
+      }
+    },
+    {
+      "date": "2026-10-28",
+      "source": "Lab maintainer supplied homepage link",
+      "updatedIds": ["mengjun-cheng"],
+      "previousHomepages": {
+        "mengjun-cheng": null
+      }
+    },
+    {
+      "date": "2026-10-28",
+      "source": "Lab maintainer supplied homepage link",
+      "updatedIds": ["ruochong-zheng"],
+      "previousHomepages": {
+        "ruochong-zheng": null
+      }
+    },
+    {
+      "date": "2026-10-28",
+      "source": "Lab maintainer supplied homepage links",
+      "updatedIds": ["yiheng-tao", "zishan-shu", "hongxin-fu", "yian-zhao"],
+      "previousHomepages": {
+        "yiheng-tao": null,
+        "zishan-shu": null,
+        "hongxin-fu": null,
+        "yian-zhao": null
+      }
+    },
+    {
+      "date": "2026-10-28",
+      "source": "Lab maintainer supplied homepage link",
+      "updatedIds": ["kehan-li"],
+      "previousHomepages": {
+        "kehan-li": null
+      }
+    },
+    {
+      "date": "2026-10-28",
+      "source": "Lab maintainer supplied homepage link",
+      "updatedIds": ["jinhua-huang"],
+      "previousHomepages": {
+        "jinhua-huang": null
+      }
+    }
+  ],
+  "interestUpdates": [
+    {
+      "date": "2026-10-28",
+      "source": "Lab maintainer instruction",
+      "description": "Remove the broad AIGC / generative artificial intelligence label from displayed member research interests. Keep the remaining supplied interests and original source text.",
+      "updatedIds": [
+        "yiheng-tao",
+        "zishan-shu",
+        "xuehan-hou",
+        "ailing-zhang",
+        "meng-fan",
+        "yufan-deng",
+        "ruochong-zheng",
+        "rushi-ye"
+      ]
     }
   ]
 }

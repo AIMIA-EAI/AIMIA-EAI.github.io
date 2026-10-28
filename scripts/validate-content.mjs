@@ -207,6 +207,9 @@ for (const paper of publications) {
 
 const people = readJSON('src/data/people.json');
 if (record(people, 'people')) {
+  date(people.directoryAsOf, 'people.directoryAsOf');
+  if (typeof people.directoryAsOf !== 'string' || !/^\d{4}-\d{2}$/.test(people.directoryAsOf))
+    error('people.directoryAsOf', 'must be a recorded YYYY-MM directory cutoff');
   const rows = ['faculty', 'phd', 'masters', 'alumni'].flatMap((group) =>
     array(people[group], `people.${group}`),
   );
@@ -220,6 +223,11 @@ if (record(people, 'people')) {
       text(interest, `${where}.interests[${index}]`),
     );
   });
+  const alumniRoles = new Set(['Ph.D. alumni', "Master's alumni", 'Postdoctoral alumni']);
+  for (const person of array(people.alumni, 'people.alumni').filter(object)) {
+    if (!alumniRoles.has(person.group || person.role))
+      error(`people.${person.id}.group`, 'must match a displayed alumni category');
+  }
   date(people.sourceDate, 'people.sourceDate');
   totals.people = rows.length;
 }
@@ -368,6 +376,14 @@ if (record(zh, 'zh')) {
   if (record(zh.interests, 'zh.interests')) {
     for (const interest of interestNames)
       if (typeof interest === 'string') text(zh.interests[interest], `zh.interests.${interest}`);
+  }
+
+  const destinationNames = new Set(
+    sourcePeople.map((person) => person.destination).filter((value) => typeof value === 'string'),
+  );
+  if (record(zh.terms, 'zh.terms')) {
+    for (const destination of destinationNames)
+      text(zh.terms[destination], `zh.terms.${destination}`);
   }
 
   const sourceNews = object(news) && Array.isArray(news.items) ? news.items : [];

@@ -59,7 +59,13 @@ pnpm preview
 
 ### 成员与照片
 
+`directoryAsOf` 是名录资料的截止月份（`YYYY-MM`），中英文页均据此显示，不能用代码修改日期替代。`membershipUpdatedOn` 仅记录维护操作日期。博士与硕士各自按数组顺序展示。
+
 `people.json` 按 `faculty`、`phd`、`masters`、`alumni` 分组。毕业时移动完整记录并保留 ID；`cohort` 是入学年份，未知填 `null`。头像放到 `public/media/` 并使用 `/media/文件名`；没有确认照片时保留空值，不凭缩写猜测身份。
+
+校友按 `group` 自动分为博士毕业生、硕士毕业生和博士后校友；硕士校友再按 `cohort` 入学年级从早到晚分组，年级未知时单列，每个年级内保留数组顺序。`homepage` 用于个人主页或学术主页链接。所有主页链接统一标为“个人主页”，英文页对应 Website，包括 Google Scholar 链接。
+
+校友 `destination` 维护英文去向，对应中文写在 `zh.json` 的 `terms`；构建会检查所有已填写去向的中文覆盖。姓名保留英文拼音，未提供的去向或校区不推断补齐。
 
 `gallery.json` 中 `image` 是实际展示的图片，`source` 和 `originalIndex` 只记录历史来源。替换照片时填写中英文字幕和替代文字，并检查手机构图；宽幅照片可设置 `mobileFit: "contain"`。
 

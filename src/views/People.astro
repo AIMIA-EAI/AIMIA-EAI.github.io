@@ -15,9 +15,38 @@ const isZh = lang === 'zh';
 const t = (en: string, cn: string) => (isZh ? cn : en);
 const faculty = people.faculty[0];
 const studentCount = people.phd.length + people.masters.length;
-const directoryDate = new Date(
-  `${people.membershipUpdatedOn ?? people.sourceDate}T00:00:00Z`,
-).toLocaleDateString(isZh ? 'zh-CN' : 'en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+const alumniGroups = [
+  { id: 'alumni-phd', role: 'Ph.D. alumni', title: t('Doctoral graduates', '博士毕业生') },
+  { id: 'alumni-masters', role: "Master's alumni", title: t("Master's graduates", '硕士毕业生') },
+  {
+    id: 'alumni-postdocs',
+    role: 'Postdoctoral alumni',
+    title: t('Former postdoctoral researchers', '博士后校友'),
+  },
+]
+  .map((group) => ({
+    ...group,
+    members: people.alumni.filter((person) => (person.group || person.role) === group.role),
+  }))
+  .filter((group) => group.members.length > 0);
+
+const masterAlumni = people.alumni.filter(
+  (person) => (person.group || person.role) === "Master's alumni",
+);
+const masterCohorts = [...new Set(masterAlumni.map((person) => person.cohort))]
+  .sort((a, b) => (a === null ? 1 : b === null ? -1 : a - b))
+  .map((cohort) => ({
+    id: `alumni-masters-${cohort ?? 'unknown'}`,
+    title: cohort
+      ? t(`${cohort} entry cohort`, `${cohort} 级`)
+      : t('Cohort not specified', '年级未注明'),
+    members: masterAlumni.filter((person) => person.cohort === cohort),
+  }));
+
+const directoryDate = new Date(`${people.directoryAsOf}-01T00:00:00Z`).toLocaleDateString(
+  isZh ? 'zh-CN' : 'en-US',
+  { month: 'long', year: 'numeric', timeZone: 'UTC' },
+);
 ---
 
 <Layout
@@ -88,7 +117,7 @@ const directoryDate = new Date(
       </div>
     </article>
     <p class="page-note people-note">
-      {t('Directory updated', '名录更新')} · {directoryDate}
+      {t('Directory as of', '名录截至')} · {directoryDate}
     </p>
     <section class="people-section" id="students" aria-labelledby="students-title">
       <header class="people-section-heading">
@@ -123,16 +152,100 @@ const directoryDate = new Date(
         <h2 id="alumni-title">{t('Alumni', '校友 Alumni')}</h2>
         <span class="people-section-count">{people.alumni.length}</span>
       </header>
-      <div class="alumni-grid">
-        {people.alumni.map((person) => (
-          <AlumniCard person={person} lang={lang} />
+      <nav class="alumni-group-nav" aria-label={t('Alumni categories', '校友分类')}>
+        {alumniGroups.map((group) => (
+          <a href={`#${group.id}`}>
+            {group.title} <span>{group.members.length}</span>
+          </a>
         ))}
-      </div>
+      </nav>
+      {alumniGroups.map((group) => (
+        <section class="alumni-group" id={group.id} aria-labelledby={`${group.id}-title`}>
+          <div class="student-subheading">
+            <h3 id={`${group.id}-title`}>{group.title}</h3>
+            <span>{group.members.length.toString().padStart(2, '0')}</span>
+          </div>
+          {group.id === 'alumni-masters' ? (
+            masterCohorts.map((cohort) => (
+              <section class="masters-cohort" id={cohort.id} aria-labelledby={`${cohort.id}-title`}>
+                <header class="masters-cohort-heading">
+                  <h4 id={`${cohort.id}-title`}>{cohort.title}</h4>
+                  <span>{cohort.members.length.toString().padStart(2, '0')}</span>
+                </header>
+                <div class="alumni-grid">
+                  {cohort.members.map((person) => (
+                    <AlumniCard person={person} lang={lang} headingLevel="h5" showCohort={false} />
+                  ))}
+                </div>
+              </section>
+            ))
+          ) : (
+            <div class="alumni-grid">
+              {group.members.map((person) => (
+                <AlumniCard person={person} lang={lang} headingLevel="h4" />
+              ))}
+            </div>
+          )}
+        </section>
+      ))}
     </section>
   </div>
 </Layout>
 
 <style>
+  .masters-cohort {
+    scroll-margin-top: 110px;
+  }
+  .masters-cohort + .masters-cohort {
+    margin-top: 30px;
+  }
+  .masters-cohort-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .masters-cohort-heading h4 {
+    font-size: 21px;
+    font-weight: 550;
+    line-height: 1.5;
+    color: var(--red);
+  }
+  .masters-cohort-heading span {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .alumni-group-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+    margin: -12px 0 32px;
+  }
+  .alumni-group-nav a {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 9px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .alumni-group-nav span {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .alumni-group-nav a:hover {
+    color: var(--red);
+  }
+  .alumni-group {
+    scroll-margin-top: 110px;
+  }
+  .alumni-group + .alumni-group {
+    margin-top: 42px;
+  }
+
   .people-page-header {
     padding-top: 50px;
     padding-bottom: 32px;
