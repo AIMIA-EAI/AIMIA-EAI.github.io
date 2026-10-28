@@ -23,6 +23,10 @@ const relatedPaper = (tag: string | null) =>
 ---
 
 <Layout lang={lang}>
+  <div class="research-motion-band">
+    <ResearchMotion lang={lang} />
+  </div>
+
   <section class="hero lab-hero container" id="about" aria-labelledby="lab-name">
     <div class="hero-copy">
       <div class="eyebrow hero-eyebrow">{t('PEKING UNIVERSITY · SHENZHEN', '北京大学 · 深圳')}</div>
@@ -87,10 +91,6 @@ const relatedPaper = (tag: string | null) =>
   </section>
 
   <HomeHighlights lang={lang} />
-
-  <div class="research-motion-band">
-    <ResearchMotion lang={lang} />
-  </div>
 
   <section class="lab-research-band" id="research-areas" aria-labelledby="research-title">
     <div class="container">

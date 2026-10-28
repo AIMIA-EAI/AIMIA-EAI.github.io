@@ -1,0 +1,73 @@
+<script>
+  const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const targets = [
+    ...document.querySelectorAll<HTMLElement>(
+      '.section-heading, .people-section-heading, .student-subheading, .masters-cohort-heading, .highlights-heading, .page-header h1, .hero h1, .rm-heading, .pc-heading, .lab-community h2',
+    ),
+  ];
+  const seen = new WeakSet<HTMLElement>();
+  const active = new Set<Animation>();
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting || preference.matches) return;
+          const element = entry.target as HTMLElement;
+          observer.unobserve(element);
+          if (seen.has(element)) return;
+          seen.add(element);
+          if (typeof element.animate !== 'function') return;
+          const animation = element.animate(
+            [
+              { opacity: 0.65, transform: 'translateY(8px)' },
+              { opacity: 1, transform: 'none' },
+            ],
+            { duration: 320, easing: 'cubic-bezier(0.2, 0.7, 0.2, 1)' },
+          );
+          active.add(animation);
+          animation.finished.then(
+            () => active.delete(animation),
+            () => active.delete(animation),
+          );
+        });
+      },
+      { threshold: 0.15 },
+    );
+    const syncMotion = () => {
+      observer.disconnect();
+      if (preference.matches) {
+        active.forEach((animation) => animation.cancel());
+        active.clear();
+      } else {
+        targets.filter((target) => !seen.has(target)).forEach((target) => observer.observe(target));
+      }
+    };
+    preference.addEventListener('change', syncMotion);
+    syncMotion();
+  }
+</script>
+
+<style is:global>
+  .main-nav > a:not(.nav-contact) {
+    position: relative;
+  }
+  .main-nav > a:not(.nav-contact)::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    bottom: -5px;
+    height: 1px;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 180ms ease-out;
+  }
+  .main-nav > a:not(.nav-contact):is(:hover, :focus-visible, [aria-current='page'])::after {
+    transform: scaleX(1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .main-nav > a:not(.nav-contact)::after {
+      transition: none;
+    }
+  }
+</style>

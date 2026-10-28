@@ -9,7 +9,7 @@ export function localePath(path: string, lang: Locale): string {
     /^\/(?:favicon|robots|sitemap)\./.test(url.pathname)
   )
     return path;
-  let pathname = url.pathname.replace(/^\/zh(?=\/|$)/, '') || '/';
+  let pathname = url.pathname.replace(/^\/(?:zh|en)(?=\/|$)/, '') || '/';
   if (pathname === '/404.html' || pathname === '/404/')
     return `${lang === 'zh' ? '/zh/404/' : '/404.html'}${url.search}${url.hash}`;
   const aliases: Record<string, string> = {
@@ -35,5 +35,6 @@ export function localePath(path: string, lang: Locale): string {
     pathname = '/research/';
     if (!url.hash) url.hash = '#updates';
   }
+  if (lang === 'en' && pathname === '/') pathname = '/en/';
   return `${lang === 'zh' ? '/zh' : ''}${pathname}${url.search}${url.hash}`;
 }
