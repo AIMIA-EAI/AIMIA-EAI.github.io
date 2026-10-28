@@ -43,7 +43,7 @@ pnpm preview
 | `src/styles/global.css`                         | 全站样式                                              |
 | `scripts/`                                      | 内容校验、兼容入口生成和构建产物检查                  |
 | `site.config.mjs`                               | 站点域名，供 canonical、sitemap、robots 共用          |
-| `.github/workflows/pages.yml`                   | 构建检查与手动 Pages 发布                             |
+| `.github/workflows/pages.yml`                   | 构建检查与自动 Pages 发布                             |
 
 ### 论文与研究成果
 
@@ -85,6 +85,6 @@ pnpm preview
 
 只提交源码、内容、素材、锁文件和维护配置。`node_modules/`、`dist/`、`.astro/`、`.local-preview/`、macOS 元数据和自动生成的兼容页/站点地图均被忽略。
 
-工作流在 `main` 的 Push / PR 上执行完整构建检查；只有在目标仓库 `AIMIA-EAI/AIMIA-EAI.github.io` 的 `main` 分支手动运行时才发布 `dist/`。发布前需在仓库 Settings → Pages 选择 GitHub Actions；本地构建或 commit 不会自动推送、发布。
+工作流对 `main` 的 Push / PR 执行完整构建检查。在目标仓库 `AIMIA-EAI/AIMIA-EAI.github.io` 推送到 `main` 后，检查通过即自动发布 `dist/`；PR 仅检查，不发布。仍可通过 Actions → Run workflow 选择 `main` 手动重新发布。仓库 Settings → Pages 需选择 GitHub Actions；仅在本地 commit 不会发布，需要 `git push origin main`。
 
 GitHub 组织首页由独立的 [AIMIA-EAI/.github](https://github.com/AIMIA-EAI/.github) 仓库维护。本网站仓库不再保留组织 README 和其 GIF 的重复副本。

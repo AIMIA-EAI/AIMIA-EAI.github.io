@@ -30,14 +30,14 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Validate content, build and check links
         run: pnpm build
-      - name: Upload website only for a manual release
-        if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && github.repository == 'AIMIA-EAI/AIMIA-EAI.github.io'
+      - name: Upload website for publication
+        if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main' && github.repository == 'AIMIA-EAI/AIMIA-EAI.github.io'
         uses: actions/upload-pages-artifact@v4
         with:
           path: dist
 
   deploy:
-    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && github.repository == 'AIMIA-EAI/AIMIA-EAI.github.io'
+    if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main' && github.repository == 'AIMIA-EAI/AIMIA-EAI.github.io'
     needs: build
     runs-on: ubuntu-latest
     permissions:

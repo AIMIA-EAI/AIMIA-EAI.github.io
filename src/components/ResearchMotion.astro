@@ -264,7 +264,11 @@ const base = zh ? '/zh' : '';
               <path data-arm-upper d="M521 143 555.12 102.44" class="rm-arm-link" />
               <path data-arm-upper-highlight d="M521 143 555.12 102.44" class="rm-arm-highlight" />
               <path data-arm-forearm d="M555.12 102.44 607 106" class="rm-arm-link" />
-              <path data-arm-forearm-highlight d="M555.12 102.44 607 106" class="rm-arm-highlight" />
+              <path
+                data-arm-forearm-highlight
+                d="M555.12 102.44 607 106"
+                class="rm-arm-highlight"
+              />
               <circle cx="521" cy="143" r="5" class="rm-arm-joint" />
               <circle data-arm-elbow cx="555.12" cy="102.44" r="5" class="rm-arm-joint" />
               <circle data-arm-wrist cx="607" cy="106" r="3.5" fill="#a9473b" />
@@ -397,14 +401,14 @@ const base = zh ? '/zh' : '';
 <style>
   .rm-section {
     border-block: 1px solid var(--line);
-    padding-block: 22px 15px;
+    padding-block: 16px 12px;
   }
   .rm-heading {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 18px;
-    margin-bottom: 17px;
+    margin-bottom: 10px;
   }
   .rm-heading h2 {
     font-size: 17px;
@@ -453,7 +457,7 @@ const base = zh ? '/zh' : '';
     align-items: center;
     justify-content: flex-start;
     gap: 10px;
-    padding: 12px 14px 14px;
+    padding: 9px 14px 11px;
     border: 0;
     border-bottom: 2px solid transparent;
     background: transparent;
@@ -478,12 +482,14 @@ const base = zh ? '/zh' : '';
   }
   .rm-panel {
     display: grid;
-    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
     align-items: center;
-    gap: 38px;
-    padding-block: 22px 10px;
+    gap: 30px;
+    padding-block: 14px 4px;
   }
   .rm-drawing {
+    width: 94%;
+    max-width: 600px;
     min-width: 0;
     background: radial-gradient(ellipse at 50% 50%, #e9ebdf 0, transparent 75%);
   }
@@ -779,6 +785,7 @@ const base = zh ? '/zh' : '';
     }
     .rm-drawing {
       width: 100%;
+      max-width: none;
       overflow: hidden;
     }
     .rm-drawing svg {
@@ -987,10 +994,7 @@ const base = zh ? '/zh' : '';
     motionPreference.addEventListener('change', syncPlayback);
     document.addEventListener('visibilitychange', syncPlayback);
     if ('IntersectionObserver' in window) {
-      new IntersectionObserver(
-        syncPlayback,
-        { threshold: 0.05 },
-      ).observe(root);
+      new IntersectionObserver(syncPlayback, { threshold: 0.05 }).observe(root);
     }
     syncPlayback();
   });
