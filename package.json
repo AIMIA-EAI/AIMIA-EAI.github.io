@@ -12,7 +12,9 @@
     "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview --host 127.0.0.1",
     "check": "node scripts/validate-content.mjs && node scripts/check-site.mjs",
     "typecheck": "ASTRO_TELEMETRY_DISABLED=1 astro check",
-    "metrics:github": "node scripts/update-github-metrics.mjs"
+    "metrics:github": "node scripts/update-github-metrics.mjs",
+    "metrics:scholar": "node scripts/update-scholar-metrics.mjs",
+    "test:scholar": "node --test scripts/lib/scholar-metrics.test.mjs"
   },
   "dependencies": {
     "@fontsource-variable/manrope": "^5.3.0",

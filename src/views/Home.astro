@@ -25,11 +25,7 @@ const relatedPaper = (tag: string | null) =>
 ---
 
 <Layout lang={lang} homeSnap>
-  <div class="home-screen">
-    <ResearchImpact lang={lang} />
-  </div>
-
-  <div class="home-screen">
+  <div class="home-screen home-overview">
     <section class="hero lab-hero container" id="about" aria-labelledby="lab-name">
       <div class="hero-copy">
         <div class="eyebrow hero-eyebrow">
@@ -99,6 +95,7 @@ const relatedPaper = (tag: string | null) =>
         </div>
       </div>
     </section>
+    <ResearchImpact lang={lang} compact />
   </div>
 
   <div class="home-screen research-motion-band">
@@ -250,6 +247,61 @@ const relatedPaper = (tag: string | null) =>
   }
   .lab-principal-links .text-link {
     font-size: 16px;
+  }
+  @media (min-width: 1024px) {
+    .home-overview .lab-hero {
+      gap: 40px;
+      padding-block: 20px 16px;
+    }
+    .home-overview .hero-eyebrow {
+      margin-bottom: 10px;
+    }
+    .home-overview .lab-hero h1 {
+      font-size: 52px;
+    }
+    .home-overview .lab-chinese-name {
+      margin-top: 6px;
+      font-size: 14px;
+    }
+    .home-overview .lab-hero .hero-description {
+      margin-top: 12px;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+    .home-overview .lab-academic-links {
+      margin-top: 14px;
+      gap: 22px;
+    }
+    .home-overview .lab-academic-links .text-link {
+      font-size: 16px;
+    }
+    .home-overview .lab-principal {
+      grid-template-columns: 112px minmax(0, 1fr);
+      gap: 20px;
+      padding-bottom: 12px;
+    }
+    .home-overview .lab-principal img {
+      width: 112px;
+      height: 140px;
+    }
+    .home-overview .lab-principal-name {
+      font-size: 26px;
+    }
+    .home-overview .lab-principal-name span {
+      font-size: 18px;
+    }
+    .home-overview .lab-principal-affiliation {
+      margin-top: 8px;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+    .home-overview .lab-principal-links {
+      margin-top: 10px;
+      gap: 10px 18px;
+    }
+    .home-overview .lab-principal-links .text-link {
+      font-size: 15px;
+    }
   }
   @media (max-width: 1000px) {
     .lab-hero {

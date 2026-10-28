@@ -95,3 +95,9 @@ GitHub 组织首页由独立的 [AIMIA-EAI/.github](https://github.com/AIMIA-EAI
 - `pnpm metrics:github`：完整分页更新组织仓库和历史记录。正式发布前自动运行；失败会中止发布，已有官网继续可用。本地构建与 PR 检查使用已保存的数据，不调用外部 API。
 - `src/data/scholar-metrics.json`：陈杰老师（`ZAZFfwwAAAAJ`）公开 Scholar 页面的总引用、h-index 和各年引用量。曲线自最早可见年份起逐年累加，不把未分配到可见年份的引用推算为早期数据，也不代表历年保存的总引用快照。手动核验更新 `verifiedAt`、`total`、`hIndex` 和 `annual`，不要把逐年引用量当作历史总引用快照。当年数据为截至核验日的部分年度数据。
 - 图表支持鼠标或触摸查看，底部滑条支持键盘方向键；禁用 JavaScript 时仍显示完整图表和数据摘要。两项数据各自展示更新日期。
+
+### Daily metrics refresh
+
+GitHub Actions refreshes both metrics daily at **09:17 Asia/Shanghai (01:17 UTC)**, then rebuilds and deploys the website. GitHub may delay scheduled runs; a local computer is not required. Pushes to main and manual releases also refresh metrics. Pull requests do not call the remote sources.
+
+`pnpm metrics:scholar` reads the public Jie Chen profile and verifies the identity, totals and annual data before saving. If access is blocked or the format changes, it preserves the latest successful snapshot and its original verification date, emits a workflow warning, and lets Star updates and publication continue. The snapshot is published at `/metrics/scholar.json` and restored before future refreshes, so successful scheduled updates survive without Git write permissions. The committed JSON is the initial fallback; manual verification remains supported. `pnpm test:scholar` covers parsing, historical-year retention, invalid data and source validation.

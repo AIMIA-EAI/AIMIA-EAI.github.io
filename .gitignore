@@ -17,3 +17,5 @@ public/register.html
 public/.nojekyll
 public/sitemap.xml
 public/robots.txt
+
+public/metrics/

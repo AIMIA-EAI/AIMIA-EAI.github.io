@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, writeFile, copyFile } from 'node:fs/promises';
 import path from 'node:path';
 import { SITE_URL } from '../site.config.mjs';
 
@@ -20,6 +20,8 @@ for (const [file, target] of Object.entries(aliases)) {
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=${target}"><link rel="canonical" href="${SITE_URL}${target.split('#')[0]}"><meta name="robots" content="noindex"><title>Page moved — AIMIA</title></head><body><p>This page has moved. <a href="${target}">Continue to AIMIA</a>.</p><script>${script}</script></body></html>`;
   await writeFile(path.join('public', file), html);
 }
+await mkdir('public/metrics', { recursive: true });
+await copyFile('src/data/scholar-metrics.json', 'public/metrics/scholar.json');
 await writeFile('public/.nojekyll', '');
 const urls = ['/', '/research/', '/people/', '/join/'];
 const localizedUrls = urls.flatMap((url) => [url, `/zh${url}`]);

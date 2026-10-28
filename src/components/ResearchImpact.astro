@@ -4,8 +4,9 @@ import scholar from '../data/scholar-metrics.json';
 import type { Locale } from '../lib/locale-path';
 interface Props {
   lang?: Locale;
+  compact?: boolean;
 }
-const { lang = 'en' } = Astro.props;
+const { lang = 'en', compact = false } = Astro.props;
 const zh = lang === 'zh';
 const t = (en: string, cn: string) => (zh ? cn : en);
 const number = (n: number) => n.toLocaleString('en-US');
@@ -26,7 +27,12 @@ const cards = [
     ),
     source: github.source,
     sourceLabel: 'GitHub',
-    updated: github.updatedAt.slice(0, 10),
+    updated: new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Asia/Shanghai',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    }).format(new Date(github.updatedAt)),
     color: 'sage',
     points: github.series.map((p) => ({ date: p.date, label: p.date, value: p.value })),
     chartLabel: t('Cumulative star events · weekly', '累计获 Star · 按周统计'),
@@ -67,7 +73,11 @@ function graph(points: { date: string; label: string; value: number }[]) {
 }
 ---
 
-<section class="impact container" id="research-impact" aria-labelledby={`impact-title-${lang}`}>
+<section
+  class:list={['impact container', { 'impact-compact': compact }]}
+  id="research-impact"
+  aria-labelledby={`impact-title-${lang}`}
+>
   <div class="section-heading impact-heading">
     <div>
       <h2 id={`impact-title-${lang}`}>{t('Research in numbers', '研究影响力')}</h2>
@@ -365,6 +375,43 @@ function graph(points: { date: string; label: string; value: number }[]) {
     font-size: 12px;
     color: var(--muted);
     margin-top: 4px;
+  }
+  @media (min-width: 1024px) {
+    .impact-compact {
+      padding-block: 10px 16px;
+    }
+    .impact-compact .impact-heading {
+      margin-bottom: 10px;
+    }
+    .impact-compact .impact-heading h2 {
+      font-size: 22px;
+    }
+    .impact-compact .impact-card {
+      padding-top: 10px;
+    }
+    .impact-compact .impact-card-heading h3 {
+      font-size: 17px;
+    }
+    .impact-compact .impact-total {
+      margin-top: 6px;
+    }
+    .impact-compact .impact-total strong {
+      font-size: 36px;
+    }
+    .impact-compact .impact-scope {
+      margin-top: 3px;
+      font-size: 14px;
+    }
+    .impact-compact .impact-chart-heading {
+      margin-top: 10px;
+    }
+    .impact-compact .impact-slider {
+      min-height: 24px;
+      margin-top: 0;
+    }
+    .impact-compact .impact-updated {
+      margin-top: 2px;
+    }
   }
   @media (max-width: 700px) {
     .impact-grid {

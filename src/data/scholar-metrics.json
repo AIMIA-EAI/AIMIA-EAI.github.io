@@ -2,7 +2,7 @@
   "profileId": "ZAZFfwwAAAAJ",
   "name": "Jie Chen",
   "source": "https://scholar.google.com/citations?user=ZAZFfwwAAAAJ&hl=en",
-  "verifiedAt": "2026-10-28",
+  "verifiedAt": "2026-10-29",
   "total": 29723,
   "hIndex": 64,
   "annual": [
@@ -74,5 +74,6 @@
       "year": 2026,
       "citations": 8533
     }
-  ]
+  ],
+  "fetchedAt": "2026-10-28T17:58:11.505Z"
 }

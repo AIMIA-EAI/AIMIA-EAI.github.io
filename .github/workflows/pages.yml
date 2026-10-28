@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    # Daily at 09:17 Asia/Shanghai (GitHub may queue the run).
+    - cron: '17 1 * * *'
 
 permissions:
   contents: read
@@ -29,20 +32,25 @@ jobs:
       - name: Install locked dependencies
         run: pnpm install --frozen-lockfile
       - name: Refresh public GitHub Star metrics
-        if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main' && github.repository == 'AIMIA-EAI/AIMIA-EAI.github.io'
+        if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch' || github.event_name == 'schedule') && github.ref == 'refs/heads/main' && github.repository == 'AIMIA-EAI/AIMIA-EAI.github.io'
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: pnpm metrics:github
+      - name: Refresh public Scholar citation metrics
+        if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch' || github.event_name == 'schedule') && github.ref == 'refs/heads/main' && github.repository == 'AIMIA-EAI/AIMIA-EAI.github.io'
+        run: pnpm metrics:scholar
+      - name: Test Scholar parsing and retention rules
+        run: pnpm test:scholar
       - name: Validate content, build and check links
         run: pnpm build
       - name: Upload website for publication
-        if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main' && github.repository == 'AIMIA-EAI/AIMIA-EAI.github.io'
+        if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch' || github.event_name == 'schedule') && github.ref == 'refs/heads/main' && github.repository == 'AIMIA-EAI/AIMIA-EAI.github.io'
         uses: actions/upload-pages-artifact@v4
         with:
           path: dist
 
   deploy:
-    if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main' && github.repository == 'AIMIA-EAI/AIMIA-EAI.github.io'
+    if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch' || github.event_name == 'schedule') && github.ref == 'refs/heads/main' && github.repository == 'AIMIA-EAI/AIMIA-EAI.github.io'
     needs: build
     runs-on: ubuntu-latest
     permissions:
