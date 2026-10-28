@@ -448,6 +448,70 @@ if (record(manifest, 'media manifest')) {
   totals.mediaMappings = Object.keys(manifest).length;
 }
 
+const githubMetrics = readJSON('src/data/github-metrics.json');
+const scholarMetrics = readJSON('src/data/scholar-metrics.json');
+function count(value, where) {
+  if (!Number.isSafeInteger(value) || value < 0) error(where, 'must be a nonnegative safe integer');
+}
+if (record(githubMetrics, 'githubMetrics')) {
+  if (githubMetrics.organization !== 'AIMIA-EAI')
+    error('githubMetrics.organization', 'must be AIMIA-EAI');
+  link(githubMetrics.source, 'githubMetrics.source');
+  if (!Number.isFinite(Date.parse(githubMetrics.updatedAt)))
+    error('githubMetrics.updatedAt', 'invalid timestamp');
+  count(githubMetrics.totalStars, 'githubMetrics.totalStars');
+  const repositories = array(githubMetrics.repositories, 'githubMetrics.repositories');
+  const names = new Set();
+  for (const repo of repositories) {
+    if (!record(repo, 'githubMetrics.repository')) continue;
+    text(repo.name, 'githubMetrics.repository.name');
+    if (names.has(repo.name)) error('githubMetrics.repositories', 'duplicate repository');
+    names.add(repo.name);
+    link(repo.url, 'githubMetrics.repository.url');
+    count(repo.stars, 'githubMetrics.repository.stars');
+  }
+  if (repositories.reduce((sum, repo) => sum + (repo?.stars || 0), 0) !== githubMetrics.totalStars)
+    error('githubMetrics.totalStars', 'must equal repository star sum');
+  let previousDate = '',
+    running = 0;
+  for (const point of array(githubMetrics.series, 'githubMetrics.series')) {
+    if (!record(point, 'githubMetrics.point')) continue;
+    date(point.date, 'githubMetrics.point.date');
+    count(point.gained, 'githubMetrics.point.gained');
+    count(point.value, 'githubMetrics.point.value');
+    if (point.date <= previousDate) error('githubMetrics.series', 'dates must increase strictly');
+    running += point.gained;
+    if (running !== point.value)
+      error('githubMetrics.series', 'cumulative values must equal star-event sum');
+    previousDate = point.date;
+  }
+  totals.starHistoryPoints = githubMetrics.series?.length || 0;
+}
+if (record(scholarMetrics, 'scholarMetrics')) {
+  if (scholarMetrics.profileId !== 'ZAZFfwwAAAAJ')
+    error('scholarMetrics.profileId', 'unexpected Scholar profile');
+  link(scholarMetrics.source, 'scholarMetrics.source');
+  date(scholarMetrics.verifiedAt, 'scholarMetrics.verifiedAt');
+  count(scholarMetrics.total, 'scholarMetrics.total');
+  count(scholarMetrics.hIndex, 'scholarMetrics.hIndex');
+  let previousYear = 0,
+    annualTotal = 0;
+  const annual = array(scholarMetrics.annual, 'scholarMetrics.annual');
+  if (!annual.length) error('scholarMetrics.annual', 'at least one verified year is required');
+  for (const point of annual) {
+    if (!record(point, 'scholarMetrics.point')) continue;
+    year(point.year, 'scholarMetrics.point.year');
+    count(point.citations, 'scholarMetrics.point.citations');
+    if (point.year <= previousYear || point.year > Number(scholarMetrics.verifiedAt?.slice(0, 4)))
+      error('scholarMetrics.annual', 'years must increase and not exceed verification year');
+    annualTotal += point.citations;
+    previousYear = point.year;
+  }
+  if (annualTotal > scholarMetrics.total)
+    error('scholarMetrics.annual', 'annual sum cannot exceed total citations');
+  totals.citationYears = annual.length;
+}
+
 if (errors.length) {
   console.error(
     `Content validation failed (${errors.length} ${errors.length === 1 ? 'error' : 'errors'}):`,

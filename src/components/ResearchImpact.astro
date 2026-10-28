@@ -1,0 +1,385 @@
+---
+import github from '../data/github-metrics.json';
+import scholar from '../data/scholar-metrics.json';
+import type { Locale } from '../lib/locale-path';
+interface Props {
+  lang?: Locale;
+}
+const { lang = 'en' } = Astro.props;
+const zh = lang === 'zh';
+const t = (en: string, cn: string) => (zh ? cn : en);
+const number = (n: number) => n.toLocaleString('en-US');
+let cumulativeCitations = 0;
+const citationPoints = scholar.annual.map((p) => {
+  cumulativeCitations += p.citations;
+  return { date: `${p.year}-01-01`, label: String(p.year), value: cumulativeCitations };
+});
+const cards = [
+  {
+    id: 'stars',
+    title: t('Open-source adoption', '开源关注'),
+    metric: number(github.totalStars),
+    unit: t('GitHub Stars', 'GitHub Stars'),
+    subtitle: t(
+      `${github.repositories.length} public repositories · AIMIA-EAI`,
+      `AIMIA-EAI · ${github.repositories.length} 个公开仓库`,
+    ),
+    source: github.source,
+    sourceLabel: 'GitHub',
+    updated: github.updatedAt.slice(0, 10),
+    color: 'sage',
+    points: github.series.map((p) => ({ date: p.date, label: p.date, value: p.value })),
+    chartLabel: t('Cumulative star events · weekly', '累计获 Star · 按周统计'),
+  },
+  {
+    id: 'citations',
+    title: t('Academic citations', '学术引用'),
+    metric: number(scholar.total),
+    unit: t('Total citations', '总引用次数'),
+    subtitle: t(`Jie Chen · h-index ${scholar.hIndex}`, `陈杰 · h-index ${scholar.hIndex}`),
+    source: scholar.source,
+    sourceLabel: 'Google Scholar',
+    updated: scholar.verifiedAt,
+    color: 'red',
+    points: citationPoints,
+    chartLabel: t(
+      `Cumulative citations · since ${scholar.annual[0].year}`,
+      `累计引用次数 · ${scholar.annual[0].year} 起`,
+    ),
+  },
+];
+function graph(points: { date: string; label: string; value: number }[]) {
+  const top = Math.max(1, ...points.map((p) => p.value));
+  const magnitude = 10 ** Math.floor(Math.log10(top));
+  const ceiling = Math.ceil(top / magnitude) * magnitude;
+  const start = Date.parse(points[0]?.date || '2000-01-01');
+  const end = Date.parse(points.at(-1)?.date || '2000-01-01');
+  const plotted = points.map((p) => ({
+    ...p,
+    x: 52 + ((Date.parse(p.date) - start) / Math.max(1, end - start)) * 520,
+    y: 180 - (p.value / ceiling) * 156,
+  }));
+  return {
+    plotted,
+    path: plotted.map((p, i) => `${i ? 'L' : 'M'}${p.x.toFixed(2)},${p.y.toFixed(2)}`).join(' '),
+    ticks: [0, ceiling / 2, ceiling],
+  };
+}
+---
+
+<section class="impact container" id="research-impact" aria-labelledby={`impact-title-${lang}`}>
+  <div class="section-heading impact-heading">
+    <div>
+      <span class="eyebrow">{t('OPEN SOURCE & SCHOLARSHIP', '开源与学术')}</span>
+      <h2 id={`impact-title-${lang}`}>{t('Research in numbers', '研究影响力')}</h2>
+    </div>
+  </div>
+  <div class="impact-grid">
+    {cards.map((card) => {
+      const chart = graph(card.points);
+      const last = chart.plotted.at(-1);
+      return (
+        <article
+          class={`impact-card impact-${card.color}`}
+          data-impact-chart
+          data-points={JSON.stringify(chart.plotted)}
+        >
+          <div class="impact-card-heading">
+            <h3>{card.title}</h3>
+            <a href={card.source} target="_blank" rel="noopener noreferrer">
+              {card.sourceLabel} <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <div class="impact-total">
+            <strong>{card.metric}</strong>
+            <span>{card.unit}</span>
+          </div>
+          <p class="impact-scope">{card.subtitle}</p>
+          <div class="impact-chart-heading">
+            <h4 id={`impact-${card.id}-${lang}`}>{card.chartLabel}</h4>
+            <output data-impact-value>
+              {last ? `${last.label} · ${number(last.value)}` : t('No history yet', '暂无历史数据')}
+            </output>
+          </div>
+          <svg
+            class="impact-chart"
+            viewBox="0 0 600 220"
+            role="img"
+            aria-labelledby={`impact-${card.id}-${lang}`}
+          >
+            <desc>
+              {card.id === 'citations'
+                ? t(
+                    'Cumulative sum of the currently visible annual citation counts, not historical snapshots of the profile total. ',
+                    '按当前可见年度引用量累加，不是历年保存的总引用快照。',
+                  )
+                : ''}
+              {card.points.map((p) => `${p.label}: ${p.value}`).join('; ')}
+            </desc>
+            {chart.ticks.map((value, i) => (
+              <g>
+                <line
+                  class="impact-gridline"
+                  x1="52"
+                  y1={180 - i * 78}
+                  x2="572"
+                  y2={180 - i * 78}
+                />
+                <text x="40" y={184 - i * 78} text-anchor="end">
+                  {number(value)}
+                </text>
+              </g>
+            ))}
+            <path class="impact-area" d={chart.path ? `${chart.path} L572,180 L52,180 Z` : ''} />
+            <path class="impact-line" d={chart.path} pathLength="1" />
+            {last && (
+              <g data-impact-marker>
+                <line class="impact-crosshair" x1={last.x} x2={last.x} y1="24" y2="180" />
+                <circle cx={last.x} cy={last.y} r="4" />
+              </g>
+            )}
+            {[0, Math.floor((chart.plotted.length - 1) / 2), chart.plotted.length - 1]
+              .filter((v, i, a) => v >= 0 && a.indexOf(v) === i)
+              .map((i) => (
+                <text
+                  x={chart.plotted[i].x}
+                  y="207"
+                  text-anchor={
+                    i === 0 ? 'start' : i === chart.plotted.length - 1 ? 'end' : 'middle'
+                  }
+                >
+                  {card.id === 'stars' ? card.points[i].label.slice(0, 7) : card.points[i].label}
+                </text>
+              ))}
+          </svg>
+          <input
+            class="impact-slider"
+            type="range"
+            min="0"
+            max={Math.max(0, card.points.length - 1)}
+            step="1"
+            value={Math.max(0, card.points.length - 1)}
+            disabled={card.points.length < 2}
+            aria-label={t(`Explore ${card.chartLabel.toLowerCase()}`, `查看${card.chartLabel}数据`)}
+            aria-valuetext={last ? `${last.label}: ${last.value}` : ''}
+          />
+          <p class="impact-updated">
+            {t('Updated', '数据更新')} <time datetime={card.updated}>{card.updated}</time>
+          </p>
+        </article>
+      );
+    })}
+  </div>
+</section>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-impact-chart]').forEach((root) => {
+    const points: { label: string; value: number; x: number; y: number }[] = JSON.parse(
+      root.dataset.points || '[]',
+    );
+    const svg = root.querySelector<SVGSVGElement>('svg')!;
+    const slider = root.querySelector<HTMLInputElement>('input')!;
+    const output = root.querySelector<HTMLOutputElement>('output')!;
+    const marker = root.querySelector('[data-impact-marker]');
+    function select(index: number) {
+      const point = points[Math.max(0, Math.min(points.length - 1, index))];
+      if (!point) return;
+      slider.value = String(index);
+      slider.setAttribute('aria-valuetext', `${point.label}: ${point.value}`);
+      output.textContent = `${point.label} · ${point.value.toLocaleString('en-US')}`;
+      marker?.querySelector('line')?.setAttribute('x1', String(point.x));
+      marker?.querySelector('line')?.setAttribute('x2', String(point.x));
+      marker?.querySelector('circle')?.setAttribute('cx', String(point.x));
+      marker?.querySelector('circle')?.setAttribute('cy', String(point.y));
+    }
+    function pointAt(event: PointerEvent) {
+      const x =
+        ((event.clientX - svg.getBoundingClientRect().left) / svg.getBoundingClientRect().width) *
+        600;
+      let nearest = 0;
+      points.forEach((point, index) => {
+        if (Math.abs(point.x - x) < Math.abs(points[nearest].x - x)) nearest = index;
+      });
+      select(nearest);
+    }
+    svg.addEventListener('pointermove', (event) => {
+      if (event.pointerType === 'mouse' || event.buttons === 1) pointAt(event);
+    });
+    svg.addEventListener('pointerdown', pointAt);
+    slider.addEventListener('input', () => select(Number(slider.value)));
+  });
+</script>
+<style>
+  .impact {
+    padding-block: 28px 36px;
+  }
+  .impact-heading {
+    margin-bottom: 24px;
+  }
+  .impact-heading h2 {
+    font-size: 30px;
+  }
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+  }
+  .impact-card {
+    --chart-color: #718568;
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+    min-width: 0;
+  }
+  .impact-red {
+    --chart-color: var(--red);
+  }
+  .impact-card-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .impact-card-heading h3 {
+    font-size: 19px;
+    font-weight: 550;
+  }
+  .impact-card-heading a {
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .impact-card-heading a:hover {
+    color: var(--red);
+    text-decoration: underline;
+  }
+  .impact-total {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .impact-total strong {
+    font-size: 44px;
+    font-weight: 550;
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+  }
+  .impact-total > span {
+    font-size: 15px;
+    color: var(--muted);
+  }
+  .impact-scope {
+    font-size: 15px;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+  .impact-chart-heading {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 26px;
+  }
+  .impact-chart-heading h4 {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .impact-chart-heading output {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--chart-color);
+    font-variant-numeric: tabular-nums;
+  }
+  .impact-chart {
+    display: block;
+    width: 100%;
+    overflow: visible;
+    margin-top: 8px;
+  }
+  .impact-chart text {
+    font-size: 14px;
+    font-family: var(--mono);
+    fill: var(--muted);
+  }
+  .impact-gridline {
+    stroke: var(--line);
+    stroke-width: 1;
+    stroke-dasharray: 3 5;
+  }
+  .impact-line {
+    fill: none;
+    stroke: var(--chart-color);
+    stroke-width: 2.5;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
+  .impact-area {
+    fill: var(--chart-color);
+    opacity: 0.07;
+  }
+  .impact-crosshair {
+    stroke: var(--chart-color);
+    stroke-dasharray: 3 5;
+    opacity: 0.45;
+  }
+  .impact-chart circle {
+    fill: var(--chart-color);
+    stroke: var(--bg);
+    stroke-width: 2;
+  }
+  .impact-slider {
+    width: 100%;
+    margin: 4px 0 0;
+    accent-color: var(--chart-color);
+    appearance: none;
+    background: transparent;
+    cursor: ew-resize;
+    min-height: 28px;
+  }
+  .impact-slider::-webkit-slider-runnable-track {
+    height: 2px;
+    background: var(--line);
+  }
+  .impact-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 11px;
+    height: 11px;
+    margin-top: -4.5px;
+    border: 2px solid var(--chart-color);
+    border-radius: 50%;
+    background: var(--bg);
+  }
+  .impact-slider::-moz-range-track {
+    height: 2px;
+    background: var(--line);
+  }
+  .impact-slider::-moz-range-thumb {
+    width: 8px;
+    height: 8px;
+    border: 2px solid var(--chart-color);
+    border-radius: 50%;
+    background: var(--bg);
+  }
+  .impact-updated {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+  @media (max-width: 700px) {
+    .impact-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 28px;
+    }
+    .impact-total strong {
+      font-size: 38px;
+    }
+    .impact-chart text {
+      font-size: 22px;
+    }
+    .impact-heading h2 {
+      font-size: 27px;
+    }
+  }
+</style>

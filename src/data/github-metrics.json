@@ -1,0 +1,290 @@
+{
+  "organization": "AIMIA-EAI",
+  "source": "https://github.com/AIMIA-EAI",
+  "updatedAt": "2026-10-28T12:49:41.359Z",
+  "totalStars": 672,
+  "repositories": [
+    {
+      "name": "RT-DETRv4",
+      "url": "https://github.com/AIMIA-EAI/RT-DETRv4",
+      "stars": 672
+    },
+    {
+      "name": "AIMIA-EAI.github.io",
+      "url": "https://github.com/AIMIA-EAI/AIMIA-EAI.github.io",
+      "stars": 0
+    },
+    {
+      "name": ".github",
+      "url": "https://github.com/AIMIA-EAI/.github",
+      "stars": 0
+    }
+  ],
+  "series": [
+    {
+      "date": "2025-10-26",
+      "gained": 18,
+      "value": 18
+    },
+    {
+      "date": "2025-11-02",
+      "gained": 10,
+      "value": 28
+    },
+    {
+      "date": "2025-11-09",
+      "gained": 14,
+      "value": 42
+    },
+    {
+      "date": "2025-11-16",
+      "gained": 22,
+      "value": 64
+    },
+    {
+      "date": "2025-11-23",
+      "gained": 49,
+      "value": 113
+    },
+    {
+      "date": "2025-11-30",
+      "gained": 20,
+      "value": 133
+    },
+    {
+      "date": "2025-12-07",
+      "gained": 19,
+      "value": 152
+    },
+    {
+      "date": "2025-12-14",
+      "gained": 11,
+      "value": 163
+    },
+    {
+      "date": "2025-12-21",
+      "gained": 20,
+      "value": 183
+    },
+    {
+      "date": "2025-12-28",
+      "gained": 19,
+      "value": 202
+    },
+    {
+      "date": "2026-01-04",
+      "gained": 19,
+      "value": 221
+    },
+    {
+      "date": "2026-01-11",
+      "gained": 17,
+      "value": 238
+    },
+    {
+      "date": "2026-01-18",
+      "gained": 21,
+      "value": 259
+    },
+    {
+      "date": "2026-01-25",
+      "gained": 16,
+      "value": 275
+    },
+    {
+      "date": "2026-02-01",
+      "gained": 17,
+      "value": 292
+    },
+    {
+      "date": "2026-02-08",
+      "gained": 10,
+      "value": 302
+    },
+    {
+      "date": "2026-02-15",
+      "gained": 8,
+      "value": 310
+    },
+    {
+      "date": "2026-02-22",
+      "gained": 11,
+      "value": 321
+    },
+    {
+      "date": "2026-03-01",
+      "gained": 9,
+      "value": 330
+    },
+    {
+      "date": "2026-03-08",
+      "gained": 10,
+      "value": 340
+    },
+    {
+      "date": "2026-03-15",
+      "gained": 16,
+      "value": 356
+    },
+    {
+      "date": "2026-03-22",
+      "gained": 20,
+      "value": 376
+    },
+    {
+      "date": "2026-03-29",
+      "gained": 14,
+      "value": 390
+    },
+    {
+      "date": "2026-04-05",
+      "gained": 16,
+      "value": 406
+    },
+    {
+      "date": "2026-04-12",
+      "gained": 19,
+      "value": 425
+    },
+    {
+      "date": "2026-04-19",
+      "gained": 18,
+      "value": 443
+    },
+    {
+      "date": "2026-04-26",
+      "gained": 7,
+      "value": 450
+    },
+    {
+      "date": "2026-05-03",
+      "gained": 8,
+      "value": 458
+    },
+    {
+      "date": "2026-05-10",
+      "gained": 8,
+      "value": 466
+    },
+    {
+      "date": "2026-05-17",
+      "gained": 9,
+      "value": 475
+    },
+    {
+      "date": "2026-05-24",
+      "gained": 7,
+      "value": 482
+    },
+    {
+      "date": "2026-05-31",
+      "gained": 16,
+      "value": 498
+    },
+    {
+      "date": "2026-06-07",
+      "gained": 9,
+      "value": 507
+    },
+    {
+      "date": "2026-06-14",
+      "gained": 5,
+      "value": 512
+    },
+    {
+      "date": "2026-06-21",
+      "gained": 2,
+      "value": 514
+    },
+    {
+      "date": "2026-06-28",
+      "gained": 6,
+      "value": 520
+    },
+    {
+      "date": "2026-07-05",
+      "gained": 11,
+      "value": 531
+    },
+    {
+      "date": "2026-07-12",
+      "gained": 10,
+      "value": 541
+    },
+    {
+      "date": "2026-07-19",
+      "gained": 15,
+      "value": 556
+    },
+    {
+      "date": "2026-07-26",
+      "gained": 5,
+      "value": 561
+    },
+    {
+      "date": "2026-08-02",
+      "gained": 12,
+      "value": 573
+    },
+    {
+      "date": "2026-08-09",
+      "gained": 8,
+      "value": 581
+    },
+    {
+      "date": "2026-08-16",
+      "gained": 7,
+      "value": 588
+    },
+    {
+      "date": "2026-08-23",
+      "gained": 9,
+      "value": 597
+    },
+    {
+      "date": "2026-08-30",
+      "gained": 8,
+      "value": 605
+    },
+    {
+      "date": "2026-09-06",
+      "gained": 18,
+      "value": 623
+    },
+    {
+      "date": "2026-09-13",
+      "gained": 10,
+      "value": 633
+    },
+    {
+      "date": "2026-09-20",
+      "gained": 6,
+      "value": 639
+    },
+    {
+      "date": "2026-09-27",
+      "gained": 8,
+      "value": 647
+    },
+    {
+      "date": "2026-10-04",
+      "gained": 7,
+      "value": 654
+    },
+    {
+      "date": "2026-10-11",
+      "gained": 7,
+      "value": 661
+    },
+    {
+      "date": "2026-10-18",
+      "gained": 7,
+      "value": 668
+    },
+    {
+      "date": "2026-10-25",
+      "gained": 4,
+      "value": 672
+    }
+  ]
+}

@@ -7,6 +7,7 @@ import people from '../data/people.json';
 import { papers, media } from '../lib/content';
 import ResearchMotion from '../components/ResearchMotion.astro';
 import HomeHighlights from '../components/HomeHighlights.astro';
+import ResearchImpact from '../components/ResearchImpact.astro';
 import zh from '../data/zh.json';
 import { localePath, localizeDirections, translateRole, type Locale } from '../lib/i18n';
 interface Props {
@@ -23,9 +24,7 @@ const relatedPaper = (tag: string | null) =>
 ---
 
 <Layout lang={lang}>
-  <div class="research-motion-band">
-    <ResearchMotion lang={lang} />
-  </div>
+  <ResearchImpact lang={lang} />
 
   <section class="hero lab-hero container" id="about" aria-labelledby="lab-name">
     <div class="hero-copy">
@@ -89,6 +88,10 @@ const relatedPaper = (tag: string | null) =>
       </div>
     </div>
   </section>
+
+  <div class="research-motion-band">
+    <ResearchMotion lang={lang} />
+  </div>
 
   <HomeHighlights lang={lang} />
 

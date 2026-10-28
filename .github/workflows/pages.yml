@@ -28,6 +28,11 @@ jobs:
           run_install: false
       - name: Install locked dependencies
         run: pnpm install --frozen-lockfile
+      - name: Refresh public GitHub Star metrics
+        if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main' && github.repository == 'AIMIA-EAI/AIMIA-EAI.github.io'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: pnpm metrics:github
       - name: Validate content, build and check links
         run: pnpm build
       - name: Upload website for publication

@@ -88,3 +88,10 @@ pnpm preview
 工作流对 `main` 的 Push / PR 执行完整构建检查。在目标仓库 `AIMIA-EAI/AIMIA-EAI.github.io` 推送到 `main` 后，检查通过即自动发布 `dist/`；PR 仅检查，不发布。仍可通过 Actions → Run workflow 选择 `main` 手动重新发布。仓库 Settings → Pages 需选择 GitHub Actions；仅在本地 commit 不会发布，需要 `git push origin main`。
 
 GitHub 组织首页由独立的 [AIMIA-EAI/.github](https://github.com/AIMIA-EAI/.github) 仓库维护。本网站仓库不再保留组织 README 和其 GIF 的重复副本。
+
+## 首页研究影响力图表
+
+- `src/data/github-metrics.json`：AIMIA-EAI 全部公开仓库的 Star 总数及官方每周历史获星记录；曲线累加历史事件，当前总数可能因取消 Star、仓库转移等而不同。
+- `pnpm metrics:github`：完整分页更新组织仓库和历史记录。正式发布前自动运行；失败会中止发布，已有官网继续可用。本地构建与 PR 检查使用已保存的数据，不调用外部 API。
+- `src/data/scholar-metrics.json`：陈杰老师（`ZAZFfwwAAAAJ`）公开 Scholar 页面的总引用、h-index 和各年引用量。曲线自最早可见年份起逐年累加，不把未分配到可见年份的引用推算为早期数据，也不代表历年保存的总引用快照。手动核验更新 `verifiedAt`、`total`、`hIndex` 和 `annual`，不要把逐年引用量当作历史总引用快照。当年数据为截至核验日的部分年度数据。
+- 图表支持鼠标或触摸查看，底部滑条支持键盘方向键；禁用 JavaScript 时仍显示完整图表和数据摘要。两项数据各自展示更新日期。
