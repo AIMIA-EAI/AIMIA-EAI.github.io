@@ -773,11 +773,11 @@
       "cohort": 2022,
       "image": "/assets/images/mqk.jpeg",
       "interests": ["Deep Learning", "Semi-supervised Learning"],
-      "homepage": null,
+      "homepage": "https://scholar.google.com/citations?user=2BQLrCkAAAAJ&hl=zh-CN",
       "scholar": null,
       "originalText": "Qiankun Ma Master (2022)\nDeep Learning, Semi-supervised Learning",
       "group": "Master's alumni",
-      "destination": null
+      "destination": "Peng Cheng Laboratory"
     },
     {
       "id": "yu-wang",
@@ -841,7 +841,7 @@
       "cohort": 2022,
       "image": "/assets/images/shiyu-1171x1640.jpg",
       "interests": ["Medical Report Generation"],
-      "homepage": null,
+      "homepage": "https://scholar.google.com/citations?user=Te8eO_EAAAAJ&hl=en",
       "scholar": null,
       "originalText": "Shiyu Li Master (2022)\nMedical Report Generation",
       "group": "Master's alumni",
