@@ -1,0 +1,25 @@
+/* Native document scrolling: no wheel interception or nested scroll container. */
+@media screen and (min-width: 1024px) and (min-height: 640px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  html[data-home-snap] {
+    --home-header-height: 88px;
+    scroll-snap-type: y proximity;
+    scroll-padding-top: var(--home-header-height);
+  }
+
+  html[data-home-snap] .home-screen {
+    min-height: calc(100svh - var(--home-header-height));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  html[data-home-snap] .home-screen > * {
+    flex-shrink: 0;
+  }
+
+  html[data-home-snap] .site-footer {
+    scroll-snap-align: start;
+  }
+}

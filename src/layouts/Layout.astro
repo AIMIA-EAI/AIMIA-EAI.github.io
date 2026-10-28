@@ -10,10 +10,12 @@ interface Props {
   description?: string;
   lang?: Locale;
   canonicalPath?: string;
+  homeSnap?: boolean;
 }
 const {
   title,
   lang = 'en',
+  homeSnap = false,
   canonicalPath = Astro.url.pathname,
   description = lang === 'zh'
     ? '北京大学 AIMIA 实验室，聚焦具身智能、多模态智能与科学智能（AI4S）。'
@@ -28,7 +30,7 @@ const canonical = new URL(localePath(canonicalPath, lang), Astro.site);
 ---
 
 <!doctype html>
-<html lang={lang === 'zh' ? 'zh-CN' : 'en'}>
+<html lang={lang === 'zh' ? 'zh-CN' : 'en'} data-home-snap={homeSnap ? 'true' : undefined}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
