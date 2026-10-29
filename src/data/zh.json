@@ -216,6 +216,25 @@
   },
   "honors": [
     {
+      "year": 2025,
+      "text": "国家科学技术进步一等奖。",
+      "id": "national-progress-2025",
+      "homepageFeatured": true
+    },
+    {
+      "year": 2025,
+      "text": "聂志伟的论文《A unified evolution-driven deep learning framework for virus variation driver prediction》获世界人工智能大会青年优秀论文奖。",
+      "id": "waic-youth-paper-2025",
+      "homepageFeatured": true
+    },
+    {
+      "year": 2025,
+      "text": "聂志伟入选中国人工智能学会“清源学者”。",
+      "id": "qingyuan-scholar-2025",
+      "homepageFeatured": false,
+      "url": "https://news.pku.edu.cn/info/7921/2767591.htm"
+    },
+    {
       "year": 2024,
       "text": "“数据要素×”大赛全国总决赛二等奖、广东省一等奖。",
       "id": "data-elements-2024",
