@@ -172,9 +172,9 @@ const directoryDate = new Date(`${people.directoryAsOf}-01T00:00:00Z`).toLocaleD
                   <h4 id={`${cohort.id}-title`}>{cohort.title}</h4>
                   <span>{cohort.members.length.toString().padStart(2, '0')}</span>
                 </header>
-                <div class="alumni-grid">
+                <div class="alumni-grid alumni-grid-masters">
                   {cohort.members.map((person) => (
-                    <AlumniCard person={person} lang={lang} headingLevel="h5" showCohort={false} />
+                    <AlumniCard person={person} lang={lang} headingLevel="h5" showCohort={false} compact />
                   ))}
                 </div>
               </section>
@@ -320,8 +320,14 @@ const directoryDate = new Date(`${people.directoryAsOf}-01T00:00:00Z`).toLocaleD
     color: var(--muted);
   }
   .alumni-grid {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 40px;
+  }
+  @media (min-width: 1101px) {
+    .alumni-grid-masters {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      column-gap: 28px;
+    }
   }
   .people-section .people-grid {
     margin-bottom: 0;

@@ -7,6 +7,7 @@ interface Props {
   lang?: Locale;
   headingLevel?: 'h3' | 'h4' | 'h5';
   showCohort?: boolean;
+  compact?: boolean;
   person: {
     id: string;
     name: string;
@@ -19,7 +20,7 @@ interface Props {
     homepage: string | null;
   };
 }
-const { person, lang = 'en', headingLevel = 'h3', showCohort = true } = Astro.props;
+const { person, lang = 'en', headingLevel = 'h3', showCohort = true, compact = false } = Astro.props;
 const NameHeading = headingLevel;
 const zh = lang === 'zh';
 const initials = person.name
@@ -32,7 +33,7 @@ const initials = person.name
 const headingId = `alumni-name-${person.id}`;
 ---
 
-<article class="alumni-item" data-alumni={person.id} aria-labelledby={headingId}>
+<article class:list={['alumni-item', { 'alumni-compact': compact }]} data-alumni={person.id} aria-labelledby={headingId}>
   <div class="alumni-name">
     <NameHeading id={headingId}>{person.name}</NameHeading>
     {person.homepage && <ProfileLink href={person.homepage} personName={person.name} lang={lang} />}
@@ -90,6 +91,12 @@ const headingId = `alumni-name-${person.id}`;
     align-items: start;
     padding: 22px 0;
     border-bottom: 1px solid var(--line);
+  }
+  .alumni-compact {
+    grid-template-areas: 'name name' 'portrait details';
+    grid-template-rows: auto 1fr;
+    row-gap: 12px;
+    column-gap: 16px;
   }
   .alumni-portrait {
     grid-area: portrait;
