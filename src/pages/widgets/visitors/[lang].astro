@@ -46,36 +46,39 @@ src.search = new URLSearchParams({
         {zh ? '启用 JavaScript 后可查看访问地图。' : 'Enable JavaScript to view the visitor map.'}
       </p>
     </noscript>
-    <script>
-      const status = document.querySelector<HTMLElement>('[data-widget-status]')!;
-      const sendHeight = () =>
-        window.parent.postMessage(
-          { type: 'aimia-visitor-height', height: document.body.scrollHeight },
-          '*',
-        );
+    <script is:inline>
+      const status = document.querySelector('[data-widget-status]');
+      let previousHeight = 0;
+      const host = document.querySelector('.widget-content');
+      const sendHeight = () => {
+        const height = Math.ceil(host.getBoundingClientRect().height + (status.hidden ? 0 : status.getBoundingClientRect().height));
+        if (height === previousHeight) return;
+        previousHeight = height;
+        window.parent.postMessage({ type: 'aimia-visitor-height', height }, '*');
+      };
       const observe = () => {
-        const loading = document.querySelector('.mapmyvisitors-loading');
-        const content = document.querySelector('#mapmyvisitors-widget');
-        if (
-          content &&
-          (!loading ||
-            (loading instanceof HTMLElement && getComputedStyle(loading).display === 'none'))
-        )
+        const widget = document.querySelector('#mapmyvisitors-widget');
+        const ready = widget && widget.querySelector('svg, img');
+        if (ready) {
           status.hidden = true;
+          const width = widget.offsetWidth;
+          const scale = width > 0 ? Math.min(1, host.clientWidth / width) : 1;
+          widget.style.transformOrigin = 'top left';
+          widget.style.transform = `scale(${scale})`;
+          host.style.height = `${Math.ceil(widget.offsetHeight * scale)}px`;
+        }
         sendHeight();
       };
-      new MutationObserver(observe).observe(document.querySelector('.widget-content')!, {
-        childList: true,
-        subtree: true,
-      });
-      new ResizeObserver(sendHeight).observe(document.body);
+      new MutationObserver(observe).observe(host, { childList: true, subtree: true });
+      new ResizeObserver(observe).observe(host);
+      window.addEventListener('resize', observe);
       document.querySelector('#mapmyvisitors')?.addEventListener('error', () => {
-        status.textContent = status.dataset.failed!;
+        status.textContent = status.dataset.failed;
         sendHeight();
       });
       setTimeout(() => {
         if (!status.hidden) {
-          status.textContent = status.dataset.failed!;
+          status.textContent = status.dataset.failed;
           sendHeight();
         }
       }, 15000);
@@ -99,28 +102,32 @@ src.search = new URLSearchParams({
     </script>
   </body>
 </html>
-<style>
-  :global(html) {
+<style is:inline>
+  html {
     background: #f7f7f2;
   }
-  :global(body) {
+  body {
     margin: 0;
     padding: 0;
     color: #485448;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
     font-size: 14px;
   }
+  html, body { width: 100%; overflow: hidden; }
+  .widget-content { width: 100%; position: relative; }
+  #mapmyvisitors-widget { margin: 0 !important; }
+  .widget-status[hidden] { display: none; }
   .widget-status {
     padding: 16px 0;
     text-align: center;
     margin: 0;
     line-height: 1.8;
   }
-  :global(.jvectormap-marker) {
+  .jvectormap-marker {
     fill: #a9473b;
     stroke: #f7f7f2;
   }
-  :global(#mapmyvisitors-widget) {
-    max-width: 100%;
+  #mapmyvisitors-widget {
+    max-width: none;
   }
 </style>
