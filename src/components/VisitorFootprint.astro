@@ -1,0 +1,153 @@
+---
+import widget from '../data/visitor-widget.json';
+import type { Locale } from '../lib/locale-path';
+interface Props {
+  lang?: Locale;
+}
+const { lang = 'en' } = Astro.props;
+const zh = lang === 'zh';
+const t = (en: string, cn: string) => (zh ? cn : en);
+---
+
+<section
+  class="visitor-footprint"
+  id="visitor-footprint"
+  aria-labelledby={`visitors-title-${lang}`}
+>
+  <div class="container visitors-layout">
+    <div class="visitors-copy">
+      <span class="visitors-eyebrow">AIMIA · {t('AROUND THE WORLD', '与你相遇')}</span>
+      <h2 id={`visitors-title-${lang}`}>{t('Visitor footprint', '访问足迹')}</h2>
+      <p>
+        {t(
+          'A shared curiosity, across places and time zones.',
+          '记录来自不同地区的关注，与世界各地的研究者相遇。',
+        )}
+      </p>
+      <span class="visitors-caption">
+        {t('Pageviews & geographic distribution', '访问次数与地区分布')}
+      </span>
+    </div>
+    <div class="visitors-map">
+      <iframe
+        data-visitor-frame
+        src={`/widgets/visitors/${lang}/`}
+        title={t('AIMIA pageviews and visitor location map', 'AIMIA 访问计数与地区地图')}
+        width="560"
+        height="320"
+        sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox"
+        referrerpolicy="strict-origin-when-cross-origin"
+      ></iframe>
+      <div class="visitors-attribution">
+        <span>{t('Approximate locations', '位置为大致地区')}</span>
+        <a href={widget.statisticsUrl} target="_blank" rel="noopener noreferrer">
+          MapMyVisitors ↗
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  const frame = document.querySelector<HTMLIFrameElement>('[data-visitor-frame]');
+  window.addEventListener('message', (event) => {
+    if (
+      !frame ||
+      event.source !== frame.contentWindow ||
+      event.data?.type !== 'aimia-visitor-height'
+    )
+      return;
+    const height = event.data.height;
+    if (typeof height !== 'number' || !Number.isFinite(height)) return;
+    frame.style.height = `${Math.min(600, Math.max(180, Math.ceil(height)))}px`;
+  });
+</script>
+<style>
+  .visitor-footprint {
+    padding-block: 44px;
+    border-top: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--ink);
+  }
+  .visitors-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+    align-items: center;
+    gap: 64px;
+  }
+  .visitors-eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+  .visitors-copy h2 {
+    margin-top: 12px;
+    font-size: 30px;
+    font-weight: 550;
+    letter-spacing: -0.025em;
+  }
+  .visitors-copy p {
+    max-width: 340px;
+    margin-top: 14px;
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--muted);
+  }
+  .visitors-caption {
+    display: block;
+    margin-top: 22px;
+    padding-left: 12px;
+    border-left: 2px solid var(--red);
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .visitors-map {
+    min-width: 0;
+    padding: 16px 18px 12px;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+  }
+  .visitors-map iframe {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 320px;
+    border: 0;
+    background: var(--bg);
+  }
+  .visitors-attribution {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-top: 1px solid var(--line);
+    margin-top: 10px;
+    padding-top: 10px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  .visitors-attribution a:hover {
+    color: var(--red);
+  }
+  @media (max-width: 800px) {
+    .visitors-layout {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 24px;
+    }
+    .visitor-footprint {
+      padding-block: 30px;
+    }
+    .visitors-copy h2 {
+      font-size: 27px;
+    }
+    .visitors-copy p {
+      max-width: 100%;
+    }
+    .visitors-caption {
+      margin-top: 14px;
+    }
+    .visitors-map {
+      padding: 10px;
+    }
+  }
+</style>

@@ -1,0 +1,126 @@
+---
+import widget from '../../../data/visitor-widget.json';
+import { SITE_URL } from '../../../../site.config.mjs';
+export function getStaticPaths() {
+  return ['en', 'zh'].map((lang) => ({ params: { lang } }));
+}
+const zh = Astro.params.lang === 'zh';
+const title = zh ? 'AIMIA 访问地图' : 'AIMIA visitor map';
+const src = new URL('https://mapmyvisitors.com/map.js');
+src.search = new URLSearchParams({
+  d: widget.flatMapId,
+  cl: '9aa68f',
+  co: 'f7f7f2',
+  ct: '485448',
+  w: 'a',
+}).toString();
+---
+
+<!doctype html>
+<html lang={zh ? 'zh-CN' : 'en'}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <meta name="description" content={title} />
+    <title>{title}</title>
+    <link rel="canonical" href={new URL(Astro.url.pathname, SITE_URL)} />
+  </head>
+  <body>
+    <p
+      class="widget-status"
+      data-widget-status
+      data-failed={
+        zh
+          ? '访问地图暂时不可用，请稍后再试。'
+          : 'Visitor map is temporarily unavailable. Please try again later.'
+      }
+    >
+      {zh ? '正在加载访问地图…' : 'Loading visitor map…'}
+    </p>
+    <div class="widget-content">
+      <script is:inline type="text/javascript" id="mapmyvisitors" src={src.href} async></script>
+    </div>
+    <noscript>
+      <p>
+        {zh ? '启用 JavaScript 后可查看访问地图。' : 'Enable JavaScript to view the visitor map.'}
+      </p>
+    </noscript>
+    <script>
+      const status = document.querySelector<HTMLElement>('[data-widget-status]')!;
+      const sendHeight = () =>
+        window.parent.postMessage(
+          { type: 'aimia-visitor-height', height: document.body.scrollHeight },
+          '*',
+        );
+      const observe = () => {
+        const loading = document.querySelector('.mapmyvisitors-loading');
+        const content = document.querySelector('#mapmyvisitors-widget');
+        if (
+          content &&
+          (!loading ||
+            (loading instanceof HTMLElement && getComputedStyle(loading).display === 'none'))
+        )
+          status.hidden = true;
+        sendHeight();
+      };
+      new MutationObserver(observe).observe(document.querySelector('.widget-content')!, {
+        childList: true,
+        subtree: true,
+      });
+      new ResizeObserver(sendHeight).observe(document.body);
+      document.querySelector('#mapmyvisitors')?.addEventListener('error', () => {
+        status.textContent = status.dataset.failed!;
+        sendHeight();
+      });
+      setTimeout(() => {
+        if (!status.hidden) {
+          status.textContent = status.dataset.failed!;
+          sendHeight();
+        }
+      }, 15000);
+      document.addEventListener('click', (event) => {
+        if (event.defaultPrevented) return;
+        if (
+          event.target instanceof Element &&
+          event.target.closest('.jvectormap-zoomin, .jvectormap-zoomout')
+        )
+          return;
+        const link = event.target instanceof Element ? event.target.closest('a') : null;
+        if (!link) return;
+        event.preventDefault();
+        const url = new URL(link.href, 'https://mapmyvisitors.com/');
+        if (url.hostname === 'mapmyvisitors.com') {
+          url.protocol = 'https:';
+          window.open(url.href, '_blank', 'noopener,noreferrer');
+        }
+      });
+      sendHeight();
+    </script>
+  </body>
+</html>
+<style>
+  :global(html) {
+    background: #f7f7f2;
+  }
+  :global(body) {
+    margin: 0;
+    padding: 0;
+    color: #485448;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
+    font-size: 14px;
+  }
+  .widget-status {
+    padding: 16px 0;
+    text-align: center;
+    margin: 0;
+    line-height: 1.8;
+  }
+  :global(.jvectormap-marker) {
+    fill: #a9473b;
+    stroke: #f7f7f2;
+  }
+  :global(#mapmyvisitors-widget) {
+    max-width: 100%;
+  }
+</style>

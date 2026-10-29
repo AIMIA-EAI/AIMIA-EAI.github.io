@@ -512,6 +512,23 @@ if (record(scholarMetrics, 'scholarMetrics')) {
   totals.citationYears = annual.length;
 }
 
+const visitorWidget = readJSON('src/data/visitor-widget.json');
+if (record(visitorWidget, 'visitorWidget')) {
+  if (visitorWidget.provider !== 'MapMyVisitors')
+    error('visitorWidget.provider', 'unexpected provider');
+  for (const key of ['flatMapId', 'alternativeGlobeId']) {
+    if (
+      typeof visitorWidget[key] !== 'string' ||
+      !/^[A-Za-z0-9_-]{20,100}$/.test(visitorWidget[key])
+    )
+      error(`visitorWidget.${key}`, 'invalid public widget identifier');
+  }
+  link(visitorWidget.statisticsUrl, 'visitorWidget.statisticsUrl');
+  if (!visitorWidget.statisticsUrl?.startsWith('https://mapmyvisitors.com/web/'))
+    error('visitorWidget.statisticsUrl', 'unexpected statistics host');
+  totals.visitorWidgets = 1;
+}
+
 if (errors.length) {
   console.error(
     `Content validation failed (${errors.length} ${errors.length === 1 ? 'error' : 'errors'}):`,
