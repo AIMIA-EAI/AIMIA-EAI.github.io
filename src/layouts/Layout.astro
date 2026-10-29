@@ -12,11 +12,13 @@ interface Props {
   lang?: Locale;
   canonicalPath?: string;
   homeSnap?: boolean;
+  showVisitors?: boolean;
 }
 const {
   title,
   lang = 'en',
   homeSnap = false,
+  showVisitors = true,
   canonicalPath = Astro.url.pathname,
   description = lang === 'zh'
     ? '北京大学 AIMIA 实验室，聚焦具身智能、多模态智能与科学智能（AI4S）。'
@@ -70,7 +72,7 @@ const canonical = new URL(localePath(canonicalPath, lang), Astro.site);
     <main id="main">
       <slot />
     </main>
-    <VisitorFootprint lang={lang} />
+    {showVisitors && <VisitorFootprint lang={lang} />}
     <Footer lang={lang} />
     <SiteMotion />
     <script>

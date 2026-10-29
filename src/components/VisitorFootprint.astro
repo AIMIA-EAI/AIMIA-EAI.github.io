@@ -3,14 +3,15 @@ import widget from '../data/visitor-widget.json';
 import type { Locale } from '../lib/locale-path';
 interface Props {
   lang?: Locale;
+  compact?: boolean;
 }
-const { lang = 'en' } = Astro.props;
+const { lang = 'en', compact = false } = Astro.props;
 const zh = lang === 'zh';
 const t = (en: string, cn: string) => (zh ? cn : en);
 ---
 
 <section
-  class="visitor-footprint"
+  class:list={['visitor-footprint', { 'visitors-compact': compact }]}
   id="visitor-footprint"
   aria-labelledby={`visitors-title-${lang}`}
 >
@@ -129,8 +130,26 @@ const t = (en: string, cn: string) => (zh ? cn : en);
   .visitors-attribution a:hover {
     color: var(--red);
   }
+  .visitors-compact {
+    padding-block: 24px;
+  }
+  .visitors-compact .visitors-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 48px;
+  }
+  .visitors-compact .visitors-copy h2 {
+    font-size: 26px;
+    margin-top: 8px;
+  }
+  .visitors-compact .visitors-caption {
+    margin-top: 14px;
+  }
+  .visitors-compact .visitors-map {
+    padding: 10px 12px;
+  }
   @media (max-width: 800px) {
-    .visitors-layout {
+    .visitors-layout,
+    .visitors-compact .visitors-layout {
       grid-template-columns: minmax(0, 1fr);
       gap: 24px;
     }

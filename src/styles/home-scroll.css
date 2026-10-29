@@ -19,7 +19,6 @@
     flex-shrink: 0;
   }
 
-  html[data-home-snap] .visitor-footprint,
   html[data-home-snap] .site-footer {
     scroll-snap-align: start;
   }
