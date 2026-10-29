@@ -41,6 +41,91 @@ const areas = [
       : 'Combining data and learning methods to study biomolecular representations, property prediction and scientific modeling.',
   },
 ];
+const experiments = {
+  embodied: [
+    [
+      'auto',
+      '自动演示',
+      'Auto play',
+      '点击动作步骤，查看规划如何转化为执行。',
+      'Select an action to explore planning and execution.',
+    ],
+    [
+      'approach',
+      '接近',
+      'Approach',
+      '规划器确定目标，执行器接近物体。',
+      'The planner identifies the target; the controller approaches it.',
+    ],
+    [
+      'grasp',
+      '抓取',
+      'Grasp',
+      '执行器闭合夹爪，建立稳定接触。',
+      'The controller closes the gripper to establish contact.',
+    ],
+    [
+      'transfer',
+      '搬运',
+      'Transfer',
+      '保持抓取，将目标移动到放置区域。',
+      'Maintain the grasp while moving toward the placement area.',
+    ],
+    [
+      'release',
+      '放置',
+      'Place',
+      '松开夹爪，环境反馈进入下一轮规划。',
+      'Release the object and return environment feedback to the planner.',
+    ],
+  ],
+  multimodal: [
+    [
+      'scene',
+      '场景理解',
+      'Scene',
+      '对应场景区域与语言概念，探索跨模态对齐。',
+      'Explore the alignment between scene regions and language concepts.',
+    ],
+    [
+      'detail',
+      '细节定位',
+      'Grounding',
+      '聚焦局部区域，让视觉细节与文本描述对应。',
+      'Focus on a local region and its corresponding text description.',
+    ],
+    [
+      'video',
+      '视频时序',
+      'Video',
+      '观察连续帧中的目标变化与时序联系。',
+      'Observe an object across frames to explore temporal relationships.',
+    ],
+  ],
+  'ai-for-science': [
+    [
+      'wild',
+      '原始序列',
+      'Wild type',
+      '示意：从原始氨基酸序列构建分子表征。',
+      'Illustration: build molecular representations from an amino-acid sequence.',
+    ],
+    [
+      'a',
+      'A → V',
+      'A → V',
+      '示意：替换一个残基，观察表征与性质预测的变化。',
+      'Illustration: substitute a residue and explore changes in representation and prediction.',
+    ],
+    [
+      'g',
+      'G → D',
+      'G → D',
+      '示意：不同突变对应不同表征；曲线不代表实验结果。',
+      'Illustration: mutations lead to different representations; curves are not experimental results.',
+    ],
+  ],
+};
 const base = zh ? '/zh' : '';
 ---
 
@@ -94,6 +179,7 @@ const base = zh ? '/zh' : '';
       tabindex="0"
       hidden={index !== 0}
       data-rm-panel={area.id}
+      data-demo={experiments[area.id as keyof typeof experiments][0][0]}
     >
       <div class="rm-drawing" aria-hidden="true">
         {area.id === 'multimodal' && (
@@ -313,10 +399,10 @@ const base = zh ? '/zh' : '';
             />
             <rect class="rm-sheet" x="23" y="44" width="161" height="128" rx="7" />
             <text x="41" y="76" class="rm-svg-text rm-accent">
-              A G U C A G
+              <tspan data-rm-sequence>A G L C A G</tspan>
             </text>
             <text x="41" y="104" class="rm-svg-text">
-              C A G U C A
+              C A G L C A
             </text>
             <path
               d="M41 130h111M41 148h80"
@@ -388,6 +474,30 @@ const base = zh ? '/zh' : '';
       <div class="rm-description">
         <h3>{area.title}</h3>
         <p>{area.description}</p>
+        <div class="rm-experiment" data-rm-experiment>
+          <span class="rm-experiment-label">{zh ? '动手探索' : 'Explore the process'}</span>
+          <div
+            class="rm-options"
+            role="group"
+            aria-label={zh ? '交互示意选项' : 'Illustration controls'}
+          >
+            {experiments[area.id as keyof typeof experiments].map(
+              ([value, cn, en, cnNote, enNote], i) => (
+                <button
+                  type="button"
+                  data-rm-choice={value}
+                  data-note={zh ? cnNote : enNote}
+                  aria-pressed={i === 0 ? 'true' : 'false'}
+                >
+                  {zh ? cn : en}
+                </button>
+              ),
+            )}
+          </div>
+          <p class="rm-experiment-status" data-rm-status role="status">
+            {experiments[area.id as keyof typeof experiments][0][zh ? 3 : 4]}
+          </p>
+        </div>
         <a href={`${base}/research/#${area.id}`}>
           {text.link}
           <span aria-hidden="true">↗</span>
@@ -738,6 +848,140 @@ const base = zh ? '/zh' : '';
       opacity: 1;
     }
   }
+  .rm-experiment {
+    margin-top: 22px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+  .rm-experiment-label {
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+  }
+  .rm-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 10px;
+  }
+  .rm-options button {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--muted);
+    padding: 7px 10px;
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    transition:
+      background 0.2s,
+      border-color 0.2s,
+      color 0.2s;
+  }
+  .rm-options button:hover {
+    border-color: var(--red);
+    color: var(--red);
+  }
+  .rm-options button[aria-pressed='true'] {
+    background: #efdfd5;
+    border-color: #c58a77;
+    color: var(--red);
+  }
+  .rm-description .rm-experiment-status {
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.7;
+    min-height: 3.4em;
+  }
+  .rm-panel:not([hidden]) .rm-drawing {
+    animation: rm-enter 0.45s ease-out both;
+  }
+  @keyframes rm-enter {
+    from {
+      opacity: 0.4;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .rm-focus-frame,
+  .rm-prediction-curve {
+    transition:
+      translate 0.45s ease,
+      d 0.45s ease;
+  }
+  [data-demo='detail'] .rm-focus-frame {
+    translate: 65px -20px;
+  }
+  [data-demo='video'] .rm-focus-frame {
+    animation: rm-video-scan 3s ease-in-out infinite alternate;
+  }
+  @keyframes rm-video-scan {
+    from {
+      translate: -25px 0;
+    }
+    to {
+      translate: 70px -12px;
+    }
+  }
+  [data-demo='detail'] .rm-match-cell:nth-of-type(2n),
+  [data-demo='video'] .rm-match-cell:nth-of-type(3n) {
+    fill: #a9473b;
+  }
+  [data-demo='a'] .rm-molecule circle:nth-of-type(1),
+  [data-demo='g'] .rm-molecule circle:nth-of-type(2) {
+    fill: #a9473b;
+    stroke: #a9473b;
+    stroke-width: 7;
+  }
+  @media (min-width: 1001px) {
+    .rm-section {
+      padding-block: 28px 20px;
+    }
+    .rm-heading {
+      margin-bottom: 16px;
+    }
+    .rm-heading h2 {
+      font-size: 20px;
+    }
+    .rm-pause {
+      font-size: 15px;
+      padding: 9px 12px;
+    }
+    .rm-tabs button {
+      padding-block: 14px 16px;
+      font-size: 17px;
+    }
+    .rm-tab-number {
+      font-size: 15px;
+    }
+    .rm-panel {
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+      gap: 38px;
+      padding-block: 30px 14px;
+    }
+    .rm-drawing {
+      width: 100%;
+      max-width: none;
+    }
+    .rm-description h3 {
+      font-size: clamp(25px, 1.8vw, 30px);
+    }
+    .rm-description p {
+      font-size: 18px;
+      margin-top: 14px;
+    }
+    .rm-description a {
+      font-size: 17px;
+      margin-top: 22px;
+    }
+    .rm-note {
+      font-size: 15px;
+      margin-top: 12px;
+    }
+  }
   @media (max-width: 1000px) {
     .rm-panel {
       gap: 25px;
@@ -841,6 +1085,7 @@ const base = zh ? '/zh' : '';
     let elapsed = 0;
     let lastTime: number | undefined;
     let frame: number | undefined;
+    let seekFrame: number | undefined;
 
     const interpolate = (from: number, to: number, time: number, start: number, end: number) => {
       const t = Math.max(0, Math.min(1, (time - start) / (end - start)));
@@ -923,15 +1168,35 @@ const base = zh ? '/zh' : '';
       draw(elapsed);
       frame = requestAnimationFrame(tick);
     };
+    panel.addEventListener('rm-seek', (event) => {
+      const time = (event as CustomEvent<number>).detail;
+      if (!Number.isFinite(time)) return;
+      if (seekFrame !== undefined) cancelAnimationFrame(seekFrame);
+      const target =
+        Math.floor(elapsed / halfCycle) * halfCycle + Math.max(0, Math.min(halfCycle, time));
+      const start = elapsed;
+      const began = performance.now();
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const seek = (now: number) => {
+        const progress = reduced ? 1 : Math.min(1, (now - began) / 550);
+        elapsed = start + (target - start) * progress * progress * (3 - 2 * progress);
+        draw(elapsed);
+        seekFrame = progress < 1 ? requestAnimationFrame(seek) : undefined;
+      };
+      lastTime = undefined;
+      seek(began);
+    });
     draw(0);
     return (playing: boolean, reduced: boolean) => {
+      if (seekFrame !== undefined) cancelAnimationFrame(seekFrame);
+      seekFrame = undefined;
       if (playing && !reduced && !panel.hidden) {
         if (frame === undefined) frame = requestAnimationFrame(tick);
       } else {
         if (frame !== undefined) cancelAnimationFrame(frame);
         frame = undefined;
         lastTime = undefined;
-        if (reduced) draw(5500);
+        if (reduced && panel.dataset.demo === 'auto') draw(5500);
       }
     };
   };
@@ -946,23 +1211,36 @@ const base = zh ? '/zh' : '';
     const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
     const syncArmPlayback = createArmPlayback(root);
     let userPaused = false;
+    let manualStep = false;
 
     const syncPlayback = () => {
       const reduced = motionPreference.matches;
       const bounds = root.getBoundingClientRect();
       const offscreen = bounds.bottom <= 0 || bounds.top >= window.innerHeight;
-      const paused = userPaused || reduced || offscreen || document.hidden;
+      const paused = userPaused || manualStep || reduced || offscreen || document.hidden;
       root.dataset.paused = String(paused);
       syncArmPlayback(!paused, reduced);
-      pause.setAttribute('aria-pressed', String(userPaused || reduced));
+      pause.setAttribute('aria-pressed', String(userPaused || manualStep || reduced));
       pause.disabled = reduced;
       pauseLabel.textContent = reduced
         ? pause.dataset.reducedLabel!
-        : userPaused
+        : userPaused || manualStep
           ? pause.dataset.playLabel!
           : pause.dataset.pauseLabel!;
     };
+    const resetSteps = () => {
+      manualStep = false;
+      const embodied = panels.find((panel) => panel.dataset.rmPanel === 'embodied')!;
+      embodied.dataset.demo = 'auto';
+      const choices = [...embodied.querySelectorAll<HTMLButtonElement>('[data-rm-choice]')];
+      choices.forEach((button) =>
+        button.setAttribute('aria-pressed', String(button.dataset.rmChoice === 'auto')),
+      );
+      embodied.querySelector<HTMLElement>('[data-rm-status]')!.textContent =
+        choices[0].dataset.note!;
+    };
     const selectTab = (selected: HTMLButtonElement, focus = false) => {
+      resetSteps();
       tabs.forEach((tab) => {
         const active = tab === selected;
         tab.setAttribute('aria-selected', String(active));
@@ -987,8 +1265,76 @@ const base = zh ? '/zh' : '';
         selectTab(tabs[next], true);
       });
     });
+    panels.forEach((panel) => {
+      const choices = [...panel.querySelectorAll<HTMLButtonElement>('[data-rm-choice]')];
+      const status = panel.querySelector<HTMLElement>('[data-rm-status]')!;
+      choices.forEach((choice) =>
+        choice.addEventListener('click', () => {
+          const value = choice.dataset.rmChoice!;
+          panel.dataset.demo = value;
+          choices.forEach((button) =>
+            button.setAttribute('aria-pressed', String(button === choice)),
+          );
+          status.textContent = choice.dataset.note!;
+          if (panel.dataset.rmPanel === 'embodied') {
+            manualStep = value !== 'auto';
+            userPaused = false;
+            syncPlayback();
+            const times: Record<string, number> = {
+              approach: 1450,
+              grasp: 2050,
+              transfer: 3500,
+              release: 5100,
+            };
+            if (value in times)
+              panel.dispatchEvent(new CustomEvent('rm-seek', { detail: times[value] }));
+          }
+          if (panel.dataset.rmPanel === 'multimodal') {
+            const label = panel.querySelector<SVGTextElement>('.rm-svg-text.rm-accent');
+            if (label)
+              label.textContent =
+                value === 'video'
+                  ? document.documentElement.lang.startsWith('zh')
+                    ? '时序关联'
+                    : 'temporal links'
+                  : value === 'detail'
+                    ? document.documentElement.lang.startsWith('zh')
+                      ? '局部细节'
+                      : 'local details'
+                    : document.documentElement.lang.startsWith('zh')
+                      ? '视觉概念'
+                      : 'visual concepts';
+          }
+          if (panel.dataset.rmPanel === 'ai-for-science') {
+            const sequence = panel.querySelector('[data-rm-sequence]');
+            if (sequence)
+              sequence.textContent =
+                value === 'a' ? 'V G L C A G' : value === 'g' ? 'A D L C A G' : 'A G L C A G';
+            const curve = panel.querySelector('.rm-prediction-curve');
+            const paths: Record<string, string> = {
+              wild: 'M515 137c14-6 21-30 35-21s18 15 32-9 21-27 33-31',
+              a: 'M515 137c14-16 21-15 35-31s18 9 32-9 21-12 33-35',
+              g: 'M515 137c14 2 21-18 35-11s18-10 32-9 21-9 33-21',
+            };
+            curve?.setAttribute('d', paths[value]);
+            const pointYs =
+              value === 'a'
+                ? [137, 106, 97, 62]
+                : value === 'g'
+                  ? [137, 126, 117, 96]
+                  : [137, 116, 107, 76];
+            panel
+              .querySelectorAll<SVGCircleElement>('.rm-prediction-curve ~ circle')
+              .forEach((point, index) => point.setAttribute('cy', String(pointYs[index])));
+          }
+        }),
+      );
+    });
     pause.addEventListener('click', () => {
-      userPaused = !userPaused;
+      if (manualStep) {
+        resetSteps();
+        userPaused = false;
+      } else userPaused = !userPaused;
       syncPlayback();
     });
     motionPreference.addEventListener('change', syncPlayback);
