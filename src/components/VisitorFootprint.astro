@@ -131,15 +131,20 @@ const t = (en: string, cn: string) => (zh ? cn : en);
     color: var(--red);
   }
   .visitors-compact {
-    padding-block: 24px;
+    padding-block: 0 24px;
+    border-top: 0;
   }
   .visitors-compact .visitors-layout {
+    border-top: 1px solid var(--line);
+    padding-top: 28px;
+    align-items: start;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 48px;
   }
   .visitors-compact .visitors-copy h2 {
-    font-size: 26px;
-    margin-top: 8px;
+    font-size: 30px;
+    line-height: 1.5;
+    margin-top: 10px;
   }
   .visitors-compact .visitors-caption {
     margin-top: 14px;

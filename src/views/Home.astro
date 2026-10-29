@@ -205,17 +205,38 @@ const relatedPaper = (tag: string | null) =>
 <style>
   .home-community .lab-community {
     padding-block: 32px 28px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 48px;
   }
-  .home-community .lab-community h2 {
+  .home-community .lab-community > div {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  .home-community .lab-community h2,
+  .home-community .lab-student-note h3 {
     font-size: 30px;
+    font-weight: 550;
+    line-height: 1.5;
     margin-block: 10px 16px;
   }
-  .home-community .lab-student-note h3 {
-    margin-block: 10px 14px;
+  .home-community .lab-student-note {
+    border: 0;
+    padding-left: 0;
+  }
+  .home-community .lab-community p + p {
+    margin-top: 12px;
   }
   .home-community .lab-community-links,
   .home-community .lab-student-note .text-link {
-    margin-top: 18px;
+    margin-top: auto;
+    padding-top: 20px;
+  }
+  @media (max-width: 800px) {
+    .home-community .lab-community {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 28px;
+    }
   }
 
   .lab-hero {
