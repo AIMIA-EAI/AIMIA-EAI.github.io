@@ -999,69 +999,6 @@ p + p {
   color: var(--muted);
   margin-bottom: 25px;
 }
-.paper-list {
-  border-top: 1px solid var(--line);
-}
-.paper-row {
-  display: grid;
-  grid-template-columns: 135px 1fr;
-  gap: 30px;
-  padding: 29px 0;
-  border-bottom: 1px solid var(--line);
-  scroll-margin-top: 110px;
-}
-.paper-row:target {
-  background: #f0ece2;
-  box-shadow:
-    16px 0 #f0ece2,
-    -16px 0 #f0ece2;
-}
-.paper-venue {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 7px;
-  font-size: 15px;
-  font-weight: 650;
-  color: var(--red);
-  padding-top: 3px;
-}
-.paper-venue .mono {
-  font-weight: 400;
-  color: var(--muted);
-  font-size: 14px;
-}
-.paper-info h3 {
-  font-size: 20px;
-  line-height: 1.6;
-  font-weight: 600;
-}
-.paper-authors {
-  font-size: 15px;
-  line-height: 1.95;
-  color: var(--muted);
-  margin-top: 8px;
-}
-.paper-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 12px;
-}
-.paper-links:empty {
-  display: none;
-}
-.paper-links a {
-  display: inline-flex;
-  gap: 5px;
-  align-items: center;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--red);
-}
-.paper-links a:hover {
-  text-decoration: underline;
-}
 .empty-state {
   padding: 50px;
   text-align: center;
@@ -2242,31 +2179,6 @@ p + p {
     flex: 1;
     min-width: 0;
     padding-block: 12px;
-  }
-  .paper-row {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    padding-block: 24px;
-  }
-  .paper-venue {
-    flex-direction: row;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-  }
-  .paper-info h3 {
-    font-size: 18px;
-    line-height: 1.7;
-  }
-  .paper-authors {
-    font-size: 14px;
-  }
-  .paper-links {
-    margin-top: 13px;
-    gap: 15px;
-  }
-  .paper-links a {
-    font-size: 14px;
   }
   .scholar-link {
     flex-direction: column;

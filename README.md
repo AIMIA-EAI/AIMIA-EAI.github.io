@@ -2,11 +2,36 @@
 
 北京大学 AIMIA 实验室的中英文 Astro 静态网站，目标地址为 `https://aimia-eai.github.io/`。日常维护修改内容文件，页面模板与数据分开管理。
 
-- 英文：`/`；中文：`/zh/`。语言切换保留页面、搜索参数和锚点。
+- 默认首页 `/` 和 `/zh/` 为中文，英文首页为 `/en/`。英文内页为 `/research/`、`/people/` 等，中文内页加 `/zh/`；语言切换保留页面、搜索参数和锚点。
 - 主导航：研究成果、团队建设、加入我们。
 - 研究成果统一展示项目、平台、数据集和论文，并保留专利、荣誉及折叠动态。
 - 团队页保留 13 张团体照片、导师、在读学生和独立校友名录。
 - 首页三方向动画为研究示意，不代表实验录像或实验结果。
+
+## 代码结构与数据流
+
+```text
+src/
+├── pages/       路由入口；根首页默认中文，en/ 英文首页，zh/ 中文页面
+├── views/       Home、Research、People 等共享页面模板
+├── layouts/     Layout：元数据、页头、正文、访问足迹、页脚
+├── components/  成果卡片、成员卡片、图表、轮播、研究动画等展示单元
+├── scripts/     浏览器交互：研究示意、成果搜索与年度分组筛选
+├── lib/         数据整合、双语翻译、路径兼容等共享逻辑
+├── data/        组内日常维护的 JSON 内容及统计快照
+└── styles/      全站基础样式与桌面首页吸附样式
+public/          图片、PDF、图标及构建时生成的兼容入口
+scripts/         Node 构建检查与统计更新；与 src/scripts/ 的浏览器代码分开
+.github/         GitHub Actions 自动构建、统计更新与 Pages 发布
+```
+
+请求先进入 `pages/` 的路由文件，再由 `views/` 选择共享模板。模板读取 `data/`，通过 `lib/` 整理并交给组件，最后由 Astro 生成 `dist/` 静态网页。只有搜索、轮播、动画、图表等交互需要浏览器 JavaScript；没有常驻应用后端和数据库。
+
+研究成果的数据链为 `publications.json` → `lib/content.ts`（去重、排序）→ `lib/research-outputs.ts`（整合论文、项目、平台与数据集）→ `PublicationArchive.astro`（按年分组）→ `PaperRow.astro`（卡片）。`src/scripts/publication-archive.ts` 负责搜索、筛选及组内数量同步。未注明年份的项目单独展示，不补造年份。
+
+首页精选与完整档案使用不同展示规则：首页每个研究方向展示一篇相关论文；录用动态读取 `news.json`，不会从论文表自动推断录用时间。完整成果页展示所有有效记录。新增论文后若希望进入方向筛选，需要填写 `researchAreas`。
+
+研究概览的 SVG 与局部样式在 `ResearchMotion.astro`，浏览器交互在 `src/scripts/research-motion.ts`；内容修改先查 `src/data/`，交互修改再查 `src/scripts/`。组件局部样式优先放在组件内，跨页面的公共样式才放进 `global.css`，避免新增重复覆盖规则。
 
 ## 本地开发与验收
 
@@ -68,6 +93,51 @@ pnpm preview
 校友 `destination` 维护英文去向，对应中文写在 `zh.json` 的 `terms`；构建会检查所有已填写去向的中文覆盖。姓名保留英文拼音，未提供的去向或校区不推断补齐。
 
 `gallery.json` 中 `image` 是实际展示的图片，`source` 和 `originalIndex` 只记录历史来源。替换照片时填写中英文字幕和替代文字，并检查手机构图；宽幅照片可设置 `mobileFit: "contain"`。
+
+### 手动添加成员：可复制示例
+
+在 `src/data/people.json` 中，将记录加入 `phd`（博士）或 `masters`（硕士）数组。以下为格式示例，请替换示例姓名、ID、入学年级和链接：
+
+```json
+{
+  "id": "example-student",
+  "name": "Example Student",
+  "role": "Ph.D. student",
+  "cohort": 2026,
+  "image": null,
+  "interests": ["Video Generation"],
+  "homepage": null,
+  "scholar": null
+}
+```
+
+- `id` 在整个名录中唯一，建议使用英文姓名的小写连字符形式；已发布 ID 保持稳定。
+- 硕士使用 `role: "Master's student"`，并放进 `masters` 数组。数组中的位置就是展示顺序；人数自动计算。
+- 照片放入 `public/media/example-student.jpg`，将 `image` 改成 `/media/example-student.jpg`；没有照片填 `null`，会显示占位。
+- 个人网站、Google Scholar 或 GitHub 均可填写在 `homepage`，须为完整 HTTPS 地址；这个字段决定成员卡片上的“个人主页”入口，单独填写 `scholar` 不会给学生卡片增加入口。
+- `interests` 存英文方向名，例如 `"Video Generation"`。新方向同时在 `src/data/zh.json` 的 `interests` 对象增加 `"Video Generation": "视频生成"`；已有翻译直接复用，不重复添加键。
+- `cohort` 为入学年级，未知填 `null`。名录整体更新时再按实际资料调整 `directoryAsOf`；不要把它当成系统当前日期。
+- JSON 使用双引号，相邻记录之间加逗号，最后一项后不加逗号。
+
+毕业时将原记录从在读数组移动到 `alumni`，保留 `id`、照片及个人主页；`role` 和 `group` 使用 `"Ph.D. alumni"` 或 `"Master's alumni"`。可填写英文 `destination`，并在 `zh.json` 的 `terms` 增加对应中文；去向课题组网址填 `destinationHomepage`，与个人主页分开。
+
+### 修改方向与检查发布
+
+成员兴趣只需修改 `people.json` 的 `interests` 和相应中文翻译。修改网站已有三大方向的说明，编辑 `site.json` 的 `directions` 及 `zh.json` 的 `directions`；研究概览示意中的标题、说明在 `ResearchMotion.astro`。论文的方向分类填在 `publications.json` 的 `researchAreas`，当前支持 `embodied`、`multimodal`、`ai-for-science`。
+
+增加第四个网站级方向需要同步调整方向标签、翻译、校验和研究概览布局，不能只在 JSON 中加一个对象。一般新增学生研究兴趣无需增加网站级方向。
+
+```sh
+pnpm dev --port 4323
+# 在浏览器检查中英文页面，确认姓名、头像、方向及链接
+pnpm build
+# 检查实际差异，只提交本次涉及的数据和素材
+# git add 后列出具体文件路径
+# git commit -m "Update member directory"
+git push origin main
+```
+
+`pnpm build` 会提示重复 ID、缺失照片或中文翻译等问题。推送 `main` 后由 Actions 检查并发布；本地保存或本地 commit 本身不会上线。
 
 ### 图片、PDF 与来源信息
 
