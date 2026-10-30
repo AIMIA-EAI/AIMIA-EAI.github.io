@@ -29,7 +29,7 @@ scripts/         Node 构建检查与统计更新；与 src/scripts/ 的浏览�
 
 研究成果的数据链为 `publications.json` → `lib/content.ts`（去重、排序）→ `lib/research-outputs.ts`（整合论文、项目、平台与数据集）→ `PublicationArchive.astro`（按年分组）→ `PaperRow.astro`（卡片）。`src/scripts/publication-archive.ts` 负责搜索、筛选及组内数量同步。未注明年份的项目单独展示，不补造年份。
 
-首页精选与完整档案使用不同展示规则：首页每个研究方向展示一篇相关论文；录用动态读取 `news.json`，不会从论文表自动推断录用时间。完整成果页展示所有有效记录。新增论文后若希望进入方向筛选，需要填写 `researchAreas`。
+首页精选与完整档案使用不同展示规则：首页每个研究方向展示一篇相关论文；“最新成果”从论文库自动选取最近 6 篇，按发表年份倒序排列，同年保留档案顺序，不推断录用日期。活动和历史动态单独读取 `news.json`。完整成果页展示所有有效记录。新增论文后若希望进入方向筛选，需要填写 `researchAreas`。
 
 研究概览的 SVG 与局部样式在 `ResearchMotion.astro`，浏览器交互在 `src/scripts/research-motion.ts`；内容修改先查 `src/data/`，交互修改再查 `src/scripts/`。组件局部样式优先放在组件内，跨页面的公共样式才放进 `global.css`，避免新增重复覆盖规则。
 
@@ -78,7 +78,9 @@ pnpm preview
 
 ### 首页动态与荣誉
 
-首页的“研究动态”和“荣誉与奖励”复用现有数据，不另建内容副本。在 `news.json` 的条目上设置 `homepageFeatured: true`，首页按原始消息日期倒序展示最多 6 条；完整历史记录继续通过研究页的“全部动态”入口访问。消息日期不是会议届次或论文发表日期，不根据常见录用时间推改。
+首页的“最新成果”直接复用 `lib/content.ts` 导出的论文列表：去重、按发表年份倒序，取最近 6 篇，显示年份、期刊/会议与正式题名，并跳转到成果卡片。新增或修改 `publications.json` 后，重新构建即可同步首页，无需再手动写论文摘要。年份是论文发表年份，不代表录用消息日期；同年沿用档案顺序。
+
+获奖信息继续独立维护。活动与历史动态保留在 `news.json` 及其 `zh.json` 翻译，通过“活动与历史动态”入口访问；已有录用消息保留原始日期。`news.json` 的 `homepageFeatured` 是历史精选标记，不再驱动首页“最新成果”。
 
 荣誉维护在 `lab.json` 的 `honors`，中文对应 `zh.json` 的 `honors`；两种语言保持相同 `id`、年份和 `homepageFeatured`。首页展示精选项，研究页保留全部荣誉。`url` 用于官方来源，`originalText` 保留原稿；CAMEO 名次须保留榜单周期，入围奖项须写明“入围”。
 

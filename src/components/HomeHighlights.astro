@@ -2,30 +2,21 @@
 import Icon from './Icon.astro';
 import lab from '../data/lab.json';
 import zh from '../data/zh.json';
-import { newsItems } from '../lib/content';
-import { localePath, localizedNewsTitle, type Locale } from '../lib/i18n';
+import { papers } from '../lib/content';
+import { localePath, type Locale } from '../lib/i18n';
 interface Props {
   lang?: Locale;
 }
 const { lang = 'en' } = Astro.props;
 const isZh = lang === 'zh';
 const t = (en: string, cn: string) => (isZh ? cn : en);
-const updates = newsItems
-  .filter((item) => item.homepageFeatured)
-  .slice(0, 6)
-  .map((item) => {
-    const title = localizedNewsTitle(item, lang);
-    const sentences = title.match(/^(.+?[.!。])\s*(.+)$/);
-    return {
-      ...item,
-      headline: sentences?.[1] || title,
-      people: sentences?.[2] || '',
-    };
-  });
+// Publication years are not acceptance dates. Preserve archive order within each year.
+const updates = papers.slice(0, 6);
+const honorTranslations = new Map(zh.honors.map((honor) => [honor.id, honor.text]));
 const honors = lab.honors
-  .map((honor, index) => ({
+  .map((honor) => ({
     ...honor,
-    text: isZh ? zh.honors[index].text : honor.text,
+    text: isZh ? honorTranslations.get(honor.id) || honor.text : honor.text,
   }))
   .filter((honor) => honor.homepageFeatured)
   .sort((a, b) => b.year - a.year);
@@ -34,26 +25,35 @@ const honors = lab.honors
 <section
   class="home-highlights container"
   id="highlights"
-  aria-label={t('Research updates and recognition', '研究动态与荣誉')}
+  aria-label={t('Latest publications and recognition', '最新成果与荣誉')}
 >
   <div class="highlights-news" aria-labelledby="home-news-title">
     <header class="highlights-heading">
-      <h2 id="home-news-title">{t('Research updates', '研究动态')}</h2>
-      <a class="highlights-archive" href={localePath('/research/#updates', lang)}>
-        {t('All updates', '全部动态')} <Icon name="external" size={15} />
+      <h2 id="home-news-title">{t('Latest publications', '最新成果')}</h2>
+      <a class="highlights-archive" href={localePath('/research/#results', lang)}>
+        {t('All outputs', '全部成果')} <Icon name="external" size={15} />
       </a>
     </header>
+    <p class="highlights-note">
+      {t('Six latest publications · by publication year', '按发表年份 · 最近 6 篇论文')}
+    </p>
     <ol class="highlights-news-list">
       {updates.map((item) => (
-        <li data-news-id={item.id}>
-          <time datetime={item.date || undefined}>{item.date?.replace('-', '.')}</time>
-          <div>
-            <p class="update-headline">{item.headline}</p>
-            {item.people && <p class="update-people">{item.people}</p>}
-          </div>
+        <li data-publication-id={item.id}>
+          <span class="publication-year">{item.year}</span>
+          <a class="update-link" href={localePath(`/research/#${item.id}`, lang)}>
+            <span class="update-venue">{item.venue}</span>
+            <span class="update-headline" lang="en">
+              {item.title}
+              <Icon name="external" size={13} />
+            </span>
+          </a>
         </li>
       ))}
     </ol>
+    <a class="honors-history" href={localePath('/research/#updates', lang)}>
+      {t('Activities & news archive', '活动与历史动态')} <Icon size={15} />
+    </a>
   </div>
   <div class="highlights-honors" aria-labelledby="home-honors-title">
     <header class="highlights-heading">
@@ -62,6 +62,7 @@ const honors = lab.honors
         {t('All honors', '全部荣誉')} <Icon name="external" size={15} />
       </a>
     </header>
+    <p class="highlights-note">{t('Awards & academic recognition', '学术荣誉与竞赛记录')}</p>
     <ol class="highlights-honors-list">
       {honors.map((honor) => (
         <li data-honor-id={honor.id}>
@@ -138,18 +139,18 @@ const honors = lab.honors
   }
   .highlights-news-list li {
     display: grid;
-    grid-template-columns: 74px minmax(0, 1fr);
+    grid-template-columns: 44px minmax(0, 1fr);
     gap: 18px;
     padding-block: 15px;
     border-bottom: 1px solid var(--line);
   }
-  time,
+  .publication-year,
   .honor-year {
     font-family: var(--mono);
     font-size: 14px;
     line-height: 1.85;
   }
-  time {
+  .publication-year {
     color: var(--muted);
     padding-top: 1px;
   }
@@ -158,11 +159,36 @@ const honors = lab.honors
     font-weight: 550;
     line-height: 1.65;
   }
-  .update-people {
-    margin-top: 3px;
-    font-size: 15px;
-    line-height: 1.6;
+  .highlights-note {
     color: var(--muted);
+    font-size: 13px;
+    margin-block: 12px 4px;
+  }
+  .update-link {
+    display: block;
+    min-width: 0;
+  }
+  .update-venue {
+    display: block;
+    color: var(--red);
+    font-size: 13px;
+    margin-bottom: 4px;
+    line-height: 1.5;
+  }
+  .update-headline {
+    display: block;
+    overflow-wrap: anywhere;
+  }
+  .update-headline svg {
+    display: inline;
+    margin-left: 7px;
+    vertical-align: baseline;
+    color: var(--red);
+  }
+  .update-link:hover .update-headline,
+  .update-link:focus-visible .update-headline {
+    text-decoration: underline;
+    text-underline-offset: 4px;
   }
   .highlights-honors-list li {
     display: grid;
@@ -227,7 +253,7 @@ const honors = lab.honors
   }
   @media (max-width: 400px) {
     .highlights-news-list li {
-      grid-template-columns: 65px minmax(0, 1fr);
+      grid-template-columns: 40px minmax(0, 1fr);
       gap: 12px;
     }
     .highlights-heading h2 {
