@@ -1,12 +1,13 @@
 ---
 import Icon from './Icon.astro';
 import type { ResearchOutput } from '../lib/research-outputs';
-import { localePath, linkLabel, type Locale } from '../lib/i18n';
+import { localePath, linkLabel, topicLabels, type Locale } from '../lib/i18n';
 interface Props {
   lang?: Locale;
   paper: ResearchOutput;
 }
 const { paper, lang = 'en' } = Astro.props;
+const labels = topicLabels(lang);
 ---
 
 <article
@@ -37,7 +38,14 @@ const { paper, lang = 'en' } = Astro.props;
         loading="lazy"
       />
     )}
-    <h3>{paper.title}</h3>
+    <h4>{paper.title}</h4>
+    {paper.researchAreas.length > 0 && (
+      <div class="paper-topics">
+        {paper.researchAreas.map((area) => (
+          <span>{labels[area] || area}</span>
+        ))}
+      </div>
+    )}
     {paper.authors && (
       <p class="paper-authors" lang="en">
         {paper.authors}
@@ -68,6 +76,107 @@ const { paper, lang = 'en' } = Astro.props;
   </div>
 </article>
 <style>
+  .paper-row {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 22px;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    background: #fafbf640;
+    transition:
+      border-color 0.22s,
+      box-shadow 0.22s,
+      background 0.22s;
+    min-width: 0;
+  }
+  .paper-row[hidden] {
+    display: none;
+  }
+  .paper-row:hover,
+  .paper-row:focus-within {
+    border-color: #a8b69d;
+    background: #fafbf6;
+    box-shadow: 0 5px 18px #19261b08;
+  }
+  .paper-row:target {
+    background: #f0ece2;
+    border-color: var(--red);
+    box-shadow: none;
+  }
+  .paper-venue {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 0;
+    font-size: 13px;
+  }
+  .paper-venue > span:first-child {
+    border-left: 2px solid var(--red);
+    padding-left: 9px;
+  }
+  .paper-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .paper-info h4 {
+    font-size: 18px;
+    line-height: 1.6;
+    font-weight: 600;
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+  .paper-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .paper-topics span {
+    padding: 3px 7px;
+    border-radius: 3px;
+    background: #e8ecdf;
+    color: #53634c;
+    font-size: 11px;
+  }
+  .paper-authors {
+    font-size: 13px;
+    line-height: 1.85;
+    margin-top: 10px;
+  }
+  .paper-links {
+    margin-top: auto;
+    padding-top: 16px;
+    gap: 14px;
+  }
+  .paper-links a {
+    font-size: 13px;
+  }
+  .paper-row:has(.output-image) {
+    grid-column: 1 / -1;
+  }
+  .paper-info .output-image {
+    float: none;
+    width: 100%;
+    max-width: 480px;
+    height: 180px;
+    margin: 0 0 16px;
+    align-self: start;
+  }
+  @media (max-width: 600px) {
+    .paper-row {
+      padding: 18px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .paper-row {
+      transition: none;
+    }
+  }
+
   .paper-info {
     min-width: 0;
   }

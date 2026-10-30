@@ -14,6 +14,11 @@ const topics = topicLabels(lang);
 import resources from '../data/resources.json';
 const outputs = researchOutputs(lang);
 const years = [...new Set(outputs.flatMap((p) => (p.year ? [p.year] : [])))].sort((a, b) => b - a);
+const groups = [...years, ...(outputs.some((p) => !p.year) ? [null] : [])].map((year) => ({
+  year,
+  id: `outputs-${year ?? 'ongoing'}`,
+  items: outputs.filter((item) => item.year === year),
+}));
 const yearRange = `${Math.min(...years)}–${Math.max(...years)}`;
 ---
 
@@ -88,9 +93,35 @@ const yearRange = `${Math.min(...years)}–${Math.max(...years)}`;
       ? `${outputs.length} 项成果 · ${yearRange}`
       : `${outputs.length} research outputs · ${yearRange}`}
   </p>
+  <nav class="archive-years" aria-label={t('Jump to a year', '按年份浏览')}>
+    {groups.map((group) => (
+      <a href={`#${group.id}`} data-year-jump={String(group.year ?? '')}>
+        {group.year ?? t('Ongoing', '项目与平台')}
+        <span data-jump-count>{group.items.length}</span>
+      </a>
+    ))}
+  </nav>
   <div class="paper-list">
-    {outputs.map((paper) => (
-      <PaperRow paper={paper} lang={lang} />
+    {groups.map((group) => (
+      <section
+        class="output-year"
+        id={group.id}
+        data-output-year
+        aria-labelledby={`${group.id}-heading`}
+      >
+        <header class="output-year-heading">
+          <h3 id={`${group.id}-heading`}>{group.year ?? t('Ongoing', '项目与平台')}</h3>
+          <span>
+            <b data-year-count>{group.items.length}</b> {t('outputs', '项成果')}
+          </span>
+          <div class="year-line" aria-hidden="true" />
+        </header>
+        <div class="year-output-grid">
+          {group.items.map((paper) => (
+            <PaperRow paper={paper} lang={lang} />
+          ))}
+        </div>
+      </section>
     ))}
     <p class="empty-state" id="paper-empty" hidden>
       {t(
@@ -178,6 +209,18 @@ const yearRange = `${Math.min(...years)}–${Math.max(...years)}`;
       row.hidden = !show;
       if (show) count++;
     });
+    document.querySelectorAll<HTMLElement>('[data-output-year]').forEach((group) => {
+      const visible = [...group.querySelectorAll<HTMLElement>('[data-paper]')].filter(
+        (row) => !row.hidden,
+      ).length;
+      group.hidden = visible === 0;
+      group.querySelector<HTMLElement>('[data-year-count]')!.textContent = String(visible);
+      const jump = [...document.querySelectorAll<HTMLAnchorElement>('[data-year-jump]')].find(
+        (link) => link.hash === '#' + group.id,
+      )!;
+      jump.hidden = visible === 0;
+      jump.querySelector<HTMLElement>('[data-jump-count]')!.textContent = String(visible);
+    });
     if (shouldAnimate) {
       rows
         .filter((row) => !row.hidden)
@@ -237,6 +280,102 @@ const yearRange = `${Math.min(...years)}–${Math.max(...years)}`;
 </script>
 
 <style>
+  .archive-years {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 32px;
+  }
+  .archive-years a {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 8px 12px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    font-family: var(--mono);
+    font-size: 14px;
+    transition:
+      color 0.2s,
+      border-color 0.2s,
+      background 0.2s;
+  }
+  .archive-years a:hover,
+  .archive-years a:focus-visible {
+    color: var(--red);
+    border-color: var(--red);
+    background: #efdfd540;
+  }
+  .archive-years span {
+    color: var(--muted);
+    font-size: 11px;
+  }
+  .archive-years a[hidden],
+  .output-year[hidden] {
+    display: none;
+  }
+  .paper-list {
+    border-top: 0;
+  }
+  .output-year {
+    margin-top: 42px;
+    scroll-margin-top: 115px;
+  }
+  .output-year:first-child {
+    margin-top: 0;
+  }
+  .output-year-heading {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 18px;
+  }
+  .output-year-heading h3 {
+    font-family: var(--mono);
+    font-size: clamp(26px, 3vw, 36px);
+    font-weight: 500;
+    letter-spacing: -0.05em;
+  }
+  .output-year-heading > span {
+    color: var(--muted);
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  .output-year-heading b {
+    font-weight: 500;
+  }
+  .year-line {
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+  .year-output-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    align-items: stretch;
+  }
+  @media (max-width: 800px) {
+    .year-output-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .archive-years {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+    .archive-years a {
+      flex-shrink: 0;
+    }
+    .output-year {
+      margin-top: 32px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .archive-years a {
+      transition: none;
+    }
+  }
   .archive-anchor {
     display: block;
     scroll-margin-top: 110px;
