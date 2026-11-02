@@ -100,7 +100,7 @@
       "name": "ZhongJing Du",
       "role": "Ph.D. student",
       "cohort": 2025,
-      "image": null,
+      "image": "/media/person-dzj.jpg",
       "interests": ["Video Generation"],
       "homepage": null,
       "scholar": null,
@@ -127,6 +127,16 @@
       "homepage": null,
       "scholar": null,
       "originalText": ""
+    },
+    {
+      "id": "huixin-hu",
+      "name": "Huixin Hu",
+      "role": "Ph.D. student",
+      "cohort": 2026,
+      "image": null,
+      "interests": ["Embodied Agent"],
+      "homepage": null,
+      "scholar": null
     }
   ],
   "masters": [
@@ -298,16 +308,6 @@
       "scholar": null
     },
     {
-      "id": "huixin-hu",
-      "name": "Huixin Hu",
-      "role": "Master's student",
-      "cohort": 2026,
-      "image": null,
-      "interests": ["Embodied Agent"],
-      "homepage": null,
-      "scholar": null
-    },
-    {
       "id": "yijia-hou",
       "name": "Yijia Hou",
       "role": "Master's student",
@@ -322,7 +322,7 @@
       "name": "Yixin Zhang",
       "role": "Master's student",
       "cohort": 2026,
-      "image": null,
+      "image": "/media/person-zyx.jpg",
       "interests": ["Embodied Agent"],
       "homepage": null,
       "scholar": null
@@ -352,7 +352,7 @@
       "name": "Nan Zeng",
       "role": "Master's student",
       "cohort": 2026,
-      "image": null,
+      "image": "/media/person-zn.jpg",
       "interests": ["Embodied Agent"],
       "homepage": null,
       "scholar": null
