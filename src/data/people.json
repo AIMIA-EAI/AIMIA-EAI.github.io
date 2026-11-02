@@ -377,7 +377,7 @@
       "cohort": null,
       "image": null,
       "interests": [],
-      "homepage": null,
+      "homepage": "https://scholar.google.com/citations?user=NKlJkB4AAAAJ&hl=zh-CN",
       "scholar": null,
       "destination": "SenseTime Shanghai",
       "originalText": "Zhiqiang Gao (SenseTime Shanghai)"
@@ -390,7 +390,7 @@
       "cohort": null,
       "image": null,
       "interests": [],
-      "homepage": null,
+      "homepage": "https://scholar.google.com/citations?user=fDUwF94AAAAJ&hl=en",
       "scholar": null,
       "destination": "Haomo",
       "originalText": "Zhennan Wang (Haomo)"
@@ -554,8 +554,10 @@
       "interests": [],
       "homepage": "https://lunhuang.info/",
       "scholar": null,
-      "destination": "Duke University, outstanding graduate of Peking University, outstanding graduate of Beijing",
-      "originalText": "Lun Huang (Duke University, outstanding graduate of Peking University, outstanding graduate of Beijing)"
+      "destination": "Princeton University · Guillermo Sapiro's Group",
+      "originalText": "Lun Huang (Duke University, outstanding graduate of Peking University, outstanding graduate of Beijing)",
+      "destinationHomepage": "https://ece.princeton.edu/people/gsapiro",
+      "honors": ["Outstanding Graduate of Peking University", "Outstanding Graduate of Beijing"]
     },
     {
       "id": "yaxian-xia",
