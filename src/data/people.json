@@ -308,21 +308,21 @@
       "scholar": null
     },
     {
-      "id": "yijia-hou",
-      "name": "Yijia Hou",
-      "role": "Master's student",
-      "cohort": 2026,
-      "image": null,
-      "interests": ["Embodied Agent"],
-      "homepage": null,
-      "scholar": null
-    },
-    {
       "id": "yixin-zhang",
       "name": "Yixin Zhang",
       "role": "Master's student",
       "cohort": 2026,
       "image": "/media/person-zyx.jpg",
+      "interests": ["Embodied Agent"],
+      "homepage": "https://zyxin.cn",
+      "scholar": null
+    },
+    {
+      "id": "yijia-hou",
+      "name": "Yijia Hou",
+      "role": "Master's student",
+      "cohort": 2026,
+      "image": null,
       "interests": ["Embodied Agent"],
       "homepage": null,
       "scholar": null
