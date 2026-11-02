@@ -15,6 +15,12 @@ const isZh = lang === 'zh';
 const t = (en: string, cn: string) => (isZh ? cn : en);
 const faculty = people.faculty[0];
 const studentCount = people.phd.length + people.masters.length;
+const studentMasterCohorts = [...new Set(people.masters.map((person) => person.cohort))]
+  .sort((a, b) => (a === null ? 1 : b === null ? -1 : a - b))
+  .map((cohort) => ({
+    title: cohort ? t(`${cohort} entry cohort`, `${cohort} 级`) : t('Other students', '其他同学'),
+    members: people.masters.filter((person) => person.cohort === cohort),
+  }));
 const alumniGroups = [
   { id: 'alumni-phd', role: 'Ph.D. alumni', title: t('Doctoral graduates', '博士毕业生') },
   { id: 'alumni-masters', role: "Master's alumni", title: t("Master's graduates", '硕士毕业生') },
@@ -131,7 +137,7 @@ const directoryDate = new Date(`${people.directoryAsOf}-01T00:00:00Z`).toLocaleD
         </div>
         <div class="people-grid">
           {people.phd.map((person) => (
-            <PersonCard person={person} lang={lang} headingLevel="h4" />
+            <PersonCard person={person} lang={lang} headingLevel="h4" showCohort={false} />
           ))}
         </div>
       </section>
@@ -140,11 +146,16 @@ const directoryDate = new Date(`${people.directoryAsOf}-01T00:00:00Z`).toLocaleD
           <h3 id="masters-title">{t("Master's students", '硕士生')}</h3>
           <span>{people.masters.length.toString().padStart(2, '0')}</span>
         </div>
-        <div class="people-grid">
-          {people.masters.map((person) => (
-            <PersonCard person={person} lang={lang} headingLevel="h4" />
-          ))}
-        </div>
+        {studentMasterCohorts.map((cohort) => (
+          <section class="student-master-year" aria-label={cohort.title}>
+            <p class="student-year-label">{cohort.title}</p>
+            <div class="people-grid">
+              {cohort.members.map((person) => (
+                <PersonCard person={person} lang={lang} headingLevel="h4" showCohort={false} />
+              ))}
+            </div>
+          </section>
+        ))}
       </section>
     </section>
     <section class="people-section" id="alumni" aria-labelledby="alumni-title">
@@ -174,7 +185,13 @@ const directoryDate = new Date(`${people.directoryAsOf}-01T00:00:00Z`).toLocaleD
                 </header>
                 <div class="alumni-grid alumni-grid-masters">
                   {cohort.members.map((person) => (
-                    <AlumniCard person={person} lang={lang} headingLevel="h5" showCohort={false} compact />
+                    <AlumniCard
+                      person={person}
+                      lang={lang}
+                      headingLevel="h5"
+                      showCohort={false}
+                      compact
+                    />
                   ))}
                 </div>
               </section>
@@ -193,6 +210,18 @@ const directoryDate = new Date(`${people.directoryAsOf}-01T00:00:00Z`).toLocaleD
 </Layout>
 
 <style>
+  .student-master-year + .student-master-year {
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid color-mix(in srgb, var(--line) 60%, transparent);
+  }
+  .student-year-label {
+    margin: 0 0 22px;
+    font-family: var(--mono);
+    font-size: 16px;
+    color: var(--muted);
+  }
+
   .masters-cohort {
     scroll-margin-top: 110px;
   }

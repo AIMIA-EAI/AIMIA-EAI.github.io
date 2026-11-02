@@ -70,7 +70,11 @@
     "World Models": "世界模型",
     "Protein Engineering": "蛋白质工程",
     "Segmentation": "分割",
-    "Semi-supervised Learning": "半监督学习"
+    "Semi-supervised Learning": "半监督学习",
+    "AI4S": "科学智能（AI4S）",
+    "Feature Alignment": "特征对齐",
+    "Embodied Agent": "具身 Agent",
+    "Operator Optimization": "算子优化"
   },
   "news": {
     "news-01": {

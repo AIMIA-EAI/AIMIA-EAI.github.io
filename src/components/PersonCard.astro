@@ -5,6 +5,7 @@ import { translateRole, translateInterest, type Locale } from '../lib/i18n';
 interface Props {
   lang?: Locale;
   headingLevel?: 'h3' | 'h4';
+  showCohort?: boolean;
   person: {
     id: string;
     name: string;
@@ -15,7 +16,7 @@ interface Props {
     homepage: string | null;
   };
 }
-const { person, lang = 'en', headingLevel = 'h3' } = Astro.props;
+const { person, lang = 'en', headingLevel = 'h3', showCohort = true } = Astro.props;
 const NameHeading = headingLevel;
 ---
 
@@ -45,7 +46,7 @@ const NameHeading = headingLevel;
   </div>
   <p class="person-role">
     {translateRole(person.role, lang)}
-    {person.cohort && ` · ${person.cohort}`}
+    {showCohort && person.cohort && ` · ${person.cohort}`}
   </p>
   <p class="person-interests">
     {person.interests.map((interest) => translateInterest(interest, lang)).join(' · ')}

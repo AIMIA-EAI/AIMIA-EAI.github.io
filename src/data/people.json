@@ -94,6 +94,39 @@
       "homepage": null,
       "scholar": null,
       "originalText": "Qianli Lei\nEmbodied AI Imitation Learning"
+    },
+    {
+      "id": "zhongjing-du",
+      "name": "ZhongJing Du",
+      "role": "Ph.D. student",
+      "cohort": 2025,
+      "image": null,
+      "interests": ["Video Generation"],
+      "homepage": null,
+      "scholar": null,
+      "originalText": ""
+    },
+    {
+      "id": "zhihui-zhu",
+      "name": "ZhiHui Zhu",
+      "role": "Ph.D. student",
+      "cohort": 2026,
+      "image": "/media/person-zhihui-zhu.jpg",
+      "interests": ["AI4S"],
+      "homepage": null,
+      "scholar": null,
+      "originalText": ""
+    },
+    {
+      "id": "zheng-fang",
+      "name": "Zheng Fang",
+      "role": "Ph.D. student",
+      "cohort": 2026,
+      "image": null,
+      "interests": ["Feature Alignment"],
+      "homepage": null,
+      "scholar": null,
+      "originalText": ""
     }
   ],
   "masters": [
@@ -173,6 +206,166 @@
       "homepage": null,
       "scholar": null,
       "originalText": "Yuxin Qin Master (2024)\n3D Texture"
+    },
+    {
+      "id": "zijun-liao",
+      "name": "Zijun Liao",
+      "role": "Master's student",
+      "cohort": 2025,
+      "image": null,
+      "interests": ["Object Detection"],
+      "homepage": null,
+      "scholar": null
+    },
+    {
+      "id": "yudi-guo",
+      "name": "Yudi Guo",
+      "role": "Master's student",
+      "cohort": 2025,
+      "image": null,
+      "interests": ["AI4S"],
+      "homepage": null,
+      "scholar": null
+    },
+    {
+      "id": "mujie-lin",
+      "name": "Mujie Lin",
+      "role": "Master's student",
+      "cohort": 2025,
+      "image": null,
+      "interests": ["AI4S"],
+      "homepage": null,
+      "scholar": null
+    },
+    {
+      "id": "xin-shan",
+      "name": "Xin Shan",
+      "role": "Master's student",
+      "cohort": 2025,
+      "image": "/media/person-xin-shan.jpg",
+      "interests": ["Object Detection"],
+      "homepage": null,
+      "scholar": null
+    },
+    {
+      "id": "yu-yan",
+      "name": "Yu Yan",
+      "role": "Master's student",
+      "cohort": 2025,
+      "image": null,
+      "interests": ["Object Detection"],
+      "homepage": null,
+      "scholar": null
+    },
+    {
+      "id": "lei-zhu",
+      "name": "Lei Zhu",
+      "role": "Master's student",
+      "cohort": 2025,
+      "image": null,
+      "interests": ["Video Generation"],
+      "homepage": null,
+      "scholar": null
+    },
+    {
+      "id": "yuxuan-chen",
+      "name": "Yuxuan Chen",
+      "role": "Master's student",
+      "cohort": 2025,
+      "image": null,
+      "interests": [],
+      "homepage": null,
+      "scholar": null
+    },
+    {
+      "id": "tanqin-sun",
+      "name": "Tanqin Sun",
+      "role": "Master's student",
+      "cohort": 2025,
+      "image": null,
+      "interests": [],
+      "homepage": null,
+      "scholar": null
+    },
+    {
+      "id": "yifan-chang",
+      "name": "Yifan Chang",
+      "role": "Master's student",
+      "cohort": 2026,
+      "image": "/media/person-yifan-chang.jpg",
+      "interests": ["Object Detection"],
+      "homepage": null,
+      "scholar": null
+    },
+    {
+      "id": "huixin-hu",
+      "name": "Huixin Hu",
+      "role": "Master's student",
+      "cohort": 2026,
+      "image": null,
+      "interests": ["Embodied Agent"],
+      "homepage": null,
+      "scholar": null
+    },
+    {
+      "id": "yijia-hou",
+      "name": "Yijia Hou",
+      "role": "Master's student",
+      "cohort": 2026,
+      "image": null,
+      "interests": ["Embodied Agent"],
+      "homepage": null,
+      "scholar": null
+    },
+    {
+      "id": "yixin-zhang",
+      "name": "Yixin Zhang",
+      "role": "Master's student",
+      "cohort": 2026,
+      "image": null,
+      "interests": ["Embodied Agent"],
+      "homepage": null,
+      "scholar": null
+    },
+    {
+      "id": "jiazhan-yu",
+      "name": "Jiazhan Yu",
+      "role": "Master's student",
+      "cohort": 2026,
+      "image": null,
+      "interests": ["Operator Optimization"],
+      "homepage": null,
+      "scholar": null
+    },
+    {
+      "id": "meiyi-yang",
+      "name": "Meiyi Yang",
+      "role": "Master's student",
+      "cohort": 2026,
+      "image": null,
+      "interests": ["Video Generation"],
+      "homepage": null,
+      "scholar": null
+    },
+    {
+      "id": "nan-zeng",
+      "name": "Nan Zeng",
+      "role": "Master's student",
+      "cohort": 2026,
+      "image": null,
+      "interests": ["Embodied Agent"],
+      "homepage": null,
+      "scholar": null
+    },
+    {
+      "id": "zhiyong-chen",
+      "name": "Zhiyong Chen",
+      "role": "Master's student",
+      "cohort": 2026,
+      "image": null,
+      "interests": [],
+      "homepage": null,
+      "scholar": null
     }
   ],
   "alumni": [
@@ -357,9 +550,9 @@
       "role": "Master's alumni",
       "group": "Master's alumni",
       "cohort": 2017,
-      "image": null,
+      "image": "/media/person-lun-huang.jpg",
       "interests": [],
-      "homepage": null,
+      "homepage": "https://lunhuang.info/",
       "scholar": null,
       "destination": "Duke University, outstanding graduate of Peking University, outstanding graduate of Beijing",
       "originalText": "Lun Huang (Duke University, outstanding graduate of Peking University, outstanding graduate of Beijing)"
@@ -372,7 +565,7 @@
       "cohort": 2017,
       "image": null,
       "interests": [],
-      "homepage": null,
+      "homepage": "https://scholar.google.com/citations?user=-UnT8PgAAAAJ&hl=zh-CN",
       "scholar": null,
       "destination": "Alibaba",
       "originalText": "Yaxian Xia (Alibaba)"
@@ -450,7 +643,7 @@
       "cohort": 2019,
       "image": null,
       "interests": [],
-      "homepage": null,
+      "homepage": "https://scholar.google.com/citations?user=NofmnYUAAAAJ&hl=en",
       "scholar": null,
       "destination": "OPPO",
       "originalText": "Zishang Kong"
@@ -913,7 +1106,7 @@
       "destination": "ICBC Head Office"
     }
   ],
-  "membershipUpdatedOn": "2026-10-28",
+  "membershipUpdatedOn": "2026-11-02",
   "membershipUpdates": [
     {
       "date": "2026-10-27",
@@ -1002,7 +1195,7 @@
       }
     }
   ],
-  "directoryAsOf": "2025-03",
+  "directoryAsOf": "2026-11",
   "destinationUpdates": [
     {
       "date": "2026-10-28",
