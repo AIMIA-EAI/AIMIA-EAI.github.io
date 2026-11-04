@@ -52,6 +52,16 @@
       "originalText": "Yian Zhao Master (2023)\nObject Detection, Image Segmentation"
     },
     {
+      "id": "lei-zhu",
+      "name": "Lei Zhu",
+      "role": "Ph.D. student",
+      "cohort": 2025,
+      "image": "/media/person-lei-zhu.jpeg",
+      "interests": ["Video Generation"],
+      "homepage": "https://scholar.google.com/citations?user=6KPzkjgAAAAJ&hl=zh-CN",
+      "scholar": null
+    },
+    {
       "id": "yiheng-tao",
       "name": "Yiheng Tao",
       "role": "Ph.D. student",
@@ -136,16 +146,6 @@
       "image": null,
       "interests": ["Embodied Agent"],
       "homepage": null,
-      "scholar": null
-    },
-    {
-      "id": "lei-zhu",
-      "name": "Lei Zhu",
-      "role": "Ph.D. student",
-      "cohort": 2025,
-      "image": "/media/person-lei-zhu.jpeg",
-      "interests": ["Video Generation"],
-      "homepage": "https://scholar.google.com/citations?user=6KPzkjgAAAAJ&hl=zh-CN",
       "scholar": null
     }
   ],
