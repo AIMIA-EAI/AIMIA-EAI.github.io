@@ -137,6 +137,16 @@
       "interests": ["Embodied Agent"],
       "homepage": null,
       "scholar": null
+    },
+    {
+      "id": "lei-zhu",
+      "name": "Lei Zhu",
+      "role": "Ph.D. student",
+      "cohort": 2025,
+      "image": "/media/person-lei-zhu.jpeg",
+      "interests": ["Video Generation"],
+      "homepage": "https://scholar.google.com/citations?user=6KPzkjgAAAAJ&hl=zh-CN",
+      "scholar": null
     }
   ],
   "masters": [
@@ -265,16 +275,6 @@
       "image": null,
       "interests": ["Object Detection"],
       "homepage": null,
-      "scholar": null
-    },
-    {
-      "id": "lei-zhu",
-      "name": "Lei Zhu",
-      "role": "Master's student",
-      "cohort": 2025,
-      "image": "/media/person-lei-zhu.jpeg",
-      "interests": ["Video Generation"],
-      "homepage": "https://scholar.google.com/citations?user=6KPzkjgAAAAJ&hl=zh-CN",
       "scholar": null
     },
     {
