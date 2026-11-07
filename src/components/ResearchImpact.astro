@@ -10,6 +10,11 @@ const { lang = 'en', compact = false } = Astro.props;
 const zh = lang === 'zh';
 const t = (en: string, cn: string) => (zh ? cn : en);
 const number = (n: number) => n.toLocaleString('en-US');
+const updateTime = new Intl.DateTimeFormat('sv-SE', {
+  timeZone: 'Asia/Shanghai',
+  dateStyle: 'short',
+  timeStyle: 'short',
+});
 let cumulativeCitations = 0;
 const citationPoints = scholar.annual.map((p) => {
   cumulativeCitations += p.citations;
@@ -27,12 +32,7 @@ const cards = [
     ),
     source: github.source,
     sourceLabel: 'GitHub',
-    updated: new Intl.DateTimeFormat('en-CA', {
-      timeZone: 'Asia/Shanghai',
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-    }).format(new Date(github.updatedAt)),
+    updated: github.updatedAt,
     color: 'sage',
     points: github.series.map((p) => ({ date: p.date, label: p.date, value: p.value })),
     chartLabel: t('Cumulative star events · weekly', '累计获 Star · 按周统计'),
@@ -45,7 +45,7 @@ const cards = [
     subtitle: t(`Jie Chen · h-index ${scholar.hIndex}`, `陈杰 · h-index ${scholar.hIndex}`),
     source: scholar.source,
     sourceLabel: 'Google Scholar',
-    updated: scholar.verifiedAt,
+    updated: scholar.fetchedAt || scholar.verifiedAt,
     color: 'red',
     points: citationPoints,
     chartLabel: t(
@@ -185,7 +185,14 @@ function graph(points: { date: string; label: string; value: number }[]) {
             aria-valuetext={last ? `${last.label}: ${last.value}` : ''}
           />
           <p class="impact-updated">
-            {t('Updated', '数据更新')} <time datetime={card.updated}>{card.updated}</time>
+            {t('Last successful refresh', '上次成功更新')}{' '}
+            <time datetime={card.updated}>
+              {card.updated.includes('T')
+                ? updateTime.format(new Date(card.updated))
+                : card.updated}
+            </time>
+            {' · '}
+            {t('Scheduled daily at 09:17 (UTC+8)', '每日 09:17（北京时间）尝试更新')}
           </p>
         </article>
       );
