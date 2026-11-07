@@ -529,9 +529,9 @@ if (record(visitorWidget, 'visitorWidget')) {
     )
       error(`visitorWidget.${key}`, 'invalid public widget identifier');
   }
-  link(visitorWidget.statisticsUrl, 'visitorWidget.statisticsUrl');
-  if (!visitorWidget.statisticsUrl?.startsWith('https://mapmyvisitors.com/web/'))
-    error('visitorWidget.statisticsUrl', 'unexpected statistics host');
+  link(visitorWidget.providerUrl, 'visitorWidget.providerUrl');
+  if (visitorWidget.providerUrl !== 'https://mapmyvisitors.com/')
+    error('visitorWidget.providerUrl', 'unexpected statistics host');
   totals.visitorWidgets = 1;
 }
 
