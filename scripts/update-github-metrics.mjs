@@ -24,12 +24,14 @@ async function pages(path, size, max = 100) {
 }
 const repos = (await pages(`/orgs/${org}/repos`, 100)).filter((repo) => !repo.private);
 if (!repos.length) throw new Error('No public repositories returned');
+const externalRepo = await get(`/repos/${trackedProject}`);
+const trackedRepos = [...repos, externalRepo];
 const weekly = new Map();
-for (const repo of repos) {
+for (const repo of trackedRepos) {
   if (!Number.isSafeInteger(repo.stargazers_count) || repo.stargazers_count < 0)
     throw new Error('Invalid star count');
   if (repo.stargazers_count === 0) continue;
-  const history = await pages(`/repos/${org}/${repo.name}/stargazers/history`, 30);
+  const history = await pages(`/repos/${repo.full_name}/stargazers/history`, 30);
   if (!history.length) throw new Error(`No history returned for ${repo.name}`);
   for (const item of history) {
     if (!Number.isSafeInteger(item.week) || !Number.isSafeInteger(item.total) || item.total < 0)
@@ -44,14 +46,11 @@ const series = [...weekly]
     cumulative += gained;
     return { date: new Date(week * 1000).toISOString().slice(0, 10), gained, value: cumulative };
   });
-const externalRepo = await get(`/repos/${trackedProject}`);
-if (!Number.isSafeInteger(externalRepo.stargazers_count) || externalRepo.stargazers_count < 0)
-  throw new Error(`Invalid star count: ${trackedProject}`);
 const data = {
   organization: org,
   source: `https://github.com/${org}`,
   updatedAt: new Date().toISOString(),
-  totalStars: repos.reduce((sum, repo) => sum + repo.stargazers_count, 0),
+  totalStars: trackedRepos.reduce((sum, repo) => sum + repo.stargazers_count, 0),
   repositories: repos
     .map((repo) => ({ name: repo.name, url: repo.html_url, stars: repo.stargazers_count }))
     .sort((a, b) => b.stars - a.stars),
@@ -67,5 +66,5 @@ await writeFile(
   JSON.stringify(data, null, 2) + '\n',
 );
 console.log(
-  `GitHub metrics: ${repos.length} public repositories, ${data.totalStars} current stars, ${series.length} weekly points, ${cumulative} historical star events`,
+  `GitHub metrics: ${trackedRepos.length} public repositories, ${data.totalStars} current stars, ${series.length} weekly points, ${cumulative} historical star events`,
 );

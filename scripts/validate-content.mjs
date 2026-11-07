@@ -475,8 +475,9 @@ if (record(githubMetrics, 'githubMetrics')) {
     link(repo.url, 'githubMetrics.repository.url');
     count(repo.stars, 'githubMetrics.repository.stars');
   }
-  if (repositories.reduce((sum, repo) => sum + (repo?.stars || 0), 0) !== githubMetrics.totalStars)
-    error('githubMetrics.totalStars', 'must equal repository star sum');
+  const organizationStars = repositories.reduce((sum, repo) => sum + (repo?.stars || 0), 0);
+  if (organizationStars + (githubMetrics.externalProject?.stars || 0) !== githubMetrics.totalStars)
+    error('githubMetrics.totalStars', 'must equal the sum of all tracked repository stars');
   let previousDate = '',
     running = 0;
   for (const point of array(githubMetrics.series, 'githubMetrics.series')) {
