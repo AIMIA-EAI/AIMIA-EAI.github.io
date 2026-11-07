@@ -22,8 +22,8 @@ const cards = [
     metric: number(github.totalStars),
     unit: t('GitHub Stars', 'GitHub Stars'),
     subtitle: t(
-      `${github.repositories.length} public repositories · AIMIA-PKU`,
-      `AIMIA-PKU · ${github.repositories.length} 个公开仓库`,
+      `${github.repositories.length + 1} public repositories`,
+      `${github.repositories.length + 1} 个公开仓库`,
     ),
     source: github.source,
     sourceLabel: 'GitHub',
@@ -103,14 +103,17 @@ function graph(points: { date: string; label: string; value: number }[]) {
             <strong>{card.metric}</strong>
             <span>{card.unit}</span>
           </div>
-          <p class="impact-scope">{card.subtitle}</p>
-          {card.id === 'stars' && (
-            <p class="impact-scope">
-              {t('Also tracking', '额外追踪')} · <a href={github.externalProject.url}>RT-DETR ↗</a>
-              {' · '}
-              {number(github.externalProject.stars)} Stars
-            </p>
-          )}
+          <p class="impact-scope">
+            {card.subtitle}
+            {card.id === 'stars' && (
+              <>
+                {' · '}
+                <a href={github.source}>AIMIA-PKU ↗</a>
+                {' · '}
+                <a href={github.externalProject.url}>RT-DETR ↗</a>
+              </>
+            )}
+          </p>
           <div class="impact-chart-heading">
             <h4 id={`impact-${card.id}-${lang}`}>{card.chartLabel}</h4>
             <output data-impact-value>
@@ -242,10 +245,10 @@ function graph(points: { date: string; label: string; value: number }[]) {
 <style>
   @media (prefers-reduced-motion: no-preference) {
     .impact-chart.impact-reveal .impact-trace {
-      animation: impact-draw 1.35s ease-out both;
+      animation: impact-draw 1.8s ease-out both;
     }
     .impact-chart.impact-reveal [data-impact-marker] {
-      animation: impact-marker-in 180ms ease-out 1.2s both;
+      animation: impact-marker-in 180ms ease-out 1.62s both;
     }
   }
 
