@@ -1,4 +1,7 @@
 import { writeFile } from 'node:fs/promises';
+import { recordDailyMetric } from './lib/daily-metrics.mjs';
+
+const attemptedAt = new Date().toISOString();
 
 const org = 'AIMIA-PKU';
 const trackedProject = 'lyuwenyu/RT-DETR';
@@ -65,6 +68,10 @@ await writeFile(
   new URL('../src/data/github-metrics.json', import.meta.url),
   JSON.stringify(data, null, 2) + '\n',
 );
+await recordDailyMetric('stars', attemptedAt, {
+  value: data.totalStars,
+  fetchedAt: data.updatedAt,
+});
 console.log(
   `GitHub metrics: ${trackedRepos.length} public repositories, ${data.totalStars} current stars, ${series.length} weekly points, ${cumulative} historical star events`,
 );

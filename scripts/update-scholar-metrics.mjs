@@ -1,3 +1,4 @@
+import { recordDailyMetric } from './lib/daily-metrics.mjs';
 import { readFile, writeFile } from 'node:fs/promises';
 import { SITE_URL } from '../site.config.mjs';
 import { parseScholarProfile, validateScholarMetrics } from './lib/scholar-metrics.mjs';
@@ -19,6 +20,8 @@ try {
 } catch {
   console.log('Published Scholar snapshot unavailable; retaining committed snapshot.');
 }
+const attemptedAt = new Date().toISOString();
+let snapshot = null;
 try {
   const response = await fetch(best.source, {
     headers: { 'User-Agent': 'AIMIA-website-metrics' },
@@ -26,6 +29,7 @@ try {
   });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   best = parseScholarProfile(await response.text(), best);
+  snapshot = { value: best.total, fetchedAt: best.fetchedAt };
   console.log(
     `Scholar refreshed: ${best.total} citations, h-index ${best.hIndex}, ${best.annual.length} years, verified ${best.verifiedAt}`,
   );
@@ -35,3 +39,4 @@ try {
   );
 }
 await writeFile(file, JSON.stringify(best, null, 2) + '\n');
+await recordDailyMetric('citations', attemptedAt, snapshot);

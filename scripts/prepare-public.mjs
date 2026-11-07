@@ -22,6 +22,7 @@ for (const [file, target] of Object.entries(aliases)) {
 }
 await mkdir('public/metrics', { recursive: true });
 await copyFile('src/data/scholar-metrics.json', 'public/metrics/scholar.json');
+await copyFile('src/data/daily-metrics.json', 'public/metrics/daily.json');
 await writeFile('public/.nojekyll', '');
 const urls = ['/', '/research/', '/people/', '/join/'];
 const localizedUrls = urls.flatMap((url) => [url, `/zh${url}`]);

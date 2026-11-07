@@ -2,13 +2,13 @@
   "profileId": "ZAZFfwwAAAAJ",
   "name": "Jie Chen",
   "source": "https://scholar.google.com/citations?user=ZAZFfwwAAAAJ&hl=en",
-  "verifiedAt": "2026-10-29",
-  "total": 29723,
+  "verifiedAt": "2026-11-07",
+  "total": 30083,
   "hIndex": 64,
   "annual": [
     {
       "year": 2010,
-      "citations": 76
+      "citations": 77
     },
     {
       "year": 2011,
@@ -32,19 +32,19 @@
     },
     {
       "year": 2016,
-      "citations": 433
+      "citations": 434
     },
     {
       "year": 2017,
-      "citations": 382
+      "citations": 383
     },
     {
       "year": 2018,
-      "citations": 423
+      "citations": 421
     },
     {
       "year": 2019,
-      "citations": 613
+      "citations": 615
     },
     {
       "year": 2020,
@@ -56,24 +56,24 @@
     },
     {
       "year": 2022,
-      "citations": 2042
+      "citations": 2041
     },
     {
       "year": 2023,
-      "citations": 2399
+      "citations": 2398
     },
     {
       "year": 2024,
-      "citations": 3605
+      "citations": 3610
     },
     {
       "year": 2025,
-      "citations": 6972
+      "citations": 6973
     },
     {
       "year": 2026,
-      "citations": 8533
+      "citations": 8882
     }
   ],
-  "fetchedAt": "2026-10-28T17:58:11.505Z"
+  "fetchedAt": "2026-11-07T13:08:17.274Z"
 }
