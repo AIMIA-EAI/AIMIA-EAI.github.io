@@ -13,7 +13,7 @@
 
 - 旧 Mobirise 根目录 HTML、`project.mobirise`、发布哈希、截图、原始图片与模板 CSS/JS、旧字体、98 个历史快照。
 - 研究页不再引用的六个优化图片，以及未被导入的 `ResearchVisual.astro`。
-- 独立组织 profile 的本地草稿与绘图脚本；组织首页现在由 `AIMIA-EAI/.github` 管理。
+- 独立组织 profile 的本地草稿与绘图脚本；组织首页现在由 `AIMIA-PKU/.github` 管理。
 - `node_modules/`、构建产物、预览缓存、macOS 元数据和生成的站点地图/跳转页；恢复 `.gitignore`，避免再次误暂存。
 
 ## 备份与维护调整

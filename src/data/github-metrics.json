@@ -1,22 +1,22 @@
 {
-  "organization": "AIMIA-EAI",
-  "source": "https://github.com/AIMIA-EAI",
+  "organization": "AIMIA-PKU",
+  "source": "https://github.com/AIMIA-PKU",
   "updatedAt": "2026-10-28T12:49:41.359Z",
   "totalStars": 672,
   "repositories": [
     {
       "name": "RT-DETRv4",
-      "url": "https://github.com/AIMIA-EAI/RT-DETRv4",
+      "url": "https://github.com/AIMIA-PKU/RT-DETRv4",
       "stars": 672
     },
     {
-      "name": "AIMIA-EAI.github.io",
-      "url": "https://github.com/AIMIA-EAI/AIMIA-EAI.github.io",
+      "name": "AIMIA-PKU.github.io",
+      "url": "https://github.com/AIMIA-PKU/AIMIA-PKU.github.io",
       "stars": 0
     },
     {
       "name": ".github",
-      "url": "https://github.com/AIMIA-EAI/.github",
+      "url": "https://github.com/AIMIA-PKU/.github",
       "stars": 0
     }
   ],
@@ -286,5 +286,10 @@
       "gained": 4,
       "value": 672
     }
-  ]
+  ],
+  "externalProject": {
+    "name": "lyuwenyu/RT-DETR",
+    "url": "https://github.com/lyuwenyu/RT-DETR",
+    "stars": 5657
+  }
 }

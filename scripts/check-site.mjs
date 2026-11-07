@@ -85,7 +85,7 @@ for (const [file, source] of html) {
 }
 for (const name of ['sitemap.xml', 'robots.txt']) {
   const source = await readFile(path.join(root, name), 'utf8');
-  if (!source.includes(SITE_URL) || source.includes('https://aimia-pku.github.io'))
+  if (!source.includes(SITE_URL) || source.includes('https://aimia-eai.github.io'))
     errors.push(`${name}: incorrect site origin`);
 }
 if (errors.length) {

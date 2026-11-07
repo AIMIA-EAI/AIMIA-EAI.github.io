@@ -1,8 +1,8 @@
 # AIMIA 实验室网站
 
-北京大学 AIMIA 实验室的中英文 Astro 静态网站，目标地址为 `https://aimia-eai.github.io/`。日常维护修改内容文件，页面模板与数据分开管理。
+北京大学 AIMIA 实验室的中英文 Astro 静态网站，目标地址为 `https://aimia-pku.github.io/`。日常维护修改内容文件，页面模板与数据分开管理。
 
-- 默认首页 `/` 和 `/zh/` 为中文，英文首页为 `/en/`。英文内页为 `/research/`、`/people/` 等，中文内页加 `/zh/`；语言切换保留页面、搜索参数和锚点。
+- 默认首页 `/` 为英文，中文首页为 `/zh/`，`/en/` 保留为英文首页的兼容入口。英文内页为 `/research/`、`/people/` 等，中文内页加 `/zh/`；语言切换保留页面、搜索参数和锚点。
 - 主导航：研究成果、团队建设、加入我们。
 - 研究成果统一展示项目、平台、数据集和论文，并保留专利、荣誉及折叠动态。
 - 团队页保留 13 张团体照片、导师、在读学生和独立校友名录。
@@ -12,7 +12,7 @@
 
 ```text
 src/
-├── pages/       路由入口；根首页默认中文，en/ 英文首页，zh/ 中文页面
+├── pages/       路由入口；根首页默认英文，en/ 为英文兼容入口，zh/ 中文页面
 ├── views/       Home、Research、People 等共享页面模板
 ├── layouts/     Layout：元数据、页头、正文、访问足迹、页脚
 ├── components/  成果卡片、成员卡片、图表、轮播、研究动画等展示单元
@@ -157,13 +157,13 @@ git push origin main
 
 只提交源码、内容、素材、锁文件和维护配置。`node_modules/`、`dist/`、`.astro/`、`.local-preview/`、macOS 元数据和自动生成的兼容页/站点地图均被忽略。
 
-工作流对 `main` 的 Push / PR 执行完整构建检查。在目标仓库 `AIMIA-EAI/AIMIA-EAI.github.io` 推送到 `main` 后，检查通过即自动发布 `dist/`；PR 仅检查，不发布。仍可通过 Actions → Run workflow 选择 `main` 手动重新发布。仓库 Settings → Pages 需选择 GitHub Actions；仅在本地 commit 不会发布，需要 `git push origin main`。
+工作流对 `main` 的 Push / PR 执行完整构建检查。在目标仓库 `AIMIA-PKU/AIMIA-PKU.github.io` 推送到 `main` 后，检查通过即自动发布 `dist/`；PR 仅检查，不发布。仍可通过 Actions → Run workflow 选择 `main` 手动重新发布。仓库 Settings → Pages 需选择 GitHub Actions；仅在本地 commit 不会发布，需要 `git push origin main`。
 
-GitHub 组织首页由独立的 [AIMIA-EAI/.github](https://github.com/AIMIA-EAI/.github) 仓库维护。本网站仓库不再保留组织 README 和其 GIF 的重复副本。
+GitHub 组织首页由独立的 [AIMIA-PKU/.github](https://github.com/AIMIA-PKU/.github) 仓库维护。本网站仓库不再保留组织 README 和其 GIF 的重复副本。
 
 ## 首页研究影响力图表
 
-- `src/data/github-metrics.json`：AIMIA-EAI 全部公开仓库的 Star 总数及官方每周历史获星记录；曲线累加历史事件，当前总数可能因取消 Star、仓库转移等而不同。
+- `src/data/github-metrics.json`：AIMIA-PKU 全部公开仓库的 Star 总数及官方每周历史获星记录；曲线累加历史事件，当前总数可能因取消 Star、仓库转移等而不同。
 - `pnpm metrics:github`：完整分页更新组织仓库和历史记录。正式发布前自动运行；失败会中止发布，已有官网继续可用。本地构建与 PR 检查使用已保存的数据，不调用外部 API。
 - `src/data/scholar-metrics.json`：陈杰老师（`ZAZFfwwAAAAJ`）公开 Scholar 页面的总引用、h-index 和各年引用量。曲线自最早可见年份起逐年累加，不把未分配到可见年份的引用推算为早期数据，也不代表历年保存的总引用快照。手动核验更新 `verifiedAt`、`total`、`hIndex` 和 `annual`，不要把逐年引用量当作历史总引用快照。当年数据为截至核验日的部分年度数据。
 - 图表支持鼠标或触摸查看，底部滑条支持键盘方向键；禁用 JavaScript 时仍显示完整图表和数据摘要。两项数据各自展示更新日期。

@@ -1,6 +1,7 @@
 import { writeFile } from 'node:fs/promises';
 
-const org = 'AIMIA-EAI';
+const org = 'AIMIA-PKU';
+const trackedProject = 'lyuwenyu/RT-DETR';
 const headers = { Accept: 'application/vnd.github+json', 'User-Agent': 'AIMIA-website-metrics' };
 if (process.env.GITHUB_TOKEN) headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
 async function get(path) {
@@ -9,14 +10,13 @@ async function get(path) {
     signal: AbortSignal.timeout(25000),
   });
   if (!response.ok) throw new Error(`GitHub ${response.status}: ${path}`);
-  const data = await response.json();
-  if (!Array.isArray(data)) throw new Error(`Expected array: ${path}`);
-  return data;
+  return response.json();
 }
 async function pages(path, size, max = 100) {
   const rows = [];
   for (let page = 1; page <= max; page++) {
     const batch = await get(`${path}?per_page=${size}&page=${page}`);
+    if (!Array.isArray(batch)) throw new Error(`Expected array: ${path}`);
     rows.push(...batch);
     if (batch.length < size) return rows;
   }
@@ -44,6 +44,9 @@ const series = [...weekly]
     cumulative += gained;
     return { date: new Date(week * 1000).toISOString().slice(0, 10), gained, value: cumulative };
   });
+const externalRepo = await get(`/repos/${trackedProject}`);
+if (!Number.isSafeInteger(externalRepo.stargazers_count) || externalRepo.stargazers_count < 0)
+  throw new Error(`Invalid star count: ${trackedProject}`);
 const data = {
   organization: org,
   source: `https://github.com/${org}`,
@@ -52,6 +55,11 @@ const data = {
   repositories: repos
     .map((repo) => ({ name: repo.name, url: repo.html_url, stars: repo.stargazers_count }))
     .sort((a, b) => b.stars - a.stars),
+  externalProject: {
+    name: trackedProject,
+    url: `https://github.com/${trackedProject}`,
+    stars: externalRepo.stargazers_count,
+  },
   series,
 };
 await writeFile(

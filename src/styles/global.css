@@ -3238,7 +3238,8 @@ p + p {
   grid-column: 3;
   grid-row: 1;
 }
-.language-switch {
+.language-switch,
+.legacy-site-link {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -3251,7 +3252,11 @@ p + p {
   border: 1px solid var(--line);
   border-radius: 4px;
 }
-.language-switch:hover {
+.legacy-site-link {
+  white-space: nowrap;
+}
+.language-switch:hover,
+.legacy-site-link:hover {
   color: var(--red);
   border-color: var(--red);
 }
@@ -3346,7 +3351,8 @@ html[lang='zh-CN'] .join-layout p {
     font-size: 9px;
     letter-spacing: 0.1px;
   }
-  .language-switch {
+  .language-switch,
+  .legacy-site-link {
     min-width: 34px;
     font-size: 13px;
     padding-inline: 4px;

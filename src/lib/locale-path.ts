@@ -35,6 +35,5 @@ export function localePath(path: string, lang: Locale): string {
     pathname = '/research/';
     if (!url.hash) url.hash = '#updates';
   }
-  if (lang === 'en' && pathname === '/') pathname = '/en/';
   return `${lang === 'zh' ? '/zh' : ''}${pathname}${url.search}${url.hash}`;
 }

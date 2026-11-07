@@ -454,12 +454,17 @@ function count(value, where) {
   if (!Number.isSafeInteger(value) || value < 0) error(where, 'must be a nonnegative safe integer');
 }
 if (record(githubMetrics, 'githubMetrics')) {
-  if (githubMetrics.organization !== 'AIMIA-EAI')
-    error('githubMetrics.organization', 'must be AIMIA-EAI');
+  if (githubMetrics.organization !== 'AIMIA-PKU')
+    error('githubMetrics.organization', 'must be AIMIA-PKU');
   link(githubMetrics.source, 'githubMetrics.source');
   if (!Number.isFinite(Date.parse(githubMetrics.updatedAt)))
     error('githubMetrics.updatedAt', 'invalid timestamp');
   count(githubMetrics.totalStars, 'githubMetrics.totalStars');
+  if (record(githubMetrics.externalProject, 'githubMetrics.externalProject')) {
+    text(githubMetrics.externalProject.name, 'githubMetrics.externalProject.name');
+    link(githubMetrics.externalProject.url, 'githubMetrics.externalProject.url');
+    count(githubMetrics.externalProject.stars, 'githubMetrics.externalProject.stars');
+  }
   const repositories = array(githubMetrics.repositories, 'githubMetrics.repositories');
   const names = new Set();
   for (const repo of repositories) {

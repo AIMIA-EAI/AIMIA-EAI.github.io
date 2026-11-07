@@ -22,8 +22,8 @@ const cards = [
     metric: number(github.totalStars),
     unit: t('GitHub Stars', 'GitHub Stars'),
     subtitle: t(
-      `${github.repositories.length} public repositories · AIMIA-EAI`,
-      `AIMIA-EAI · ${github.repositories.length} 个公开仓库`,
+      `${github.repositories.length} public repositories · AIMIA-PKU`,
+      `AIMIA-PKU · ${github.repositories.length} 个公开仓库`,
     ),
     source: github.source,
     sourceLabel: 'GitHub',
@@ -104,6 +104,13 @@ function graph(points: { date: string; label: string; value: number }[]) {
             <span>{card.unit}</span>
           </div>
           <p class="impact-scope">{card.subtitle}</p>
+          {card.id === 'stars' && (
+            <p class="impact-scope">
+              {t('Also tracking', '额外追踪')} · <a href={github.externalProject.url}>RT-DETR ↗</a>
+              {' · '}
+              {number(github.externalProject.stars)} Stars
+            </p>
+          )}
           <div class="impact-chart-heading">
             <h4 id={`impact-${card.id}-${lang}`}>{card.chartLabel}</h4>
             <output data-impact-value>
@@ -139,8 +146,10 @@ function graph(points: { date: string; label: string; value: number }[]) {
                 </text>
               </g>
             ))}
-            <path class="impact-area" d={chart.path ? `${chart.path} L572,150 L52,150 Z` : ''} />
-            <path class="impact-line" d={chart.path} pathLength="1" />
+            <g class="impact-trace">
+              <path class="impact-area" d={chart.path ? `${chart.path} L572,150 L52,150 Z` : ''} />
+              <path class="impact-line" d={chart.path} pathLength="1" />
+            </g>
             {last && (
               <g data-impact-marker>
                 <line class="impact-crosshair" x1={last.x} x2={last.x} y1="24" y2="150" />
@@ -181,6 +190,19 @@ function graph(points: { date: string; label: string; value: number }[]) {
   </div>
 </section>
 <script>
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          entry.target.classList.add('impact-reveal');
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.25 },
+    );
+    document.querySelectorAll('.impact-chart').forEach((chart) => observer.observe(chart));
+  }
   document.querySelectorAll<HTMLElement>('[data-impact-chart]').forEach((root) => {
     const points: { label: string; value: number; x: number; y: number }[] = JSON.parse(
       root.dataset.points || '[]',
@@ -218,6 +240,33 @@ function graph(points: { date: string; label: string; value: number }[]) {
   });
 </script>
 <style>
+  @media (prefers-reduced-motion: no-preference) {
+    .impact-chart.impact-reveal .impact-trace {
+      animation: impact-draw 1.35s ease-out both;
+    }
+    .impact-chart.impact-reveal [data-impact-marker] {
+      animation: impact-marker-in 180ms ease-out 1.2s both;
+    }
+  }
+
+  @keyframes impact-draw {
+    from {
+      clip-path: inset(0 100% 0 0);
+    }
+    to {
+      clip-path: inset(0);
+    }
+  }
+
+  @keyframes impact-marker-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   .impact {
     padding-block: 18px 22px;
   }
