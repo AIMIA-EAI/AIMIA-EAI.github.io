@@ -3222,9 +3222,16 @@ p + p {
   grid-template-columns: auto minmax(0, 1fr) auto;
   gap: 24px;
 }
-.header-inner > .brand {
+.header-brand-group {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.5vw, 16px);
+  min-width: 0;
   grid-column: 1;
   grid-row: 1;
+}
+.header-brand-group .brand {
+  min-width: 0;
 }
 .main-nav {
   grid-column: 2;
@@ -3253,6 +3260,7 @@ p + p {
   border-radius: 4px;
 }
 .legacy-site-link {
+  flex-shrink: 0;
   white-space: nowrap;
 }
 .language-switch:hover,

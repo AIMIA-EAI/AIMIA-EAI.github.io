@@ -16,20 +16,25 @@ const links = [
 
 <header class="site-header">
   <div class="header-inner">
-    <a
-      class="brand"
-      href={localePath('/', lang)}
-      aria-label={isZh ? 'AIMIA，北京大学 — 首页' : 'AIMIA, Peking University — home'}
-    >
-      <img
-        class="brand-logo"
-        src="/media/aimia-kalam.svg"
-        alt={isZh ? 'AIMIA · 北京大学' : 'AIMIA · Peking University'}
-        width="420"
-        height="126"
-        decoding="async"
-      />
-    </a>
+    <div class="header-brand-group">
+      <a
+        class="brand"
+        href={localePath('/', lang)}
+        aria-label={isZh ? 'AIMIA，北京大学 — 首页' : 'AIMIA, Peking University — home'}
+      >
+        <img
+          class="brand-logo"
+          src="/media/aimia-kalam.svg"
+          alt={isZh ? 'AIMIA · 北京大学' : 'AIMIA · Peking University'}
+          width="420"
+          height="126"
+          decoding="async"
+        />
+      </a>
+      <a class="legacy-site-link" href="https://aimia-pku-old.github.io/">
+        {isZh ? '旧版' : 'Legacy'}
+      </a>
+    </div>
     <div class="header-actions">
       <a
         class="language-switch"
@@ -41,9 +46,6 @@ const links = [
         title={isZh ? 'Switch to English' : '切换为中文'}
       >
         {isZh ? 'EN' : 'ZH'}
-      </a>
-      <a class="legacy-site-link" href="https://aimia-pku-old.github.io/">
-        {isZh ? '旧版' : 'Legacy'}
       </a>
       <button
         class="menu-toggle"
